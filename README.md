@@ -1,4 +1,25 @@
 # FYP Project for NYP x KKH
-This is a Final Year Project Repository for a collaboration project between NYP and KKH, Done by Timothy, Rena, Daphne, and Zhi Kai
+This is a Repository for a collaboration project between Nanyang Polytechnic and KK Women and children's hospital. 
+Done by Timothy, Rena, Daphne, and Zhi Kai (Term 1)
 
-The project we are creating is a training app for junior nurses, which will train them on fundamental nursing skills
+**Respository rules to follow**
+1. **NEVER PUSH CODE TO MAIN BRANCH** (unless everyone agrees to it)
+2. Only show main branch to client (exceptions r ok)
+3. Make sure all code is bug free before merging
+4. Follow naming conventions pls (see below)
+5. Name your commits properly (so future group wont kill you)
+6. Report all issues to issue tracker and use proper labels
+
+**Branch Conventions**
+Taken from https://dev.to/varbsan/a-simplified-convention-for-naming-branches-and-commits-in-git-il4
+
+Branch should be named as follows: _category/name/reference/description_
+Categories: **feature** (for adding/removing/polishing/refactoring features), **bugfix**, **test**
+Name: Ur name (optional LMAO)
+Reference: The issue you are working on at the moment (for bug fixes and polishes)
+Description: Rough description of branch
+
+Example: _bugfix/issue42/replacing-old-assets_
+
+**Commit Conventions**
+Name your commits properly.
