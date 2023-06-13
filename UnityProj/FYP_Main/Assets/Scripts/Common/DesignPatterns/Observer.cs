@@ -43,10 +43,34 @@ namespace Common.DesignPatterns
             }
         }
 
+        public void AddSubscriber(T Component_toAdd) 
+        {
+            if (Component_toAdd != null) 
+            {
+                if (!_subscribers.Contains(Component_toAdd)) 
+                {
+                    _subscribers.Add(Component_toAdd);
+                }
+            }
+            else 
+            {
+                // Component to add does not exist in the current object, reject
+                Debug.LogWarning("The gameobject you are trying to add does not exist");
+            }
+        }
+
         // Remove the object as a subscriber -> it will not get notified anymore !!
         public void RemoveSubscriber(GameObject GO_toRemove) 
         {
             if (_subscribers.Remove(GO_toRemove.GetComponent<T>()) == false) 
+            {
+                Debug.LogWarning("The object you are trying to remove does not exist as a subscriber. ");
+            }
+        }
+
+        public void RemoveSubscriber(T Component_toRemove) 
+        {
+            if (_subscribers.Remove(Component_toRemove) == false) 
             {
                 Debug.LogWarning("The object you are trying to remove does not exist as a subscriber. ");
             }
