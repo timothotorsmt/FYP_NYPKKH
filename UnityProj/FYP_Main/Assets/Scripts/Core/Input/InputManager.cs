@@ -11,7 +11,7 @@ namespace Core.Input
     {
         // variables
         private uint? _currentFingerId;
-        private bool _isCurrentlyDrawing;
+        private bool _isCurrentTap;
         
         #region check input
 
@@ -27,14 +27,14 @@ namespace Core.Input
                 {
                     CallOnStartTap();
                 }
-                else if (UnityEngine.Input.GetMouseButton(0)) 
+                else if (UnityEngine.Input.GetMouseButton(0) && _isCurrentTap) 
                 {
                     CallOnTap();
                 }
-                else if (UnityEngine.Input.GetMouseButtonUp(0)) 
+                else if (UnityEngine.Input.GetMouseButtonUp(0) && _isCurrentTap) 
                 {
                     CallOnEndTap();
-                }
+                } 
             }
             else 
             {
@@ -65,6 +65,9 @@ namespace Core.Input
                             break;
                     }
                 } 
+                else {
+                    _isCurrentTap = false;
+                }
             }
         }
 
@@ -77,6 +80,11 @@ namespace Core.Input
         // returns whether the player is over a UI element
         public bool IsValidInput() 
         {
+            if (EventSystem.current == null) {
+                // There are no UI elements right now
+                return true;
+            }
+
             if (Application.isEditor) {
                 // Desktop
                 return (EventSystem.current.IsPointerOverGameObject()) ? false : true;
@@ -88,7 +96,7 @@ namespace Core.Input
 
         #endregion
 
-        #region masscall notifications
+        #region mass call notifications
 
         private void CallOnStartTap()
         {
@@ -96,6 +104,7 @@ namespace Core.Input
             {
                 subscriber.OnStartTap();
             }
+            _isCurrentTap = true;
         }
 
         private void CallOnTap()
@@ -112,6 +121,7 @@ namespace Core.Input
             {
                 subscriber.OnEndTap();
             }
+            _isCurrentTap = false;
         }
 
         #endregion
