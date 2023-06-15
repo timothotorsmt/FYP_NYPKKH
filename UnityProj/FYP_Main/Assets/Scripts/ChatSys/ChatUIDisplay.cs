@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ChatUIDisplay : MonoBehaviour
 {
     #region UI element variables
+    [SerializeField] private GameObject _panel;
     [SerializeField] private GameObject _chatItem;
     [SerializeField] private GameObject _questionItem;
     [SerializeField] private TextMeshProUGUI _chatSpeaker;
@@ -30,6 +31,7 @@ public class ChatUIDisplay : MonoBehaviour
 
     // Activates the chat item and disables the question box
     public void SetChatItem() {
+        _panel.SetActive(true);
         _chatItem.SetActive(true);
         _questionItem.SetActive(false);
 
@@ -45,6 +47,7 @@ public class ChatUIDisplay : MonoBehaviour
 
     // This function sets the question item
     public void SetQuestionItem(ChatNode chatNode, Speaker speaker, List<List<string>> questions) {
+        _panel.SetActive(true);
         _chatItem.SetActive(false);
         _questionItem.SetActive(true);
 
@@ -78,6 +81,7 @@ public class ChatUIDisplay : MonoBehaviour
     public void CloseAllChatDisplay() {
         _chatItem.SetActive(false);
         _questionItem.SetActive(false);
+        _panel.SetActive(false);
 
         if (_questionTag.Count > 0) 
         {

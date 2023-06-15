@@ -53,11 +53,13 @@ public class ChatGetter : Singleton<ChatGetter>
             
         }
         else if (_currentIndex + 1 == _currentNodes.Count && _questions != null) {
-            // there exists some questions
-            // get the speaker name
-            // display all the questions
-            _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
-            _chatDisplayUI.SetQuestionItem(_currentNodes[_currentIndex], _speaker, _questions);
+            if (_questions.Count != 0) {
+                // there exists some questions
+                // get the speaker name
+                // display all the questions
+                _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
+                _chatDisplayUI.SetQuestionItem(_currentNodes[_currentIndex], _speaker, _questions);
+            }
             
         }
         else {

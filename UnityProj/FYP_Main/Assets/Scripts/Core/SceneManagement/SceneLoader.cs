@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using Common.DesignPatterns;
+using DG.Tweening;
 
 namespace Core.SceneManagement{
     public class SceneLoader : SingletonPersistent<SceneLoader>
@@ -12,6 +13,8 @@ namespace Core.SceneManagement{
 
         public void ChangeScene(SceneID newSceneID) 
         {
+            DOTween.KillAll(); 
+            
             // Check for any null cases
             if (_sceneList.SceneList.Where(s => s.SceneAssetID == newSceneID).Count() > 0) {
                 // Load up the last instance of the sceneID
