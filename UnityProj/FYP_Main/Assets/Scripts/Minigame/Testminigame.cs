@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestNPC : MonoBehaviour
+public class Testminigame : MinigameLogic
 {
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,8 @@ public class TestNPC : MonoBehaviour
         
     }
 
-    public void Interact()
+    public override void EndGame()
     {
-        ChatGetter.Instance.StartChat("#AAAAAA");
+        base.EndGame();
     }
 }

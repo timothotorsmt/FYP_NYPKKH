@@ -8,6 +8,7 @@ namespace Core.SceneManagement {
     public enum SceneID
     {
         MENU,
-        HUB
+        HUB,
+        MINIGAME
     }
 }

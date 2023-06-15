@@ -25,8 +25,14 @@ namespace Common.DesignPatterns
     {
         protected override void Awake()
         {
-            if (Instance != null) Destroy(gameObject);
-            base.Awake();
+            if (Instance != null) 
+            {
+                Destroy(gameObject);
+            }
+            else 
+            {
+                base.Awake();
+            }
         }
     }
 
