@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour, IInputActions
     {
         _playerDestination = InputUtils.GetInputPosition();
         _playerDestination.y += Mathf.Abs(this.transform.position.y - _boxCollider2D.bounds.min.y) * _bottomForgivance;
+
         _playerDestination.z = this.transform.position.z;
     }
 
