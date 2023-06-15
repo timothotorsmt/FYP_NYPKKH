@@ -53,7 +53,8 @@ public class PlayerMovement : MonoBehaviour, IInputActions
     public void OnStartTap()
     {
         _playerDestination = InputUtils.GetInputPosition();
-        _playerDestination.y += (this.transform.localScale.y / 2) * _bottomForgivance;
+        _playerDestination.y += Mathf.Abs(this.transform.position.y - _boxCollider2D.bounds.min.y) * _bottomForgivance;
+
         _playerDestination.z = this.transform.position.z;
     }
 

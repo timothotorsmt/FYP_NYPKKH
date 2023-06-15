@@ -4,6 +4,8 @@ using UnityEngine;
 
 public enum MinigameID
 {
+    DEFAULT,
     OCCLUSION_1,
-    CVL_SETUP,
+    PERI_LINE_SETUP,
+
 }
