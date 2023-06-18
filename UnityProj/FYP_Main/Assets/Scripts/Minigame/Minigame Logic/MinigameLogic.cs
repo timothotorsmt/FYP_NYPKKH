@@ -7,6 +7,5 @@ public abstract class MinigameLogic : MonoBehaviour
     // To add common functionalities in here
     public virtual void EndGame() 
     {
-        MinigameSceneController.Instance.EndMinigame();
     }
 }
