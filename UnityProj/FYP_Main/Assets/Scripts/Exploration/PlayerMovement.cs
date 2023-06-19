@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour, IInputActions
             if (Mathf.Abs((this.gameObject.transform.position - _playerDestination).sqrMagnitude) > Mathf.Epsilon) 
             {
                 // Move the movement
-                transform.position = Vector3.MoveTowards(transform.position, _playerDestination, _playerSpeed * Time.deltaTime);
+                transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, _playerDestination.x, _playerSpeed * Time.deltaTime), transform.position.y, transform.position.z);
             }
         }
 
@@ -53,8 +53,7 @@ public class PlayerMovement : MonoBehaviour, IInputActions
     public void OnStartTap()
     {
         _playerDestination = InputUtils.GetInputPosition();
-        _playerDestination.y += (this.transform.localScale.y / 2) * _bottomForgivance;
-        _playerDestination.z = this.transform.position.z;
+
     }
 
     public void OnTap()
