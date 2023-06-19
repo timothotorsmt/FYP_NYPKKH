@@ -20,7 +20,7 @@ namespace Core.SceneManagement{
                 // Load up the last instance of the sceneID
                 // Should be changed to async and show the entire loading page but not now !! 
                 // for i am lazy.
-                SceneManager.LoadScene(_sceneList.SceneList.Where(s => s.SceneAssetID == newSceneID).Select(s => s.SceneAsset.name).LastOrDefault());
+                SceneManager.LoadScene(_sceneList.SceneList.Where(s => s.SceneAssetID == newSceneID).Select(s => s.SceneName).LastOrDefault());
             }
         }
     }

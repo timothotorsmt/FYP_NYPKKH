@@ -15,6 +15,7 @@ namespace ChatSys
         // Start is called before the first frame update
         void Awake()
         {
+            _chatListContainer.ChatNodeList.Clear(); 
             ReadCSV();
         }
 
