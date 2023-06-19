@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class MinigameChatGetter : MonoBehaviour
 {
-    private string _defaultText = "#------";
-    [SerializeField] private string _level1TextID = "#------";
-    [SerializeField] private string _level2TextID = "#------";
-    [SerializeField] private string _level3TextID = "#------";
-    [SerializeField] private string _bossTextID = "#------";
-
-    public void DisplayChatLine()
+    public void DisplayChatLine(string ID)
     {
-        if (_level1TextID != _defaultText) {
-            ChatGetter.Instance.StartChat(_level1TextID);
+        if (ID != "") {
+            ChatGetter.Instance.StartChat(ID);
         }
     }
 }

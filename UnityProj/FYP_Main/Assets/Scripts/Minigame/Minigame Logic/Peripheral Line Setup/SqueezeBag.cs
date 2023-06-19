@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
 using Core.Input;
 using UniRx.Extention;
@@ -16,6 +17,9 @@ public class SqueezeBag : MonoBehaviour
     [SerializeField] private float _holdDuration = 3.0f;
     [SerializeField, Range(0,1)] private float _completionPercent = 0.4f;
     [SerializeField, Range(0,1)] private float _maxCompletionPercent = 0.6f;
+    [SerializeField] private UnityEvent _bubbleOccurEvent;
+    [SerializeField] private UnityEvent _finishTaskEvent;
+
     private float _raiseAmount;
     private bool _hasBubbles;
     private bool _isBeingPressed;
@@ -50,6 +54,7 @@ public class SqueezeBag : MonoBehaviour
                 // okay bubbles gone
                 _waterSprite.sprite = _waterLevelSprite;
                 PeriLineControl.Instance.MarkCurrentTaskAsDone();
+                 _finishTaskEvent.Invoke();
             }
         }
     }
@@ -64,10 +69,17 @@ public class SqueezeBag : MonoBehaviour
                     // mark as done and move tf on!!
                     PeriLineControl.Instance.MarkCurrentTaskAsDone();
 
-                    if (_hasBubbles) {
+                    if (_hasBubbles) 
+                    {
                         PeriLineControl.Instance.AssignTasks(PeriLineTasks.TAP_CHAMBER);
                         _dripChamberCount = 0;
+                        _bubbleOccurEvent.Invoke();
+                    } 
+                    else 
+                    {
+                        _finishTaskEvent.Invoke();
                     }
+
                 }
             }  
         } else {

@@ -13,17 +13,15 @@ public class SpikeInsertion : MonoBehaviour
 
     private void OnDisable()
     {
-        _spike.onValueChanged.RemoveAllListeners();
 
     }
 
     private void OnEnable()
     {
-        _spike.onValueChanged.AddListener(delegate { removeSpikeCap(); });
     }
 
     // for closing the clamp
-    public void removeSpikeCap()
+    public void InsertSpikeIntoBag()
     {
         if (_spike.value >= _capClosePercentage && PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE)
         {
@@ -31,7 +29,7 @@ public class SpikeInsertion : MonoBehaviour
             _capCloseEvent.Invoke();
             Sequence seq = DOTween.Sequence();
             // function is not needed anymore bye!
-            _spike.onValueChanged.RemoveListener(delegate { removeSpikeCap(); });
+            _spike.onValueChanged.RemoveListener(delegate { InsertSpikeIntoBag(); });
 
             PeriLineControl.Instance.MarkCurrentTaskAsDone();
         }
