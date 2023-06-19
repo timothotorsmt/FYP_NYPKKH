@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour, IInputActions
 
     
     [SerializeField, Min(0f)] private float _playerSpeed = 1.0f;
-    [SerializeField, Range(0f, 1f)] private float _bottomForgivance = 0.9f;
 
     // Start is called before the first frame update
     void Start()

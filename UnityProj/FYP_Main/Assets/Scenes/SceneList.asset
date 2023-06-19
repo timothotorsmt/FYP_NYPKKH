@@ -17,3 +17,7 @@ MonoBehaviour:
     SceneName: SampleScene
   - SceneAssetID: 2
     SceneName: MinigameScene
+  - SceneAssetID: 0
+    SceneName: MainMenu
+  - SceneAssetID: 3
+    SceneName: Setting

@@ -8,6 +8,9 @@ using Core.Input;
 using UniRx.Extention;
 using UniRx;
 
+// This class controls the main functionality for the squeezing of the drip chamber 
+// To allow the drip chamber to fill up
+
 public class SqueezeBag : MonoBehaviour
 {
     [SerializeField] private Slider _waterLevel;
