@@ -555,6 +555,30 @@ MonoBehaviour:
           m_StringArgument: '#PERISC'
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8699738176725784344}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 892729281243060685}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _messUpEvent:
     m_PersistentCalls:
       m_Calls:
@@ -615,8 +639,6 @@ RectTransform:
   m_Children:
   - {fileID: 5657237791397788757}
   - {fileID: 3309207622249378482}
-  - {fileID: 5952553207830478923}
-  - {fileID: 3200387175786443688}
   m_Father: {fileID: 2569055499860623729}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1257,7 +1279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2604049335851162586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1602,7 +1624,7 @@ MonoBehaviour:
   - TaskOnChange: 2
     GameObjectToChange: {fileID: 4731081248708527979}
   - TaskOnChange: 4
-    GameObjectToChange: {fileID: 8693245458731950508}
+    GameObjectToChange: {fileID: 1420231956993779164}
 --- !u!1 &2414274287106994147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,18 +2048,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2991378876542502485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.84472656}
+  m_LocalScale: {x: 1.0002441, y: 1.0002441, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8956226175408952797}
+  m_Father: {fileID: 920597457888210433}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -173.36, y: 134}
-  m_SizeDelta: {x: 187.57, y: 69.7}
+  m_AnchoredPosition: {x: -305.33362, y: 236.24841}
+  m_SizeDelta: {x: 438.8415, y: 149.1837}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1195467647473428786
 CanvasRenderer:
@@ -2849,19 +2871,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4247923913494519855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0001475, y: 1.0001475, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.84472656}
+  m_LocalScale: {x: 1.0003916, y: 1.0003916, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1956928799046062415}
   - {fileID: 8540985210156606748}
-  m_Father: {fileID: 8956226175408952797}
+  m_Father: {fileID: 920597457888210433}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271.6969, y: 57.3089}
-  m_SizeDelta: {x: -40.779907, y: -149.39001}
+  m_AnchoredPosition: {x: 66.01132, y: 86.020386}
+  m_SizeDelta: {x: -785.5499, y: -258.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6161195454683378686
 CanvasRenderer:
@@ -4222,7 +4244,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 89844726837018879}
+  - {fileID: 5952553207830478923}
   - {fileID: 8873475704735234087}
+  - {fileID: 3200387175786443688}
   m_Father: {fileID: 5221858586191386143}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4907,7 +4931,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1187718331692536047}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5303,6 +5327,12 @@ MonoBehaviour:
   _holdDuration: 3
   _completionPercent: 0.4
   _maxCompletionPercent: 0.6
+  _bubbleOccurEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _finishTaskEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7149692831445762141
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,7 +6218,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 844822037477798574}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -6616,7 +6646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8653249080180215715
 RectTransform:
   m_ObjectHideFlags: 0

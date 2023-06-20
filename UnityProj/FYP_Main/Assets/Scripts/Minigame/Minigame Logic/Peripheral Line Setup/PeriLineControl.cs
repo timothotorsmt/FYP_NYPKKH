@@ -78,7 +78,6 @@ public enum PeriLineTasks
     INSERT_SPIKE,
     SQUEEZE_BAG,
     OPEN_ROLLER_CLAMP,
-    PRIME_LINE,
     NUM_MANDATORY_TASKS,
     // Optional Tasks
     // Optional?? Maybe dont add 

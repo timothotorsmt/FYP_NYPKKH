@@ -834,7 +834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1006046624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e65a9790059e54ab59fc7779aa09fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _idChat: '#AAAAAA'
+  _idChat: '#RPE2'
   OnChatEnd:
     m_PersistentCalls:
       m_Calls:
@@ -1793,7 +1793,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactablePopups:
   - {fileID: 1154743309}
-  - {fileID: 1006046623}
   _minimumDistance: 3
   _player: {fileID: 1604171499}
 --- !u!1001 &3107354754310359518

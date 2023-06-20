@@ -64,12 +64,14 @@ public class RollerClamp : MonoBehaviour
     }
 
     // for until priming is done
+    // For fail state !!
     public void WaitforPriming()
     {
         if (_rollerClamp.value < 0.9f && (PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.REMOVE_SPIKE_IV_TUBE || 
             PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE ||
             PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.SQUEEZE_BAG)) 
         {
+            _messUpEvent.Invoke();
             PeriLineControl.Instance.AssignTasks(PeriLineTasks.CLOSE_CLAMP);
 		    _rollerClamp.onValueChanged.RemoveListener (delegate {WaitforPriming();});
 		    _rollerClamp.onValueChanged.AddListener (delegate {SetClampToClose();});

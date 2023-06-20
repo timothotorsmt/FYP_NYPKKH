@@ -41,7 +41,15 @@ public class ChatGetter : Singleton<ChatGetter>
         // Start the chat UI 
         // Display the first node
         _chatDisplayUI.SetChatItem();
-        _chatDisplayUI.DisplayChatText(_currentNodes[_currentIndex], _speaker);
+        // Fuck this line.
+        if (_currentIndex + 1 == _currentNodes.Count && _questions.Count != 0) 
+        {
+            _chatDisplayUI.SetQuestionItem(_currentNodes[_currentIndex], _speaker, _questions);   
+        }
+        else 
+        {
+            _chatDisplayUI.DisplayChatText(_currentNodes[_currentIndex], _speaker);
+        }
     }
 
     public void StartChat(string ID, UnityEvent afterSpeakingAction) {
@@ -62,15 +70,12 @@ public class ChatGetter : Singleton<ChatGetter>
             }
             
         }
-        else if (_currentIndex + 1 == _currentNodes.Count && _questions.Count != 0 && _questions != null) {
-            if (_questions.Count != 0) {
-                // there exists some questions
-                // get the speaker name
-                // display all the questions
-                _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
-                _chatDisplayUI.SetQuestionItem(_currentNodes[_currentIndex], _speaker, _questions);
-            }
-            
+        else if (_currentIndex + 1 == _currentNodes.Count && _questions.Count != 0) {
+            // there exists some questions
+            // get the speaker name
+            // display all the questions
+            _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
+            _chatDisplayUI.SetQuestionItem(_currentNodes[_currentIndex], _speaker, _questions);            
         }
         else {
             // Get the node speaker
