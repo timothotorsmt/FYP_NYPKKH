@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PeriLineChangableSprite : MonoBehaviour
 {
     // List out all needed sprites
-    [SerializeField] private List<changableSprite> _changedSprites;
+    [SerializeField] private List<changableSprite<PeriLineTasks>> _changedSprites;
     
     // Sprite to be changed
     private Image _changableImage;
@@ -17,7 +17,7 @@ public class PeriLineChangableSprite : MonoBehaviour
     public void Start() 
     {
         _changableImage = GetComponent<Image>();
-        PeriLineControl.Instance.CurrentTask.Value.Subscribe(State => {
+        MinigameTaskController<PeriLineTasks>.Instance.CurrentTask.Value.Subscribe(State => {
             if (_changedSprites.Where(s => s.TaskOnChange == State).Select(s => s.SpriteToChange).Count() > 0) 
             {
                 _changableImage.sprite = _changedSprites.Where(s => s.TaskOnChange == State).Select(s => s.SpriteToChange).First();
@@ -26,9 +26,3 @@ public class PeriLineChangableSprite : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class changableSprite
-{
-    public PeriLineTasks TaskOnChange;
-    public Sprite SpriteToChange;
-}

@@ -49,14 +49,14 @@ public class SqueezeBag : MonoBehaviour
 
     public void DripChamberBubbles() 
     {
-        if (PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.TAP_CHAMBER)
+        if (PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.TAP_CHAMBER)
         {
             _dripChamberCount++;
             if (_dripChamberCount >= 3)
             {
                 // okay bubbles gone
                 _waterSprite.sprite = _waterLevelSprite;
-                PeriLineControl.Instance.MarkCurrentTaskAsDone();
+                PeriLineTaskController.Instance.MarkCurrentTaskAsDone();
                  _finishTaskEvent.Invoke();
             }
         }
@@ -65,16 +65,16 @@ public class SqueezeBag : MonoBehaviour
     private void PressBag()
     {
         // Presses the bag..  raise the water level
-        if (PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.SQUEEZE_BAG) {
+        if (PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.SQUEEZE_BAG) {
             if (_waterLevel.value < _maxCompletionPercent) {
                 _waterLevel.value += (Time.deltaTime / _holdDuration);
                 if (_waterLevel.value > _completionPercent) {
                     // mark as done and move tf on!!
-                    PeriLineControl.Instance.MarkCurrentTaskAsDone();
+                    PeriLineTaskController.Instance.MarkCurrentTaskAsDone();
 
                     if (_hasBubbles) 
                     {
-                        PeriLineControl.Instance.AssignTasks(PeriLineTasks.TAP_CHAMBER);
+                        PeriLineTaskController.Instance.AssignTasks(PeriLineTasks.TAP_CHAMBER);
                         _dripChamberCount = 0;
                         _bubbleOccurEvent.Invoke();
                     } 

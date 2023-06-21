@@ -7,12 +7,12 @@ using UnityEngine.Events;
 using UniRx;
 
 // Controls the main game logic behind the peripheral line setup minigame
-public class PeriLineControl : Singleton<PeriLineControl>
+public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController<TaskType>> where TaskType : struct, System.Enum
 {
     #region variables
-    public ReactiveProp<PeriLineTasks> CurrentTask = new ReactiveProp<PeriLineTasks>();
+    public ReactiveProp<TaskType> CurrentTask = new ReactiveProp<TaskType>();
     // this function keeps the next task in ready for temporary / optional tasks
-    private PeriLineTasks _nextTask;
+    private TaskType _nextTask;
     [SerializeField] private UnityEvent _startEvent;
     private int TaskCount;
 
@@ -22,14 +22,12 @@ public class PeriLineControl : Singleton<PeriLineControl>
     // Start is called before the first frame update
     void Start()
     {
-        // Put the first task as the current task
-        CurrentTask.SetValue((PeriLineTasks)0);
-        _nextTask = (PeriLineTasks)1;
+        SetFirstTask();
 
         _startEvent.Invoke();
     }
 
-    public PeriLineTasks GetCurrentTask()
+    public TaskType GetCurrentTask()
     {
         
         return CurrentTask.GetValue();
@@ -38,25 +36,42 @@ public class PeriLineControl : Singleton<PeriLineControl>
     // Move to next task
     public void MarkCurrentTaskAsDone()
     {
-        // Check if all tasks have been completed
-        if (_nextTask == PeriLineTasks.NUM_MANDATORY_TASKS)
-        {
-            // End of game
-            // Maybe chat will be activated or whatever
-            EndGame();
-            return;
-        }
+        if (CheckIfGameOver()) { return; }
         
         // Count the next task
-        int index = (int)_nextTask + 1;
+        int index = (int)(object)(_nextTask) + 1;
         // assign the next task to the current task
         CurrentTask.SetValue(_nextTask);
         // increase the next task
-        _nextTask = (PeriLineTasks)index;
+        _nextTask = (TaskType)(object)index;
         Debug.Log(CurrentTask.GetValue().ToString());
     }
 
-    public void AssignTasks(PeriLineTasks newTask)
+    protected void SetFirstTask()
+    {
+        // Put the first task as the current task
+        CurrentTask.SetValue((TaskType)(object)0);
+        _nextTask = (TaskType)(object)1;
+    }
+
+    private bool CheckIfGameOver()
+    {
+        bool exists = System.Enum.IsDefined(typeof(TaskType), "NUM_MANDATORY_TASKS");
+
+        if (exists) {
+        // Check if all tasks have been completed
+        if (_nextTask.ToString() == "NUM_MANDATORY_TASKS")
+            {
+                // End of game
+                // Maybe chat will be activated or whatever
+                EndGame();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void AssignTasks(TaskType newTask)
     {
         // Put the next task on hold; make sure the temporary task is done first
         // once new task is done, continue with previous task
@@ -68,22 +83,4 @@ public class PeriLineControl : Singleton<PeriLineControl>
     {
         MinigameSceneController.Instance.EndMinigame();
     }
-}
-
-// The tasks that need to be completed for this 
-public enum PeriLineTasks
-{
-    CLOSE_CLAMP = 0,
-    REMOVE_SPIKE_IV_TUBE,
-    INSERT_SPIKE,
-    SQUEEZE_BAG,
-    OPEN_ROLLER_CLAMP,
-    NUM_MANDATORY_TASKS,
-    // Optional Tasks
-    // Optional?? Maybe dont add 
-    TAP_CHAMBER,
-
-    // Troubleshooting segement(?)
-    FLICK_LINE,
-    NUM_TASKS
 }

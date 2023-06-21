@@ -13,17 +13,18 @@ public class SpikeInsertion : MonoBehaviour
 
     private void OnDisable()
     {
-
+        _spike.onValueChanged.RemoveAllListeners();
     }
 
     private void OnEnable()
     {
+        _spike.onValueChanged.AddListener(delegate { InsertSpikeIntoBag(); });
     }
 
     // for closing the clamp
     public void InsertSpikeIntoBag()
     {
-        if (_spike.value >= _capClosePercentage && PeriLineControl.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE)
+        if (_spike.value >= _capClosePercentage && PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE)
         {
             // Good enough, mark as pass and move on
             _capCloseEvent.Invoke();
@@ -31,7 +32,7 @@ public class SpikeInsertion : MonoBehaviour
             // function is not needed anymore bye!
             _spike.onValueChanged.RemoveListener(delegate { InsertSpikeIntoBag(); });
 
-            PeriLineControl.Instance.MarkCurrentTaskAsDone();
+            PeriLineTaskController.Instance.MarkCurrentTaskAsDone();
         }
     }
 }
