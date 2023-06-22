@@ -57,7 +57,7 @@ public class SqueezeBag : MonoBehaviour
                 // okay bubbles gone
                 _waterSprite.sprite = _waterLevelSprite;
                 PeriLineSamTaskController.Instance.MarkCurrentTaskAsDone();
-                 _finishTaskEvent.Invoke();
+                _finishTaskEvent.Invoke();
             }
         }
     }
