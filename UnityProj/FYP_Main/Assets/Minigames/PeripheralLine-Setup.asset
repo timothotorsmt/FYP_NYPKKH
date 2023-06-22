@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702d32400e47e664d8d56142bdc72718, type: 3}
   m_Name: PeripheralLine-Setup
   m_EditorClassIdentifier: 
-  minigameName: PeripheralLine_Setup
+  minigameName: Peripheral Line Setup
   minigameID: 2
-  minigamePrefab: {fileID: 6058304940541721104, guid: 969b3dbd0e9214745a43859f4ff0bd19, type: 3}
+  minigamePrefab: {fileID: 8381104491376472103, guid: 6c2d241d9e4be4344a59dd1996294cff, type: 3}

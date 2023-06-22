@@ -17,8 +17,8 @@ MonoBehaviour:
     SpeakerId: 0
     moodImages:
     - {fileID: 21300000, guid: d94bd59679583964ebe8d51ba8c75401, type: 3}
-  - name: Pyon
+  - name: Peter
     SpeakerId: 1
     moodImages:
-    - {fileID: 21300000, guid: 092d316665715614eb9d00d0d09a8bbc, type: 3}
-    - {fileID: 21300000, guid: 22d76f84565bb7840abf1b1fd08c2110, type: 3}
+    - {fileID: 21300000, guid: 822fa8be663a2c645b553080985afbf5, type: 3}
+    - {fileID: 21300000, guid: 3cfe35f63e584654480abf8c9914e4ab, type: 3}

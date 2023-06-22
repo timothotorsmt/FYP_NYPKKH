@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneList:
   - SceneAssetID: 1
-    SceneAsset: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+    SceneName: SampleScene
   - SceneAssetID: 2
-    SceneAsset: {fileID: 102900000, guid: 2f38d6694a6267e46a2f289d2e4d2a79, type: 3}
+    SceneName: MinigameScene
+  - SceneAssetID: 0
+    SceneName: MainMenu
+  - SceneAssetID: 3
+    SceneName: Setting

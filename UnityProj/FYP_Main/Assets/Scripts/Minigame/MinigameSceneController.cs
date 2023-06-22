@@ -25,6 +25,11 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
         // Update points and whatever here ig
         // Save game here too for good measure
 
+        GoBackToLevel();
+    }
+
+    private void GoBackToLevel()
+    {
         // Change scene
         SceneLoader.Instance.ChangeScene(SceneID.HUB);
     }

@@ -15,6 +15,7 @@ namespace ChatSys
         // Start is called before the first frame update
         void Awake()
         {
+            _chatListContainer.ChatNodeList.Clear(); 
             ReadCSV();
         }
 
@@ -26,7 +27,9 @@ namespace ChatSys
         // Function to read CSV files
         void ReadCSV() 
         {
-            string filePath = _chatLocation;
+            string filePath;
+
+            filePath = _chatLocation;
             // Read and write files from the filepath
             StreamReader reader = new StreamReader(filePath, true);
             bool EOF = false;
