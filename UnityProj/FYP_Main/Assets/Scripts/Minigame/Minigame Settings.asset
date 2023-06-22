@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44e8fa1765e348646b2fe48a5c4e980c, type: 3}
-  m_Name: New Minigame List
+  m_Script: {fileID: 11500000, guid: 82b53d175cb87354cb79bcd160bc7eab, type: 3}
+  m_Name: Minigame Settings
   m_EditorClassIdentifier: 
-  minigameList:
-  - {fileID: 11400000, guid: 051d474a79bbf8946a413dff0cf89126, type: 2}
-  - {fileID: 11400000, guid: 1cb1f983ab9c33e4ea5b8d2de8b16d10, type: 2}
+  GameDifficulty: 0

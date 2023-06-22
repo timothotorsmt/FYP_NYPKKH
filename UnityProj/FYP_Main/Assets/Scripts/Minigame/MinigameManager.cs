@@ -8,12 +8,17 @@ using System.Linq;
 public class MinigameManager : SingletonPersistent<MinigameManager>
 {
     private MinigameInfo _currentMinigame;
+    [SerializeField] private DifficultySettings _difficulty;
     [SerializeField] private MinigameList _minigameList;
 
-    // TODO: make this follow a settings page
-    public void StartMinigame(MinigameID minigameID) 
+    // Start the minigame
+    public void StartMinigame(MinigameID minigameID, Difficulty _gameDifficulty = Difficulty.EASY) 
     {
         _currentMinigame = getMinigameInfo(minigameID);
+        // Set the difficulty of the current game
+        _difficulty.GameDifficulty = _gameDifficulty;
+
+        // Once all info is set, change game to the minigame scene :)
         SceneLoader.Instance.ChangeScene(SceneID.MINIGAME);
     }
 

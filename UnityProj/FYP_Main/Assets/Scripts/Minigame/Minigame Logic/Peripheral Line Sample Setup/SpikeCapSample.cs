@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class SpikeCap : MonoBehaviour
+public class SpikeCapSample : MonoBehaviour
 {
     // Boolean to mark as false
     private bool _isRunning;
@@ -30,7 +30,7 @@ public class SpikeCap : MonoBehaviour
     // for closing the clamp
     public void removeSpikeCap()
     {
-        if (_spikeCap.value >= _capClosePercentage && PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.REMOVE_SPIKE_IV_TUBE && !_isRunning)
+        if (_spikeCap.value >= _capClosePercentage && PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.REMOVE_SPIKE_IV_TUBE && !_isRunning)
         {
             // Good enough, mark as pass and move on
             _capCloseEvent.Invoke();
@@ -40,7 +40,7 @@ public class SpikeCap : MonoBehaviour
             _spikeCap.onValueChanged.RemoveListener(delegate { removeSpikeCap(); });
 
             seq.Append(_spikeHandle.DOFade(0, 1.0f));
-            seq.AppendCallback(() => PeriLineTaskController.Instance.MarkCurrentTaskAsDone());
+            seq.AppendCallback(() => PeriLineSamTaskController.Instance.MarkCurrentTaskAsDone());
             seq.AppendCallback(() => _spikeCap.gameObject.SetActive(false));
             // theoretically this does not matter. but. we will set _isrunning to false anyway.
             seq.AppendCallback(() => _isRunning = false);

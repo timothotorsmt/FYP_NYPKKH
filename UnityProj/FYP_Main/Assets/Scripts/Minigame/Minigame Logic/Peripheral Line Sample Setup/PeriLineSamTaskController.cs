@@ -6,14 +6,14 @@ using UniRx.Extention;
 using UnityEngine.Events;
 using UniRx;
 
-// Controls the main game logic behind the peripheral line setup minigame
-public class PeriLineTaskController : MinigameTaskController<PeriLineTasks>
+// Controls the main game logic behind the peripheral line sample setup minigame
+public class PeriLineSamTaskController : MinigameTaskController<PeriLineSamTasks>
 {
-    
+    // empty bc we dont actually need anything LOL
 }
 
 // The tasks that need to be completed for this 
-public enum PeriLineTasks
+public enum PeriLineSamTasks
 {
     CLOSE_CLAMP = 0,
     REMOVE_SPIKE_IV_TUBE,

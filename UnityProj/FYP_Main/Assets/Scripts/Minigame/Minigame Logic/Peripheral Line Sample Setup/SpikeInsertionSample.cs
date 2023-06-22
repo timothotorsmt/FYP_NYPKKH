@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class SpikeInsertion : MonoBehaviour
+//The spike insertion into the bag minigame
+public class SpikeInsertionSample : MonoBehaviour
 {
     [SerializeField] private Slider _spike;
     [SerializeField] private UnityEvent _capCloseEvent;
@@ -24,7 +25,7 @@ public class SpikeInsertion : MonoBehaviour
     // for closing the clamp
     public void InsertSpikeIntoBag()
     {
-        if (_spike.value >= _capClosePercentage && PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE)
+        if (_spike.value >= _capClosePercentage && PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.INSERT_SPIKE)
         {
             // Good enough, mark as pass and move on
             _capCloseEvent.Invoke();
@@ -32,7 +33,7 @@ public class SpikeInsertion : MonoBehaviour
             // function is not needed anymore bye!
             _spike.onValueChanged.RemoveListener(delegate { InsertSpikeIntoBag(); });
 
-            PeriLineTaskController.Instance.MarkCurrentTaskAsDone();
+            PeriLineSamTaskController.Instance.MarkCurrentTaskAsDone();
         }
     }
 }

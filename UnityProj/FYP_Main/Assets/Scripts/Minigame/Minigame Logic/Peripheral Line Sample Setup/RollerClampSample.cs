@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UniRx;
 
-public class RollerClamp : MonoBehaviour
+public class RollerClampSample : MonoBehaviour
 {
     private static float _floatValue;
     [SerializeField] private Slider _rollerClamp;
@@ -22,16 +22,16 @@ public class RollerClamp : MonoBehaviour
     private void OnEnable()
     {
         // Assign the appropriate 
-        if (PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.CLOSE_CLAMP) {
+        if (PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.CLOSE_CLAMP) {
             //Adds a listener to the main slider and invokes a method when the value changes.
             _rollerClamp.onValueChanged.AddListener (delegate {SetClampToClose();});
-        } else if (PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.REMOVE_SPIKE_IV_TUBE || 
-            PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE ||
-            PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.SQUEEZE_BAG) 
+        } else if (PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.REMOVE_SPIKE_IV_TUBE || 
+            PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.INSERT_SPIKE ||
+            PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.SQUEEZE_BAG) 
             {
             _rollerClamp.onValueChanged.AddListener (delegate {WaitforPriming();});
             
-        } else if (PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.OPEN_ROLLER_CLAMP)
+        } else if (PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.OPEN_ROLLER_CLAMP)
         {
             _rollerClamp.onValueChanged.AddListener (delegate {SetClampToOpen();});
         }
@@ -42,10 +42,10 @@ public class RollerClamp : MonoBehaviour
     // For clamp closing task
     public void SetClampToClose()
     {
-        if (_rollerClamp.value >= 0.95f && PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.CLOSE_CLAMP)
+        if (_rollerClamp.value >= 0.95f && PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.CLOSE_CLAMP)
         {
             // Good enough, mark as pass and move on
-            PeriLineTaskController.Instance.MarkCurrentTaskAsDone();
+            PeriLineSamTaskController.Instance.MarkCurrentTaskAsDone();
             _clampCloseEvent.Invoke();
 		    _rollerClamp.onValueChanged.RemoveListener (delegate {SetClampToClose();});
 		    _rollerClamp.onValueChanged.AddListener (delegate {WaitforPriming();});
@@ -54,10 +54,10 @@ public class RollerClamp : MonoBehaviour
 
     public void SetClampToOpen()
     {
-        if (_rollerClamp.value < 0.6f && PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.OPEN_ROLLER_CLAMP)
+        if (_rollerClamp.value < 0.6f && PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.OPEN_ROLLER_CLAMP)
         {
             // Good enough, mark as pass and move on
-            PeriLineTaskController.Instance.MarkCurrentTaskAsDone();
+            PeriLineSamTaskController.Instance.MarkCurrentTaskAsDone();
 		    _rollerClamp.onValueChanged.RemoveListener (delegate {SetClampToOpen();});
 		    _rollerClamp.onValueChanged.AddListener (delegate {WaitforPriming();});
         }
@@ -67,12 +67,12 @@ public class RollerClamp : MonoBehaviour
     // For fail state !!
     public void WaitforPriming()
     {
-        if (_rollerClamp.value < 0.9f && (PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.REMOVE_SPIKE_IV_TUBE || 
-            PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.INSERT_SPIKE ||
-            PeriLineTaskController.Instance.GetCurrentTask() == PeriLineTasks.SQUEEZE_BAG)) 
+        if (_rollerClamp.value < 0.9f && (PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.REMOVE_SPIKE_IV_TUBE || 
+            PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.INSERT_SPIKE ||
+            PeriLineSamTaskController.Instance.GetCurrentTask() == PeriLineSamTasks.SQUEEZE_BAG)) 
         {
             _messUpEvent.Invoke();
-            PeriLineTaskController.Instance.AssignTasks(PeriLineTasks.CLOSE_CLAMP);
+            PeriLineSamTaskController.Instance.AssignTasks(PeriLineSamTasks.CLOSE_CLAMP);
 		    _rollerClamp.onValueChanged.RemoveListener (delegate {WaitforPriming();});
 		    _rollerClamp.onValueChanged.AddListener (delegate {SetClampToClose();});
 

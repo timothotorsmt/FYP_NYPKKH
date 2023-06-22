@@ -13,10 +13,10 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     public ReactiveProp<TaskType> CurrentTask = new ReactiveProp<TaskType>();
     // this function keeps the next task in ready for temporary / optional tasks
     private TaskType _nextTask;
+    // Events that take place before start and end of the game
     [SerializeField] private UnityEvent _startEvent;
+    [SerializeField] private UnityEvent _finishEvent;
     private int TaskCount;
-
-
     #endregion
 
     // Start is called before the first frame update
@@ -64,7 +64,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
             {
                 // End of game
                 // Maybe chat will be activated or whatever
-                EndGame();
+                _finishEvent.Invoke();
                 return true;
             }
         }

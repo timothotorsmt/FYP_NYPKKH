@@ -4,16 +4,16 @@ using UnityEngine;
 using UniRx;
 using System.Linq;
 
-public class PeriLineChangableObject : MonoBehaviour
+public class PeriLineSamChangableObject : MonoBehaviour
 {
     // List out all needed sprites
-    [SerializeField] private List<changableObject<PeriLineTasks>> _changableObjects;    
+    [SerializeField] private List<changableObject<PeriLineSamTasks>> _changableObjects;    
 
     // Start()
     public void Start() 
     {
         // Subscribe to the current task state
-        PeriLineTaskController.Instance.CurrentTask.Value.Subscribe(State => {
+        PeriLineSamTaskController.Instance.CurrentTask.Value.Subscribe(State => {
             if (_changableObjects.Where(s => s.TaskOnChange == State).Select(s => s.GameObjectToChange).Count() > 0) 
             {
                 foreach (var item in _changableObjects)

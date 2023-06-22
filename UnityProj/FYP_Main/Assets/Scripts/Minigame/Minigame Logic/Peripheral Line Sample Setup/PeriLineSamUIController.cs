@@ -8,7 +8,7 @@ using UniRx.Extention;
 using Common.DesignPatterns;
 
 // This class controls the UI system of the minigame
-public class PeriLineUIController : MonoBehaviour
+public class PeriLineSamUIController : MonoBehaviour
 {
     // TODO: change this to a generic class LMAO
     #region UI variables
