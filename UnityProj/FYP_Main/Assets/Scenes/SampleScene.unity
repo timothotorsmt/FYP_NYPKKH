@@ -1203,6 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4067aeb5498b3745857068ad4d9a0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _difficulty: {fileID: 11400000, guid: a97426bfe3f49c7448107c1afd8aaea0, type: 2}
   _minigameList: {fileID: 11400000, guid: feb51bb7fd8f594488aaf1b84cb56ed6, type: 2}
 --- !u!4 &1050632884
 Transform:

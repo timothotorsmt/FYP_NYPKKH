@@ -2222,7 +2222,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7011195080367999947}
-  - component: {fileID: 1253991228480513318}
   - component: {fileID: 2331956545666370097}
   - component: {fileID: 2331956545666370096}
   - component: {fileID: 2369857630404797744}
@@ -2253,18 +2252,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1253991228480513318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3049244063708137888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf68505236c5bc04b8fd69715a42f35a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2331956545666370097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,6 +2277,21 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: '#PERISA'
+          m_BoolArgument: 0
+        m_CallState: 2
+  _finishEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2331956545666370097}
+        m_TargetAssemblyTypeName: MinigameTaskController`1[[PeriLineSamTasks, Assembly-CSharp
+        m_MethodName: EndGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2331956545666370096
