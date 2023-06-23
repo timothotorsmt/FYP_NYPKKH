@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UniRx;
 
 
-public class OcclusionTaskController : MinigameTaskController<PeriLineSamTasks>
+public class OcclusionTaskController : MinigameTaskController<OcclusionTasks>
 {
 
 }
