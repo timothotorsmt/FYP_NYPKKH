@@ -58,9 +58,10 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     {
         bool exists = System.Enum.IsDefined(typeof(TaskType), "NUM_MANDATORY_TASKS");
 
-        if (exists) {
-        // Check if all tasks have been completed
-        if (_nextTask.ToString() == "NUM_MANDATORY_TASKS")
+        if (exists) 
+        {
+            // Check if all tasks have been completed
+            if (_nextTask.ToString() == "NUM_MANDATORY_TASKS" || CurrentTask.ToString() == "NUM_MANDATORY_TASKS")
             {
                 // End of game
                 // Maybe chat will be activated or whatever
@@ -77,6 +78,11 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         // once new task is done, continue with previous task
         _nextTask = CurrentTask.GetValue();
         CurrentTask.SetValue(newTask);
+    }
+
+    public void AssignTasksContinuous(TaskType newTask)
+    {
+        // The same as assign task except you continue from that point onwards,
     }
 
     public void EndGame()
