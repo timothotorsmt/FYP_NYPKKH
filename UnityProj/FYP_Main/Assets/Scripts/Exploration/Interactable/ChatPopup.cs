@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ChatSys;
 
-public class ChatPopup : Popup
+public class ChatPopup : Interactable
 {
     [SerializeField] protected string _idChat;
 

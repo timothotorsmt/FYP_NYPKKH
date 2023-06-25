@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Audio;
 
-public class AudioInteractable : Popup
+public class AudioInteractable : Interactable
 {
     [SerializeField] protected SoundUID _soundID;
 
