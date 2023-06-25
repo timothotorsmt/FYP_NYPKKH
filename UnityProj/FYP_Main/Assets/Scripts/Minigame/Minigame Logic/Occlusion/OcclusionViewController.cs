@@ -6,6 +6,17 @@ using UnityEngine.UI;
 // This class controls the UI system of the minigame
 public class OcclusionViewController : UIViewController<OcclusionView>
 {
+
+    // Override the run function
+    protected override void Start()
+    {
+        base.Start();
+
+        // Handle patient stuff here
+
+        // Set up any base things at the same time
+    }
+
     #region UI button callbacks
     
 

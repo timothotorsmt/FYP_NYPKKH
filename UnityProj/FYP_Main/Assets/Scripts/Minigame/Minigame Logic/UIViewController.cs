@@ -17,15 +17,13 @@ public class UIViewController<ViewType> : MonoBehaviour where ViewType : struct,
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         // Init all other variables
         _visitedPanels = new Stack<ViewType>();
         _visitedPanels.Push((ViewType)(object)0);
 
         ChangePanels(_visitedPanels.Peek());
-
-        // Generate a random patient
     }
 
     #region Panel Changes

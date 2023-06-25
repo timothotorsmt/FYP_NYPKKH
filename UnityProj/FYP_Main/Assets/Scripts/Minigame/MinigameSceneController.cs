@@ -12,7 +12,14 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
     // Start is called before the first frame update
     void Start()
     {
-        MinigameInfo currentMinigame = MinigameManager.Instance.GetCurrentMinigame();
+        MinigameInfo currentMinigame = null;
+        if (MinigameManager.Instance != null) {
+            currentMinigame = MinigameManager.Instance.GetCurrentMinigame();
+        } 
+        else 
+        {
+            Debug.LogWarning("Minigame manager does not have a mingame parameter at the moment :| Be scared if you're testing d whole game otherwise ignore");
+        }
 
         // safety first!
         if (currentMinigame != null) {
