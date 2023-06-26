@@ -22,9 +22,8 @@ namespace Audio
     [System.Serializable]
     public class AudioTrack 
     {
-        // for the 360 room :D
-        public AudioSource Source;
-        public AudioObject[] Audio;
+        public AudioSource Source; // Source of audio to play
+        public AudioObject[] Audio; // Audio to play
     }
 
     [System.Serializable]

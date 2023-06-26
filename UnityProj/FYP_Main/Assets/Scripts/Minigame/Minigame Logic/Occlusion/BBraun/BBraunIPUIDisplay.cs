@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UniRx;
+using UniRx.Extention;
+using System.Linq;
 
 namespace BBraunInfusomat
 {
@@ -14,26 +16,49 @@ namespace BBraunInfusomat
         // Variables
         #region IP variables
 
-        private TextMeshProUGUI _notifAlarmText;
+        [SerializeField] private BBraunIPLogic _bBraunIPLogic;
 
-        #endregion
+        public enum BBraunDisplayState
+        {
+            OFF,
+            NORMAL_VIEW,
+            ALARM_VIEW
+        }
 
-        #region UI variables
+        [SerializeField] private List<changableObject<BBraunDisplayState>> _changableObjects;    
+        private ReactiveProp<BBraunDisplayState> _displayState = new ReactiveProp<BBraunDisplayState>();
 
-        private BBraunIPLogic _bBraunIPLogic;
+        // Alarm
+        [SerializeField] private GameObject _notifAlarmObject;
+        [SerializeField] private TextMeshProUGUI _notifAlarmText;
 
         #endregion
 
         void Start()
         {
-            _bBraunIPLogic = GetComponent<BBraunIPLogic>();
-
             // Subscribe to the reactive property
             _bBraunIPLogic.BBraunState.Value.Subscribe(state => {
                 // If normal; just ignore whatevs
-                if (state != BBraunIPState.NORMAL) 
+                if (state != BBraunIPState.NORMAL)
                 {
-                    SetAlarmNotif(state);                
+                    SetAlarmNotif(state);
+                }
+                else
+                {
+                    SetDisplayState(BBraunDisplayState.NORMAL_VIEW);
+                }
+            });
+
+            // Subscribe to the current task state
+            _displayState.Value.Subscribe(State => {
+                if (_changableObjects.Where(s => s.TaskOnChange == State).Select(s => s.GameObjectToChange).Count() > 0) 
+                {
+                    foreach (var item in _changableObjects)
+                    {
+                        item.GameObjectToChange.SetActive(false);
+                    }
+
+                    _changableObjects.Where(s => s.TaskOnChange == State).Select(s => s.GameObjectToChange).First().SetActive(true);
                 }
             });
         }
@@ -43,12 +68,19 @@ namespace BBraunInfusomat
             switch (state)
             {
                 case BBraunIPState.CHECK_UPSTREAM:
-                _notifAlarmText.text = "CHECK UPSTREAM";
-                break;
+                    _notifAlarmText.text = "Check Upstream";
+                    break;
                 case BBraunIPState.PRESSURE_HIGH:
-                _notifAlarmText.text = "PRESSURE HIGH";
-                break;
+                    _notifAlarmText.text = "Pressure High";
+                    break;
             }
+
+            _displayState.SetValue(BBraunDisplayState.ALARM_VIEW);
+        }
+
+        private void SetDisplayState(BBraunDisplayState displayState)
+        {
+            _displayState.SetValue(displayState);
         }
     }
 }

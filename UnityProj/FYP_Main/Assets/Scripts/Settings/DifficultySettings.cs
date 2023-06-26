@@ -10,8 +10,15 @@ public class DifficultySettings : ScriptableObject
 
 public enum Difficulty
 {
-    EASY = 0,
-    NORMAL,
-    HARD,
+    LEVEL_1 = 1, // Easy
+    LEVEL_2,
+    LEVEL_3,
+    LEVEL_4,
+    LEVEL_5 = 5, // Normal
+    LEVEL_6,
+    LEVEL_7,
+    LEVEL_8,
+    LEVEL_9,
+    LEVEL_10 = 10, // Hard
     BOSS
 }

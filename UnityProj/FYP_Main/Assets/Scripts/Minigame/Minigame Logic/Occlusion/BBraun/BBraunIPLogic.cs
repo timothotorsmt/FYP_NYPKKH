@@ -11,9 +11,9 @@ namespace BBraunInfusomat
     // Fuck
     public class BBraunIPLogic : MonoBehaviour
     {
-        private BBraunIPUIDisplay _bBraunIPUIDisplay;
-        private BBraunIPInput _bBraunIPInput;
-        public ReactiveProp<BBraunIPState> BBraunState;
+        [SerializeField] private BBraunIPUIDisplay _bBraunIPUIDisplay;
+        [SerializeField] private BBraunIPInput _bBraunIPInput;
+        public ReactiveProp<BBraunIPState> BBraunState = new ReactiveProp<BBraunIPState>();
 
         // uusually is things affect IP, but for occlusion minigame is the other way around teehee
         #region Inverse IP behavior
@@ -23,20 +23,31 @@ namespace BBraunInfusomat
 
         #endregion
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            BBraunState = new ReactiveProp<BBraunIPState>();
-            _bBraunIPUIDisplay = GetComponent<BBraunIPUIDisplay>();
-            _bBraunIPInput = GetComponent<BBraunIPInput>();
-        }
-
         public void SetBBraunAlarm(BBraunIPState newState)
         {
             BBraunState.SetValue(newState);
+            _bBraunIPInput._okButton.onClick.AddListener(delegate { ResolveAlarm(); });
+            _bBraunIPInput._resetValueButton.onClick.AddListener(delegate { MuteAlarm(); });
         }
 
+        public void ResolveAlarm()
+        {
+            // Stop sound
+            // Mark task as done 
+            OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+            _bBraunIPInput._okButton.onClick.RemoveListener(delegate { ResolveAlarm(); });
+            BBraunState.SetValue(BBraunIPState.NORMAL);
 
+        }
+
+        public void MuteAlarm()
+        {
+            // Stop sound
+            // Mark task as done 
+            OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+            _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { MuteAlarm(); });
+            BBraunState.SetValue(BBraunIPState.NORMAL);
+        }
     }
 
     // The current state of the BBraun infusion machine
