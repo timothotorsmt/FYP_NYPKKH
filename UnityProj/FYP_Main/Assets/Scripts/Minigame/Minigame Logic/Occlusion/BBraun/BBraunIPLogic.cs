@@ -56,6 +56,7 @@ namespace BBraunInfusomat
     {
         NORMAL = 0,
         CHECK_UPSTREAM,
-        PRESSURE_HIGH
+        PRESSURE_HIGH,
+        OPEN_DOOR,
     }
 }
