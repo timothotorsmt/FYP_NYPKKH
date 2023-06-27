@@ -18,7 +18,9 @@ public class PeripheralSetupViewController : UIViewController<PeripheralView>
     }
 
     #region UI button callbacks
-    
+
+    public void ChangetoTray() { ChangePanelsDefault(PeripheralView.TRAY); }
+    public void ChangetoPatient() { ChangePanelsDefault(PeripheralView.PATIENT_VIEW); }
 
     #endregion
 }
