@@ -29,5 +29,6 @@ public class CVLPRViewController : UIViewController<CVLPRView>
 public enum CVLPRView
 {
     PATIENT_VIEW,
+    CHECKLIST,
 
 }

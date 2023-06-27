@@ -11,6 +11,7 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
     private bool _isMoving;
     private bool _isFinished;
 
+
     private Vector2 _startPosition;
     private Vector3 _resetPosition;
 

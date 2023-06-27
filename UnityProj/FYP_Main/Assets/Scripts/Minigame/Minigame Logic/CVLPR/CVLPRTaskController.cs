@@ -18,6 +18,7 @@ public enum CVLPRTasks
     // Optional tasks
     // Collect prerequisites
     PRERQUISITES,
+    CHECKLIST,
 
     NUM_MANDATORY_TASKS,
 

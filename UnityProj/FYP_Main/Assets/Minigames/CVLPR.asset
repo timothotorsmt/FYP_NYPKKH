@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44e8fa1765e348646b2fe48a5c4e980c, type: 3}
-  m_Name: MInigame List
+  m_Script: {fileID: 11500000, guid: 702d32400e47e664d8d56142bdc72718, type: 3}
+  m_Name: CVLPR
   m_EditorClassIdentifier: 
-  minigameList:
-  - {fileID: 11400000, guid: 1cb1f983ab9c33e4ea5b8d2de8b16d10, type: 2}
-  - {fileID: 11400000, guid: ab385bed030790f48bf85c8d1ab296e9, type: 2}
+  minigameName: CVL
+  minigameID: 3
+  minigamePrefab: {fileID: 4959413670379119807, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
