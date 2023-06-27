@@ -1851,6 +1851,26 @@ MonoBehaviour:
     GameObjectToChange: {fileID: 4038197431316217997}
   - TaskOnChange: 1
     GameObjectToChange: {fileID: 4038197431674404677}
+  - TaskOnChange: 4
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 7
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 8
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 9
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 15
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 14
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 13
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 12
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 11
+    GameObjectToChange: {fileID: 0}
+  - TaskOnChange: 10
+    GameObjectToChange: {fileID: 0}
   _notifAlarmObject: {fileID: 4038197431316217997}
   _notifAlarmText: {fileID: 4038197431865568137}
 --- !u!1 &4038197432694820696

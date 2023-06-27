@@ -5,6 +5,7 @@ using TMPro;
 using UniRx;
 using UniRx.Extention;
 using System.Linq;
+using UnityEngine.Events;
 
 namespace BBraunInfusomat
 {
@@ -21,8 +22,25 @@ namespace BBraunInfusomat
         public enum BBraunDisplayState
         {
             OFF,
+
+            // for alarm
             NORMAL_VIEW,
-            ALARM_VIEW
+            ALARM_VIEW,
+
+            // Normal functionality
+            START_UP,
+            SELF_TEST,
+            START_UP_INFO1,
+            START_UP_INFO2,
+            START_UP_WAIT_INPUT,
+            OPEN_DOOR_INPUT,
+            DOOR_OPENING_SCREEN,
+            LINE_CHANGE_SCREEN,
+            LINE_CHANGE_SCREEN_OPEN_ROLLER,
+            LINE_SELECTION_SCREEN,
+            MAIN_MENU,
+            VBTI_KEY_IN,
+            TIME_KEY_IN
         }
 
         [SerializeField] private List<changableObject<BBraunDisplayState>> _changableObjects;    
@@ -31,6 +49,7 @@ namespace BBraunInfusomat
         // Alarm
         [SerializeField] private GameObject _notifAlarmObject;
         [SerializeField] private TextMeshProUGUI _notifAlarmText;
+        [SerializeField] private UnityEvent _OnFinishInit;
 
         #endregion
 
@@ -38,14 +57,26 @@ namespace BBraunInfusomat
         {
             // Subscribe to the reactive property
             _bBraunIPLogic.BBraunState.Value.Subscribe(state => {
-                // If normal; just ignore whatevs
-                if (state != BBraunIPState.NORMAL)
+                switch (state)
                 {
-                    SetAlarmNotif(state);
-                }
-                else
-                {
-                    SetDisplayState(BBraunDisplayState.NORMAL_VIEW);
+                    case BBraunIPState.CHECK_UPSTREAM:                    
+                    case BBraunIPState.PRESSURE_HIGH:                    
+                    case BBraunIPState.DOOR_OPEN:
+                        SetAlarmNotif(state);
+                        break;
+                    case BBraunIPState.START:
+                        StartCoroutine(StartInitSeq());
+                        break;
+                    case BBraunIPState.WAITING:
+                        SetDisplayState(BBraunDisplayState.START_UP_WAIT_INPUT);
+                        break;
+                    case BBraunIPState.OPEN_DOOR_INPUT:
+                        SetDisplayState(BBraunDisplayState.OPEN_DOOR_INPUT);
+                        break;
+                    case BBraunIPState.CLOSE_DOOR_SCREEN:
+                        SetDisplayState(BBraunDisplayState.DOOR_OPENING_SCREEN);
+                        break;
+                                        
                 }
             });
 
@@ -76,6 +107,25 @@ namespace BBraunInfusomat
             }
 
             _displayState.SetValue(BBraunDisplayState.ALARM_VIEW);
+        }
+
+        private IEnumerator StartInitSeq()
+        {
+            _displayState.SetValue(BBraunDisplayState.START_UP);
+
+            yield return new WaitForSeconds(0.5f);
+
+            _displayState.SetValue(BBraunDisplayState.OFF);
+
+            yield return new WaitForSeconds(0.5f);
+
+            _displayState.SetValue(BBraunDisplayState.SELF_TEST);
+
+
+            yield return new WaitForSeconds(3);
+
+            _displayState.SetValue(BBraunDisplayState.START_UP_WAIT_INPUT);
+            _OnFinishInit.Invoke();
         }
 
         private void SetDisplayState(BBraunDisplayState displayState)

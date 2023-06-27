@@ -23,6 +23,8 @@ namespace BBraunInfusomat
 
         #endregion
 
+        #region Alarm Behavior
+
         public void SetBBraunAlarm(BBraunIPState newState)
         {
             BBraunState.SetValue(newState);
@@ -48,15 +50,100 @@ namespace BBraunInfusomat
             _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { MuteAlarm(); });
             BBraunState.SetValue(BBraunIPState.NORMAL);
         }
+
+        #endregion
+
+        #region normal functionality
+
+        public void InitialiseNormalBehaviour()
+        {
+            _bBraunIPInput._onOffButton.onClick.AddListener(delegate { BBraunInitSequence(); });
+        }
+
+        private void BBraunInitSequence()
+        {
+            BBraunState.SetValue(BBraunIPState.START);
+
+            // Remove the ability to power on (?)
+            _bBraunIPInput._onOffButton.onClick.RemoveListener(delegate { BBraunInitSequence(); });
+            // Send UI to do power on self test sequence
+
+        }
+
+        private void InitCloseDoor()
+        {
+            BBraunState.SetValue(BBraunIPState.CLOSE_DOOR_SCREEN);
+
+            // Do the entire initialisation part
+            
+        }
+
+        public void OnFinishInitSeq()
+        {
+            // Add power off functionality (?)
+
+            // Set to waiting
+            BBraunState.SetValue(BBraunIPState.WAITING);
+
+            // Add functionality
+            _bBraunIPInput._resetValueButton.onClick.AddListener(delegate { WaitForInput(); }); 
+            _bBraunIPInput._openDoorButton.onClick.AddListener(delegate { OpenDoorWaitInput(); }); 
+        }
+
+        public void WaitForInput()
+        {
+            // add dialogue in
+
+        }
+
+        private void OpenDoorWaitInput()
+        {
+            BBraunState.SetValue(BBraunIPState.OPEN_DOOR_INPUT);
+
+            // Remove existing functionality
+            _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { WaitForInput(); }); 
+            _bBraunIPInput._openDoorButton.onClick.RemoveListener(delegate { OpenDoorWaitInput(); }); 
+
+            // Add new functionality
+            _bBraunIPInput._upButton.onClick.AddListener(delegate { OpenDoor(); }); 
+            _bBraunIPInput._downButton.onClick.AddListener(delegate { WaitForInput(); }); 
+        }
+
+        private void OpenDoor()
+        {
+            if (PeripheralSetupTaskController.Instance != null)
+            {
+                if (PeripheralSetupTaskController.Instance.CurrentTask.GetValue() == PeripheralSetupTasks.OPEN_DOOR)
+                {
+                    // Add animation or whatever here
+                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+                }
+            }
+            BBraunState.SetValue(BBraunIPState.CLOSE_DOOR_SCREEN);
+        }
+
+        #endregion
     }
 
     // The current state of the BBraun infusion machine
-    // For alertion of the alarm 
+    // For anything that requires an input (e.g.turning on and whatever)
     public enum BBraunIPState
     {
-        NORMAL = 0,
+        NORMAL = 0,        
+        // Alarms (because i started on occlusion first)
         CHECK_UPSTREAM,
         PRESSURE_HIGH,
-        OPEN_DOOR,
+        DOOR_OPEN,
+
+        // Normal functionality (for peripheral)
+        START,
+        WAITING,
+        OPEN_DOOR_INPUT,
+        
+        CLOSE_DOOR_SCREEN,
+        LINE_SELECTION_INPUT,
+        PARAM_MAIN_MENU,
+        VBTI_KEY_IN,
+        TIME_KEY_IN,
     }
 }
