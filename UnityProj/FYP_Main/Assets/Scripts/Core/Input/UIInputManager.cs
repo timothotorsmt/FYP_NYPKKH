@@ -6,8 +6,10 @@ using Common.DesignPatterns;
 
 namespace Core.Input
 {
+    
+
     // This class detects the input events, and also notifies the subscribers when input events
-    public class InputManager : Observer<IInputActions>
+    public class UIInputManager : Observer<IInputActions>
     {
         // variables
         private uint? _currentFingerId;
@@ -23,7 +25,7 @@ namespace Core.Input
             {
                 // Desktop (using mouse controls)
                 // Make sure player is not tapping the UI
-                if (UnityEngine.Input.GetMouseButtonDown(0) && IsValidInput())
+                if (UnityEngine.Input.GetMouseButtonDown(0))
                 {
                     CallOnStartTap();
                 }
@@ -44,11 +46,8 @@ namespace Core.Input
                     switch (touch.phase)
                     {
                         case TouchPhase.Began:
-                            if (IsValidInput())
-                            {
-                                _currentFingerId = (uint)touch.fingerId;
-                                CallOnStartTap();
-                            }
+                            _currentFingerId = (uint)touch.fingerId;
+                            CallOnStartTap();
                             break;
                         case TouchPhase.Moved:
                             // If the current touch finger id does not match the current finger id, chance that the finger has been swapped
@@ -69,31 +68,6 @@ namespace Core.Input
                 {
                     _isCurrentTap = false;
                 }
-            }
-        }
-
-        #endregion
-
-        #region check validity
-
-        // Prevents the game from mistaking UI clicks as draw clicks
-        // returns whether the player is over a UI element
-        public bool IsValidInput()
-        {
-            if (EventSystem.current == null)
-            {
-                // There are no UI elements right now
-                return true;
-            }
-
-            if (Application.isEditor)
-            {
-                // Desktop
-                return (EventSystem.current.IsPointerOverGameObject()) ? false : true;
-            }
-            else
-            {
-                return (EventSystem.current.IsPointerOverGameObject(UnityEngine.Input.GetTouch(0).fingerId)) ? false : true;
             }
         }
 
