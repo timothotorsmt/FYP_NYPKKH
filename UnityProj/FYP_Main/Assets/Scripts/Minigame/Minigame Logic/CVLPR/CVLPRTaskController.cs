@@ -15,8 +15,6 @@ public class CVLPRTaskController : MinigameTaskController<CVLPRTasks>
 // The tasks that need to be completed for this 
 public enum CVLPRTasks
 {
-    MUTE_ALARM,
-
     // Optional tasks
     // Collect prerequisites
     PRERQUISITES,

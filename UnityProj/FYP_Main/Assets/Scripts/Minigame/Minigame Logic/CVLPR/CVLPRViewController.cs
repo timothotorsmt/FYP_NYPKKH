@@ -28,6 +28,6 @@ public class CVLPRViewController : UIViewController<CVLPRView>
 // This enum marks which current panel it is currently on 
 public enum CVLPRView
 {
-    PATIENT_VIEW
+    PATIENT_VIEW,
 
 }
