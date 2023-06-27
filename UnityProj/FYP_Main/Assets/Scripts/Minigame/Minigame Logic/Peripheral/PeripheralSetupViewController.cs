@@ -27,6 +27,8 @@ public class PeripheralSetupViewController : UIViewController<PeripheralView>
 // This enum marks which current panel it is currently on 
 public enum PeripheralView
 {
-    
+    PATIENT_VIEW,
+    TRAY,
+
 
 }
