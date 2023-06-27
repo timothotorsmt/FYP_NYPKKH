@@ -26,6 +26,8 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
     {
         // Make sure all the shadows r active
         Destination.SetActive(true);
+        UIInputManager.Instance.AddSubscriber(this);
+
         _isFinished = false;
     }
 
@@ -33,11 +35,6 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
     void Update()
     {
 
-    }
-
-    void OnEnable()
-    {
-        UIInputManager.Instance.AddSubscriber(this);
     }
 
     void OnDisable()
