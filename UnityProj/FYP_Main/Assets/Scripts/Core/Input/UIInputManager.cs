@@ -6,8 +6,6 @@ using Common.DesignPatterns;
 
 namespace Core.Input
 {
-    
-
     // This class detects the input events, and also notifies the subscribers when input events
     public class UIInputManager : Observer<IInputActions>
     {
