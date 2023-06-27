@@ -61,7 +61,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         if (exists) 
         {
             // Check if all tasks have been completed
-            if (_nextTask.ToString() == "NUM_MANDATORY_TASKS" || CurrentTask.ToString() == "NUM_MANDATORY_TASKS")
+            if (_nextTask.ToString() == "NUM_MANDATORY_TASKS")
             {
                 // End of game
                 // Maybe chat will be activated or whatever
@@ -74,15 +74,16 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
     public void AssignTasks(TaskType newTask)
     {
-        // Put the next task on hold; make sure the temporary task is done first
+        // Put the current task on hold; make sure the temporary task is done first
         // once new task is done, continue with previous task
         _nextTask = CurrentTask.GetValue();
         CurrentTask.SetValue(newTask);
     }
 
-    public void AssignTasksContinuous(TaskType newTask)
+    public void AssignNextTaskContinuous(TaskType newTask)
     {
-        // The same as assign task except you continue from that point onwards,
+        // Override the order of the next task, change to a different task 
+        _nextTask = newTask;
     }
 
     public void EndGame()

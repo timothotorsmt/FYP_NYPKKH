@@ -6451,7 +6451,7 @@ GameObject:
   - component: {fileID: 6702146500581915985}
   - component: {fileID: 2394889660974622171}
   m_Layer: 5
-  m_Name: Peripheral_Setup
+  m_Name: '[Sample] PeripheralSetup'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
