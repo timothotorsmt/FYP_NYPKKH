@@ -73,11 +73,13 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
     {
         _isMoving = false;
 
-        if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 1.0f)
+        if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 5.0f)
         {
             this.transform.position = new Vector3(Destination.transform.position.x, Destination.transform.position.y, Destination.transform.position.z);
             Destination.SetActive(false);
             _isFinished = true;
+
+            transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
         }
         else
         {

@@ -123,7 +123,6 @@ public class ChatGetter : Singleton<ChatGetter>
             // This is not really that efficient but we will fix this lat er  
             var result = _chatListContainer.ChatNodeList.Where(s => s.ID == check_ID).ToList().OrderBy(s => s.Order);
             List<List<string>> x = result.Select(s => s.Questions).Last();
-            Debug.Log(x);
             return x;
         }
         
