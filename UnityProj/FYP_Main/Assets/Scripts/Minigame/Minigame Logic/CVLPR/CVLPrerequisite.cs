@@ -11,7 +11,6 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
     private bool _isMoving;
     private bool _isFinished;
 
-
     private Vector2 _startPosition;
     private Vector3 _resetPosition;
 
@@ -72,19 +71,24 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
 
     public void OnEndTap()
     {
-        _isMoving = false;
-
-        if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 5.0f)
+        if (_isMoving == true)
         {
-            this.transform.position = new Vector3(Destination.transform.position.x, Destination.transform.position.y, Destination.transform.position.z);
-            Destination.SetActive(false);
-            _isFinished = true;
+            _isMoving = false;
+            // Debug.Log(gameObject.name);
 
-            transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
-        }
-        else
-        {
-            this.transform.localPosition = new Vector3(_resetPosition.x, _resetPosition.y, _resetPosition.z);
+            if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 5.0f)
+            {
+                this.transform.position = new Vector3(Destination.transform.position.x, Destination.transform.position.y, Destination.transform.position.z);
+                Destination.SetActive(false);
+                _isFinished = true;
+                Checklist.Instance.checking(gameObject.name);
+
+                transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
+            }
+            else
+            {
+                this.transform.localPosition = new Vector3(_resetPosition.x, _resetPosition.y, _resetPosition.z);
+            }
         }
     }
 }
