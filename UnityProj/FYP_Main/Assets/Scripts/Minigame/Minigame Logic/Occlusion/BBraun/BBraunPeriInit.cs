@@ -11,7 +11,10 @@ public class BBraunPeriInit : MonoBehaviour
     void Start()
     {
         _bBraunIPLogic = GetComponent<BBraunIPLogic>();
-        _bBraunIPLogic.InitialiseNormalBehaviour();
+        if (_bBraunIPLogic != null)
+        {
+            _bBraunIPLogic.InitialiseNormalBehaviour();
+        }
     }
 
     // Update is called once per frame

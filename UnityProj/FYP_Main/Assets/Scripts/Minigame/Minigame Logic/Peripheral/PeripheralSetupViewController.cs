@@ -21,6 +21,7 @@ public class PeripheralSetupViewController : UIViewController<PeripheralView>
 
     public void ChangetoTray() { ChangePanelsDefault(PeripheralView.TRAY); }
     public void ChangetoPatient() { ChangePanelsDefault(PeripheralView.PATIENT_VIEW); }
+    public void ChangetoStand() { ChangePanelsDefault(PeripheralView.STAND_VIEW); }
 
     #endregion
 }
@@ -31,6 +32,6 @@ public enum PeripheralView
 {
     PATIENT_VIEW,
     TRAY,
-
+    STAND_VIEW,
 
 }

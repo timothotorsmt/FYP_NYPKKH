@@ -9,7 +9,11 @@ using UniRx;
 
 public class PeripheralSetupTaskController : MinigameTaskController<PeripheralSetupTasks>
 {
-
+    public void OnFinishIntro()
+    {
+        // TODO: call this after intro sequence
+        MarkCurrentTaskAsDone();
+    }
 }
 
 // The tasks that need to be completed for this 
@@ -19,9 +23,9 @@ public enum PeripheralSetupTasks
     PEEL_OFF_FOIL, // Confirm what the fuck foil is tomorrow
     CLEAN_WITH_SWAB,
     OPEN_INFUSION_TUBING,
+    DROP_INFUSION_ON_TABLE,
     CLAMP_ROLLER_CLAMP,
     REMOVE_PROTECTIVE_CAP,
-    REMOVE_PROTECTIVE_SEAL,
     SPIKE_INFUSION_BOTTLE,
     OPEN_ROLLER_CLAMP,
     PRIME_INFUSION_TUBING,

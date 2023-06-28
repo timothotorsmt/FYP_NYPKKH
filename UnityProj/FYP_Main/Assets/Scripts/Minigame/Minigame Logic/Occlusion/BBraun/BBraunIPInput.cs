@@ -21,6 +21,21 @@ namespace BBraunInfusomat
         public Button _startStopInfusionButton;
         public Button _openDoorButton;
 
+        public void RemoveAllFunctionality()
+        {
+            _upButton.onClick.RemoveAllListeners();
+            _downButton.onClick.RemoveAllListeners();
+            _leftButton.onClick.RemoveAllListeners();
+            _rightButton.onClick.RemoveAllListeners();
+            _resetValueButton.onClick.RemoveAllListeners();
+            _initBolusButton.onClick.RemoveAllListeners();
+            _onOffButton.onClick.RemoveAllListeners();
+            _okButton.onClick.RemoveAllListeners();
+            _programButton.onClick.RemoveAllListeners();
+            _startStopInfusionButton.onClick.RemoveAllListeners();
+            _openDoorButton.onClick.RemoveAllListeners();
+        }
+
         #endregion
     } 
 }

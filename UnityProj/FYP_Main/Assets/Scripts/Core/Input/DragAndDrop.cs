@@ -74,7 +74,6 @@ public class DragAndDrop : MonoBehaviour, IInputActions
             if (_dragSign != null)
             {
                 _dragSign.SetActive(false);
-                Debug.Log("Wyh");
             }
         }
     }

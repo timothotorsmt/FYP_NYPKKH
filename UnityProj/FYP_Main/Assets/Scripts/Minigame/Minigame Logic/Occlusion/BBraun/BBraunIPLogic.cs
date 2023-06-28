@@ -64,13 +64,11 @@ namespace BBraunInfusomat
         {
             BBraunState.SetValue(BBraunIPState.START);
 
-            // Remove the ability to power on (?)
-            _bBraunIPInput._onOffButton.onClick.RemoveListener(delegate { BBraunInitSequence(); });
             // Send UI to do power on self test sequence
 
         }
 
-        private void InitCloseDoor()
+        public void CloseDoor()
         {
             BBraunState.SetValue(BBraunIPState.CLOSE_DOOR_SCREEN);
 
@@ -80,6 +78,7 @@ namespace BBraunInfusomat
 
         public void OnFinishInitSeq()
         {
+
             // Add power off functionality (?)
 
             // Set to waiting
@@ -101,13 +100,12 @@ namespace BBraunInfusomat
             BBraunState.SetValue(BBraunIPState.OPEN_DOOR_INPUT);
 
             // Remove existing functionality
-            _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { WaitForInput(); }); 
-            _bBraunIPInput._openDoorButton.onClick.RemoveListener(delegate { OpenDoorWaitInput(); }); 
 
             // Add new functionality
             _bBraunIPInput._upButton.onClick.AddListener(delegate { OpenDoor(); }); 
-            _bBraunIPInput._downButton.onClick.AddListener(delegate { WaitForInput(); }); 
+            _bBraunIPInput._downButton.onClick.AddListener(delegate { OnFinishInitSeq(); }); 
         }
+
 
         private void OpenDoor()
         {
@@ -119,7 +117,7 @@ namespace BBraunInfusomat
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                 }
             }
-            BBraunState.SetValue(BBraunIPState.CLOSE_DOOR_SCREEN);
+
         }
 
         #endregion
