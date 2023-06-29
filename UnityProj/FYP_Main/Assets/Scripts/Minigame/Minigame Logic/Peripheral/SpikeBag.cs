@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class SpikeBag : SliderAction
 {
+    [SerializeField] private GameObject _screen;
 
     private void OnDisable()
     {
@@ -28,6 +29,7 @@ public class SpikeBag : SliderAction
         {
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+
             _slider.interactable = false;
             _sliderPassEvent.Invoke();
             _slider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });

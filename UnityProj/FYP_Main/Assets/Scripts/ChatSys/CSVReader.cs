@@ -56,7 +56,6 @@ namespace ChatSys
                     // Check if there is a proper ID (starting with pound sign)
                     if (dataValues[1][0] == '#') {
                         temp_chatNode.ID = dataValues[1];
-                        Debug.Log(dataValues[1]);
 
                     }
                 }
@@ -90,9 +89,7 @@ namespace ChatSys
                             List<string> x = new List<string>();
                             dataValues[i] = dataValues[i].Replace("//", ",");
                             x.Add(dataValues[i]);
-                            Debug.Log(dataValues[i]);
                             x.Add(dataValues[i+1]);
-                            Debug.Log(dataValues[i+1]);
                             temp_chatNode.Questions.Add(x);
                         }
                     }

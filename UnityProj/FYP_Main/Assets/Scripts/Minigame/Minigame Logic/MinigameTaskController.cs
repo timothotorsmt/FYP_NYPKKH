@@ -12,20 +12,12 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     #region variables
     public ReactiveProp<TaskType> CurrentTask = new ReactiveProp<TaskType>();
     // this function keeps the next task in ready for temporary / optional tasks
-    private TaskType _nextTask;
+    protected TaskType _nextTask;
     // Events that take place before start and end of the game
-    [SerializeField] private UnityEvent _startEvent;
-    [SerializeField] private UnityEvent _finishEvent;
-    private int TaskCount;
+    [SerializeField] protected UnityEvent _startEvent;
+    [SerializeField] protected UnityEvent _finishEvent;
+    protected int TaskCount;
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetFirstTask();
-
-        _startEvent.Invoke();
-    }
 
     public TaskType GetCurrentTask()
     {
@@ -84,6 +76,13 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     {
         // Override the order of the next task, change to a different task 
         _nextTask = newTask;
+    }
+
+    public void AssignCurrentTaskContinuous(TaskType newTask)
+    {
+        CurrentTask.SetValue(newTask);
+        int index = (int)(object)(newTask) + 1;
+        _nextTask = (TaskType)(object)index;
     }
 
     public void EndGame()

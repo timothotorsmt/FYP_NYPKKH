@@ -15,14 +15,6 @@ namespace BBraunInfusomat
         [SerializeField] private BBraunIPInput _bBraunIPInput;
         public ReactiveProp<BBraunIPState> BBraunState = new ReactiveProp<BBraunIPState>();
 
-        // uusually is things affect IP, but for occlusion minigame is the other way around teehee
-        #region Inverse IP behavior
-
-        // Roller clamp
-        
-
-        #endregion
-
         #region Alarm Behavior
 
         public void SetBBraunAlarm(BBraunIPState newState)
@@ -55,25 +47,26 @@ namespace BBraunInfusomat
 
         #region normal functionality
 
+        private void TurnOffMachine()
+        {
+            BBraunState.SetValue(BBraunIPState.OFF);
+        }
+
         public void InitialiseNormalBehaviour()
         {
+            TurnOffMachine();
             _bBraunIPInput._onOffButton.onClick.AddListener(delegate { BBraunInitSequence(); });
         }
 
         private void BBraunInitSequence()
         {
             BBraunState.SetValue(BBraunIPState.START);
-
-            // Send UI to do power on self test sequence
-
         }
 
         public void CloseDoor()
         {
-            BBraunState.SetValue(BBraunIPState.CLOSE_DOOR_SCREEN);
 
-            // Do the entire initialisation part
-            
+            BBraunState.SetValue(BBraunIPState.CLOSE_DOOR_SCREEN);   
         }
 
         public void OnFinishInitSeq()
@@ -106,6 +99,19 @@ namespace BBraunInfusomat
             _bBraunIPInput._downButton.onClick.AddListener(delegate { OnFinishInitSeq(); }); 
         }
 
+        public void WaitForLineSelectionInput()
+        {
+            BBraunState.SetValue(BBraunIPState.LINE_SELECTION_INPUT);
+            
+            _bBraunIPInput._leftButton.onClick.AddListener(delegate { SelectedLine(); });
+        }
+
+        private void SelectedLine()
+        {
+            BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+        }
+
+        
 
         private void OpenDoor()
         {
@@ -113,6 +119,8 @@ namespace BBraunInfusomat
             {
                 if (PeripheralSetupTaskController.Instance.CurrentTask.GetValue() == PeripheralSetupTasks.OPEN_DOOR)
                 {
+                    _bBraunIPInput.RemoveAllFunctionality();
+
                     // Add animation or whatever here
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                 }
@@ -143,5 +151,6 @@ namespace BBraunInfusomat
         PARAM_MAIN_MENU,
         VBTI_KEY_IN,
         TIME_KEY_IN,
+        OFF,
     }
 }

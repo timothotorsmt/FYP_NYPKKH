@@ -41,7 +41,14 @@ public class UIViewController<ViewType> : MonoBehaviour where ViewType : struct,
 
         foreach (var Panel in activePanels)
         {
-            Panel.SetActive(false);
+            try
+            {
+                Panel.SetActive(false);
+            }
+            catch (System.NullReferenceException)
+            {
+                throw;
+            }
         }
 
         // Set the last instance of the wanted panel to true

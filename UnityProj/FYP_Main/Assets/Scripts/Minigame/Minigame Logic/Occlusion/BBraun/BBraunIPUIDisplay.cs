@@ -50,6 +50,8 @@ namespace BBraunInfusomat
         [SerializeField] private GameObject _notifAlarmObject;
         [SerializeField] private TextMeshProUGUI _notifAlarmText;
         [SerializeField] private UnityEvent _OnFinishInit;
+        [SerializeField] private UnityEvent _OnDoorClose;
+        [SerializeField] private UnityEvent _OnEnterParams;
 
         #endregion
 
@@ -59,6 +61,9 @@ namespace BBraunInfusomat
             _bBraunIPLogic.BBraunState.Value.Subscribe(state => {
                 switch (state)
                 {
+                    case BBraunIPState.NORMAL:
+                        SetDisplayState(BBraunDisplayState.NORMAL_VIEW);
+                        break;                    
                     case BBraunIPState.CHECK_UPSTREAM:                    
                     case BBraunIPState.PRESSURE_HIGH:                    
                     case BBraunIPState.DOOR_OPEN:
@@ -74,7 +79,12 @@ namespace BBraunInfusomat
                         SetDisplayState(BBraunDisplayState.OPEN_DOOR_INPUT);
                         break;
                     case BBraunIPState.CLOSE_DOOR_SCREEN:
-                        SetDisplayState(BBraunDisplayState.DOOR_OPENING_SCREEN);
+                        this.gameObject.SetActive(true);
+                        _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN);
+                        StartCoroutine(CloseDoorSeq());
+                        break;
+                    case BBraunIPState.PARAM_MAIN_MENU:
+                        StartCoroutine(SelectedLineSeq());
                         break;
                                         
                 }
@@ -126,6 +136,32 @@ namespace BBraunInfusomat
 
             _displayState.SetValue(BBraunDisplayState.START_UP_WAIT_INPUT);
             _OnFinishInit.Invoke();
+        }
+
+        private IEnumerator CloseDoorSeq()
+        {
+            _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN);
+
+            yield return new WaitForSeconds(2.0f);
+
+            _displayState.SetValue(BBraunDisplayState.LINE_SELECTION_SCREEN);
+            _OnDoorClose.Invoke();
+
+        }
+
+        private IEnumerator SelectedLineSeq()
+        {
+            _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN);
+
+            yield return new WaitForSeconds(2.0f);
+
+            _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN_OPEN_ROLLER);
+
+            yield return new WaitForSeconds(2.0f);
+
+            _displayState.SetValue(BBraunDisplayState.MAIN_MENU);
+            _OnEnterParams.Invoke();
+
         }
 
         private void SetDisplayState(BBraunDisplayState displayState)

@@ -10,16 +10,19 @@ public class DragAndDrop : MonoBehaviour, IInputActions
     [SerializeField] private GameObject _dragSign;
     [SerializeField] private UnityEvent _onDropOnDestination;
     [SerializeField] private UnityEvent _onReset;
+    public bool _disable;
     private bool _isMoving;
     private bool _isFinished;
 
     private Vector2 _startPosition;
-    private Vector3 _resetPosition;
+    private Vector2 _resetPosition;
+    private RectTransform _rectTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        _resetPosition = this.transform.localPosition;
+        _rectTransform = GetComponent<RectTransform>();
+        _resetPosition = _rectTransform.anchoredPosition;
         Reset();
     }
 
@@ -28,7 +31,7 @@ public class DragAndDrop : MonoBehaviour, IInputActions
         // Make sure all the shadows r active
         _isFinished = false;
         UIInputManager.Instance.AddSubscriber(this);
-        this.transform.localPosition = _resetPosition;
+        _rectTransform.anchoredPosition = _resetPosition;
 
         if (_dragSign != null)
         {
@@ -56,6 +59,20 @@ public class DragAndDrop : MonoBehaviour, IInputActions
         if (UIInputManager.Instance != null)
         {
             UIInputManager.Instance.RemoveSubscriber(this);
+        }
+    }
+
+    public void SetDisable(bool newState)
+    {
+        if (newState)
+        {
+            this.gameObject.SetActive(false);
+            _disable = true;
+        }
+        else 
+        {
+            this.gameObject.SetActive(true);
+            _disable = false;
         }
     }
 
@@ -95,12 +112,14 @@ public class DragAndDrop : MonoBehaviour, IInputActions
         if (Vector2.Distance((Vector2)this.transform.position, (Vector2)_destination.transform.position) < 1.0f)
         {
             this.transform.position = new Vector3(_destination.transform.position.x, _destination.transform.position.y, _destination.transform.position.z);
-            _onDropOnDestination.Invoke();
             _isFinished = true;
+            _onDropOnDestination.Invoke();
         }
         else
         {
-            this.transform.localPosition = new Vector3(_resetPosition.x, _resetPosition.y, _resetPosition.z);
+            if (_rectTransform) {
+                _rectTransform.anchoredPosition = _resetPosition;
+            }
             if (_dragSign != null)
             {
                 _dragSign.SetActive(true);
