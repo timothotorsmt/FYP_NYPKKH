@@ -8,6 +8,7 @@ public class OcclusionMinigameController : MonoBehaviour
     [SerializeField] private DifficultySettings _minigameDifficultySettings;
     [SerializeField] private BBraunIPLogic _bBraunIPLogic;
     [SerializeField] private OcclusionRollerClamp _rollerClamp;
+    [SerializeField] private TConnector _tConnector;
 
     private OcclusionScenario _occlusionScenario;
 
@@ -34,13 +35,14 @@ public class OcclusionMinigameController : MonoBehaviour
                 _occlusionScenario = OcclusionScenario.KINKED_LINES;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
                 OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.UNKINK_LINE);
-                Debug.Log(OcclusionTaskController.Instance.GetCurrentTask().ToString());
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.MUTE_ALARM);
                 break;
             case Difficulty.LEVEL_3:
                 // Hardcode the alarm code 
                 _occlusionScenario = OcclusionScenario.T_CONNECTOR;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
                 OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.UNCLAMP_T_CONNECTOR);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.MUTE_ALARM);
                 break;
             case Difficulty.LEVEL_4:
             case Difficulty.LEVEL_5:

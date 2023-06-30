@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b53d175cb87354cb79bcd160bc7eab, type: 3}
   m_Name: Minigame Settings
   m_EditorClassIdentifier: 
-  GameDifficulty: 1
+  GameDifficulty: 3

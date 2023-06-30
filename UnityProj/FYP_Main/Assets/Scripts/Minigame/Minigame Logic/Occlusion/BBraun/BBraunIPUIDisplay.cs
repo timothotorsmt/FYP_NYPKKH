@@ -6,6 +6,10 @@ using UniRx;
 using UniRx.Extention;
 using System.Linq;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using Unity.Collections.LowLevel.Unsafe;
+using System;
+using System.Reflection;
 
 namespace BBraunInfusomat
 {
@@ -43,7 +47,7 @@ namespace BBraunInfusomat
             TIME_KEY_IN
         }
 
-        [SerializeField] private List<changableObject<BBraunDisplayState>> _changableObjects;    
+        [SerializeField] private List<changableObject<BBraunDisplayState>> _changableObjects;
         private ReactiveProp<BBraunDisplayState> _displayState = new ReactiveProp<BBraunDisplayState>();
 
         // Alarm
@@ -52,6 +56,66 @@ namespace BBraunInfusomat
         [SerializeField] private UnityEvent _OnFinishInit;
         [SerializeField] private UnityEvent _OnDoorClose;
         [SerializeField] private UnityEvent _OnEnterParams;
+        [SerializeField] private ParamContainer[] _paramMenuList;
+        [SerializeField] private ParamDigitContainer[] _VTBIDigits;
+        [SerializeField] private ParamDigitContainer[] _timeDigits;
+
+        #endregion
+
+        #region custom defined structs for UI
+
+        [System.Serializable]
+        public class ParamContainer
+        {
+            [SerializeField] private Image _container;
+            [SerializeField] private TextMeshProUGUI _variableName;
+
+            public TextMeshProUGUI _info;
+
+            public void SetContainerColor(Color newColour)
+            {
+                if (newColour == Color.black)
+                {
+                    _container.color = newColour;
+                    _info.color = Color.white;
+                    _variableName.color = Color.white;
+                }
+                else if (newColour == Color.white)
+                {
+                    _container.color = newColour;
+                    _info.color = Color.black;
+                    _variableName.color = Color.black;
+                }
+            }
+        }
+
+        [System.Serializable]
+        public class ParamDigitContainer
+        {
+            [SerializeField] private Image _container;
+            public TextMeshProUGUI _digit;
+
+            public void SetContainerColor(Color newColour)
+            {
+                if (newColour == Color.black)
+                {
+                    _container.color = newColour;
+                    _digit.color = Color.white;
+                }
+                else if (newColour == Color.white)
+                {
+                    _container.color = newColour;
+                    _digit.color = Color.black;
+                }
+            }
+
+            public int SetDigit(int newDigit)
+            {
+                _digit.text = newDigit.ToString();
+                return newDigit;
+            }
+
+        }
 
         #endregion
 
@@ -61,6 +125,9 @@ namespace BBraunInfusomat
             _bBraunIPLogic.BBraunState.Value.Subscribe(state => {
                 switch (state)
                 {
+                    case BBraunIPState.OFF:
+                        SetDisplayState(BBraunDisplayState.OFF);
+                        break;
                     case BBraunIPState.NORMAL:
                         SetDisplayState(BBraunDisplayState.NORMAL_VIEW);
                         break;                    
@@ -86,7 +153,12 @@ namespace BBraunInfusomat
                     case BBraunIPState.PARAM_MAIN_MENU:
                         StartCoroutine(SelectedLineSeq());
                         break;
-                                        
+                    case BBraunIPState.VBTI_KEY_IN:
+                        SetDisplayState(BBraunDisplayState.VBTI_KEY_IN);
+                        break;
+                    case BBraunIPState.TIME_KEY_IN:
+                        SetDisplayState(BBraunDisplayState.TIME_KEY_IN);
+                        break;
                 }
             });
 
@@ -146,7 +218,6 @@ namespace BBraunInfusomat
 
             _displayState.SetValue(BBraunDisplayState.LINE_SELECTION_SCREEN);
             _OnDoorClose.Invoke();
-
         }
 
         private IEnumerator SelectedLineSeq()
@@ -167,6 +238,78 @@ namespace BBraunInfusomat
         private void SetDisplayState(BBraunDisplayState displayState)
         {
             _displayState.SetValue(displayState);
+        }
+
+        public void SelectParamList(int index)
+        {
+            foreach (ParamContainer container in _paramMenuList)
+            {
+                container.SetContainerColor(Color.black);
+            }
+
+            _paramMenuList[index].SetContainerColor(Color.white);
+        }
+
+        public int SetDigitUp(int index, int newNum)
+        {
+            int returnInt = 0;
+            switch (_bBraunIPLogic.BBraunState.GetValue())
+            {
+                case BBraunIPState.VBTI_KEY_IN:
+                    returnInt = _VTBIDigits[index].SetDigit(newNum);
+                    break;
+
+                case BBraunIPState.TIME_KEY_IN:
+                    returnInt = _timeDigits[index].SetDigit(newNum);
+                    break;
+            }
+
+            return returnInt;
+        }
+
+        public void SetDigit(int index)
+        {
+            switch (_bBraunIPLogic.BBraunState.GetValue())
+            {
+                case BBraunIPState.VBTI_KEY_IN:
+                    foreach (ParamDigitContainer container in _VTBIDigits)
+                    {
+                        container.SetContainerColor(Color.black);
+                    }
+
+                    _VTBIDigits[index].SetContainerColor(Color.white);
+                    break;
+
+                case BBraunIPState.TIME_KEY_IN:
+                    foreach (ParamDigitContainer container in _timeDigits)
+                    {
+                        container.SetContainerColor(Color.black);
+                    }
+
+                    _timeDigits[index].SetContainerColor(Color.white);
+                    break;
+            }
+            
+        }
+
+        public void SetParam(int numToSet)
+        {
+            switch (_bBraunIPLogic.BBraunState.GetValue())
+            {
+                case BBraunIPState.VBTI_KEY_IN:
+                    _paramMenuList[1]._info.text = numToSet.ToString();
+                    break;
+
+                case BBraunIPState.TIME_KEY_IN:
+                    _paramMenuList[2]._info.text = numToSet.ToString();
+                    break;
+            }
+        }
+
+        public void SetRate(float rate)
+        {
+            _paramMenuList[0]._info.text = rate.ToString();
+
         }
     }
 }

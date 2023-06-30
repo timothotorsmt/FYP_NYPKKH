@@ -20,6 +20,7 @@ public class OcclusionViewController : UIViewController<OcclusionView>
     #region UI button callbacks
     
     public void ChangeToBBraun() { ChangePanelsDefault(OcclusionView.STAND_VIEW); }
+    public void ChangeToPatient() { ChangePanelsDefault(OcclusionView.PATIENT_VIEW); }
 
     #endregion
 }
@@ -31,5 +32,5 @@ public enum OcclusionView
     OVERVIEW,
     TRAY,
     STAND_VIEW,
-
+    PATIENT_VIEW
 }
