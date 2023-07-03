@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-public class Checklist : MonoBehaviour
+public class CheckList : MonoBehaviour
 {
-    [SerializeField] string[] nameOfItem = { "IV bag", "spike", "IV tube", "Tube 2" };
-    [SerializeField] bool[] inside = { true, true, true, true };
+    [SerializeField] string[] nameOfItem = { "3 Way tap", "500ML Saline", "Alcohol Swab", "Chlorhexidine Swab", "Infusion Line", "Microclave", "Needle", "Saline Ampoule", "Sterile Drape", "Sterile Gloves", "Gauze", "10 ML Syringe" };
+    [SerializeField] bool[] inside = { false, false, false, false, false, false, false, false, false, false, false, false };
     public GameObject list;
     private GameObject[] ListOfItems;
     public TextMeshProUGUI itemName;
     [SerializeField] private UnityEvent _ChecklistEvent;
 
-    private static Checklist _instance;
+    private static CheckList _instance;
 
-    public static Checklist Instance
+    public static CheckList Instance
     {
         get
         {
@@ -42,6 +42,10 @@ public class Checklist : MonoBehaviour
             text += nameOfItem[i] + "\n";
         }
         itemName.text = text;
+        for (int i = 0; i < inside.Length; i++)
+        {
+            inside[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -55,19 +59,29 @@ public class Checklist : MonoBehaviour
 
     public void items()
     {
-        Checklist.Instance.items();
+        CheckList.Instance.items();
     }
    
     public void checking (string a)
     {
+
         for (int i = 0; i < nameOfItem.Length; i++)
         {
             if (nameOfItem[i] == a)
             {
+             
                 inside[i] = true;
-               // Debug.Log($"{a}:{inside[i]}s");
+           
+                // Debug.Log($"{a}:{inside[i]}s");
             }
         }
+
+
+        for (int i = 0; i < nameOfItem.Length; i++)
+        {
+            Debug.Log(inside[i]);
+        }
+
         check();
     }
 
@@ -100,9 +114,10 @@ public class Checklist : MonoBehaviour
             }
         }
      
-
+       
         if(correct==nameOfItem.Length && (CVLPRTaskController.Instance.GetCurrentTask() == CVLPRTasks.PRERQUISITES))
         {
+           
             CVLPRTaskController.Instance.MarkCurrentTaskAsDone();
             Debug.Log(CVLPRTaskController.Instance.GetCurrentTask());
         }

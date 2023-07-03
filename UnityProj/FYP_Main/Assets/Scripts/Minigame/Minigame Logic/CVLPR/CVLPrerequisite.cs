@@ -81,9 +81,9 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 this.transform.position = new Vector3(Destination.transform.position.x, Destination.transform.position.y, Destination.transform.position.z);
                 Destination.SetActive(false);
                 _isFinished = true;
-                Checklist.Instance.checking(gameObject.name);
 
                 transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
+                CheckList.Instance.checking(gameObject.name);
             }
             else
             {
