@@ -28,15 +28,9 @@ public class SceneSprite : MonoBehaviour, IInputActions
 
     public void OnTap()
     {
-        // Get the yaw and pitch of Camera
-        float cameraYaw = Camera.main.GetComponent<CameraController>().yaw;
-        float cameraPitch = Camera.main.GetComponent<CameraController>().pitch;
-        // Set Yaw and Pitch of sprite to be negative of the camera's
-        yaw = -cameraYaw;
-        pitch = -cameraPitch;
-        // Input the values as rotation values
-        Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
-        transform.rotation = rotation;
+        // Gets camera position and transforms the object to follow the UI
+        Vector3 cameraPos = Camera.main.transform.position;
+        transform.LookAt(cameraPos);
     }
 
     public void OnEndTap()
