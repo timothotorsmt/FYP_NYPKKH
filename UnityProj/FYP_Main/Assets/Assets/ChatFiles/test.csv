@@ -12,5 +12,11 @@ Introduction to the peri line setup,#PERISA,1,PETER,1,It seems that this patient
 Sample dialogue test!!,#RPE2,1,PETER,1,Hi// how was your experience in the ward,GREAT!,#RPE3,I am surviving the hell shift,#RPE4
 ,#RPE3,1,PETER,1,GOOD TO HEAR THAT! ,,,,
 ,#RPE4,1,PETER,1,I THOUGHT U SAID YOUR SHIFT WAS GOOD,,,,
-Collecting Prerequisites,#CVLPRA,1,PETER,1,Help me collect the prerequisites to set up CVL,,,,
+Collecting Prerequisites,#CVLPRA,1,ALICE,0,What Should i collect?,,,,
+,#CVLPRA,2,PETER,1,Look at the list at the bottom left corner!,,,,
 ,#CVLPRB,1,PETER,1,Good job! You Collected Everything!,,,,
+,#CVLPRC,1,PETER,0,We dont need that,,,,
+,#CVLPRD,1,PETER,0,we have enough,,,,
+,#CVLPRE,1,PETER,1,Can you help me collect the prerequisite for CVL set up?,Sure!,#CVLPRF,No!,#CVLPRG
+,#CVLPRF,1,PETER,1,Thank you!,,,,
+,#CVLPRG,1,PETER,0,oh//ok//////,,,,

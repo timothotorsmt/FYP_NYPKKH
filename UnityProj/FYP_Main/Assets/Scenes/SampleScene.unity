@@ -1617,6 +1617,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _idMinigame: 3
   _difficulty: 1
+  _ChecklistEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1154743314}
+        m_TargetAssemblyTypeName: MinigamePopup, Assembly-CSharp
+        m_MethodName: Test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _idChat: '#CVLPRE'
 --- !u!114 &1278402816 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3107354755588466910, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
@@ -2100,9 +2116,17 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1098338401}
     m_Modifications:
+    - target: {fileID: 3107354754310804446, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Name
       value: Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168939, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Pivot.x
@@ -2186,6 +2210,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168939, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107354755017355569, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3107354755659509390, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}

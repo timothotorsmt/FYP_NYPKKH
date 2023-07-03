@@ -35,7 +35,6 @@ public class ChatGetter : Singleton<ChatGetter>
         _currentNodes = GetChatList(ID);
         _questions = GetQuestions(ID);
         _currentIndex = 0;
-
         _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
 
         // Start the chat UI 
@@ -127,6 +126,11 @@ public class ChatGetter : Singleton<ChatGetter>
         }
         
         return null;
+    }
+
+    public string getChatID()
+    {
+        return _currentNodes[_currentIndex].ID;
     }
 
 }
