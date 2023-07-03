@@ -15,6 +15,9 @@ public class OcclusionTaskController : MinigameTaskController<OcclusionTasks>
 // The tasks that need to be completed for this 
 public enum OcclusionTasks
 {
+    // Mute alarm
+    MUTE_ALARM,
+
     // Optional tasks
     // Scenario 1: Roller clamp
     OPEN_ROLLER_CLAMP,
@@ -40,8 +43,7 @@ public enum OcclusionTasks
     USE_GAUZE,
     PUT_PLASTER,
 
-    // Mute alarm
-    MUTE_ALARM,
+    START_PUMP,
 
     NUM_MANDATORY_TASKS,
 

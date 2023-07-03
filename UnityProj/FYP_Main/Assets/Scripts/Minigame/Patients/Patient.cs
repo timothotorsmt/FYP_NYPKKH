@@ -19,6 +19,8 @@ namespace PatientManagement
 
         // Decoration information
         [SerializeField] private GameObject bodyModel;
+
+        public List<string> KeyNotes = new List<string>();
     }
 
     // The straights are winning i guess

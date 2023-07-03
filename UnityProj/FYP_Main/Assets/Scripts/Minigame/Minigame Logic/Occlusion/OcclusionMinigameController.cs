@@ -28,30 +28,30 @@ public class OcclusionMinigameController : MonoBehaviour
                 _occlusionScenario = OcclusionScenario.CLAMPED_ROLLER_CLAMP;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.CHECK_UPSTREAM);
                 _rollerClamp.SetRollerClampClose();
-                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.OPEN_ROLLER_CLAMP);
-                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.OPEN_ROLLER_CLAMP);
                 break;
             case Difficulty.LEVEL_2:
                 // Hardcode the alarm code 
                 _occlusionScenario = OcclusionScenario.KINKED_LINES;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
-                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.UNKINK_LINE);
-                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.UNKINK_LINE);
                 break;
             case Difficulty.LEVEL_3:
                 // Hardcode the alarm code 
                 _occlusionScenario = OcclusionScenario.T_CONNECTOR;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
                 _tConnector.CloseTConnector();
-                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.UNCLAMP_T_CONNECTOR);
-                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.UNCLAMP_T_CONNECTOR);
                 break;
             case Difficulty.LEVEL_4:
                 // Hardcode the alarm code 
                 _occlusionScenario = OcclusionScenario.THREEWAY_TAP;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
-                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.UNCLAMP_T_CONNECTOR);
-                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.UNCLAMP_T_CONNECTOR);
                 break;
             case Difficulty.LEVEL_5:
             case Difficulty.LEVEL_6:
@@ -59,7 +59,8 @@ public class OcclusionMinigameController : MonoBehaviour
                 _occlusionScenario = OcclusionScenario.PHLEBITIS;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
                 _phlebitisController.SetPhlebitis();
-                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.ASSESS_SKIN);
+                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.ASSESS_SKIN);
                 break;
             case Difficulty.LEVEL_10:
             case Difficulty.BOSS:

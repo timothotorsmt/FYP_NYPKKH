@@ -2,59 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
+using UniRx;
 
-public class ChlorhexidineWipe : SliderAction
+public class ChlorhexidineWipe : MonoBehaviour
 {
     // Add any extra variables
-    [SerializeField] private GameObject _wipe;
-    [SerializeField] private int _amtSwipes = 5;
-    private int _swipeCount = 0;
-    private bool _directionFlag = false;
+    [SerializeField] private UnityEvent _cleanItemEvent;
+    [SerializeField] private GameObject _radialSlider;
+    [SerializeField] private DragHover _dragHover;
 
-    private void OnDisable()
+    private void Start()
     {
-        _slider.onValueChanged.RemoveAllListeners();
-    }
-
-    private void OnEnable()
-    {
-        _slider.onValueChanged.AddListener(delegate { SetSliderComplete(); });
-        _swipeCount = 0;
-    }
-
-    private void SetSliderComplete()
-    {
-        if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLEAN_WITH_SWAB)
+        PeripheralSetupTaskController.Instance.CurrentTask.Value.Subscribe(state =>
         {
-            if (_directionFlag)
+            if (state == PeripheralSetupTasks.CLEAN_WITH_SWAB)
             {
-                if (_slider.value > 0.5f)
-                {
-                    _directionFlag = false;
-                }
+                _dragHover.SetDisable(false);
             }
             else
             {
-                if (_slider.value < 0.5f)
-                {
-                    _directionFlag = true;
-                    _swipeCount++;
-                }
+                _dragHover.SetDisable(true);
             }
+        });
+    }
 
-            if (_swipeCount > _amtSwipes)
-            {
-                // Skip the unpacking of the IV tube right now 
-                // TODO: resolve this
-                PeripheralSetupTaskController.Instance.AssignNextTaskContinuous(PeripheralSetupTasks.CLAMP_ROLLER_CLAMP);
-                PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-                _sliderPassEvent.Invoke();
-                _slider.interactable = false;
-                _wipe.GetComponent<Image>().DOFade(0, 1.0f);
-                _slider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
-
-            }
+    public void SetSliderComplete()
+    {
+        if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLEAN_WITH_SWAB)
+        {
+            
+            // Skip the unpacking of the IV tube right now 
+            // TODO: resolve this
+            PeripheralSetupTaskController.Instance.AssignNextTaskContinuous(PeripheralSetupTasks.CLAMP_ROLLER_CLAMP);
+            PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+            _cleanItemEvent.Invoke();
+            _radialSlider.SetActive(false);
         }
     }
 }
