@@ -7,5 +7,6 @@ public enum MinigameID
     DEFAULT,
     OCCLUSION_1,
     PERI_LINE_SETUP,
+    PERIPHERAL_SETUP,
 
 }

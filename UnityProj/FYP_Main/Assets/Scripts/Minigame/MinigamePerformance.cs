@@ -59,6 +59,8 @@ public class MinigamePerformance : MonoBehaviour
         else {
             PerformanceGrade = Grade.FAIL;
         }
+
+        _performanceReviewScreen.SetActive(true);
     }
 }
 

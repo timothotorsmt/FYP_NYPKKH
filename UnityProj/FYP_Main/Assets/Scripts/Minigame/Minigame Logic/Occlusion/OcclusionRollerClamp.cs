@@ -43,6 +43,7 @@ public class OcclusionRollerClamp : SliderAction
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+            
             _sliderPassEvent.Invoke();
             _slider.onValueChanged.RemoveAllListeners();
             _slider.onValueChanged.AddListener(delegate {WaitForIncorrectInput();});
@@ -51,15 +52,9 @@ public class OcclusionRollerClamp : SliderAction
 
     private void WaitForIncorrectInput()
     {
-        if (_slider.value >= _reqToClosePass)
-        {
-            // Good enough, mark as pass and move on
-            OcclusionTaskController.Instance.AssignTasks(OcclusionTasks.OPEN_ROLLER_CLAMP);
-            _failEvent.Invoke();
-            _slider.onValueChanged.RemoveAllListeners();
-            _slider.onValueChanged.AddListener(delegate {RollerClampOpenListener();});
-
-        }
+        // Should not be touching it rn
+        _slider.value = _reqToPass;
+        _failEvent.Invoke();
     }
 
     

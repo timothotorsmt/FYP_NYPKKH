@@ -19,6 +19,6 @@ namespace Core.SceneManagement {
         HUB,
         MINIGAME,
         SETTINGS,
-        SCOREBOARD
+        PROTOTYPE,
     }
 }

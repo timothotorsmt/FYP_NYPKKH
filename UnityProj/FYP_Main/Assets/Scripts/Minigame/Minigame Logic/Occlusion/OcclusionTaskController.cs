@@ -31,6 +31,9 @@ public enum OcclusionTasks
     // Scenario 4: 3 Way tap
     FIX_3WAY_TAP,
 
+    // Don't know if this is a thing
+    START_PUMP,
+
     // Scenario 5: Phlebitis
     ASSESS_SKIN,
     CLAMP_T_CONNECTOR,
@@ -40,10 +43,7 @@ public enum OcclusionTasks
     DISCONNECT_TUBING_FROM_PLUG,
     REMOVE_TEGADERM,
     PULL_OUT_PLUG,
-    USE_GAUZE,
     PUT_PLASTER,
-
-    START_PUMP,
 
     NUM_MANDATORY_TASKS,
 

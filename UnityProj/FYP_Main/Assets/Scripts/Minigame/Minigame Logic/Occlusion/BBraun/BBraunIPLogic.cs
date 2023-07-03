@@ -245,7 +245,7 @@ namespace BBraunInfusomat
             {
                 // check if rate and time are correct
                 
-                if (true)
+                if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
 
@@ -350,6 +350,24 @@ namespace BBraunInfusomat
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                 }
             }
+        }
+
+        private void StartPumpBehaviour()
+        {
+            if (PeripheralSetupTaskController.Instance != null)
+            {
+                if (PeripheralSetupTaskController.Instance.CurrentTask.GetValue() == PeripheralSetupTasks.START_PUMP)
+                {
+                    // Add animation or whatever here
+                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+                    BBraunState.SetValue(BBraunIPState.NORMAL);
+                }
+            }
+        }
+
+        public void StartPumpControl()
+        {
+            _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { StartPumpBehaviour(); });
         }
 
         #endregion

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 218257673}
   - component: {fileID: 218257672}
   - component: {fileID: 218257671}
+  - component: {fileID: 218257674}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -206,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 218257672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 218257674}
+        m_TargetAssemblyTypeName: MinigamePopup, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &218257672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +258,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218257669}
   m_CullTransparentMesh: 1
+--- !u!114 &218257674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218257669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idMinigame: 1
+  _difficulty: 1
 --- !u!1 &319860847
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +407,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319860847}
   m_CullTransparentMesh: 1
+--- !u!1 &325490988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325490990}
+  - component: {fileID: 325490989}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &325490989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325490988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd53f26605b21d3408e26b1b6ea140cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneList: {fileID: 11400000, guid: 5811a02d5191d014598a6b5d1342aa8f, type: 2}
+--- !u!4 &325490990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325490988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1516838, y: -1.0575593, z: 0.013253959}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434008103
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +464,7 @@ GameObject:
   - component: {fileID: 434008107}
   - component: {fileID: 434008106}
   - component: {fileID: 434008105}
+  - component: {fileID: 434008108}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -463,7 +536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 434008106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 434008108}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &434008106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +587,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434008103}
   m_CullTransparentMesh: 1
+--- !u!114 &434008108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434008103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idMinigame: 1
+  _difficulty: 3
 --- !u!1 &453444354
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +659,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Peripheral Line Setup [Hard]
+  m_text: 'CVL Prerequisite Gathering Minigame
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -784,6 +885,7 @@ GameObject:
   - component: {fileID: 653347371}
   - component: {fileID: 653347370}
   - component: {fileID: 653347369}
+  - component: {fileID: 653347372}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -855,7 +957,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 653347370}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 653347372}
+        m_TargetAssemblyTypeName: MinigamePopup, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &653347370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,6 +1008,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653347367}
   m_CullTransparentMesh: 1
+--- !u!114 &653347372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653347367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idMinigame: 1
+  _difficulty: 2
+--- !u!1 &819728517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819728519}
+  - component: {fileID: 819728518}
+  m_Layer: 0
+  m_Name: Mingame Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &819728518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819728517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4067aeb5498b3745857068ad4d9a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficulty: {fileID: 11400000, guid: a97426bfe3f49c7448107c1afd8aaea0, type: 2}
+  _minigameList: {fileID: 11400000, guid: feb51bb7fd8f594488aaf1b84cb56ed6, type: 2}
+--- !u!4 &819728519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819728517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6415493, y: 1.9527266, z: 0.43193886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &833657990
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +1080,7 @@ GameObject:
   - component: {fileID: 833657994}
   - component: {fileID: 833657993}
   - component: {fileID: 833657992}
+  - component: {fileID: 833657995}
   m_Layer: 5
   m_Name: Button (4)
   m_TagString: Untagged
@@ -977,7 +1152,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 833657993}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 833657995}
+        m_TargetAssemblyTypeName: MinigamePopup, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &833657993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1203,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833657990}
   m_CullTransparentMesh: 1
+--- !u!114 &833657995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833657990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idMinigame: 1
+  _difficulty: 5
 --- !u!1 &931906103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,10 +1372,10 @@ RectTransform:
   m_Father: {fileID: 2071320426}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1025.12, y: 362.49}
-  m_SizeDelta: {x: 601.77, y: 445.02}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 367, y: -316}
+  m_SizeDelta: {x: 601.77, y: 445.02002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1064278907
 MonoBehaviour:
@@ -1315,7 +1516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 261.66, y: -10.13}
+  m_AnchoredPosition: {x: 261.66003, y: -10.130005}
   m_SizeDelta: {x: -1225.56, y: -121.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444700665
@@ -1950,6 +2151,7 @@ GameObject:
   - component: {fileID: 1973445462}
   - component: {fileID: 1973445461}
   - component: {fileID: 1973445460}
+  - component: {fileID: 1973445463}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2021,7 +2223,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1973445461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1973445463}
+        m_TargetAssemblyTypeName: MinigamePopup, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1973445461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,6 +2274,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973445458}
   m_CullTransparentMesh: 1
+--- !u!114 &1973445463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973445458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idMinigame: 2
+  _difficulty: 1
 --- !u!1 &2064123428
 GameObject:
   m_ObjectHideFlags: 0

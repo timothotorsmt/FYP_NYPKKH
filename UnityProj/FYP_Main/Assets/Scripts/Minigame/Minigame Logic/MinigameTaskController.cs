@@ -60,8 +60,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
             {
                 // End of game
                 // Maybe chat will be activated or whatever
-                CurrentMinigamePerformance.EvaluatePerformance();
-                _finishEvent.Invoke();
+                EndGame();
                 return true;
             }
         }
@@ -92,5 +91,8 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     public void EndGame()
     {
         // Display the performance review screen
+        //CurrentMinigamePerformance.EvaluatePerformance();
+        //MinigameSceneController.Instance.EndMinigame();
+        _finishEvent.Invoke();
     }
 }
