@@ -222,17 +222,21 @@ namespace BBraunInfusomat
 
         private IEnumerator SelectedLineSeq()
         {
-            _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN);
+            if (_displayState.GetValue() == BBraunDisplayState.LINE_SELECTION_SCREEN)
+            {
+                _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN);
 
-            yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(2.0f);
 
-            _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN_OPEN_ROLLER);
+                _displayState.SetValue(BBraunDisplayState.LINE_CHANGE_SCREEN_OPEN_ROLLER);
 
-            yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(2.0f);
 
+                
+            }
+            
             _displayState.SetValue(BBraunDisplayState.MAIN_MENU);
             _OnEnterParams.Invoke();
-
         }
 
         private void SetDisplayState(BBraunDisplayState displayState)
@@ -292,23 +296,25 @@ namespace BBraunInfusomat
             
         }
 
-        public void SetParam(int numToSet)
+        public void SetParam(string numToSet)
         {
             switch (_bBraunIPLogic.BBraunState.GetValue())
             {
                 case BBraunIPState.VBTI_KEY_IN:
-                    _paramMenuList[1]._info.text = numToSet.ToString();
+                    _paramMenuList[1]._info.text = numToSet + " ml";
                     break;
 
                 case BBraunIPState.TIME_KEY_IN:
-                    _paramMenuList[2]._info.text = numToSet.ToString();
+                    _paramMenuList[2]._info.text = numToSet + " h:min";
                     break;
             }
         }
 
         public void SetRate(float rate)
         {
-            _paramMenuList[0]._info.text = rate.ToString();
+            // TODO figure out why this isnt working
+            string s = String.Format("{0:0.00}", rate);
+            _paramMenuList[0]._info.text = s + " ml/h";
 
         }
     }

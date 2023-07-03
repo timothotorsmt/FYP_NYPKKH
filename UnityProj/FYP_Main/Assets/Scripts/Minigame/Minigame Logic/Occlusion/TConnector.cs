@@ -3,22 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UniRx;
 
 public class TConnector : SliderAction
 {
     [SerializeField] private Slider _tConnectorOpen;
     [SerializeField] private Slider _tConnectorUnclamp;
+    [SerializeField] private GameObject _tConnectorGameObject;
+
+    private CompositeDisposable _cd;
 
     private void OnDisable()
     {
+        _cd.Dispose();
         _tConnectorOpen.onValueChanged.RemoveAllListeners();
         _tConnectorUnclamp.onValueChanged.RemoveAllListeners();
     }
 
     private void OnEnable()
     {
-        _tConnectorUnclamp.onValueChanged.AddListener(delegate { SetUnClampItem(); });
-        _tConnectorOpen.onValueChanged.AddListener(delegate { SetClampItem(); });
+        _cd = new CompositeDisposable();
+        OcclusionTaskController.Instance.CurrentTask.Value.Subscribe(state => 
+        {
+            if (state == OcclusionTasks.UNCLAMP_T_CONNECTOR)
+            {
+                _tConnectorUnclamp.onValueChanged.AddListener(delegate { SetUnClampItem(); });
+                _tConnectorUnclamp.gameObject.SetActive(true);
+                _tConnectorOpen.gameObject.SetActive(false);
+                _tConnectorGameObject.SetActive(true);
+            }
+            else if (state == OcclusionTasks.CLAMP_T_CONNECTOR)
+            {
+                _tConnectorOpen.onValueChanged.AddListener(delegate { SetClampItem(); });
+                _tConnectorUnclamp.gameObject.SetActive(false);
+                _tConnectorOpen.gameObject.SetActive(true);
+                _tConnectorGameObject.SetActive(true);
+            }
+            else 
+            {
+                _tConnectorUnclamp.gameObject.SetActive(false);
+                _tConnectorOpen.gameObject.SetActive(false);
+                _tConnectorGameObject.SetActive(false);
+            }
+        }).AddTo(_cd);
     }
 
     private void SetClampItem()
@@ -34,6 +61,11 @@ public class TConnector : SliderAction
             _tConnectorOpen.onValueChanged.RemoveListener(delegate { SetClampItem(); });
         }
 
+    }
+
+    public void CloseTConnector()
+    {
+        _slider.value = 1;
     }
 
     private void SetUnClampItem()

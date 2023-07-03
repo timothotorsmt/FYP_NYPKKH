@@ -19,9 +19,13 @@ namespace BBraunInfusomat
         [SerializeField] private List<int> _VTBI;
         private int _VTBIIndex;
         public int _VBTIValue;
+        public bool _hasKeyedInVTBI;
         [SerializeField] private List<int> _time;
         public int _timeValue;
         private int _timeIndex;
+        public bool _hasKeyedInTime;
+        public float _rateValue;
+
 
 
         #region Alarm Behavior
@@ -31,15 +35,21 @@ namespace BBraunInfusomat
             BBraunState.SetValue(newState);
             // Mute only
             _bBraunIPInput._resetValueButton.onClick.AddListener(delegate { MuteAlarm(); });
+            _bBraunIPInput._onOffButton.onClick.AddListener(delegate { PutPumpStandby(); });
         }
 
         public void ResolveAlarm()
         {
-            // Stop sound
-            // Mark task as done 
-            OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
-            _bBraunIPInput._okButton.onClick.RemoveListener(delegate { ResolveAlarm(); });
-            BBraunState.SetValue(BBraunIPState.NORMAL);
+
+            // Idk what put pump on standby means tbvh
+            if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.PUT_PUMP_ON_STANDBY)
+            {
+                // Stop sound
+                // Mark task as done 
+                OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+                _bBraunIPInput._okButton.onClick.RemoveListener(delegate { ResolveAlarm(); });
+                BBraunState.SetValue(BBraunIPState.NORMAL);
+            }
 
         }
 
@@ -52,6 +62,18 @@ namespace BBraunInfusomat
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
                 _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { MuteAlarm(); });
                 BBraunState.SetValue(BBraunIPState.NORMAL);
+            }
+        }
+
+        public void PutPumpStandby()
+        {
+            if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.PUT_PUMP_ON_STANDBY)
+            {
+                // Stop sound
+                // Mark task as done 
+                OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+                _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { PutPumpStandby(); });
+                TurnOffMachine();
             }
         }
 
@@ -84,6 +106,7 @@ namespace BBraunInfusomat
         {
 
             // Add power off functionality (?)
+            _bBraunIPInput._onOffButton.onClick.AddListener(delegate { TurnOffMachine(); });
 
             // Set to waiting
             BBraunState.SetValue(BBraunIPState.WAITING);
@@ -120,6 +143,8 @@ namespace BBraunInfusomat
         private void SelectedLine()
         {
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+            _hasKeyedInVTBI = false;
+            _hasKeyedInTime = false;
         }
         
         public void SetControlsParamSelect()
@@ -129,6 +154,7 @@ namespace BBraunInfusomat
 
             // Select behavior
             _bBraunIPInput._leftButton.onClick.AddListener(delegate { SetDigitControls(); });
+
         }
 
         public void SetDigitControls()
@@ -138,11 +164,13 @@ namespace BBraunInfusomat
             {
                 BBraunState.SetValue(BBraunIPState.VBTI_KEY_IN);
                 _VTBIIndex = 0;
+                _bBraunIPUIDisplay.SetDigit(_VTBIIndex);
             }
             else if (_paramSelectIndex == 2)
             {
                 BBraunState.SetValue(BBraunIPState.TIME_KEY_IN);
                 _timeIndex = 0;
+                _bBraunIPUIDisplay.SetDigit(_timeIndex);
             }
 
             _bBraunIPInput.RemoveAllFunctionality();
@@ -176,18 +204,59 @@ namespace BBraunInfusomat
             // Calculate the existing stuff
             if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
             {
+                _VBTIValue = 0;
                 for (int i = 0; i < _VTBI.Count; i++)
                 {
                     _VBTIValue += (int)(_VTBI[i] * Mathf.Pow(10, i));
                 }
+
+                if (_VBTIValue != 0)
+                {
+                    _bBraunIPUIDisplay.SetParam(_VBTIValue.ToString());
+                    _hasKeyedInVTBI = true;
+                }
+                else 
+                {
+                    _bBraunIPUIDisplay.SetParam("---");
+                    _hasKeyedInVTBI = false;
+                }
             }
             else if (BBraunState.GetValue() == BBraunIPState.TIME_KEY_IN)
             {
-                for (int i = 0; i < _VTBI.Count; i++)
+                _timeValue = 0;
+                for (int i = 0; i < _time.Count; i++)
                 {
                     _timeValue += (int)(_time[i] * Mathf.Pow(10, i));
                 }
+
+                if (_timeValue != 0)
+                {
+                    _bBraunIPUIDisplay.SetParam(_timeValue.ToString());
+                    _hasKeyedInTime = true;
+                }
+                else
+                {
+                    _bBraunIPUIDisplay.SetParam("---");
+                    _hasKeyedInTime = false;
+                }
             }
+
+            if (_hasKeyedInTime && _hasKeyedInVTBI)
+            {
+                // check if rate and time are correct
+                
+                if (true)
+                {
+                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+
+                }
+
+                _rateValue = _VBTIValue / _timeValue;
+                _bBraunIPUIDisplay.SetRate(_rateValue);
+            }
+
+            BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+
         }
 
         private void SetDigitUp()

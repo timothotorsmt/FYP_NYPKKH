@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1738283e532214dacb263460261aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chatLocation: Assets/Assets/ChatFiles/test.csv
+  _chatFileName: ChatFiles/test
   _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}
 --- !u!4 &1020405769
 Transform:

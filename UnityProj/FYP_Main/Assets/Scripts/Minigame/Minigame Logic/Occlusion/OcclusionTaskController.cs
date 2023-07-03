@@ -24,13 +24,12 @@ public enum OcclusionTasks
 
     // Scenario 3: T-Connector
     UNCLAMP_T_CONNECTOR,
+
+    // Scenario 4: 3 Way tap
     FIX_3WAY_TAP,
 
-    // Scenario 4: No Phlebitis
-    ASSESS_SKIN,
-    RESTART_DRIP,
-
     // Scenario 5: Phlebitis
+    ASSESS_SKIN,
     CLAMP_T_CONNECTOR,
     PUT_PUMP_ON_STANDBY,
     INFORM_STAFF_NURSE,

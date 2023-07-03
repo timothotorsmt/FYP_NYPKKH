@@ -45,8 +45,8 @@ public class UnkinkingLine : SliderAction
             Sequence seq = DOTween.Sequence();
             _unkinedLine.SetActive(true);
             seq.PrependInterval(0.5f);
-            seq.Append(_kinkedLine.GetComponent<Image>().DOFade(0, 0.5f));
-            seq.Append(_unkinedLine.GetComponent<Image>().DOFade(1, 0.5f));
+            seq.Append(_kinkedLine.GetComponent<Image>().DOFade(0, 0.5f)).SetEase(Ease.Linear);
+            seq.Join(_unkinedLine.GetComponent<Image>().DOFade(1, 0.5f)).SetEase(Ease.Linear);
 
             _slider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }

@@ -10,6 +10,7 @@ using UniRx;
 public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController<TaskType>> where TaskType : struct, System.Enum
 {
     #region variables
+    public MinigamePerformance CurrentMinigamePerformance;
     public ReactiveProp<TaskType> CurrentTask = new ReactiveProp<TaskType>();
     // this function keeps the next task in ready for temporary / optional tasks
     protected TaskType _nextTask;
@@ -37,6 +38,8 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         // increase the next task
         _nextTask = (TaskType)(object)index;
         Debug.Log(CurrentTask.GetValue().ToString());
+
+        CurrentMinigamePerformance.AddPositiveAction();
     }
 
     protected void SetFirstTask()
@@ -57,6 +60,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
             {
                 // End of game
                 // Maybe chat will be activated or whatever
+                CurrentMinigamePerformance.EvaluatePerformance();
                 _finishEvent.Invoke();
                 return true;
             }
@@ -87,6 +91,6 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
     public void EndGame()
     {
-        MinigameSceneController.Instance.EndMinigame();
+        // Display the performance review screen
     }
 }
