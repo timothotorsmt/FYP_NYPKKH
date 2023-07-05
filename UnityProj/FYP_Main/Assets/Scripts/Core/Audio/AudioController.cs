@@ -8,6 +8,7 @@ using UniRx;
 
 namespace Audio
 {
+   // The controller of the audio system 
    public class AudioController : Singleton<AudioController>
     {
         public bool IsDebug;

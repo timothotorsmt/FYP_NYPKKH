@@ -10,6 +10,11 @@ namespace ChatSys
     {
         // TODO: make this more modular and extendible
         [SerializeField] private string _chatFileName;
+
+        // Normal variables
+        [SerializeField] private string _easyChatFileName;
+        [SerializeField] private string _normalChatFileName;
+        [SerializeField] private string _hardChatFileName;
         [SerializeField] private ChatList _chatListContainer;
 
         // Start is called before the first frame update
@@ -88,7 +93,7 @@ namespace ChatSys
 
                     if (dataValues.Length > 6) {
                         temp_chatNode.Questions = new List<List<string>>();
-                        // Questions and answers
+                        // Fill in questions and answers
                         for (int i = 6; i < dataValues.Length - 1; i+=2) {
                             if (dataValues[i] != "" && dataValues[i+1] != "") {
                                 List<string> x = new List<string>();

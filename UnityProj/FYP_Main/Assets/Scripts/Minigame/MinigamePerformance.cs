@@ -33,7 +33,7 @@ public class MinigamePerformance : MonoBehaviour
 
     public void AddNegativeAction(string error)
     {
-        _totalNumPoints -= 10;
+        _totalNumPoints -= 15;
         _errors.Add(error);
     }
 

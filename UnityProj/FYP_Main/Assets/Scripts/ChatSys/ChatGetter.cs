@@ -88,7 +88,7 @@ public class ChatGetter : Singleton<ChatGetter>
     public List<ChatNode> GetChatList(string check_ID) 
     {
         // Count how many chat nodes with the ID exist
-        int count = _chatListContainer.ChatNodeList.Count(p => p.ID == check_ID);
+        int count = GetNumChats(check_ID);
         if (count == 0) {
             // if there are no results; display a warning 
             Debug.LogWarning("Requested ID of "+ check_ID + " returned no results. Are you sure the ID is correct?");
@@ -116,9 +116,10 @@ public class ChatGetter : Singleton<ChatGetter>
         return result;
     }
 
+    // Get questions for the 
     public List<List<string>> GetQuestions(string check_ID) {
         // Count how many chats with the ID exist
-        int count = _chatListContainer.ChatNodeList.Count(p => p.ID == check_ID);
+        int count = GetNumChats(check_ID);
         if (count != 0) {
             // This is not really that efficient but we will fix this lat er  
             var result = _chatListContainer.ChatNodeList.Where(s => s.ID == check_ID).ToList().OrderBy(s => s.Order);
@@ -128,6 +129,11 @@ public class ChatGetter : Singleton<ChatGetter>
         }
         
         return null;
+    }
+
+    private int GetNumChats(string ID)
+    {
+        return _chatListContainer.ChatNodeList.Count(p => p.ID == ID);
     }
 
 }

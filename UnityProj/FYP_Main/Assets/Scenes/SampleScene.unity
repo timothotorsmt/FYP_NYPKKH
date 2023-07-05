@@ -1305,6 +1305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chatFileName: ChatFiles/test
+  _easyChatFileName: 
+  _normalChatFileName: 
+  _hardChatFileName: 
   _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}
 --- !u!4 &1020405769
 Transform:
@@ -2102,7 +2105,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Name
-      value: Panel
+      value: DialoguePanels
       objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168939, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Pivot.x
