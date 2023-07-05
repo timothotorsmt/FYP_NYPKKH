@@ -21,5 +21,9 @@ public class AssessSkin : MonoBehaviour
             _chat.DisplayChatLine("#OCCLPA");
             _button.SetActive(false);
         }
+        else 
+        {
+            _chat.DisplayChatLine("#OCCLPC");
+        }
     }
 }

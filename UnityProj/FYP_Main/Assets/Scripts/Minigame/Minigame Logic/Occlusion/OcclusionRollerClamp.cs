@@ -42,6 +42,7 @@ public class OcclusionRollerClamp : SliderAction
         if (_slider.value <= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.OPEN_ROLLER_CLAMP)
         {
             // Good enough, mark as pass and move on
+            OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
             
             _sliderPassEvent.Invoke();

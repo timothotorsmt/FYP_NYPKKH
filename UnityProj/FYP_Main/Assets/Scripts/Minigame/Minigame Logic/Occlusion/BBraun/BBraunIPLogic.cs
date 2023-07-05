@@ -53,6 +53,21 @@ namespace BBraunInfusomat
 
         }
 
+        public void RestartPump()
+        {
+            // Might have to remove ??? 
+            if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.START_PUMP)
+            {
+                // Add check if issue is resolved????????
+                _bBraunIPInput._startStopInfusionButton.onClick.RemoveListener(delegate { RestartPump(); });
+                BBraunState.SetValue(BBraunIPState.NORMAL);
+                
+                // End the minigame
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.NUM_MANDATORY_TASKS);
+                OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+            }
+        }
+
         public void MuteAlarm()
         {
             if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.MUTE_ALARM)
@@ -61,7 +76,8 @@ namespace BBraunInfusomat
                 // Mark task as done 
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
                 _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { MuteAlarm(); });
-                BBraunState.SetValue(BBraunIPState.NORMAL);
+                _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { RestartPump(); });
+                BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
             }
         }
 

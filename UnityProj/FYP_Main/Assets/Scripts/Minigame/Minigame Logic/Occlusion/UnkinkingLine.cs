@@ -37,6 +37,7 @@ public class UnkinkingLine : SliderAction
         if (_slider.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNKINK_LINE)
         {
             // Good enough, mark as pass and move on
+            OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
             _slider.interactable = false;

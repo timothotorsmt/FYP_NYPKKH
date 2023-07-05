@@ -46,7 +46,7 @@ public class MinigamePerformance : MonoBehaviour
         }
         else if (score >= 0.5f)
         {
-            PerformanceGrade = Grade.AMAZING;
+            PerformanceGrade = Grade.GREAT;
         }
         else if (score >= 0.25f)
         {
@@ -68,7 +68,7 @@ public class MinigamePerformance : MonoBehaviour
 public enum Grade
 {
     PERFECT,
-    AMAZING,
+    GREAT,
     GOOD,
     MEH,
     FAIL
