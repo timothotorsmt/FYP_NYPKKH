@@ -28,6 +28,8 @@ public class PeelFoil : SliderAction
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
             _slider.interactable = false;
+            // Fade the image out
+            _slider.gameObject.SetActive(false);
             _foil.GetComponent<Image>().DOFade(0, 1.0f);
             _slider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }

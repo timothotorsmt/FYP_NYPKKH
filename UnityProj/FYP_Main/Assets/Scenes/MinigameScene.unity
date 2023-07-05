@@ -2557,6 +2557,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chatFileName: ChatFiles/test
+  _easyChatFileName: 
+  _normalChatFileName: 
+  _hardChatFileName: 
   _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}
 --- !u!4 &1907995090
 Transform:
