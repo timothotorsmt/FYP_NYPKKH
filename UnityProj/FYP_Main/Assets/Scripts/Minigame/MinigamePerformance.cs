@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Core.Input;
 
 public class MinigamePerformance : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MinigamePerformance : MonoBehaviour
     [SerializeField] private Image _resultDisplay;
     [SerializeField] private GameObject _levelUp;
     [SerializeField] private Slider _levelUpSlider;
+    [SerializeField] private MinigameReaction _reaction;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +31,15 @@ public class MinigamePerformance : MonoBehaviour
     {
         _totalNumPoints += 10;
         _totalPossiblePoints += 10;
+        _reaction.SetHappyReaction(InputUtils.GetInputPosition());
     }
 
     public void AddNegativeAction(string error)
     {
         _totalNumPoints -= 15;
         _errors.Add(error);
+        _reaction.SetSadReaction(InputUtils.GetInputPosition());
+
     }
 
     public void EvaluatePerformance()

@@ -15,7 +15,7 @@ public class ChatGetter : Singleton<ChatGetter>
     // Current index for the chat (order)
     private int _currentIndex;
     // To display the chat UI
-    private ChatUIDisplay _chatDisplayUI;
+    [SerializeField] private ChatUIDisplay _chatDisplayUI;
     // The current (or latest) speaker
     private Speaker _speaker;
     // The container containing all the nodes
@@ -26,7 +26,6 @@ public class ChatGetter : Singleton<ChatGetter>
     
     public void Start()
     {
-        _chatDisplayUI = GetComponent<ChatUIDisplay>();
     }
 
     // Start the chatting system
