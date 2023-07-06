@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx.Extention;
 using System;
+using UnityEngine.Events;
 
 namespace BBraunInfusomat
 {
@@ -25,7 +26,7 @@ namespace BBraunInfusomat
         private int _timeIndex;
         public bool _hasKeyedInTime;
         public float _rateValue;
-
+        [SerializeField] private UnityEvent _onEnterCorrectParams;
 
 
         #region Alarm Behavior
@@ -34,7 +35,7 @@ namespace BBraunInfusomat
         {
             BBraunState.SetValue(newState);
             // Mute only
-            _bBraunIPInput._resetValueButton.onClick.AddListener(delegate { MuteAlarm(); });
+            _bBraunIPInput._okButton.onClick.AddListener(delegate { MuteAlarm(); });
             _bBraunIPInput._onOffButton.onClick.AddListener(delegate { PutPumpStandby(); });
         }
 
@@ -61,7 +62,7 @@ namespace BBraunInfusomat
                 // Add check if issue is resolved????????
                 _bBraunIPInput._startStopInfusionButton.onClick.RemoveListener(delegate { RestartPump(); });
                 BBraunState.SetValue(BBraunIPState.NORMAL);
-                
+
                 // End the minigame
                 OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.NUM_MANDATORY_TASKS);
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
@@ -75,7 +76,7 @@ namespace BBraunInfusomat
                 // Stop sound
                 // Mark task as done 
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
-                _bBraunIPInput._resetValueButton.onClick.RemoveListener(delegate { MuteAlarm(); });
+                _bBraunIPInput._okButton.onClick.RemoveListener(delegate { MuteAlarm(); });
                 _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { RestartPump(); });
                 BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
             }
@@ -264,7 +265,7 @@ namespace BBraunInfusomat
                 if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-
+                    _onEnterCorrectParams.Invoke();
                 }
 
                 _rateValue = _VBTIValue / _timeValue;

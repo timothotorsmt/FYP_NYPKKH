@@ -27,7 +27,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     }
 
     // Move to next task
-    public void MarkCurrentTaskAsDone()
+    public void MarkCurrentTaskAsDone(bool show = true)
     {
         if (CheckIfGameOver()) { return; }
         
@@ -39,7 +39,10 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         _nextTask = (TaskType)(object)index;
         Debug.Log(CurrentTask.GetValue().ToString());
 
-        CurrentMinigamePerformance.AddPositiveAction();
+        if (show)
+        {
+            CurrentMinigamePerformance.AddPositiveAction();
+        }
     }
 
     protected void SetFirstTask()

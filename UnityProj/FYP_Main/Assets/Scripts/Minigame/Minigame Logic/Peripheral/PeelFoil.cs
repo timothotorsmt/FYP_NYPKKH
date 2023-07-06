@@ -25,6 +25,7 @@ public class PeelFoil : SliderAction
         if (_slider.value >= _reqToPass && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.PEEL_OFF_FOIL)
         {
             // Good enough, mark as pass and move on
+            
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
             _slider.interactable = false;

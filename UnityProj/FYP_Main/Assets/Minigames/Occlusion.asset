@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameName: Occulsion Minigame
   minigameID: 1
-  minigamePrefab: {fileID: 2236301938776303123, guid: 51db6ec793828af4ebd4e93e135f9283, type: 3}
+  minigamePrefab: {fileID: 4955923179792350968, guid: 51db6ec793828af4ebd4e93e135f9283, type: 3}

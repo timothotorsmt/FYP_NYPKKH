@@ -9,7 +9,10 @@ using UniRx;
 
 public class OcclusionTaskController : MinigameTaskController<OcclusionTasks>
 {
-
+    void Start()
+    {
+        _startEvent.Invoke();
+    }
 }
 
 // The tasks that need to be completed for this 

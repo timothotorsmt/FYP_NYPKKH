@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dcb2ab685fc0448aca1709ade0e369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chatDisplayUI: {fileID: 1020405766}
   _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}
   _speakerListContainer: {fileID: 11400000, guid: aba6a9bc114150b4090552def18bb971, type: 2}
 --- !u!114 &1020405768
@@ -1304,8 +1305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1738283e532214dacb263460261aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chatFileName: ChatFiles/test
-  _easyChatFileName: 
+  _chatFileName: ChatFiles/GameDialogue_Easy
+  _easyChatFileName: ChatFiles/GameDialogue_Easy
   _normalChatFileName: 
   _hardChatFileName: 
   _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}

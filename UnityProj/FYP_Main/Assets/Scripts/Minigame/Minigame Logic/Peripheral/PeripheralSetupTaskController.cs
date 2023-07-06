@@ -18,7 +18,7 @@ public class PeripheralSetupTaskController : MinigameTaskController<PeripheralSe
     public void OnFinishIntro()
     {
         // TODO: call this after intro sequence
-        MarkCurrentTaskAsDone();
+        MarkCurrentTaskAsDone(false);
     }
 }
 

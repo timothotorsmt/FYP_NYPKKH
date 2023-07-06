@@ -11,7 +11,6 @@ public class DripChamber : SliderAction
     [SerializeField] private Image _waterSprite;
     [SerializeField] private float _holdDuration = 3.0f;
     [SerializeField] private UnityEvent _bubbleOccurEvent;
-    [SerializeField] private UnityEvent _finishTaskEvent;
 
     private float _raiseAmount;
     private bool _hasBubbles;
@@ -50,7 +49,7 @@ public class DripChamber : SliderAction
                 // okay bubbles gone
                 _waterSprite.sprite = _waterLevelSprite;
                 PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-                _finishTaskEvent.Invoke();
+                _sliderPassEvent.Invoke();
             }
         }
     }
@@ -74,7 +73,7 @@ public class DripChamber : SliderAction
                 }
                 else
                 {
-                    _finishTaskEvent.Invoke();
+                    _sliderPassEvent.Invoke();
                 }
 
             }
