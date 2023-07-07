@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PeripheralHints : MonoBehaviour
@@ -38,9 +36,7 @@ public class PeripheralHints : MonoBehaviour
                 _chatGetter.DisplayChatLine("#PERIHI");
                 break;
             case PeripheralSetupTasks.CLEAN_IV_CLAVE:
-                _chatGetter.DisplayChatLine("#PERIHJ");
                 break;
-            case PeripheralSetupTasks.FLUSH_IV_PLUG_CLAVE:
                 _chatGetter.DisplayChatLine("#PERIHK");
                 break;
             case PeripheralSetupTasks.CONNECT_INFUSION_TUBING:

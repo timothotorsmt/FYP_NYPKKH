@@ -75,6 +75,7 @@ public class TConnector : SliderAction
         if (_tConnectorUnclamp.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
         {
             // Good enough, mark as pass and move on
+            OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
             _tConnectorUnclamp.interactable = false;
