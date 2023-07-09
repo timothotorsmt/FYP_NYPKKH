@@ -28,21 +28,25 @@ namespace Audio
 
         void OnDisable()
         {
+            // Dispose of all jobs on quit
             Dispose();
         }
 
         #region public functions
-
+        
+        // Play an audio track
         public void PlayAudio(SoundUID audioID, bool loop = false, bool fade = false, float fadeDuration = 1.0f, float delay = 0f)
         {
             AddJob(new AudioJob(AudioAction.START, audioID, loop, fade, delay, fadeDuration));
         }
 
+        // Stop an audio track
         public void StopAudio(SoundUID audioID, bool loop = false, bool fade = false, float fadeDuration = 1.0f, float delay = 0f)
         {
             AddJob(new AudioJob(AudioAction.STOP, audioID, loop, fade, delay, fadeDuration));
         }
 
+        // Restart an audio track
         public void RestartAudio(SoundUID audioID, bool loop = false, bool fade = false, float fadeDuration = 1.0f, float delay = 0f)
         {
             AddJob(new AudioJob(AudioAction.RESTART, audioID, loop, fade, delay, fadeDuration));
@@ -54,9 +58,10 @@ namespace Audio
 
         private void Dispose()
         {
-            // remove all 
+            // Remove all existing audio tracks
             foreach (DictionaryEntry kvp in _jobTable)
             {
+                // Get the current job from dictionary and stop it 
                 Coroutine _job = (Coroutine)kvp.Value;
                 if (_job != null) {
                     StopCoroutine(_job);
@@ -67,6 +72,7 @@ namespace Audio
         private void AddJob(AudioJob jobToAdd)
         {
             // Cancel any jobs that may be using this job's audio source
+            // Prevents double tracks playing <3
             RemoveConflictingJobs(jobToAdd.AudioID);
 
             Coroutine jobRunner = StartCoroutine(RunAudioJob(jobToAdd));
@@ -77,18 +83,21 @@ namespace Audio
         {
             if (!_jobTable.ContainsKey(audioID))
             {
-                // Error
+                // Self explainatory error 
                 Log("Trying to stop a job that is not currently running");
                 return;
             }
 
+            // If it exists, stop it
             Coroutine runningJob = (Coroutine)_jobTable[audioID];
             if (runningJob != null) {
                 StopCoroutine(runningJob);
             }
+            // Remove it from job table
             _jobTable.Remove(audioID);
         }
-
+        
+        // Remove any conflicting jobs 
         private void RemoveConflictingJobs(SoundUID audioID)
         {
             // Cancel the job if one exists with the same audioID
