@@ -36,7 +36,6 @@ public class PeripheralHints : MonoBehaviour
                 _chatGetter.DisplayChatLine("#PERIHI");
                 break;
             case PeripheralSetupTasks.CLEAN_IV_CLAVE:
-                break;
                 _chatGetter.DisplayChatLine("#PERIHK");
                 break;
             case PeripheralSetupTasks.CONNECT_INFUSION_TUBING:

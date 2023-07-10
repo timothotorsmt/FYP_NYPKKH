@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UniRx;
 
-public class OcclusionRollerClamp : SliderAction
+public class OcclusionRollerClamp : TwoWaySlider
 {
-    [SerializeField, Range(0, 1)] private float _reqToClosePass;
-    [SerializeField] private UnityEvent _failEvent;
     
     void Start()
     {
@@ -19,43 +17,43 @@ public class OcclusionRollerClamp : SliderAction
         switch (OcclusionTaskController.Instance.GetCurrentTask())
         {
             case OcclusionTasks.OPEN_ROLLER_CLAMP:
-                _slider.onValueChanged.AddListener(delegate {RollerClampOpenListener();});
+                _mainSlider.onValueChanged.AddListener(delegate {RollerClampOpenListener();});
                 break; 
             default:
-                _slider.onValueChanged.AddListener(delegate {WaitForIncorrectInput();});
+                _mainSlider.onValueChanged.AddListener(delegate {WaitForIncorrectInput();});
                 break;
         }
     }
 
     private void OnDisable()
     {
-        _slider.onValueChanged.RemoveAllListeners();
+        _mainSlider.onValueChanged.RemoveAllListeners();
     }
 
     public void SetRollerClampClose()
     {
-        _slider.value = 1.0f;
+        _mainSlider.value = 1.0f;
     }
 
     private void RollerClampOpenListener()
     {
-        if (_slider.value <= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.OPEN_ROLLER_CLAMP)
+        if (_mainSlider.value <= _sliderOppPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.OPEN_ROLLER_CLAMP)
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
-            
-            _sliderPassEvent.Invoke();
-            _slider.onValueChanged.RemoveAllListeners();
-            _slider.onValueChanged.AddListener(delegate {WaitForIncorrectInput();});
+
+            _sliderOppPassEvent.Invoke();
+            _mainSlider.onValueChanged.RemoveAllListeners();
+            _mainSlider.onValueChanged.AddListener(delegate {WaitForIncorrectInput();});
         }
     }
 
     private void WaitForIncorrectInput()
     {
         // Should not be touching it rn
-        _slider.value = _reqToPass;
-        _failEvent.Invoke();
+        _mainSlider.value = _sliderPassReq;
+        _sliderOppPassEvent.Invoke();
     }
 
     

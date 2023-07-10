@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UnkinkingLine : SliderAction
+public class UnkinkingLine : BasicSlider
 {
     // Add any extra variables
     [SerializeField] private GameObject _kinkedLine;
@@ -12,7 +12,7 @@ public class UnkinkingLine : SliderAction
 
     private void OnDisable()
     {
-        _slider.onValueChanged.RemoveAllListeners();
+        _mainSlider.onValueChanged.RemoveAllListeners();
         DOTween.Kill(this);
     }
 
@@ -20,7 +20,7 @@ public class UnkinkingLine : SliderAction
     {
         if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNKINK_LINE)
         {
-            _slider.onValueChanged.AddListener(delegate { SetSliderComplete(); });
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderComplete(); });
             _kinkedLine.SetActive(true);
             _unkinedLine.SetActive(false);
         }
@@ -28,19 +28,19 @@ public class UnkinkingLine : SliderAction
         {
             _kinkedLine.SetActive(false);
             _unkinedLine.SetActive(true);
-            _slider.gameObject.SetActive(false);
+            _mainSlider.gameObject.SetActive(false);
         }
     }
 
     private void SetSliderComplete()
     {
-        if (_slider.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNKINK_LINE)
+        if (_mainSlider.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNKINK_LINE)
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
-            _slider.interactable = false;
+            _mainSlider.interactable = false;
 
             // Animation Sequence
             Sequence seq = DOTween.Sequence();
@@ -49,7 +49,7 @@ public class UnkinkingLine : SliderAction
             seq.Append(_kinkedLine.GetComponent<Image>().DOFade(0, 0.5f)).SetEase(Ease.Linear);
             seq.Join(_unkinedLine.GetComponent<Image>().DOFade(1, 0.5f)).SetEase(Ease.Linear);
 
-            _slider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
+            _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }
 
 

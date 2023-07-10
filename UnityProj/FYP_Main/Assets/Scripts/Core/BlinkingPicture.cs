@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class BlinkingPicture : MonoBehaviour
 {
+    [Header("Blinking Settings")]
     [SerializeField] private bool _isBlinking = true;
     [SerializeField, Range(0, 10)] private float _blinkIntervals = 1.0f;
-    [SerializeField,　Range(0, 10)] private float _delay = 0.0f;
+    [SerializeField, Range(0, 10)] private float _delay = 0.0f;
+
+    [Header("Decor Settings")]
+    [SerializeField] private Color _changeColor = Color.white;
+    [SerializeField] private Color _originalColor = Color.white;
     private Image _blinkingImage;
 
     private Sequence seq;
@@ -46,8 +51,8 @@ public class BlinkingPicture : MonoBehaviour
     private void StartBlinking()
     {
         seq = DOTween.Sequence();
-        seq.Append(_blinkingImage.DOColor(Color.white, _blinkIntervals / 2));
-        seq.Append(_blinkingImage.DOColor(Color.gray, _blinkIntervals / 2));
+        seq.Append(_blinkingImage.DOColor(_originalColor, _blinkIntervals / 2));
+        seq.Append(_blinkingImage.DOColor(_changeColor, _blinkIntervals / 2));
         seq.AppendInterval(_delay);
         seq.SetLoops(-1);
     }

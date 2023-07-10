@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 
-public class RemoveTubing : SliderAction
+public class RemoveTubing : BasicSlider
 {
     [SerializeField] private Slider _removeIVTube;
     [SerializeField] private Image _tubing;
@@ -26,9 +26,9 @@ public class RemoveTubing : SliderAction
 
     private void SetRemoveIVTube()
     {
-        _slider.value = _removeIVTube.value;
+        _mainSlider.value = _removeIVTube.value;
         
-        if (_slider.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.DISCONNECT_TUBING_FROM_PLUG)
+        if (_mainSlider.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.DISCONNECT_TUBING_FROM_PLUG)
         {
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();

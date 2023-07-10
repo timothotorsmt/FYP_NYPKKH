@@ -6,7 +6,8 @@ using UniRx.Extention;
 using UnityEngine.Events;
 using UniRx;
 
-// Controls the main game logic behind the peripheral line setup minigame
+// This class contains code to control the whole task system
+// The task system is what is used to control the whole minigame
 public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController<TaskType>> where TaskType : struct, System.Enum
 {
     #region variables
@@ -41,6 +42,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
         if (show)
         {
+            // Add a positive reaction <3 
             CurrentMinigamePerformance.AddPositiveAction();
         }
     }
@@ -58,7 +60,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
         if (exists) 
         {
-            // Check if all tasks have been completed
+            // Check if all mandatory tasks have been completed
             if (_nextTask.ToString() == "NUM_MANDATORY_TASKS")
             {
                 // End of game
@@ -86,6 +88,8 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
     public void AssignCurrentTaskContinuous(TaskType newTask)
     {
+        // Override the current task, set that to this new task
+        // Next few tasks will be continuing off this task
         CurrentTask.SetValue(newTask);
         int index = (int)(object)(newTask) + 1;
         _nextTask = (TaskType)(object)index;

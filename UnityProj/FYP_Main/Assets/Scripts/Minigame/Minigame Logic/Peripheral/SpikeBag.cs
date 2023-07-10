@@ -5,34 +5,32 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public class SpikeBag : SliderAction
+public class SpikeBag : BasicSlider
 {
-    [SerializeField] private GameObject _screen;
-
     private void OnDisable()
     {
-        _slider.onValueChanged.RemoveAllListeners();
+        _mainSlider.onValueChanged.RemoveAllListeners();
     }
 
     private void OnEnable()
     {
         if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SPIKE_INFUSION_BOTTLE)
         {
-            _slider.onValueChanged.AddListener(delegate { SetSliderClose(); });
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderClose(); });
         }
 
     }
 
     private void SetSliderClose()
     {
-        if (_slider.value >= _reqToPass && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SPIKE_INFUSION_BOTTLE)
+        if (_mainSlider.value >= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SPIKE_INFUSION_BOTTLE)
         {
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
 
-            _slider.interactable = false;
+            _mainSlider.interactable = false;
             _sliderPassEvent.Invoke();
-            _slider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });
+            _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });
         }
 
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 
-public class RemoveTegaderm : SliderAction
+public class RemoveTegaderm : BasicSlider
 {
     [SerializeField] private Image _tegaderm;
 
@@ -16,19 +16,19 @@ public class RemoveTegaderm : SliderAction
         {
             if (state == OcclusionTasks.REMOVE_TEGADERM)
             {
-                _slider.onValueChanged.AddListener(delegate { SetRemoveIVTube(); });
+                _mainSlider.onValueChanged.AddListener(delegate { SetRemoveIVTube(); });
             }
         });
     }
 
     private void SetRemoveIVTube()
     {        
-        if (_slider.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.REMOVE_TEGADERM)
+        if (_mainSlider.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.REMOVE_TEGADERM)
         {
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
-            _slider.interactable = false;
-            _slider.gameObject.SetActive(false);
+            _mainSlider.interactable = false;
+            _mainSlider.gameObject.SetActive(false);
             _tegaderm.DOFade(0, 1.0f);
         }
     }

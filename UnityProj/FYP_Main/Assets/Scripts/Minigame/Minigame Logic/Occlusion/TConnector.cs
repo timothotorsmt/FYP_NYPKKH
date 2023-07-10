@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 
-public class TConnector : SliderAction
+public class TConnector : BasicSlider
 {
     [SerializeField] private Slider _tConnectorOpen;
     [SerializeField] private Slider _tConnectorUnclamp;
@@ -50,9 +50,9 @@ public class TConnector : SliderAction
 
     private void SetClampItem()
     {
-        _slider.value = _tConnectorOpen.value;
+        _mainSlider.value = _tConnectorOpen.value;
    
-        if (_slider.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.CLAMP_T_CONNECTOR)
+        if (_mainSlider.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.CLAMP_T_CONNECTOR)
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
@@ -65,14 +65,14 @@ public class TConnector : SliderAction
 
     public void CloseTConnector()
     {
-        _slider.value = 1;
+        _mainSlider.value = 1;
     }
 
     private void SetUnClampItem()
     {
-        _slider.value = 1 - _tConnectorUnclamp.value;
+        _mainSlider.value = 1 - _tConnectorUnclamp.value;
 
-        if (_tConnectorUnclamp.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
+        if (_tConnectorUnclamp.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);

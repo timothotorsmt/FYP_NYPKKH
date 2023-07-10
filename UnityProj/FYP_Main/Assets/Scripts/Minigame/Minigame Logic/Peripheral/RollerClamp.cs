@@ -3,51 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UniRx;
 
-public class RollerClamp : SliderAction
+public class RollerClamp : TwoWaySlider
 {
     private static float _rollerClampValue = 0;
-    [SerializeField, Range(0,1)] private float _reqToOpenPass = 0.2f;
 
     private void OnDisable()
     {
-        _slider.onValueChanged.RemoveAllListeners();
-        _rollerClampValue = _slider.value;
+        _mainSlider.onValueChanged.RemoveAllListeners();
+        _rollerClampValue = _mainSlider.value;
     }
 
     private void OnEnable()
     {
         if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLAMP_ROLLER_CLAMP)
         {
-            _slider.onValueChanged.AddListener(delegate { SetSliderClose(); });
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderClose(); });
         }
         else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
         {
-            _slider.onValueChanged.AddListener(delegate { SetSliderOpen(); });
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderOpen(); });
         }
-        _slider.value = _rollerClampValue;
+        _mainSlider.value = _rollerClampValue;
     }
 
     private void SetSliderClose()
     {
-        if (_slider.value >= _reqToPass && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLAMP_ROLLER_CLAMP)
+        if (_mainSlider.value >= _sliderOppPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLAMP_ROLLER_CLAMP)
         {
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-            _sliderPassEvent.Invoke();
-            _slider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });
+            _sliderOppPassEvent.Invoke();
+            _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });
         }
 
     }
 
     private void SetSliderOpen()
     {
-        if (_slider.value <= _reqToOpenPass && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
+        
+        // Good enough, mark as pass and move on
+        if (_mainSlider.value <= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
         {
-            // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
-            _slider.onValueChanged.RemoveListener(delegate { SetSliderOpen(); });
+            _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderOpen(); });
         }
 
     }

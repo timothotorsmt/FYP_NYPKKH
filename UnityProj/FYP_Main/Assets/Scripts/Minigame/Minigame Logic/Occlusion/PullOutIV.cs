@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 
-public class PullOutIV : SliderAction
+public class PullOutIV : BasicSlider
 {
     [SerializeField] private Slider _pullOutIV;
 
@@ -28,9 +28,9 @@ public class PullOutIV : SliderAction
 
     private void RemoveIVItem()
     {
-        _slider.value = _pullOutIV.value;
+        _mainSlider.value = _pullOutIV.value;
    
-        if (_slider.value >= _reqToPass && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.PULL_OUT_PLUG)
+        if (_mainSlider.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.PULL_OUT_PLUG)
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
@@ -39,11 +39,5 @@ public class PullOutIV : SliderAction
             _pullOutIV.onValueChanged.RemoveListener(delegate { RemoveIVItem(); });
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

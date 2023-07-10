@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseDoor : SliderAction
+public class CloseDoor : BasicSlider
 {
 
     private void OnDisable()
     {
-        _slider.onValueChanged.RemoveAllListeners();
+        _mainSlider.onValueChanged.RemoveAllListeners();
     }
 
     private void OnEnable()
     {
-        _slider.onValueChanged.AddListener(delegate { SetSliderComplete(); });
+        _mainSlider.onValueChanged.AddListener(delegate { SetSliderComplete(); });
     }
 
     private void SetSliderComplete()
     {
-        if (_slider.value >= _reqToPass && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLOSE_DOOR)
+        if (_mainSlider.value >= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLOSE_DOOR)
         {
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
-            _slider.interactable = false;
-            _slider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
+            _mainSlider.interactable = false;
+            _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }
 
 

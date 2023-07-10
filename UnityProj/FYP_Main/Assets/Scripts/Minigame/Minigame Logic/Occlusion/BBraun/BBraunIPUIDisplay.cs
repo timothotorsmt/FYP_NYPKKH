@@ -21,7 +21,7 @@ namespace BBraunInfusomat
         // Variables
         #region IP variables
 
-        [SerializeField] private BBraunIPLogic _bBraunIPLogic;
+        [SerializeField] private BBraunIPLogic _bBraunIPLogic; // The current state of the BBraun machine
 
         public enum BBraunDisplayState
         {
@@ -47,12 +47,16 @@ namespace BBraunInfusomat
             TIME_KEY_IN
         }
 
-        [SerializeField] private List<changableObject<BBraunDisplayState>> _changableObjects;
+        // Change the sprite of the screen based on the current state of the BBraun machine
+        [SerializeField] private List<changableObject<BBraunDisplayState>> _changableObjects; 
         private ReactiveProp<BBraunDisplayState> _displayState = new ReactiveProp<BBraunDisplayState>();
 
         // Alarm
         [SerializeField] private GameObject _notifAlarmObject;
         [SerializeField] private TextMeshProUGUI _notifAlarmText;
+
+        // Unity Events 
+        // Honestly they're not great? but I just wanna get this over with and go home and sleep ok
         [SerializeField] private UnityEvent _OnFinishInit;
         [SerializeField] private UnityEvent _OnDoorClose;
         [SerializeField] private UnityEvent _OnEnterParams;
@@ -64,13 +68,14 @@ namespace BBraunInfusomat
 
         #region custom defined structs for UI
 
+        // This class is for the parameter choosing thing (i.e. the rate vtbi time)
         [System.Serializable]
         public class ParamContainer
         {
-            [SerializeField] private Image _container;
-            [SerializeField] private TextMeshProUGUI _variableName;
+            [SerializeField] private Image _container; // The background
+            [SerializeField] private TextMeshProUGUI _variableName; // The actual text itself
 
-            public TextMeshProUGUI _info;
+            public TextMeshProUGUI _info; // The text info showing the variable
 
             public void SetContainerColor(Color newColour)
             {
@@ -92,8 +97,8 @@ namespace BBraunInfusomat
         [System.Serializable]
         public class ParamDigitContainer
         {
-            [SerializeField] private Image _container;
-            public TextMeshProUGUI _digit;
+            [SerializeField] private Image _container; // The background
+            public TextMeshProUGUI _digit; // The parameter showing the digit
 
             public void SetContainerColor(Color newColour)
             {
@@ -114,7 +119,6 @@ namespace BBraunInfusomat
                 _digit.text = newDigit.ToString();
                 return newDigit;
             }
-
         }
 
         #endregion
