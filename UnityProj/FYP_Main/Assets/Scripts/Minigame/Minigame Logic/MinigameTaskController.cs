@@ -18,12 +18,13 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     // Events that take place before start and end of the game
     [SerializeField] protected UnityEvent _startEvent;
     [SerializeField] protected UnityEvent _finishEvent;
+
     protected int TaskCount;
+    
     #endregion
 
     public TaskType GetCurrentTask()
     {
-        
         return CurrentTask.GetValue();
     }
 
@@ -39,6 +40,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         // increase the next task
         _nextTask = (TaskType)(object)index;
         Debug.Log(CurrentTask.GetValue().ToString());
+
 
         if (show)
         {

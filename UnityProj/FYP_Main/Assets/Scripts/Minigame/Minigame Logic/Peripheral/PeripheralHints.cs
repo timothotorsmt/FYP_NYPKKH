@@ -1,11 +1,25 @@
 using UnityEngine;
+using System.Collections;
+using UniRx;
+using MinigameBase;
 
-public class PeripheralHints : MonoBehaviour
+public class PeripheralHints : HintSystemBase
 {
-    [SerializeField] private MinigameChatGetter _chatGetter;
+    void Start()
+    {
+        // used as kinda of an event system
+        PeripheralSetupTaskController.Instance.CurrentTask.Value.Subscribe(_ => {
+            if (_isRunningHint)
+            {
+                StopCoroutine(HintCounter());
+            }
+            StartCoroutine(HintCounter());
+        });
+    }
 
     public void GetHint()
     {
+        _button.SetActive(false);
         switch (PeripheralSetupTaskController.Instance.GetCurrentTask())
         {
             case PeripheralSetupTasks.PEEL_OFF_FOIL:
@@ -47,3 +61,5 @@ public class PeripheralHints : MonoBehaviour
         }
     }
 }
+
+
