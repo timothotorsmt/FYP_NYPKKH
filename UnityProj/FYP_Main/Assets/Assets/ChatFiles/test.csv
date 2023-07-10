@@ -20,3 +20,6 @@ Collecting Prerequisites,#CVLPRA,1,ALICE,0,What Should i collect?,,,,
 ,#CVLPRE,1,PETER,1,Can you help me collect the prerequisite for CVL set up?,Sure!,#CVLPRF,No!,#CVLPRG
 ,#CVLPRF,1,PETER,1,Thank you!,,,,
 ,#CVLPRG,1,PETER,0,oh//ok//////,,,,
+CVL shower,#CVLSHA,1,PETER,1,Hey! I want to take a shower//can you help me unplug my CVL tube?,Sure!,#CVLSHB,Sorry but you have to shower with it,#CVLSHC
+,#CVLSHB,1,PETER,0,You are not suppose to take it out!! Now we have to set up a new CVL line//go back and collect the prerequisite again!,,,,
+,#CVLSHC,1,PETER,0,oh ok,,,,

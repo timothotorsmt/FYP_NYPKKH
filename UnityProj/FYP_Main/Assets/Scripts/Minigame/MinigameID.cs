@@ -8,5 +8,7 @@ public enum MinigameID
     OCCLUSION_1,
     PERI_LINE_SETUP,
     CVL_PREREQUISITE,
+    CVL_SHOWER,
+    CVL_ITEMDROP,
 
 }
