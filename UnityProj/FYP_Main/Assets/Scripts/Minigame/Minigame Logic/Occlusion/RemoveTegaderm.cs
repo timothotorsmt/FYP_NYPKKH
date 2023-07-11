@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 
+// The class to handle the removal of tegaderm minigame behavior
 public class RemoveTegaderm : BasicSlider
 {
     [SerializeField] private Image _tegaderm;

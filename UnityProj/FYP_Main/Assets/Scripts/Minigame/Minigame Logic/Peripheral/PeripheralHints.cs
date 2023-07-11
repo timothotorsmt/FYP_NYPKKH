@@ -8,6 +8,8 @@ public class PeripheralHints : HintSystemBase
     void Start()
     {
         // used as kinda of an event system
+        // Whenever they change state (player knows what they are doing)
+        // Reset the hint timer
         PeripheralSetupTaskController.Instance.CurrentTask.Value.Subscribe(_ => {
             if (_isRunningHint)
             {

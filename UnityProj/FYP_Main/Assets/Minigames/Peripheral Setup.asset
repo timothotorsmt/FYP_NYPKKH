@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameName: 'Peripheral Setup '
   minigameID: 2
-  minigamePrefab: {fileID: 5162340868698287334, guid: 432af39274c637c4eb5e83e08f14ad3f, type: 3}
+  minigamePrefab: {fileID: 3537562494506390598, guid: 432af39274c637c4eb5e83e08f14ad3f, type: 3}
