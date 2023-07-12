@@ -21,7 +21,6 @@ namespace Core.Input
             // Check for current platform
             if (Application.isEditor)
             {
-                Debug.Log(IsValidInput());
                 // Desktop (using mouse controls)
                 // Make sure player is not tapping the UI
                 if (UnityEngine.Input.GetMouseButtonDown(0) && IsValidInput())

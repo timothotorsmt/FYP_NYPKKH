@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Core.Input;
 using UniRx.Extention;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour, IInputActions
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour, IInputActions
     public ReactiveProp<PlayerState> CurrentPlayerState;
 
     private Vector3 _playerDestination;
+    private float _yOffset = 1f;
     private BoxCollider2D _boxCollider2D;
     private Rigidbody2D _rigidbody2D;
 
@@ -20,6 +22,8 @@ public class PlayerMovement : MonoBehaviour, IInputActions
     // Start is called before the first frame update
     void Start()
     {
+        CurrentPlayerState = new ReactiveProp<PlayerState>();
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _playerDestination = Vector3.negativeInfinity;
@@ -55,6 +59,12 @@ public class PlayerMovement : MonoBehaviour, IInputActions
             CurrentPlayerState.SetValue(PlayerState.IDLE);
 
         }
+    }
+
+    public void GoToDoor(Door _newDoor)
+    {
+        transform.position = new Vector3(_newDoor.gameObject.transform.position.x, _newDoor.gameObject.transform.position.y - _yOffset);
+        _playerDestination = transform.position;
     }
 
     public void OnStartTap()
