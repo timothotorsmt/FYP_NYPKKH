@@ -13,6 +13,8 @@ public class CVLItemUIController : UIViewController<CVLItemView>
     #region UI button callbacks
     public void ChangetoTray() { ChangePanelsDefault(CVLItemView.TRAY_DEFAULT); }
     public void ChangetoPatient() { ChangePanelsDefault(CVLItemView.PATIENT_VIEW); }
+    public void ChangetoSterileVideo() { ChangePanelsDefault(CVLItemView.STERILE_VIEW); }
+    public void ChangetoDrapeVideo() { ChangePanelsDefault(CVLItemView.DRAPE_VIEW); }
     public void ChangetoRollerSpikeCloseup() { ChangePanelsDefault(CVLItemView.PATIENT_VIEW); }
     #endregion
 }
@@ -23,5 +25,7 @@ public enum CVLItemView
 {
     PATIENT_VIEW,
     TRAY_DEFAULT,
+    STERILE_VIEW,
+    DRAPE_VIEW,
     TRAY,
 }
