@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Core.Input;
+using UniRx.Extention;
 
 public class PlayerMovement : MonoBehaviour, IInputActions
 {
     // PlayerMovement Variables
+    public ReactiveProp<PlayerState> CurrentPlayerState;
+
     private Vector3 _playerDestination;
     private BoxCollider2D _boxCollider2D;
     private Rigidbody2D _rigidbody2D;
@@ -44,9 +47,14 @@ public class PlayerMovement : MonoBehaviour, IInputActions
                 // Move the movement
                 transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, _playerDestination.x, _playerSpeed * Time.deltaTime), transform.position.y, transform.position.z);
             }
-        }
 
-        
+            CurrentPlayerState.SetValue(PlayerState.MOVING);
+        }
+        else if (CurrentPlayerState.GetValue() == PlayerState.MOVING)
+        {
+            CurrentPlayerState.SetValue(PlayerState.IDLE);
+
+        }
     }
 
     public void OnStartTap()

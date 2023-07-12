@@ -6,8 +6,7 @@ using UniRx.Extention;
 
 public class PlayerManager : MonoBehaviour
 {
-    public ReactiveProp<PlayerState> CurrentPlayerState;
-
+    [SerializeField] private PlayerMovement _playerMovement;
 }
 
 public enum PlayerState 
