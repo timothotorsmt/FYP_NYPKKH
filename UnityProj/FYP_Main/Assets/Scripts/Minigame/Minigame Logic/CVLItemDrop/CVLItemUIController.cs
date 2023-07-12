@@ -15,7 +15,8 @@ public class CVLItemUIController : UIViewController<CVLItemView>
     public void ChangetoPatient() { ChangePanelsDefault(CVLItemView.PATIENT_VIEW); }
     public void ChangetoSterileVideo() { ChangePanelsDefault(CVLItemView.STERILE_VIEW); }
     public void ChangetoDrapeVideo() { ChangePanelsDefault(CVLItemView.DRAPE_VIEW); }
-    public void ChangetoRollerSpikeCloseup() { ChangePanelsDefault(CVLItemView.PATIENT_VIEW); }
+    public void ChangetoDrapeOpen() { ChangePanelsDefault(CVLItemView.DRAPEOPEN_VIEW); }
+    public void ChangetoItemOpen() { ChangePanelsDefault(CVLItemView.ITEMOPEN_VIEW); }
     #endregion
 }
 
@@ -27,5 +28,6 @@ public enum CVLItemView
     TRAY_DEFAULT,
     STERILE_VIEW,
     DRAPE_VIEW,
-    TRAY,
+    DRAPEOPEN_VIEW,
+    ITEMOPEN_VIEW,
 }
