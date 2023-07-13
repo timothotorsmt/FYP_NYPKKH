@@ -18,36 +18,16 @@ public class DeflationViewController : UIViewController<DeflationView>
 
     #region UI button callbacks
     
-    public void ChangeToPatient(int index) 
+    public void ChangeToPatient() 
     {
-        switch (index)
-        {
-            case 1:
-                ChangePanelsDefault(DeflationView.PATIENT_VIEW_1);
-                break;
-            case 2:
-                ChangePanelsDefault(DeflationView.PATIENT_VIEW_2);
-                break;
-            case 3:
-                ChangePanelsDefault(DeflationView.PATIENT_VIEW_3);
-                break;
-        }
+        ChangePanelsDefault(DeflationView.PATIENT_VIEW);
+
     }
 
-    public void ChangeToOverview(int index)
+    public void ChangeToOverview()
     {
-        switch (index)
-        {
-            case 1:
-                ChangePanelsDefault(DeflationView.OVERVIEW_1);
-                break;
-            case 2:
-                ChangePanelsDefault(DeflationView.OVERVIEW_1);
-                break;
-            case 3:
-                ChangePanelsDefault(DeflationView.OVERVIEW_1);
-                break;
-        }
+        ChangePanelsDefault(DeflationView.OVERVIEW);
+
     }
 
     #endregion
@@ -57,10 +37,8 @@ public class DeflationViewController : UIViewController<DeflationView>
 // This enum marks which current panel it is currently on 
 public enum DeflationView
 {
-    OVERVIEW_1,
-    OVERVIEW_2,
-    OVERVIEW_3,
-    PATIENT_VIEW_1,
-    PATIENT_VIEW_2,
-    PATIENT_VIEW_3,
+    OVERVIEW,
+    PATIENT_VIEW,
+    STOMA_CLOSEUP,
+
 }
