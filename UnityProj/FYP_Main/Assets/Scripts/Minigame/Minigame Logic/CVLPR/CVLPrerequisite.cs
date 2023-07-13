@@ -16,6 +16,7 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
     private Vector3 _resetPosition;
     public bool correct;
     public int amt;
+    bool Okay = true;
 
     // Start is called before the first frame update
     void Start()
@@ -84,12 +85,13 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
             if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 5.0f)
             {
                 this.transform.position = new Vector3(Destination.transform.position.x, Destination.transform.position.y, Destination.transform.position.z);
-                Destination.SetActive(false);
+               // Destination.SetActive(false);
                 //_isFinished = true;
             
                 if(!correct)
                 {
                     CheckList.Instance.wrong();
+                    Okay = false;
                  //   return;
                 }
               
@@ -97,10 +99,22 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
 
                 if (CheckList.Instance.amtInsided(itemname)>amt)
                 {
+                    Okay = false;
                     CheckList.Instance.wrong2();
                     CheckList.Instance.removeInside(itemname);
                   //  return;
                 }
+
+                if(Okay)
+                {
+                    GameObject b = Instantiate(gameObject, transform.position, Quaternion.identity) as GameObject;
+                    b.transform.parent = transform.parent;
+                    b.transform.position = transform.position;
+                    b.transform.localScale = transform.localScale*0.7f;
+                    b.GetComponent<CVLPrerequisite>().enabled = false;
+
+                }
+
             }
                 this.transform.localPosition = new Vector3(_resetPosition.x, _resetPosition.y, _resetPosition.z);
         }

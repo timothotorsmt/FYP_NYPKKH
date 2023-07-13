@@ -12,6 +12,7 @@ public class CheckList : MonoBehaviour
     [SerializeField] List<int> amtNeededInside = new List<int>();
     [SerializeField] List<int> amtAlreadyInside = new List<int>();
     public GameObject list;
+    [SerializeField]
     private GameObject[] ListOfItems;
     public TextMeshProUGUI itemName;
     [SerializeField] private UnityEvent _ChecklistEvent,_TooMuch;
@@ -44,7 +45,6 @@ public class CheckList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ListOfItems = GameObject.FindGameObjectsWithTag("items");
 
         StartCoroutine("SetUp");
     }
@@ -119,10 +119,7 @@ public class CheckList : MonoBehaviour
 
     public void button()
     {
-        for (int i = 0; i < ListOfItems.Length; i++)
-        {
-            ListOfItems[i].GetComponent<SpriteRenderer>().enabled = list.activeSelf;
-        }
+  
         backButton.SetActive(list.activeSelf);
         //to activate the checklist
         list.SetActive(!list.activeSelf);
