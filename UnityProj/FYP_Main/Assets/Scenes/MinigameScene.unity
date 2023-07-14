@@ -5563,6 +5563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CVL PR minigame
       objectReference: {fileID: 0}
+    - target: {fileID: 6095810283500188119, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
