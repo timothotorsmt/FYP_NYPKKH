@@ -176,8 +176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 210.09998, y: -53.590027}
-  m_SizeDelta: {x: -1399.79, y: -786.82}
+  m_AnchoredPosition: {x: 210.09998, y: -116.64163}
+  m_SizeDelta: {x: -1399.79, y: -912.9232}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169490209558881201
 MonoBehaviour:
@@ -200,9 +200,13 @@ MonoBehaviour:
   _indicator: {fileID: 169490209287286048}
   _idealZone: {fileID: 169490210967491693}
   _holdDuration: 3
-  _failCase:
+  _failCaseLate:
     m_PersistentCalls:
       m_Calls: []
+  _failCaseEarly:
+    m_PersistentCalls:
+      m_Calls: []
+  _isReversible: 0
 --- !u!1 &169490209611502820
 GameObject:
   m_ObjectHideFlags: 0

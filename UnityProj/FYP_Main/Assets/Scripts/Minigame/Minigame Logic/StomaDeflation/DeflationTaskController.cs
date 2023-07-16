@@ -24,9 +24,11 @@ public enum DeflationTasks
 
     NUM_MANDATORY_TASKS,
 
-    UNCLAMP_BAG,
+    UNCLIP_BAG,
     UNROLL_BAG,
     RELEASE_AIR,
+    ROLL_BAG,
+    CLIP_BAG,
 
     NUM_TASKS
 }

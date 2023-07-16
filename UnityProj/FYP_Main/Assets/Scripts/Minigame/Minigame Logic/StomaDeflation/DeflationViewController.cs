@@ -40,5 +40,4 @@ public enum DeflationView
     OVERVIEW,
     PATIENT_VIEW,
     STOMA_CLOSEUP,
-
 }
