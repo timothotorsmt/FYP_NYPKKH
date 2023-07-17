@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-
+using UnityEngine.Events;
 
 public class StomaPatientInteraction : MonoBehaviour
 {
     [SerializeField] private DeflationGameLogic _gameLogic;
+    [SerializeField] private UnityEvent _backEvent;
     private StomaPatient _currentStomaPatient;
     private float _airbagValue = 0.5f;
     private CompositeDisposable _cd;
@@ -18,6 +19,19 @@ public class StomaPatientInteraction : MonoBehaviour
             _airbagValue = val;
         }).AddTo(_cd);
     }
+
+    public void Back()
+    {
+        if (DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
+        {
+            _backEvent.Invoke();
+        }
+        else
+        {
+            // Patient will complain about you leaving them with their stoma bag open ?? 
+        }
+    }
+
 
     // Start is called before the first frame update
     void OnEnable()
@@ -33,11 +47,14 @@ public class StomaPatientInteraction : MonoBehaviour
 
     public void Interact()
     {
-        _gameLogic.GetCurrentPatient().InteractWithPatient();
-        if (_gameLogic.GetCurrentPatient().StomaBagAirValue.GetValue() > 0.5)
+        if (DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
         {
-            DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.UNCLIP_BAG);
+            _gameLogic.GetCurrentPatient().InteractWithPatient();
+            if (_gameLogic.GetCurrentPatient().StomaBagAirValue.GetValue() > 0.5)
+            {
+                DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.UNCLIP_BAG);
+            }
+            Debug.Log("Whats good i'm at " + _gameLogic.GetCurrentPatient().StomaBagAirValue.GetValue());
         }
-        Debug.Log("Whats good i'm at " + _gameLogic.GetCurrentPatient().StomaBagAirValue.GetValue());
     }
 }

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx.Extention;
 using UniRx;
+using UnityEngine.Events;
 
-public class DeflationGameLogic : MonoBehaviour
+public class DeflationGameLogic : BasicSlider
 {
     [SerializeField] private DifficultySettings _minigameDifficulty;
+    [SerializeField, Min(0)] private float _playTimer;
     [SerializeField] private GameObject _nextButton;
     [SerializeField] private GameObject _prevButton;
+
+    [SerializeField] private ClipBag _clipBag;
+    [SerializeField] private UnclipBag _unclipBag;
+    [SerializeField] private RollBag _rollBag;
+    [SerializeField] private UnrollBag _unrollBag;
+
     private static int _numPatients = 1;
     private ReactiveProp<int> _patientCounter;
 
@@ -36,10 +44,11 @@ public class DeflationGameLogic : MonoBehaviour
         {
             StomaPatient tempPatient = new StomaPatient();
             StartCoroutine(StomaBagBehaviour(tempPatient));
-            _patients.Add(tempPatient);    
+            _patients.Add(tempPatient);
         }
 
-        _patientCounter.Value.Subscribe(state => {
+        _patientCounter.Value.Subscribe(state =>
+        {
             if (state == 0)
             {
                 _prevButton.SetActive(false);
@@ -69,7 +78,25 @@ public class DeflationGameLogic : MonoBehaviour
         yield return new WaitForSeconds(currPatient.StomaBagAirFillDelay);
 
         currPatient.AddStomaBagValue();
+
+        // If its past the max value, then set back d max value
+        if (currPatient.StomaBagAirValue.GetValue() > 1)
+        {
+            // Display fail case
+            Debug.Log("HI");
+        }
+        currPatient.StomaBagAirValue.SetValue(Mathf.Min(1, currPatient.StomaBagAirValue.GetValue()));
+
+
         StartCoroutine(StomaBagBehaviour(currPatient));
+    }
+
+    public void ResetMinigame()
+    {
+        _clipBag.Reset();
+        _unclipBag.Reset();
+        _rollBag.Reset();
+        _unrollBag.Reset();
     }
 
     public int GetNumPatients()

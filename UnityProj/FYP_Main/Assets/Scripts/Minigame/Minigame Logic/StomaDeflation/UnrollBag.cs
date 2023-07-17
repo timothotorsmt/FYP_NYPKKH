@@ -21,8 +21,12 @@ public class UnrollBag : BasicSlider
             // Good enough, mark as pass and move on
             DeflationTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
-            _mainSlider.interactable = false;
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }
+    }
+
+    public void Reset()
+    {
+        _mainSlider.value = 0;
     }
 }

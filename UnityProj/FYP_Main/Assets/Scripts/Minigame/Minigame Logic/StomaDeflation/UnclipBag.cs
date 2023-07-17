@@ -38,4 +38,12 @@ public class UnclipBag : MultiSlider
             }
         }
     }
+
+    public void Reset()
+    {
+        foreach (Slider slider in _sliders)
+        {
+            slider.value = 0;
+        }
+    }
 }

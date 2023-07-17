@@ -28,6 +28,13 @@ public class TimerHold : BasicSlider
         _idealZone.offset = Vector2.zero;
     }
 
+    private void OnEnable()
+    {
+        _isBeingPressed = false;
+
+        _mainSlider.value = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {

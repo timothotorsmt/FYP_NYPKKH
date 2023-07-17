@@ -40,9 +40,13 @@ public class StomaPatient
 
     public void AddStomaBagValue()
     {
-        // Fill up 
-        StomaBagAirValue.SetValue(StomaBagAirValue.GetValue() + Random.Range(0.00f, 0.05f));
+        // Only fill up during deflate bag time otherwise is a bit unfair
+        if (DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
+        {
+            // Fill up 
+            StomaBagAirValue.SetValue(StomaBagAirValue.GetValue() + Random.Range(0.00f, 0.05f));
+        }
         // Get new stoma bag delat
-        StomaBagAirFillDelay = Random.Range(1.0f, 5.0f);
+        StomaBagAirFillDelay = Random.Range(2.5f, 5.0f);
     }
 }

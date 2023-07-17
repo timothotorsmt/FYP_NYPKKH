@@ -13,14 +13,17 @@ public class DeflationTaskController : MinigameTaskController<DeflationTasks>
     {
         _startEvent.Invoke();
     }
+
+    private void Update()
+    {
+        Debug.Log(CurrentTask.GetValue().ToString());
+    }
 }
 
 // The tasks that need to be completed for this 
 public enum DeflationTasks
 {
     DEFLATE_BAGS,
-
-    TIMER_OVER,
 
     NUM_MANDATORY_TASKS,
 
