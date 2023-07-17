@@ -11,6 +11,6 @@ public class LoadingSceneSprite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _loadingSprite.transform.DORotate(new Vector3(0.0f, 0.0f, -180.0f), 1.0f).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
+        _loadingSprite.transform.DORotate(new Vector3(0.0f, 0.0f, -360.0f), 1.0f).SetLoops(-1, LoopType.Restart).SetRelative(true).SetEase(Ease.Linear);
     }
 }
