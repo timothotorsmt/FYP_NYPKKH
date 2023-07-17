@@ -20,5 +20,6 @@ namespace Core.SceneManagement {
         MINIGAME,
         SETTINGS,
         PROTOTYPE,
+        LOADING,
     }
 }
