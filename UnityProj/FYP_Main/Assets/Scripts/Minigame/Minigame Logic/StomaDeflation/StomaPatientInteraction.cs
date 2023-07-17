@@ -29,6 +29,7 @@ public class StomaPatientInteraction : MonoBehaviour
         else
         {
             // Patient will complain about you leaving them with their stoma bag open ?? 
+            ChatGetter.Instance.StartChat("#DEFLFA");
         }
     }
 

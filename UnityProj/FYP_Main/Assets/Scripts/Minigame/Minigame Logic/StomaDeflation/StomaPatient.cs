@@ -26,15 +26,18 @@ public class StomaPatient
             if (StomaBagAirValue.GetValue() > 0.8f)
             {
                 // Patient will complain a lot
-            }
+                ChatGetter.Instance.StartChat("#DEFLIC");
+            }   
             else
             {
                 // Alice will make a judgement on how the bag is full enough to deflate
+                ChatGetter.Instance.StartChat("#DEFLIC");
             }
         }
         else 
         {
             // Alice will make a comment on how the bag is not ready to deflate
+            ChatGetter.Instance.StartChat("#DEFLIB");
         }
     } 
 

@@ -6179,11 +6179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDebug: 1
-  _tracks:
-  - Source: {fileID: 651702414}
-    Audio:
-    - AudioID: 1
-      Clip: {fileID: 8300000, guid: 3b258437c64a05142a7d1b03ca306c7d, type: 3}
+  _audioTracks: {fileID: 11400000, guid: 37ecc315ae2d3694ba857789c556bdc2, type: 2}
 --- !u!4 &651702416
 Transform:
   m_ObjectHideFlags: 0

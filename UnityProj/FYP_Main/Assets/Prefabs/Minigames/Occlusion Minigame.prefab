@@ -4142,6 +4142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bBraunIPUIDisplay: {fileID: 378251420057908639}
   _bBraunIPInput: {fileID: 378251421338304737}
+  _bBraunAudio: {fileID: 2590941361639016655}
   _VTBI: 
   _VBTIValue: 0
   _hasKeyedInVTBI: 0
@@ -19447,6 +19448,7 @@ GameObject:
   - component: {fileID: 7274018828523344799}
   - component: {fileID: 7274018828523344796}
   - component: {fileID: 7274018828523344805}
+  - component: {fileID: 2590941361639016655}
   m_Layer: 5
   m_Name: Logic
   m_TagString: Untagged
@@ -19578,6 +19580,18 @@ MonoBehaviour:
   _levelUp: {fileID: 0}
   _levelUpSlider: {fileID: 0}
   _reaction: {fileID: 5849448701217275891}
+--- !u!114 &2590941361639016655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274018828523344795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41f06fd3b63c1d4bbf03ceb1d1a5348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8478796089484916390
 GameObject:
   m_ObjectHideFlags: 0
