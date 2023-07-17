@@ -39,7 +39,6 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         CurrentTask.SetValue(_nextTask);
         // increase the next task
         _nextTask = (TaskType)(object)index;
-        Debug.Log(CurrentTask.GetValue().ToString());
 
 
         if (show)

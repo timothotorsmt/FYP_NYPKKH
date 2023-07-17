@@ -34,8 +34,5 @@ public class PeelFoil : OneWaySlider
         }
 
         _animator.SetFloat("Slider", _mainSlider.value);
-
     }
-
-
 }

@@ -52,7 +52,7 @@ public class OcclusionRollerClamp : TwoWaySlider
     private void WaitForIncorrectInput()
     {
         // Should not be touching it rn
-        _mainSlider.value = _sliderPassReq;
+        _mainSlider.value = 0.5f;
         _sliderOppPassEvent.Invoke();
     }
 

@@ -8,5 +8,5 @@ public enum MinigameID
     OCCLUSION_1,
     PERI_LINE_SETUP,
     PERIPHERAL_SETUP,
-
+    STOMA_DEFLATION
 }

@@ -13,7 +13,7 @@ namespace Audio
     {
         public bool IsDebug;
 
-        public List<AudioTrack> _tracks;
+        [SerializeField] private AudioList _audioTracks;
         private Hashtable _audioTable; // relationship of audio audioIDs and tracks
         private Hashtable _jobTable; // relationship between audio audioIDs and jobs
 
@@ -171,8 +171,13 @@ namespace Audio
 
         private void GenerateAudioTable()
         {
-            foreach (AudioTrack track in _tracks)
+            foreach (AudioTrack track in _audioTracks._tracks)
             {
+                if (track.Source == null)
+                {
+                    track.Source = GetComponent<AudioSource>();
+                }
+
                 foreach (AudioObject obj in track.Audio)
                 {
                     // do not duplicate keys

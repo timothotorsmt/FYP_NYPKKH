@@ -9,5 +9,9 @@ namespace Audio
     {
         NONE,
         TEST_AUDIO,
+
+        // BBraun Audio
+        BBRAUN_OPERATING_ALARM,
+        BBRAUN_PRE_ALARM
     }
 }

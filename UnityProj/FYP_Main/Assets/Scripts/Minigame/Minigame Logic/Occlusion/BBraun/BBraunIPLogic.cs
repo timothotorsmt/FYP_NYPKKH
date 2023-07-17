@@ -15,6 +15,7 @@ namespace BBraunInfusomat
     {
         [SerializeField] private BBraunIPUIDisplay _bBraunIPUIDisplay;
         [SerializeField] private BBraunIPInput _bBraunIPInput;
+        [SerializeField] private BBraunAudio _bBraunAudio;
         public ReactiveProp<BBraunIPState> BBraunState = new ReactiveProp<BBraunIPState>();
         private int _paramSelectIndex = 0;
         [SerializeField] private List<int> _VTBI;
@@ -37,6 +38,8 @@ namespace BBraunInfusomat
             // Mute only
             _bBraunIPInput._okButton.onClick.AddListener(delegate { MuteAlarm(); });
             _bBraunIPInput._onOffButton.onClick.AddListener(delegate { PutPumpStandby(); });
+
+            _bBraunAudio.StartAlarm();
         }
 
         public void ResolveAlarm()
@@ -50,6 +53,8 @@ namespace BBraunInfusomat
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
                 _bBraunIPInput._okButton.onClick.RemoveListener(delegate { ResolveAlarm(); });
                 BBraunState.SetValue(BBraunIPState.NORMAL);
+
+                _bBraunAudio.MuteAlarm();
             }
 
         }
@@ -79,6 +84,8 @@ namespace BBraunInfusomat
                 _bBraunIPInput._okButton.onClick.RemoveListener(delegate { MuteAlarm(); });
                 _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { RestartPump(); });
                 BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+                
+                _bBraunAudio.MuteAlarm();
             }
         }
 

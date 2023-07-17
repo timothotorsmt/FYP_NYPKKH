@@ -66,7 +66,6 @@ namespace ChatSys
                         // Check if there is a proper ID (starting with pound sign)
                         if (dataValues[1][0] == '#') {
                             temp_chatNode.ID = dataValues[1];
-
                         }
                     }
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -15,10 +16,19 @@ public class SliderAction : MonoBehaviour
     [SerializeField] protected UnityEvent _sliderPassEvent;
 }
 
+// Like slider, but for multiple sliders at the same time
+public class MultiSlider : MonoBehaviour
+{
+    [SerializeField] protected List<Slider> _sliders;
+    [SerializeField, Range(0, 1)] protected float _sliderPassReq;
+    [SerializeField] protected UnityEvent _sliderPassEvent;   
+}
+
+// The simplest version of the slider behaviour class
 public class BasicSlider : MonoBehaviour
 {
     [SerializeField] protected Slider _mainSlider;
-    [SerializeField, Range(0, 1)] protected float _sliderPassReq = 0.95f;
+    [SerializeField, Range(0, 1)] protected float _sliderPassReq;
     [SerializeField] protected UnityEvent _sliderPassEvent;
 
     protected bool isIdealState = false;
@@ -85,5 +95,7 @@ public class OneWaySlider : BasicSlider
                 _mainSlider.value = _sliderPrevValue;
             }
         }
+
+        _sliderPrevValue = _mainSlider.value;
     }
 }

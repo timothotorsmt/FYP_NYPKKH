@@ -17,8 +17,12 @@ namespace MinigameBase
         // The coroutine for counting for the hint timer
         protected IEnumerator HintCounter()
         {
+            _isRunningHint = true;
+            _button.SetActive(false);
             yield return new WaitForSeconds(_hintTimer);
+            Debug.Log("Loaded finish");
             _button.SetActive(true);
+            _isRunningHint = false;
         }
 
     }

@@ -76,6 +76,7 @@ namespace BBraunInfusomat
             [SerializeField] private TextMeshProUGUI _variableName; // The actual text itself
 
             public TextMeshProUGUI _info; // The text info showing the variable
+            
 
             public void SetContainerColor(Color newColour)
             {
@@ -84,12 +85,15 @@ namespace BBraunInfusomat
                     _container.color = newColour;
                     _info.color = Color.white;
                     _variableName.color = Color.white;
+
+                    
                 }
                 else if (newColour == Color.white)
                 {
                     _container.color = newColour;
                     _info.color = Color.black;
                     _variableName.color = Color.black;
+                    
                 }
             }
         }

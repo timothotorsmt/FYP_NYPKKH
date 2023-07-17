@@ -72,7 +72,8 @@ public class TConnector : BasicSlider
     {
         _mainSlider.value = 1 - _tConnectorUnclamp.value;
 
-        if (_tConnectorUnclamp.value >= _sliderPassReq && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
+        // TODO: make this more clean bruh.......................
+        if (_tConnectorUnclamp.value >= 0.95f && OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
         {
             // Good enough, mark as pass and move on
             OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.START_PUMP);
