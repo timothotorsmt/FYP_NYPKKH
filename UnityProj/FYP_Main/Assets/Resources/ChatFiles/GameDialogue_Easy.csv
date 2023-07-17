@@ -74,3 +74,4 @@ Stoma Bag Deflation - Regular mode information,#DEFLIA,1,PETER,1,Welcome to the 
 Stoma Bag Deflation - Fail Case - Leaving halfway while the bag is open,#DEFLFA,1,ALICE,0,I probably shouldn't leave until i'm done releasing all the air from this.,,,,
 Stoma Bag Deflation - Bag not ready,#DEFLIB,1,ALICE,0,Okay// I think the bag is not that full yet.. Let's wait a bit longer.,,,,
 Stoma Bag Deflation - Bag ready,#DEFLIC,1,ALICE,0,The bag looks full enough! Let's deflate it now// shall we?,,,,
+,#DEFLEA,1,PETER,1,Time's up!!,,,,

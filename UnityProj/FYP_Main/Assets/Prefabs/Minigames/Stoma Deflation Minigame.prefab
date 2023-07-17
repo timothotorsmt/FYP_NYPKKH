@@ -1980,7 +1980,19 @@ MonoBehaviour:
         m_CallState: 2
   _finishEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2585133116001060904}
+        m_TargetAssemblyTypeName: MinigameTaskController`1[[DeflationTasks, Assembly-CSharp
+        m_MethodName: EndGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2585133116001060905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,7 +2011,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _minigameDifficulty: {fileID: 11400000, guid: a97426bfe3f49c7448107c1afd8aaea0, type: 2}
-  _playTimer: 0
+  _gameLength: 60
   _nextButton: {fileID: 2585133116386156649}
   _prevButton: {fileID: 2585133114998415716}
   _clipBag: {fileID: 2585133115153610551}

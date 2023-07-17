@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class DeflationGameLogic : BasicSlider
 {
     [SerializeField] private DifficultySettings _minigameDifficulty;
-    [SerializeField, Min(0)] private float _playTimer;
+    [SerializeField, Min(0f)] private float _gameLength = 180;
     [SerializeField] private GameObject _nextButton;
     [SerializeField] private GameObject _prevButton;
 
@@ -16,6 +16,8 @@ public class DeflationGameLogic : BasicSlider
     [SerializeField] private UnclipBag _unclipBag;
     [SerializeField] private RollBag _rollBag;
     [SerializeField] private UnrollBag _unrollBag;
+
+    private bool _isGameRunning;
 
     private static int _numPatients = 1;
     private ReactiveProp<int> _patientCounter;
@@ -25,6 +27,7 @@ public class DeflationGameLogic : BasicSlider
     // Start is called before the first frame update
     void Start()
     {
+        _isGameRunning = true;
         _patientCounter = new ReactiveProp<int>();
         _patients = new List<StomaPatient>();
 
@@ -71,6 +74,25 @@ public class DeflationGameLogic : BasicSlider
         _patientCounter.SetValue(0);
 
         // Create patient information
+
+        // Start game timer
+        StartCoroutine(GameLength());
+    }
+
+    private IEnumerator GameLength()
+    {
+        yield return new WaitForSeconds(_gameLength);
+
+        _isGameRunning = false;
+        CheckIfGameOver();
+    }
+
+    private void CheckIfGameOver()
+    {
+        if (!_isGameRunning && DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
+        {
+            DeflationTaskController.Instance.MarkCurrentTaskAsDone();
+        }
     }
 
     private IEnumerator StomaBagBehaviour(StomaPatient currPatient)
@@ -97,6 +119,8 @@ public class DeflationGameLogic : BasicSlider
         _unclipBag.Reset();
         _rollBag.Reset();
         _unrollBag.Reset();
+
+        CheckIfGameOver();
     }
 
     public int GetNumPatients()
