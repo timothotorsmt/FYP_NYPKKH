@@ -53,6 +53,7 @@ namespace Core.SceneManagement
             yield return new WaitForSeconds(1.0f);
 
             // Loads the expected scene
+            DOTween.KillAll();
             SceneManager.LoadScene(_sceneList.SceneList.Where(s => s.SceneAssetID == newSceneID).Select(s => s.SceneName).LastOrDefault());
         }
     }

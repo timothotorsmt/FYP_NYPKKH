@@ -16,7 +16,6 @@ public class DeflationTaskController : MinigameTaskController<DeflationTasks>
 
     private void Update()
     {
-        Debug.Log(CurrentTask.GetValue().ToString());
     }
 }
 

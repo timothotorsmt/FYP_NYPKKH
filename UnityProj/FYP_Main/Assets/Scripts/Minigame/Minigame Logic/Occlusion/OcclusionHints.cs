@@ -1,13 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MinigameBase;
+using UniRx;
 
-public class OcclusionHints : MonoBehaviour
+public class OcclusionHints : HintSystemBase
 {
-    [SerializeField] private MinigameChatGetter _chatGetter;
+
+    void Start()
+    {
+        // used as kinda of an event system
+        // Whenever they change state (player knows what they are doing)
+        // Reset the hint timer
+        OcclusionTaskController.Instance.CurrentTask.Value.Subscribe(state => {
+            if (_isRunningHint)
+            {
+                StopCoroutine(HintCounter());
+            }
+
+            if (state == OcclusionTasks.INFORM_STAFF_NURSE)
+            {
+                _button.SetActive(true);
+            }
+            else
+            {
+                StartCoroutine(HintCounter());
+            }
+        });
+    }
 
     public void GetHint()
     {
+        _button.SetActive(false);
+
         switch (OcclusionTaskController.Instance.GetCurrentTask())
         {
             case OcclusionTasks.MUTE_ALARM:
