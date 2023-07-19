@@ -26,7 +26,10 @@ namespace BBraunInfusomat
         public int _timeValue;
         private int _timeIndex;
         public bool _hasKeyedInTime;
+        [SerializeField] private List<int> _rate;
         public float _rateValue;
+        private int _rateIndex;
+        public bool _hasKeyedInRate;
         [SerializeField] private UnityEvent _onEnterCorrectParams;
 
 
@@ -184,6 +187,12 @@ namespace BBraunInfusomat
         public void SetDigitControls()
         {
             Debug.Log(_paramSelectIndex);
+            if (_paramSelectIndex == 0)
+            {
+                BBraunState.SetValue(BBraunIPState.RATE_KEY_IN);
+                _rateIndex = 0;
+                _bBraunIPUIDisplay.SetDigit(_rateIndex);
+            }
             if (_paramSelectIndex == 1)
             {
                 BBraunState.SetValue(BBraunIPState.VBTI_KEY_IN);
@@ -415,6 +424,7 @@ namespace BBraunInfusomat
         CLOSE_DOOR_SCREEN,
         LINE_SELECTION_INPUT,
         PARAM_MAIN_MENU,
+        RATE_KEY_IN,
         VBTI_KEY_IN,
         TIME_KEY_IN,
         OFF,

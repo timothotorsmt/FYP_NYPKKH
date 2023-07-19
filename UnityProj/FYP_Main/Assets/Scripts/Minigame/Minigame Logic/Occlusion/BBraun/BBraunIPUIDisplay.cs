@@ -43,6 +43,7 @@ namespace BBraunInfusomat
             LINE_CHANGE_SCREEN_OPEN_ROLLER,
             LINE_SELECTION_SCREEN,
             MAIN_MENU,
+            RATE_KEY_IN,
             VBTI_KEY_IN,
             TIME_KEY_IN
         }
@@ -61,6 +62,7 @@ namespace BBraunInfusomat
         [SerializeField] private UnityEvent _OnDoorClose;
         [SerializeField] private UnityEvent _OnEnterParams;
         [SerializeField] private ParamContainer[] _paramMenuList;
+        [SerializeField] private ParamDigitContainer[] _rateDigits;
         [SerializeField] private ParamDigitContainer[] _VTBIDigits;
         [SerializeField] private ParamDigitContainer[] _timeDigits;
 
@@ -160,6 +162,9 @@ namespace BBraunInfusomat
                         break;
                     case BBraunIPState.PARAM_MAIN_MENU:
                         StartCoroutine(SelectedLineSeq());
+                        break;
+                    case BBraunIPState.RATE_KEY_IN:
+                        SetDisplayState(BBraunDisplayState.RATE_KEY_IN);
                         break;
                     case BBraunIPState.VBTI_KEY_IN:
                         SetDisplayState(BBraunDisplayState.VBTI_KEY_IN);
@@ -292,6 +297,15 @@ namespace BBraunInfusomat
                     _VTBIDigits[index].SetContainerColor(Color.white);
                     break;
 
+                case BBraunIPState.RATE_KEY_IN:
+                    foreach (ParamDigitContainer container in _rateDigits)
+                    {
+                        container.SetContainerColor(Color.black);
+                    }
+
+                    _rateDigits[index].SetContainerColor(Color.white);
+                    break;
+
                 case BBraunIPState.TIME_KEY_IN:
                     foreach (ParamDigitContainer container in _timeDigits)
                     {
@@ -308,6 +322,10 @@ namespace BBraunInfusomat
         {
             switch (_bBraunIPLogic.BBraunState.GetValue())
             {
+                case BBraunIPState.RATE_KEY_IN:
+                    _paramMenuList[0]._info.text = numToSet + " ml/h";
+                    break;
+
                 case BBraunIPState.VBTI_KEY_IN:
                     _paramMenuList[1]._info.text = numToSet + " ml";
                     break;
