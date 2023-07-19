@@ -15,6 +15,8 @@ public class CVLItemTaskController : MinigameTaskController<CVLItemTasks>
 // The tasks that need to be completed for this 
 public enum CVLItemTasks
 {
+    STERILE,
     UNSTERILE,
+    NUM_MANDATORY_TASKS,
     NUM_TASKS
 }
