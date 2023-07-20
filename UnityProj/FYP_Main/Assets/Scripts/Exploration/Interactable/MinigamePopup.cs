@@ -18,7 +18,6 @@ public class MinigamePopup : Interactable
     {
         ChatGetter.Instance.StartChat(_idChat, _ChecklistEvent);
         test = true;
-       
     }
 
     private void Update()
