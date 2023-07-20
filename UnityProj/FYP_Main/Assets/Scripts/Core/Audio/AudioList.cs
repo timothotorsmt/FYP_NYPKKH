@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Audio
 {
+    // Acts as a container for all the audio objects
     [CreateAssetMenu(menuName = "Custom data containers/Audio list")]
     public class AudioList : ScriptableObject
     {

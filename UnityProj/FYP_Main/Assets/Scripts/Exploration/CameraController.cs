@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
     {
         focusPoint = _focus.position;
         halfViewport = (Camera.main.orthographicSize * Camera.main.aspect);
+
+        // TODO: make the camera fit the current room its in (for user expereince.)
     }
 
     // Update is called once per frame
@@ -33,12 +35,14 @@ public class CameraController : MonoBehaviour
     {
         UpdateFocusPoint();
 
+        // Lock the player in the current room's bounding box 
         if (focusPoint.x - halfViewport >= _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport <= _playerRoom._currentRoom.GetRoomMaxEdge())
         {
             transform.localPosition = new Vector3(focusPoint.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
         }
     }
 
+    // math to calculate the new camera following
     void UpdateFocusPoint()
     {
         Vector3 targetPoint = _focus.position;
@@ -64,6 +68,8 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    // Set the camera to a new room
+    // Should calculate height.
     public void SetToNewRoom()
     {
         transform.localPosition = new Vector3(_playerRoom._currentRoom.gameObject.transform.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);

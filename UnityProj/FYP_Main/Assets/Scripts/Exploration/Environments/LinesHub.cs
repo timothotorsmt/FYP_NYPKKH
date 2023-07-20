@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class LinesHub : MonoBehaviour
 {
-    // heartbeat pulse
+    // Generates the effect for the "heartbeat pulse" effect
     [SerializeField] private GameObject _background;
     [SerializeField] private GameObject _heart;
     [SerializeField] private GameObject _wheelchair;
@@ -18,6 +18,7 @@ public class LinesHub : MonoBehaviour
         _originalScale = gameObject.transform.localScale;
         seq = DOTween.Sequence();
 
+        // Love dotween fr
         seq.Append(_heart.transform.DOScale(1.1f * _originalScale.x, 0.2f).SetEase(Ease.InExpo));
         seq.Join(_background.transform.DOScale(1.005f * _originalScale.x, 0.2f).SetEase(Ease.InExpo).SetDelay(0.05f));
         seq.Join(_wheelchair.transform.DOMoveX(_wheelchair.transform.position.x - 0.1f, 0.2f).SetEase(Ease.InExpo).SetDelay(0.03f));

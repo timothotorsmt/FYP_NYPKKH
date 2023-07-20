@@ -7,16 +7,29 @@ using UnityEngine.UI;
 using UniRx;
 using Unity.VisualScripting;
 
+// Allows for the dragging and "wiping" minigame mechanic
 public class DragHover : MonoBehaviour, IInputActions
 {
-    [SerializeField] private GameObject _destination;
-    [SerializeField, Min(0)] private float _hoverDuration = 3.0f;
-    [SerializeField, Min(0)] private float _hoverForgivance = 1.0f;
-    [SerializeField] private Image _hoverSlider;
+    #region hover variables
+
+    [Header("Hover Variables")]
+    [SerializeField] private GameObject _destination; // Destination of the gameobject
+    [SerializeField, Min(0)] private float _hoverDuration = 3.0f; // How long the player should hover for
+    [SerializeField, Min(0)] private float _hoverForgivance = 1.0f; // How far away do we accept the hover
+
+    #endregion
+
+    #region ui variables
+
+    [Header("UI Variables")]
+    [SerializeField] private Image _hoverSlider; 
     [SerializeField] private GameObject _sliderObject;
     [SerializeField] private GameObject _dragSign;
     [SerializeField] private UnityEvent _onDropOnDestination;
     [SerializeField] private UnityEvent _onReset;
+
+    #endregion
+
     public bool _disable;
     private bool _isMoving;
     private bool _isFinished;
@@ -36,6 +49,7 @@ public class DragHover : MonoBehaviour, IInputActions
         Reset();
     }
 
+    // Reset all the values
     public void Reset()
     {
         // Make sure all the shadows r active
@@ -92,6 +106,8 @@ public class DragHover : MonoBehaviour, IInputActions
 
         Vector2 mousePos = InputUtils.GetInputPosition();
 
+        // Check if the distance between mouse and current item is less than 1
+        // If yes, then start the dragging mechanic
         if (Vector2.Distance((Vector2)this.transform.position, mousePos) < 1.0f)
         {
             _startPosition = ((Vector2)this.transform.position - mousePos);
@@ -99,6 +115,8 @@ public class DragHover : MonoBehaviour, IInputActions
 
             if (_dragSign != null)
             {
+                // Disable drag sign because it's kinda annoying
+                // More of an aesthetic functionality tbvh
                 _dragSign.SetActive(false);
             }
         }
@@ -109,17 +127,23 @@ public class DragHover : MonoBehaviour, IInputActions
 
     public void OnTap()
     {   
+        // Move the item
         if (_isMoving)
         {
             Vector2 mousePos = (Vector2)InputUtils.GetInputPosition() + _startPosition;
 
+            // If the item is moving at all
+            // Note: epsilon is used to represent a very small number bc floats rarely will == 0
             if ((mousePos - _prevPosition).SqrMagnitude() > Mathf.Epsilon && !_disable)
             {
+                // Check if distance between the current object and destination is acceptable
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)_destination.transform.position) < _hoverForgivance)
                 {
                     _sliderObject.SetActive(true);
 
-                    // if its moving
+                    // Add timer only if 
+                    // 1.) its moving
+                    // 2.) its near enough to the destination
                     _hoverTimer += Time.deltaTime;
                     _hoverSlider.fillAmount = _hoverTimer / _hoverDuration;
                     if (_hoverTimer >= _hoverDuration)
@@ -143,6 +167,7 @@ public class DragHover : MonoBehaviour, IInputActions
         _sliderObject.SetActive(false);
 
         if (_rectTransform) {
+            // Set it back to its original position
             _rectTransform.anchoredPosition = _resetPosition;
         }
         if (_dragSign != null)

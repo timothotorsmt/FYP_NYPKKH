@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Extention;
 
+// Animates the current player
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimationController : MonoBehaviour
 {
