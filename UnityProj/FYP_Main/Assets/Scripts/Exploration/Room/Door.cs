@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private Door _connectingDoor;
     [SerializeField] public Room _room;
+    [SerializeField] private GameObject _spawnPoint;
 
     public Direction _doorDirection;
 
@@ -13,6 +14,11 @@ public class Door : MonoBehaviour
     public void ChangeRoom()
     {
         PlayerManager.Instance.ChangeRoom(_connectingDoor, _doorDirection);
+    }
+
+    public Vector2 GetSpawnPoint()
+    {
+        return _spawnPoint.transform.position;
     }
 }
 

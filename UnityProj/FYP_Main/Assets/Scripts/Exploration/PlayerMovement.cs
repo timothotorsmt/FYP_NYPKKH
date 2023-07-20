@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour, IInputActions
 
     public void GoToDoor(Door _newDoor)
     {
-        transform.position = new Vector3(_newDoor.gameObject.transform.position.x, _newDoor.gameObject.transform.position.y - _yOffset);
+        transform.position = new Vector3(_newDoor.GetSpawnPoint().x, _newDoor.GetSpawnPoint().y - _yOffset);
         _playerDestination = transform.position;
     }
 
