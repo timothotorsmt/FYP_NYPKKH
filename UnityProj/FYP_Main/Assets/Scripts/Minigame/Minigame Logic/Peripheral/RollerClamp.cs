@@ -44,7 +44,7 @@ public class RollerClamp : TwoWaySlider
     {
         
         // Good enough, mark as pass and move on
-        if (_mainSlider.value >= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
+        if (_mainSlider.value <= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
         {
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();

@@ -267,11 +267,14 @@ namespace BBraunInfusomat
             _paramMenuList[index].SetContainerColor(Color.white);
         }
 
-        public int SetDigitUp(int index, int newNum)
+        public int SetNewDigit(int index, int newNum)
         {
             int returnInt = 0;
             switch (_bBraunIPLogic.BBraunState.GetValue())
             {
+                case BBraunIPState.RATE_KEY_IN:
+                    returnInt = _rateDigits[index].SetDigit(newNum);
+                    break;
                 case BBraunIPState.VBTI_KEY_IN:
                     returnInt = _VTBIDigits[index].SetDigit(newNum);
                     break;
@@ -341,7 +344,22 @@ namespace BBraunInfusomat
             // TODO figure out why this isnt working
             string s = String.Format("{0:0.00}", rate);
             _paramMenuList[0]._info.text = s + " ml/h";
+        }
 
+        public void SetVTBI(float vtbi)
+        {
+            // TODO figure out why this isnt working
+            string s = String.Format("{0:0.00}", vtbi);
+            _paramMenuList[1]._info.text = s + " ml";
+        }
+
+        public void SetTime(float time)
+        {
+            // TODO figure out why this isnt working
+            int x = (int)(Mathf.Floor(time));
+            string hour = (x).ToString();
+            string mins = ((int)(time - x) * 60).ToString();
+            _paramMenuList[2]._info.text = hour + " h : " + mins + " min";
         }
     }
 }

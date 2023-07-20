@@ -20,10 +20,10 @@ namespace BBraunInfusomat
         private int _paramSelectIndex = 0;
         [SerializeField] private List<int> _VTBI;
         private int _VTBIIndex;
-        public int _VBTIValue;
+        public float _VBTIValue;
         public bool _hasKeyedInVTBI;
         [SerializeField] private List<int> _time;
-        public int _timeValue;
+        public float _timeValue;
         private int _timeIndex;
         public bool _hasKeyedInTime;
         [SerializeField] private List<int> _rate;
@@ -235,6 +235,25 @@ namespace BBraunInfusomat
         private void SetToBackMainMenu()
         {
             // Calculate the existing stuff
+            if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)
+            {
+                _rateValue = 0;
+                for (int i = 0; i < _rate.Count; i++)
+                {
+                    _rateValue += (int)(_rate[i] * Mathf.Pow(10, i));
+                }
+
+                if (_rateValue != 0)
+                {
+                    _bBraunIPUIDisplay.SetParam(_rateValue.ToString());
+                    _hasKeyedInRate = true;
+                }
+                else
+                {
+                    _bBraunIPUIDisplay.SetParam("---");
+                    _hasKeyedInRate = false;
+                }
+            }
             if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
             {
                 _VBTIValue = 0;
@@ -288,20 +307,57 @@ namespace BBraunInfusomat
                 _bBraunIPUIDisplay.SetRate(_rateValue);
             }
 
+            else if (_hasKeyedInRate && _hasKeyedInVTBI)
+            {
+                // check if rate and time are correct
+
+                if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
+                {
+                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+                    _onEnterCorrectParams.Invoke();
+                }
+
+                _timeValue = (_VBTIValue / _rateValue);
+                _bBraunIPUIDisplay.SetTime(_rateValue);
+            }
+
+            else if (_hasKeyedInRate && _hasKeyedInTime)
+            {
+                // check if rate and time are correct
+
+                if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
+                {
+                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+                    _onEnterCorrectParams.Invoke();
+                }
+
+                _VBTIValue = _rateValue * _timeValue;
+                _bBraunIPUIDisplay.SetVTBI(_rateValue);
+            }
+
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
 
         }
 
         private void SetDigitUp()
         {
-            if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
+            if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)
+            {
+                int currentNumber = _rate[_rateIndex] + 1;
+                if (currentNumber > 9)
+                {
+                    currentNumber = 0;
+                }
+                _rate[_rateIndex] = _bBraunIPUIDisplay.SetNewDigit(_rateIndex, currentNumber);
+            }
+            else if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
             {
                 int currentNumber = _VTBI[_VTBIIndex] + 1;
                 if (currentNumber > 9)
                 {
                     currentNumber = 0;
                 }
-                _VTBI[_VTBIIndex] = _bBraunIPUIDisplay.SetDigitUp(_VTBIIndex, currentNumber);
+                _VTBI[_VTBIIndex] = _bBraunIPUIDisplay.SetNewDigit(_VTBIIndex, currentNumber);
             }
             else if (BBraunState.GetValue() == BBraunIPState.TIME_KEY_IN)
             {
@@ -310,20 +366,29 @@ namespace BBraunInfusomat
                 {
                     currentNumber = 0;
                 }
-                _time[_timeIndex] = _bBraunIPUIDisplay.SetDigitUp(_timeIndex, currentNumber);
+                _time[_timeIndex] = _bBraunIPUIDisplay.SetNewDigit(_timeIndex, currentNumber);
             }
         }
 
         private void SetDigitDown()
         {
-            if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
+            if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)
+            {
+                int currentNumber = _rate[_rateIndex] - 1;
+                if (currentNumber < 0)
+                {
+                    currentNumber = 9;
+                }
+                _rate[_rateIndex] = _bBraunIPUIDisplay.SetNewDigit(_rateIndex, currentNumber);
+            }
+            else if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
             {
                 int currentNumber = _VTBI[_VTBIIndex] - 1;
                 if (currentNumber < 0)
                 {
                     currentNumber = 9;
                 }
-                _VTBI[_VTBIIndex] = _bBraunIPUIDisplay.SetDigitUp(_VTBIIndex, currentNumber);
+                _VTBI[_VTBIIndex] = _bBraunIPUIDisplay.SetNewDigit(_VTBIIndex, currentNumber);
             }
             else if (BBraunState.GetValue() == BBraunIPState.TIME_KEY_IN)
             {
@@ -332,13 +397,19 @@ namespace BBraunInfusomat
                 {
                     currentNumber = 9;
                 }
-                _time[_timeIndex] = _bBraunIPUIDisplay.SetDigitUp(_timeIndex, currentNumber);
+                _time[_timeIndex] = _bBraunIPUIDisplay.SetNewDigit(_timeIndex, currentNumber);
             }
         }
 
         private void SetLeft()
         {
-            if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
+            if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)
+            {
+                _rateIndex++;
+                _rateIndex = Mathf.Clamp(_rateIndex, 0, _rate.Count - 1);
+                _bBraunIPUIDisplay.SetDigit(_rateIndex);
+            }
+            else if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
             {
                 _VTBIIndex++;
                 _VTBIIndex = Mathf.Clamp(_VTBIIndex, 0, _VTBI.Count -1);
@@ -355,7 +426,13 @@ namespace BBraunInfusomat
 
         private void SetRight()
         {
-            if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
+            if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)
+            {
+                _rateIndex--;
+                _rateIndex = Mathf.Clamp(_rateIndex, 0, _rate.Count - 1);
+                _bBraunIPUIDisplay.SetDigit(_rateIndex);
+            }
+            else if(BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
             {
                 _VTBIIndex--;
                 _VTBIIndex = Mathf.Clamp(_VTBIIndex, 0, _VTBI.Count - 1);
