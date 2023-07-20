@@ -24,10 +24,12 @@ public class ChatUIDisplay : MonoBehaviour
     // This functions displays a chat node, given a chat node and speaker
     public void DisplayChatText(ChatNode chatNode, Speaker speaker) {
         _mainBody.text = chatNode.BodyText;
+        
         // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
         _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
         _chatSpeaker.text = speaker.name;
     }
+
 
     // Activates the chat item and disables the question box
     public void SetChatItem() {

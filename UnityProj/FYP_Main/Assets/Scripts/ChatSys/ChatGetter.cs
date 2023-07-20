@@ -34,7 +34,6 @@ public class ChatGetter : Singleton<ChatGetter>
         _currentNodes = GetChatList(ID);
         _questions = GetQuestions(ID);
         _currentIndex = 0;
-
         _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
 
         // Start the chat UI 
@@ -123,13 +122,17 @@ public class ChatGetter : Singleton<ChatGetter>
             // This is not really that efficient but we will fix this lat er  
             var result = _chatListContainer.ChatNodeList.Where(s => s.ID == check_ID).ToList().OrderBy(s => s.Order);
             List<List<string>> x = result.Select(s => s.Questions).Last();
-            Debug.Log(x);
             return x;
         }
         
         return null;
     }
 
+    public string getChatID()
+    {
+        return _currentNodes[_currentIndex].ID;
+    }
+    
     private int GetNumChats(string ID)
     {
         return _chatListContainer.ChatNodeList.Count(p => p.ID == ID);

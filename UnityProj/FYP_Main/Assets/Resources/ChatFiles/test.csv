@@ -12,6 +12,22 @@ Introduction to the peri line setup,#PERISA,1,PETER,1,It seems that this patient
 Sample dialogue test!!,#RPE2,1,PETER,1,Hi// how was your experience in the ward,GREAT!,#RPE3,I am surviving the hell shift,#RPE4
 ,#RPE3,1,PETER,1,GOOD TO HEAR THAT! ,,,,
 ,#RPE4,1,PETER,1,I THOUGHT U SAID YOUR SHIFT WAS GOOD,,,,
+Collecting Prerequisites,#CVLPRA,1,ALICE,0,What Should i collect?,,,,
+,#CVLPRA,2,PETER,1,Look at the list at the bottom left corner!,,,,
+,#CVLPRB,1,PETER,1,Good job! You Collected Everything!,,,,
+,#CVLPRC,1,PETER,0,We dont need that,,,,
+,#CVLPRD,1,PETER,0,we have enough,,,,
+,#CVLPRE,1,PETER,1,Can you help me collect the prerequisite for CVL set up?,Sure!,#CVLPRF,No!,#CVLPRG
+,#CVLPRF,1,PETER,1,Thank you!,,,,
+,#CVLPRG,1,PETER,0,oh//ok//////,,,,
+CVL shower,#CVLSHA,1,PETER,1,Hey! I want to take a shower//can you help me unplug my CVL tube?,Sure!,#CVLSHB,Sorry but you have to shower with it,#CVLSHC
+,#CVLSHB,1,PETER,0,You are not suppose to take it out!! Now we have to set up a new CVL line//go back and collect the prerequisite again!,,,,
+,#CVLSHC,1,PETER,0,oh ok,,,,
+,#CVLSHC,2,PETER,1,Good job!! Always keep in mind that you shouldn't take CVL out,,,,
+CVLCat,#CVLCAA,1,ALICE,0,oh no! it is not sterile now!,,,,
+,#CVLCAA,2,ALICE,0,what should I do now?,,,,
+,#CVLCAB,1,PETER,0,Why did you call me? Stop wasting my time!,,,,
+,#CVLCAC,1,PETER,1,Uh oh you need to collect the prerequisite and set up again!,,,,
 ,#OCCLPA,1,ALICE,0,It seems that the skin is very red and swollen. I should clamp the t connector and tell a senior nurse.,,,,
 ,#OCCLPB,1,PETER,1,Good call! The skin is very red and swollen. Let's stop the IV drip now.,,,,
 ,#OCCLPC,1,ALICE,0,The skin looks fine// I guess...,,,,
