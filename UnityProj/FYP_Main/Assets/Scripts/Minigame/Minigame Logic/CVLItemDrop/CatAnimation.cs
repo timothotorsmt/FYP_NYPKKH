@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
-using static UnityEditor.Recorder.OutputPath;
+using UnityEngine.UIElements;
+using TMPro;
+//using static UnityEditor.Recorder.OutputPath;
+using Core.Input;
+using UnityEngine.EventSystems;
 
 public class CatAnimation : MonoBehaviour
 {
@@ -11,6 +15,7 @@ public class CatAnimation : MonoBehaviour
     Tween t;
     public GameObject a;
     [SerializeField] private UnityEvent _BadAlert, _TooMuch, _GoodAlert;
+    public TextMeshProUGUI b;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +62,7 @@ public class CatAnimation : MonoBehaviour
         else
         {
 
+            b.text = "orhorh";
             t.Pause();
             t.Complete();
             t.IsComplete();
@@ -69,13 +75,27 @@ public class CatAnimation : MonoBehaviour
         transform.DOMove(targetPosition, duration);
         CVLItemTaskController.Instance.MarkCurrentTaskAsDone();
 
-        _TooMuch.Invoke();
+        b.text = "poopoo";
+
+        if(_TooMuch!=null)
+        {
+            _TooMuch.Invoke();
+
+        }
+        else
+        {
+            b.text = "sheeshee";
+
+        }
+        b.text = "peepoo";
     }
 
     public void AlertButton()
     {
         if (CVLItemTaskController.Instance.GetCurrentTask() == CVLItemTasks.STERILE)
         {
+
+            b.text = "peepee";
             _BadAlert.Invoke();
         }
         else
