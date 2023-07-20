@@ -19,6 +19,7 @@ public class BBraunAudio : MonoBehaviour
     private IEnumerator BBraunAlarm()
     {
         AudioController.Instance.PlayAudio(SoundUID.BBRAUN_OPERATING_ALARM);
+        // Wait for 5 seconds before playing the next alarm
         yield return new WaitForSeconds(5.0f);
         if (_isCurrentlyRunning == true)
         {
