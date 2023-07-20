@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Change scene
-        SceneLoader.Instance.ChangeScene(SceneID.HUB);
+        SceneLoader.Instance.ChangeScene(SceneID.PROTOTYPE, true);
     }
 
     public void GoToSettings()

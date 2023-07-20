@@ -94,7 +94,10 @@ namespace Core.Input
         {
             foreach (IInputActions subscriber in _subscribers)
             {
-                subscriber.OnEndTap();
+                if (subscriber != null)
+                {
+                    subscriber.OnEndTap();
+                }
             }
             _isCurrentTap = false;
         }

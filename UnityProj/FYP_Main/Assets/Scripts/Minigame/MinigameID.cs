@@ -11,4 +11,6 @@ public enum MinigameID
     CVL_SHOWER,
     CVL_ITEMDROP,
 
+    PERIPHERAL_SETUP,
+    STOMA_DEFLATION
 }

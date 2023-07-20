@@ -18,7 +18,10 @@ public class PeripheralSetupViewController : UIViewController<PeripheralView>
     }
 
     #region UI button callbacks
-    
+
+    public void ChangetoTray() { ChangePanelsDefault(PeripheralView.TRAY); }
+    public void ChangetoPatient() { ChangePanelsDefault(PeripheralView.PATIENT_VIEW); }
+    public void ChangetoStand() { ChangePanelsDefault(PeripheralView.STAND_VIEW); }
 
     #endregion
 }
@@ -27,8 +30,8 @@ public class PeripheralSetupViewController : UIViewController<PeripheralView>
 // This enum marks which current panel it is currently on 
 public enum PeripheralView
 {
-    PATIENT_VIEW,
+    OVERVIEW,
     TRAY,
-
-
+    STAND_VIEW,
+    PATIENT_VIEW
 }

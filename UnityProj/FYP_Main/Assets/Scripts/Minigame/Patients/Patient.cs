@@ -5,6 +5,8 @@ using System;
 
 namespace PatientManagement
 {
+    // This class contains general information of the patient
+
     [System.Serializable]
     public class Patient
     {
@@ -19,6 +21,14 @@ namespace PatientManagement
 
         // Decoration information
         [SerializeField] private GameObject bodyModel;
+
+        // Information to be written about the patient
+        public List<string> KeyNotes = new List<string>();
+
+        public void AddKeyNotes(string newNote)
+        {
+            KeyNotes.Add(newNote);
+        }
     }
 
     // The straights are winning i guess

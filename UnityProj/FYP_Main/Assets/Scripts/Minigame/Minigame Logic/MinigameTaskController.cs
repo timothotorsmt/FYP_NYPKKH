@@ -6,35 +6,30 @@ using UniRx.Extention;
 using UnityEngine.Events;
 using UniRx;
 
-// Controls the main game logic behind the peripheral line setup minigame
+// This class contains code to control the whole task system
+// The task system is what is used to control the whole minigame
 public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController<TaskType>> where TaskType : struct, System.Enum
 {
     #region variables
+    public MinigamePerformance CurrentMinigamePerformance;
     public ReactiveProp<TaskType> CurrentTask = new ReactiveProp<TaskType>();
     // this function keeps the next task in ready for temporary / optional tasks
-    private TaskType _nextTask;
+    protected TaskType _nextTask;
     // Events that take place before start and end of the game
-    [SerializeField] private UnityEvent _startEvent;
-    [SerializeField] private UnityEvent _finishEvent;
-    private int TaskCount;
+    [SerializeField] protected UnityEvent _startEvent;
+    [SerializeField] protected UnityEvent _finishEvent;
+
+    protected int TaskCount;
+    
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetFirstTask();
-
-        _startEvent.Invoke();
-    }
 
     public TaskType GetCurrentTask()
     {
-        
         return CurrentTask.GetValue();
     }
 
     // Move to next task
-    public void MarkCurrentTaskAsDone()
+    public void MarkCurrentTaskAsDone(bool show = true)
     {
         if (CheckIfGameOver()) { return; }
         
@@ -44,7 +39,13 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         CurrentTask.SetValue(_nextTask);
         // increase the next task
         _nextTask = (TaskType)(object)index;
-        Debug.Log(CurrentTask.GetValue().ToString());
+
+
+        if (show)
+        {
+            // Add a positive reaction <3 
+            CurrentMinigamePerformance.AddPositiveAction();
+        }
     }
 
     protected void SetFirstTask()
@@ -60,12 +61,12 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
         if (exists) 
         {
-            // Check if all tasks have been completed
+            // Check if all mandatory tasks have been completed
             if (_nextTask.ToString() == "NUM_MANDATORY_TASKS")
             {
                 // End of game
                 // Maybe chat will be activated or whatever
-                _finishEvent.Invoke();
+                EndGame();
                 return true;
             }
         }
@@ -86,8 +87,19 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         _nextTask = newTask;
     }
 
+    public void AssignCurrentTaskContinuous(TaskType newTask)
+    {
+        // Override the current task, set that to this new task
+        // Next few tasks will be continuing off this task
+        CurrentTask.SetValue(newTask);
+        int index = (int)(object)(newTask) + 1;
+        _nextTask = (TaskType)(object)index;
+    }
+
     public void EndGame()
     {
+        // Display the performance review screen
+        //CurrentMinigamePerformance.EvaluatePerformance();
         MinigameSceneController.Instance.EndMinigame();
     }
 }

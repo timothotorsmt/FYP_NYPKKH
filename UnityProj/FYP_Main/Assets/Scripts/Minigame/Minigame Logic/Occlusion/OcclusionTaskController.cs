@@ -9,12 +9,16 @@ using UniRx;
 
 public class OcclusionTaskController : MinigameTaskController<OcclusionTasks>
 {
-
+    void Start()
+    {
+        _startEvent.Invoke();
+    }
 }
 
 // The tasks that need to be completed for this 
 public enum OcclusionTasks
 {
+    // Mute alarm
     MUTE_ALARM,
 
     // Optional tasks
@@ -26,13 +30,15 @@ public enum OcclusionTasks
 
     // Scenario 3: T-Connector
     UNCLAMP_T_CONNECTOR,
+
+    // Scenario 4: 3 Way tap
     FIX_3WAY_TAP,
 
-    // Scenario 4: No Phlebitis
-    ASSESS_SKIN,
-    RESTART_DRIP,
+    // Don't know if this is a thing
+    START_PUMP,
 
     // Scenario 5: Phlebitis
+    ASSESS_SKIN,
     CLAMP_T_CONNECTOR,
     PUT_PUMP_ON_STANDBY,
     INFORM_STAFF_NURSE,
@@ -40,7 +46,6 @@ public enum OcclusionTasks
     DISCONNECT_TUBING_FROM_PLUG,
     REMOVE_TEGADERM,
     PULL_OUT_PLUG,
-    USE_GAUZE,
     PUT_PLASTER,
 
     NUM_MANDATORY_TASKS,

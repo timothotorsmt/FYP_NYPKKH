@@ -1,0 +1,742 @@
+fileFormatVersion: 2
+guid: f9cf69b3260f2f8428a24a59afa3f977
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5030
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6c7e6618748444e8ad69115498e71e
+      internalID: -520513836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5030
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86640c1d5c3dcdd4381638386553b8fe
+      internalID: -2008749708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5030
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b040a3eaae106db47b9f9eacdac0ac54
+      internalID: 1494692403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5030
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf7d6b8f83e8884bb5d22adc2e484a0
+      internalID: 883005744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5030
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0783b65bdef424692b9fd05212c002
+      internalID: 217170346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4024
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5819916ce560d4bbc6d7b5c1a722dd
+      internalID: 452779465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 4024
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdd56f3ee579d04799d836bcb5c2fa6
+      internalID: 1294635080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4024
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee097069d5193054eac7277e9cb01998
+      internalID: 1635712804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4024
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831541c7abe66f94aa417f8eb3a77bb9
+      internalID: -1436956117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4024
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7878577048c1db646abdc9a7d226da7d
+      internalID: 415825244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3018
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a78c0536c25ec4093b32156bef1aee
+      internalID: -366291973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 3018
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d93293b47c9fd43b88860ead706c9b
+      internalID: -1895100282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3018
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1592c3f23a932074fbb7ddb4a284f6ae
+      internalID: -1624794769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3018
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fafd092f1346541ac707c23f6a912e
+      internalID: -1274352014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3018
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ec6bb78277dc2449a36cc41de9e39c
+      internalID: 794707243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2012
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08fdff4f4016a4b439e48188133b7ec3
+      internalID: 164818250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2012
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b891ad79bdef7fe47bf39be7226489aa
+      internalID: 464263669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2012
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82902c30834b877439ff20e3f70db2b5
+      internalID: -1812454792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2012
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabfad0ee51f028438b8bf4b3f035814
+      internalID: 1382173345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2012
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8632cf597e0087e4e86ce5f524f99afe
+      internalID: 2024166347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1006
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c9c44899a32cc4b8cef0a9cc20cda6
+      internalID: 1766340870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1006
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1fff0ef3417a042967f3b2041b6050
+      internalID: -2038311471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1006
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b29d6027d062940ab549ef47c9eb15
+      internalID: 1759588812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1006
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2feef32bb1d5f0544bc317003779e0b3
+      internalID: -631329818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1006
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992de96342d44ad488e699a3822437c4
+      internalID: -1138216183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05e7c767d59e034194d15a20b97724c
+      internalID: 1192390646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alice_walk_cycle_sprite_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 1006
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcaa36513f67f74395b7bbe0d825c42
+      internalID: -1121733283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      alice_walk_cycle_sprite_sheet_6: 1294635080
+      alice_walk_cycle_sprite_sheet_18: 1382173345
+      alice_walk_cycle_sprite_sheet_0: -520513836
+      alice_walk_cycle_sprite_sheet_22: 1759588812
+      alice_walk_cycle_sprite_sheet_23: -631329818
+      alice_walk_cycle_sprite_sheet_19: 2024166347
+      alice_walk_cycle_sprite_sheet_8: -1436956117
+      alice_walk_cycle_sprite_sheet_13: -1274352014
+      alice_walk_cycle_sprite_sheet_15: 164818250
+      alice_walk_cycle_sprite_sheet_1: -2008749708
+      alice_walk_cycle_sprite_sheet_26: -1121733283
+      alice_walk_cycle_sprite_sheet_14: 794707243
+      alice_walk_cycle_sprite_sheet_12: -1624794769
+      alice_walk_cycle_sprite_sheet_9: 415825244
+      alice_walk_cycle_sprite_sheet_5: 452779465
+      alice_walk_cycle_sprite_sheet_21: -2038311471
+      alice_walk_cycle_sprite_sheet_10: -366291973
+      alice_walk_cycle_sprite_sheet_2: 1494692403
+      alice_walk_cycle_sprite_sheet_4: 217170346
+      alice_walk_cycle_sprite_sheet_24: -1138216183
+      alice_walk_cycle_sprite_sheet_7: 1635712804
+      alice_walk_cycle_sprite_sheet_11: -1895100282
+      alice_walk_cycle_sprite_sheet_16: 464263669
+      alice_walk_cycle_sprite_sheet_20: 1766340870
+      alice_walk_cycle_sprite_sheet_17: -1812454792
+      alice_walk_cycle_sprite_sheet_25: 1192390646
+      alice_walk_cycle_sprite_sheet_3: 883005744
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

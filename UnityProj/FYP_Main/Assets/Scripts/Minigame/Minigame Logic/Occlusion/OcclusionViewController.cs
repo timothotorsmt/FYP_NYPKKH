@@ -19,7 +19,8 @@ public class OcclusionViewController : UIViewController<OcclusionView>
 
     #region UI button callbacks
     
-    public void ChangeToBBraun() { ChangePanelsDefault(OcclusionView.B_BRAUN_INFUSION_CLOSEUP); }
+    public void ChangeToBBraun() { ChangePanelsDefault(OcclusionView.STAND_VIEW); }
+    public void ChangeToPatient() { ChangePanelsDefault(OcclusionView.PATIENT_VIEW); }
 
     #endregion
 }
@@ -28,8 +29,8 @@ public class OcclusionViewController : UIViewController<OcclusionView>
 // This enum marks which current panel it is currently on 
 public enum OcclusionView
 {
-    PATIENT_VIEW,
-    TRAY_DEFAULT,
-    B_BRAUN_INFUSION_CLOSEUP
-
+    OVERVIEW,
+    TRAY,
+    STAND_VIEW,
+    PATIENT_VIEW
 }

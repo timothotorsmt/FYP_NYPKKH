@@ -15,7 +15,7 @@ public class ChatGetter : Singleton<ChatGetter>
     // Current index for the chat (order)
     private int _currentIndex;
     // To display the chat UI
-    private ChatUIDisplay _chatDisplayUI;
+    [SerializeField] private ChatUIDisplay _chatDisplayUI;
     // The current (or latest) speaker
     private Speaker _speaker;
     // The container containing all the nodes
@@ -26,7 +26,6 @@ public class ChatGetter : Singleton<ChatGetter>
     
     public void Start()
     {
-        _chatDisplayUI = GetComponent<ChatUIDisplay>();
     }
 
     // Start the chatting system
@@ -87,7 +86,7 @@ public class ChatGetter : Singleton<ChatGetter>
     public List<ChatNode> GetChatList(string check_ID) 
     {
         // Count how many chat nodes with the ID exist
-        int count = _chatListContainer.ChatNodeList.Count(p => p.ID == check_ID);
+        int count = GetNumChats(check_ID);
         if (count == 0) {
             // if there are no results; display a warning 
             Debug.LogWarning("Requested ID of "+ check_ID + " returned no results. Are you sure the ID is correct?");
@@ -115,9 +114,10 @@ public class ChatGetter : Singleton<ChatGetter>
         return result;
     }
 
+    // Get questions for the 
     public List<List<string>> GetQuestions(string check_ID) {
         // Count how many chats with the ID exist
-        int count = _chatListContainer.ChatNodeList.Count(p => p.ID == check_ID);
+        int count = GetNumChats(check_ID);
         if (count != 0) {
             // This is not really that efficient but we will fix this lat er  
             var result = _chatListContainer.ChatNodeList.Where(s => s.ID == check_ID).ToList().OrderBy(s => s.Order);
@@ -131,6 +131,11 @@ public class ChatGetter : Singleton<ChatGetter>
     public string getChatID()
     {
         return _currentNodes[_currentIndex].ID;
+    }
+    
+    private int GetNumChats(string ID)
+    {
+        return _chatListContainer.ChatNodeList.Count(p => p.ID == ID);
     }
 
 }

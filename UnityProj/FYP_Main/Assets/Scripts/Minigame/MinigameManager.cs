@@ -19,7 +19,7 @@ public class MinigameManager : SingletonPersistent<MinigameManager>
         _difficulty.GameDifficulty = _gameDifficulty;
 
         // Once all info is set, change game to the minigame scene :)
-        SceneLoader.Instance.ChangeScene(SceneID.MINIGAME);
+        SceneLoader.Instance.ChangeScene(SceneID.MINIGAME, true);
     }
 
     public MinigameInfo GetCurrentMinigame()

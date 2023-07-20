@@ -24,6 +24,7 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
         // safety first!
         if (currentMinigame != null) {
             _currentMinigameObject = Instantiate(currentMinigame.minigamePrefab, _spawnPoint.transform);
+            _currentMinigameObject.SetActive(true);
         }
     }
 
@@ -38,6 +39,6 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
     private void GoBackToLevel()
     {
         // Change scene
-        SceneLoader.Instance.ChangeScene(SceneID.HUB);
+        SceneLoader.Instance.ChangeScene(SceneID.PROTOTYPE);
     }
 }
