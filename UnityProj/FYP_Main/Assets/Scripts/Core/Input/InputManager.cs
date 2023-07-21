@@ -15,6 +15,12 @@ namespace Core.Input
 
         #region check input
 
+        protected override void Awake()
+        {
+            base.Awake();
+            Debug.Log("I exist");
+        }
+
         // Update is called once per frame
         void Update()
         {
