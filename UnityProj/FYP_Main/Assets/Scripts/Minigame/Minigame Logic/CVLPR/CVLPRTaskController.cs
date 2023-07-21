@@ -9,7 +9,10 @@ using UniRx;
 
 public class CVLPRTaskController : MinigameTaskController<CVLPRTasks>
 {
-
+    void Start()
+    {
+        _startEvent.Invoke();
+    }
 }
 
 // The tasks that need to be completed for this 

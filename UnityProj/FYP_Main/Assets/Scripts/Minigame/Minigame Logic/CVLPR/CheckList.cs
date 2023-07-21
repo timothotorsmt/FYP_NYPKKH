@@ -15,7 +15,7 @@ public class CheckList : MonoBehaviour
     [SerializeField]
     private GameObject[] ListOfItems;
     public TextMeshProUGUI itemName;
-    [SerializeField] private UnityEvent _ChecklistEvent,_TooMuch;
+    [SerializeField] private UnityEvent _ChecklistEvent,_TooMuch,_FinishEvent;
     CVLPrerequisite[] allitem;
     public GameObject backButton;
 
@@ -157,6 +157,7 @@ public class CheckList : MonoBehaviour
            
             CVLPRTaskController.Instance.MarkCurrentTaskAsDone();
             Debug.Log(CVLPRTaskController.Instance.GetCurrentTask());
+            _FinishEvent.Invoke();
             
         }
 

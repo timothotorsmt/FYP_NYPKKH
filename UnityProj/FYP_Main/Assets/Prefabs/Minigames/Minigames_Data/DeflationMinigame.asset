@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DeflationMinigame
   m_EditorClassIdentifier: 
   minigameName: Stoma Deflation Minigame
-  minigameID: 4
+  minigameID: 6
   minigamePrefab: {fileID: 2585133115868658155, guid: be02b050834c0184ca2c90238a3c2ae0, type: 3}

@@ -28,18 +28,9 @@ public class PlayerMovement : MonoBehaviour, IInputActions
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _playerDestination = Vector3.negativeInfinity;
-    }
 
-    void OnEnable()
-    {
         InputManager.Instance.AddSubscriber(this);
-    }
 
-    void OnDisable()
-    {
-        if (InputManager.Instance != null) {
-            InputManager.Instance.RemoveSubscriber(this);
-        }
     }
 
     private void FixedUpdate()
@@ -67,7 +58,7 @@ public class PlayerMovement : MonoBehaviour, IInputActions
 
     public void GoToDoor(Door _newDoor)
     {
-        transform.position = new Vector3(_newDoor.gameObject.transform.position.x, _newDoor.gameObject.transform.position.y - _yOffset);
+        transform.position = new Vector3(_newDoor.GetSpawnPoint().x, _newDoor.GetSpawnPoint().y - _yOffset);
         _playerDestination = transform.position;
     }
 
