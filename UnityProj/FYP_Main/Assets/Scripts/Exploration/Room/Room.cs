@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -8,6 +9,8 @@ public class Room : MonoBehaviour
 {
     [SerializeField] private string _roomName;
     [SerializeField] private string _sectionName;
+
+    public string RoomName => _roomName;
 
     private SpriteRenderer _spriteRenderer;
 

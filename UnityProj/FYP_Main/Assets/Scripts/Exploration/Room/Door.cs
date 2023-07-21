@@ -17,6 +17,11 @@ public class Door : MonoBehaviour
     {
         PlayerManager.Instance.ChangeRoom(_connectingDoor, _doorDirection);
     }
+
+    public Vector2 GetSpawnPoint()
+    {
+        return _spawnPoint.transform.position;
+    }
 }
 
 public enum Direction
