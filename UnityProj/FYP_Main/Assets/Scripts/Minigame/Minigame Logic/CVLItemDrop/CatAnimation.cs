@@ -15,6 +15,7 @@ public class CatAnimation : MonoBehaviour
     Tween t;
     public GameObject a;
     [SerializeField] private UnityEvent _BadAlert, _TooMuch, _GoodAlert;
+    bool done = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +76,7 @@ public class CatAnimation : MonoBehaviour
         if(_TooMuch!=null)
         {
             _TooMuch.Invoke();
-
+            done = true;
         }
         else
         {
@@ -85,9 +86,9 @@ public class CatAnimation : MonoBehaviour
 
     public void AlertButton()
     {
-        if (CVLItemTaskController.Instance.GetCurrentTask() == CVLItemTasks.STERILE)
+        if (done==false)
         {
-
+            
             _BadAlert.Invoke();
         }
         else
