@@ -1391,7 +1391,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 961080885
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 483fa6307b166ad40973919479e9a928, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1633,7 +1633,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 961080885
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9b6551d93ade22c48b84753856d573bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2441,7 +2441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -316.37024, y: -35}
+  m_AnchoredPosition: {x: 172, y: -35}
   m_SizeDelta: {x: 179.01, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154743311
@@ -2550,8 +2550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _idMinigame: 1
-  _difficulty: 2
+  _idMinigame: 4
+  _difficulty: 1
 --- !u!114 &1278402816 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3107354755588466910, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}

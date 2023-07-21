@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CVLPR
   m_EditorClassIdentifier: 
   minigameName: CVL
-  minigameID: 3
-  minigamePrefab: {fileID: 8156465667640077383, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
+  minigameID: 2
+  minigamePrefab: {fileID: 1333998121835863702, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
