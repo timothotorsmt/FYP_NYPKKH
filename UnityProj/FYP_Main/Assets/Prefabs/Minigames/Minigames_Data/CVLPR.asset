@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameName: CVL
   minigameID: 2
-  minigamePrefab: {fileID: 1333998121835863702, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
+  minigamePrefab: {fileID: 6575007832986658665, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}
