@@ -19,11 +19,13 @@ public class Room : MonoBehaviour
         _spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
+    // Get the minimum of the current room
     public float GetRoomMinEdge()
     {
         return (_spriteRenderer.bounds.min.x);
     }
 
+    // Get the maximum edge of the room
     public float GetRoomMaxEdge()
     {
         return (_spriteRenderer.bounds.max.x);

@@ -23,3 +23,5 @@ MonoBehaviour:
     SceneName: Setting
   - SceneAssetID: 4
     SceneName: PrototypeScene
+  - SceneAssetID: 5
+    SceneName: LoadingScene

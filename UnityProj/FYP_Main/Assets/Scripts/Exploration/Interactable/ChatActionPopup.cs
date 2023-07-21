@@ -12,9 +12,4 @@ public class ChatActionPopup : ChatPopup
     {
         ChatGetter.Instance.StartChat(_idChat, OnChatEnd);
     }
-
-    public void TestFunction()
-    {
-        Debug.Log("Poop");
-    }
 }

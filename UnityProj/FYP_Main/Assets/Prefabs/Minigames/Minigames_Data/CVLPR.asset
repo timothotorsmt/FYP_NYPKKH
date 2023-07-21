@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 702d32400e47e664d8d56142bdc72718, type: 3}
-  m_Name: PeripheralLine-Setup
+  m_Name: CVLPR
   m_EditorClassIdentifier: 
-  minigameName: Peripheral Line Setup
-  minigameID: 2
-  minigamePrefab: {fileID: 8381104491376472103, guid: 6c2d241d9e4be4344a59dd1996294cff, type: 3}
+  minigameName: CVL
+  minigameID: 3
+  minigamePrefab: {fileID: 8156465667640077383, guid: 7fe6c66bd7ed9e640b8a2f690dba1f0c, type: 3}

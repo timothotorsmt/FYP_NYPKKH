@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Audio;
 
+// The class that controls the BBraun machine's audio system
 public class BBraunAudio : MonoBehaviour
 {
     private bool _isCurrentlyRunning;
@@ -14,6 +15,7 @@ public class BBraunAudio : MonoBehaviour
         StartCoroutine(BBraunAlarm());
     }
 
+    // Play BBraun Alarm
     private IEnumerator BBraunAlarm()
     {
         AudioController.Instance.PlayAudio(SoundUID.BBRAUN_OPERATING_ALARM);
@@ -24,6 +26,7 @@ public class BBraunAudio : MonoBehaviour
         }
     }
 
+    // Mute alarm
     public void MuteAlarm()
     {
         _isCurrentlyRunning = false;

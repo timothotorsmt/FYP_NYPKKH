@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
+// As requested by the clients, they wanted some pictures to be able to "blink" to act as guides for players towards important things
+// Not really as blinking more so as in tweening between 2 colours
 public class BlinkingPicture : MonoBehaviour
 {
     [Header("Blinking Settings")]
@@ -29,9 +31,12 @@ public class BlinkingPicture : MonoBehaviour
     
     private void OnDisable()
     {
+        // Remove on disable
+        // Prevents an error from showing up
         DOTween.Kill(this);
     }
     
+    // Start the blinking effect
     public void SetBlinking(bool isNewBlinking)
     {
         _isBlinking = isNewBlinking;

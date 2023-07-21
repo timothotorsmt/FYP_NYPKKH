@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Audio;
 
+// Plays an audio clip on Interact()
 public class AudioInteractable : Interactable
 {
     [SerializeField] protected SoundUID _soundID;

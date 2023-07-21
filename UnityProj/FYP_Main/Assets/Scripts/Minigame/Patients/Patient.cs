@@ -37,4 +37,11 @@ namespace PatientManagement
         MALE,
         FEMALE
     }
+
+    public enum ageGroup
+    {
+        TODDLER,
+        CHILD,
+        ADULT
+    }
 }
