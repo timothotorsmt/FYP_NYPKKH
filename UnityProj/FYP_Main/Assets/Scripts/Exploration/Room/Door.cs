@@ -5,10 +5,12 @@ using UnityEngine;
 // Door.
 public class Door : MonoBehaviour
 {
+    [Header("Door Settings")]
     // Other side of the door
     [Tooltip("Connecting door")] [SerializeField] private Door _connectingDoor;
     // Room it belongs to
     [Tooltip("Current Room it belongs to")] [SerializeField] public Room _room;
+    [Tooltip("Where the player would be spawned")] [SerializeField] private GameObject _spawnPoint;
 
     public Direction _doorDirection;
 
