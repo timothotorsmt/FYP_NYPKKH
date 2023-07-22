@@ -12,8 +12,14 @@ namespace Core.Input
         // variables
         private uint? _currentFingerId;
         private bool _isCurrentTap;
-        
+
         #region check input
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Debug.Log("I exist");
+        }
 
         // Update is called once per frame
         void Update()
@@ -23,22 +29,22 @@ namespace Core.Input
             {
                 // Desktop (using mouse controls)
                 // Make sure player is not tapping the UI
-                if (UnityEngine.Input.GetMouseButtonDown(0) && IsValidInput()) 
+                if (UnityEngine.Input.GetMouseButtonDown(0) && IsValidInput())
                 {
                     CallOnStartTap();
                 }
-                else if (UnityEngine.Input.GetMouseButton(0) && _isCurrentTap) 
+                else if (UnityEngine.Input.GetMouseButton(0) && _isCurrentTap)
                 {
                     CallOnTap();
                 }
-                else if (UnityEngine.Input.GetMouseButtonUp(0) && _isCurrentTap) 
+                else if (UnityEngine.Input.GetMouseButtonUp(0) && _isCurrentTap)
                 {
                     CallOnEndTap();
-                } 
+                }
             }
-            else 
+            else
             {
-                 if (UnityEngine.Input.touchCount > 0)
+                if (UnityEngine.Input.touchCount > 0)
                 {
                     Touch touch = UnityEngine.Input.GetTouch(0);
                     switch (touch.phase)
@@ -64,8 +70,9 @@ namespace Core.Input
                             CallOnEndTap();
                             break;
                     }
-                } 
-                else {
+                }
+                else
+                {
                     _isCurrentTap = false;
                 }
             }
@@ -73,23 +80,26 @@ namespace Core.Input
 
         #endregion
 
-
         #region check validity
 
         // Prevents the game from mistaking UI clicks as draw clicks
         // returns whether the player is over a UI element
-        public bool IsValidInput() 
+        public bool IsValidInput()
         {
-            if (EventSystem.current == null) {
+            if (EventSystem.current == null)
+            {
                 // There are no UI elements right now
                 return true;
             }
 
-            if (Application.isEditor) {
+
+            if (Application.isEditor)
+            {
                 // Desktop
                 return (EventSystem.current.IsPointerOverGameObject()) ? false : true;
             }
-            else {
+            else
+            {
                 return (EventSystem.current.IsPointerOverGameObject(UnityEngine.Input.GetTouch(0).fingerId)) ? false : true;
             }
         }

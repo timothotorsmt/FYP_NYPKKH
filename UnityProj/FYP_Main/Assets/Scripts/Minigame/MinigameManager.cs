@@ -12,14 +12,14 @@ public class MinigameManager : SingletonPersistent<MinigameManager>
     [SerializeField] private MinigameList _minigameList;
 
     // Start the minigame
-    public void StartMinigame(MinigameID minigameID, Difficulty _gameDifficulty = Difficulty.EASY) 
+    public void StartMinigame(MinigameID minigameID, Difficulty _gameDifficulty = Difficulty.LEVEL_1) 
     {
         _currentMinigame = getMinigameInfo(minigameID);
         // Set the difficulty of the current game
         _difficulty.GameDifficulty = _gameDifficulty;
 
         // Once all info is set, change game to the minigame scene :)
-        SceneLoader.Instance.ChangeScene(SceneID.MINIGAME);
+        SceneLoader.Instance.ChangeScene(SceneID.MINIGAME, true);
     }
 
     public MinigameInfo GetCurrentMinigame()

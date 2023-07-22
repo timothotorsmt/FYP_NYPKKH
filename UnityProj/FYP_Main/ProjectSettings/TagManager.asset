@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Speech
   - 
   - 
   - 
@@ -41,10 +41,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background_Image
+  - name: Asset
     uniqueID: 961080885
     locked: 0
-  - name: Background
+  - name: Shadow
     uniqueID: 3472291013
     locked: 0
   - name: Midground

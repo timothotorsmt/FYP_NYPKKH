@@ -21,3 +21,7 @@ MonoBehaviour:
     SceneName: MainMenu
   - SceneAssetID: 3
     SceneName: Setting
+  - SceneAssetID: 4
+    SceneName: PrototypeScene
+  - SceneAssetID: 5
+    SceneName: LoadingScene

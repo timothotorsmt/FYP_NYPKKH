@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Core.Input
 {
+    // This class contains a majority of helper functions for the input
+    // Prevents repetitive code
     public static class InputUtils
     {
         public static Vector3 GetInputPosition()
