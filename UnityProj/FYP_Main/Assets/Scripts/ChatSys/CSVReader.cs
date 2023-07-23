@@ -81,7 +81,7 @@ namespace ChatSys
 
                     if (dataValues[4] != null) {
                         // Get sprite mood
-                        temp_chatNode.Mood = (uint.Parse(dataValues[4]));
+                        temp_chatNode.Mood = (int.Parse(dataValues[4]));
                     }
 
                     if (dataValues[5] != null) {

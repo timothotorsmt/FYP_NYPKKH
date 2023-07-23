@@ -14,7 +14,7 @@ namespace PatientManagement
         public string name;
         public string gender;
         [SerializeField, Range(0, 100)] public uint age;
-        public ageGroup patientAgeGroup;
+        public AgeGroup patientAgeGroup;
 
         // health related information
         [SerializeField, Range(0, 250)] public float height;
@@ -39,7 +39,7 @@ namespace PatientManagement
         FEMALE
     }
 
-    public enum ageGroup
+    public enum AgeGroup
     {
         TODDLER,
         CHILD,

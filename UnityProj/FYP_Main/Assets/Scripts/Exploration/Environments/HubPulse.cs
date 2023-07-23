@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class LinesHub : MonoBehaviour
+public class HubPulse : MonoBehaviour
 {
     // Generates the effect for the "heartbeat pulse" effect
     [SerializeField] private GameObject _background;

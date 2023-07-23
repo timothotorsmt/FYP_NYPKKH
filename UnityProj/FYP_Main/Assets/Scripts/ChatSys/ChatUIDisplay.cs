@@ -64,7 +64,16 @@ public class ChatUIDisplay : MonoBehaviour
 
         // Display the question (same as a chat node)
         _questionSpeaker.text = speaker.name;    
-        _questionSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
+        if (chatNode.Mood != -1) 
+        {
+            _questionSprite.gameObject.SetActive(true);
+            _questionSprite.sprite = speaker.moodImages[chatNode.Mood];
+        }
+        else
+        {
+            _questionSprite.gameObject.SetActive(false);
+        }
+
         _questionMainBody.text = chatNode.BodyText; 
 
         // Show all the possible answers
