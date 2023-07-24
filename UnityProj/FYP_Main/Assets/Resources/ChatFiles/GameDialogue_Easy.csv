@@ -1,5 +1,5 @@
-Sample dialogue test!!,#RPE2,1,PETER,1,Hi// how was your experience in the ward,GREAT!,#RPE3,I am surviving the hell shift,#RPE4
-,#RPE3,1,PETER,1,GOOD TO HEAR THAT!,,,,
+Sample dialogue test!!,#RPE2,1,PETER,0,Hi// how was your experience in the ward,GREAT!,#RPE3,I am surviving the hell shift,#RPE4
+,#RPE3,1,PETER,-1,GOOD TO HEAR THAT!,,,,
 ,#RPE4,1,PETER,1,I THOUGHT U SAID YOUR SHIFT WAS GOOD,,,,
 ,#NOTHING,1,ALICE,0,Hmm... I don't think there's anything for me to do here...,,,,
 Occlusion Minigame Dialogue - Closed Roller Clamp,#OCCLRA,1,PETER,1,Oh no! The BBraun infusion pump is emitting an error. Let's go and resolve it :D,,,,

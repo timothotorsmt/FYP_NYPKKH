@@ -9,10 +9,14 @@ public class ChatUIDisplay : MonoBehaviour
     #region UI element variables
     [SerializeField] private GameObject _panel;
     [SerializeField] private GameObject _chatItem;
+    [SerializeField] private GameObject _chatItemNoImg;
+    [SerializeField] private GameObject _chatItemWithImg;
     [SerializeField] private GameObject _questionItem;
     [SerializeField] private TextMeshProUGUI _chatSpeaker;
+    [SerializeField] private TextMeshProUGUI _chatSpeakerNoImg;
     [SerializeField] private TextMeshProUGUI _questionSpeaker;
     [SerializeField] private TextMeshProUGUI _mainBody;
+    [SerializeField] private TextMeshProUGUI _mainBodyNoImg;
     [SerializeField] private TextMeshProUGUI _questionMainBody;
     [SerializeField] private Image _chatSprite;
     [SerializeField] private Image _questionSprite;
@@ -23,11 +27,27 @@ public class ChatUIDisplay : MonoBehaviour
 
     // This functions displays a chat node, given a chat node and speaker
     public void DisplayChatText(ChatNode chatNode, Speaker speaker) {
-        _mainBody.text = chatNode.BodyText;
-        
-        // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
-        _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
-        _chatSpeaker.text = speaker.name;
+
+        if (chatNode.Mood == -1)
+        {
+            // Set some gameobjects true and false
+            // Fuck this project
+            _chatItemNoImg.SetActive(true);
+            _chatItemWithImg.SetActive(false);
+
+            _mainBodyNoImg.text = chatNode.BodyText;
+            _chatSpeakerNoImg.text = speaker.name;
+        }
+        else
+        {
+            _chatItemNoImg.SetActive(false);
+            _chatItemWithImg.SetActive(true);
+
+            _mainBody.text = chatNode.BodyText;
+            // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
+            _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
+            _chatSpeaker.text = speaker.name;
+        }
     }
 
 

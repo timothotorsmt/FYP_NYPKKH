@@ -10,4 +10,9 @@ public class MinigameChatGetter : MonoBehaviour
             ChatGetter.Instance.StartChat(ID);
         }
     }
+
+    public void GetNothingToDo()
+    {
+        ChatGetter.Instance.StartChat("#NOTHING");
+    }
 }
