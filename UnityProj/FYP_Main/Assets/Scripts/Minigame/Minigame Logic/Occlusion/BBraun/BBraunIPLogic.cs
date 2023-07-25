@@ -339,6 +339,13 @@ namespace BBraunInfusomat
 
         }
 
+        public void SetParams(float rate, float time, float VTBI)
+        {
+            _bBraunIPUIDisplay.SetRate(rate);
+            _bBraunIPUIDisplay.SetTime(time);
+            _bBraunIPUIDisplay.SetVTBI(VTBI);
+        }
+
         private void SetDigitUp()
         {
             if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)

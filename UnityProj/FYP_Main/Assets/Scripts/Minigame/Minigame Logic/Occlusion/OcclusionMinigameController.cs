@@ -1,4 +1,5 @@
 using BBraunInfusomat;
+using PatientManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,17 +11,30 @@ public class OcclusionMinigameController : MonoBehaviour
     [SerializeField] private OcclusionRollerClamp _rollerClamp;
     [SerializeField] private TConnector _tConnector;
     [SerializeField] private Phlebitis _phlebitisController;
+    [SerializeField] private PatientList _patientList;
 
     private OcclusionScenario _occlusionScenario;
+    private Patient _currentPatient;
 
     // Start is called before the first frame update
     void Start()
     {
+        RandomisePatient();
         RandomiseAlarm();
     }
 
     private void RandomiseAlarm()
     {
+        switch (_patientList.currentPatient.GetValue().patientAgeGroup)
+        {
+            case AgeGroup.CHILD:
+                _bBraunIPLogic.SetParams(41.7f, 12, 500);
+                break;
+            case AgeGroup.ADULT:
+                _bBraunIPLogic.SetParams(83.3f, 6, 500);
+                break;
+        }
+
         switch (_minigameDifficultySettings.GameDifficulty)
         {
             case Difficulty.LEVEL_1:
@@ -58,6 +72,7 @@ public class OcclusionMinigameController : MonoBehaviour
                 // Hardcode the alarm code 
                 _occlusionScenario = OcclusionScenario.PHLEBITIS;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
+                
                 _phlebitisController.SetPhlebitis();
                 OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
                 OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.ASSESS_SKIN);
@@ -68,6 +83,20 @@ public class OcclusionMinigameController : MonoBehaviour
                 // High chance of phlebitis (30%)
                 // Lower chance of everything else (70% split)
                 break;
+        }
+    }
+
+    private void RandomisePatient()
+    {
+        // Generate random patient age group
+        int RandNum = Random.Range(0, 2);
+        if (RandNum == 1)
+        {
+            _patientList.GetRandomPatient(AgeGroup.CHILD);
+        }
+        else
+        {
+            _patientList.GetRandomPatient(AgeGroup.ADULT);
         }
     }
 }

@@ -355,7 +355,6 @@ namespace BBraunInfusomat
 
         public void SetTime(float time)
         {
-            // TODO figure out why this isnt working
             int x = (int)(Mathf.Floor(time));
             string hour = (x).ToString();
             string mins = ((int)(time - x) * 60).ToString();

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using System.Linq;
 
 namespace PatientManagement
 {
@@ -11,17 +11,18 @@ namespace PatientManagement
     public class Patient
     {
         // Generic information about the patient
-        public string name;
-        public string gender;
-        [SerializeField, Range(0, 100)] public uint age;
+        public string name; // Full official name (for display)
+        public string altName; // Mr/Ms. person name
+        public gender PatientGender;
+        public uint age;
         public AgeGroup patientAgeGroup;
 
         // health related information
-        [SerializeField, Range(0, 250)] public float height;
-        [SerializeField, Range(0, 300)] public float weight;
+        public float height;
+        public float weight;
 
         // Decoration information
-        [SerializeField] private GameObject bodyModel;
+        public Sprite bodyModel;
 
         // Information to be written about the patient
         public List<string> KeyNotes = new List<string>();
@@ -30,6 +31,7 @@ namespace PatientManagement
         {
             KeyNotes.Add(newNote);
         }
+
     }
 
     // The straights are winning i guess
@@ -45,4 +47,6 @@ namespace PatientManagement
         CHILD,
         ADULT
     }
+
+    
 }
