@@ -4,21 +4,29 @@ using UnityEngine;
 using UniRx;
 using UnityEngine.Events;
 
-public class StomaPatientInteraction : MonoBehaviour
+public class Bag : MonoBehaviour
 {
     [SerializeField] private DeflationGameLogic _gameLogic;
     [SerializeField] private UnityEvent _backEvent;
+    [SerializeField] public UnityEvent Dead;
     private StomaPatient _currentStomaPatient;
     private float _airbagValue = 0.5f;
+    private float ownAirBagValue = 0;
     private CompositeDisposable _cd;
-
-    public void SetAirBagValue()
+    GameObject bean;
+    public bool Intereced;
+    public void SetAirBagValue(float a,GameObject b)
     {
-        _gameLogic.GetCurrentPatient().StomaBagAirValue.Value.Subscribe(val =>
-        {
-      
-            _airbagValue = val;
-        }).AddTo(_cd);
+        bean = b;
+        ownAirBagValue += a;
+    }
+    public float GetAirBagValue()
+    {
+        return ownAirBagValue;
+    }
+    public void SetAirBagValue(float a)
+    {
+        ownAirBagValue += a;
     }
 
     public void Back()
@@ -51,12 +59,33 @@ public class StomaPatientInteraction : MonoBehaviour
     {
         if (DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
         {
-            _gameLogic.GetCurrentPatient().InteractWithPatient();
-            if (_gameLogic.GetCurrentPatient().StomaBagAirValue.GetValue() > 0.5)
+            if (ownAirBagValue > 0.5)
             {
+
+                ChatGetter.Instance.StartChat("#DEFLIC");
+                Intereced = true;
+                bean.GetComponent<BEAN>().MoveAway();
                 DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.UNCLIP_BAG);
             }
-            Debug.Log("Whats good i'm at " + _gameLogic.GetCurrentPatient().StomaBagAirValue.GetValue());
+
+            else
+            {
+            ChatGetter.Instance.StartChat("#DEFLIB");
+            Debug.Log("Whats good i'm at " + ownAirBagValue);
+
+            }
         }
+        else if (ownAirBagValue < 0.5)
+        {
+
+            ChatGetter.Instance.StartChat("#DEFLIB");
+            DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.DEFLATE_BAGS);
+        }
+    }
+
+    public void beGone()
+    {
+        _gameLogic.RemoveLife();
+        Destroy(gameObject);
     }
 }

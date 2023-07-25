@@ -20,7 +20,6 @@ public class DeflationChangableObject : MonoBehaviour
                 {
                     item.GameObjectToChange.SetActive(false);
                 }
-
                 _changableObjects.Where(s => s.TaskOnChange == State).Select(s => s.GameObjectToChange).First().SetActive(true);
             }
         });
