@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Core.Input;
+using Common.DesignPatterns;
 
-public class MinigamePerformance : MonoBehaviour
+public class MinigamePerformance : Singleton<MinigamePerformance>
 {
     private int _totalNumPoints = 0; // The total number of points the player has at the moment 
     private int _totalPossiblePoints = 0; // The total number of possible points that can be earned in the minigame
     private List<string> _errors;
     public Grade PerformanceGrade;
-    private int _pointsToAdd;
+    private static int _pointsToAdd;
     private int _pointsToNextRank;
-
-    // UI variables
-    [SerializeField] private GameObject _performanceReviewScreen;
-    [SerializeField] private GameObject _titleScreen;
-    [SerializeField] private Image _resultDisplay;
-    [SerializeField] private GameObject _levelUp;
-    [SerializeField] private Slider _levelUpSlider;
+    
     [SerializeField] private MinigameReaction _reaction;
+    private MinigamePerformanceUI _minigamePerformanceUI;
 
     // Start is called before the first frame update
     void Start()
     {
         _errors = new List<string>();
+        _minigamePerformanceUI = this.GetComponent<MinigamePerformanceUI>();
     }
 
     public void AddPositiveAction()
@@ -34,17 +31,23 @@ public class MinigamePerformance : MonoBehaviour
         _reaction.SetHappyReaction(InputUtils.GetInputPosition());
     }
 
+    public void AddNegativeAction()
+    {
+        _totalNumPoints -= 15;
+        _reaction.SetSadReaction(InputUtils.GetInputPosition());
+    }
+
     public void AddNegativeAction(string error)
     {
         _totalNumPoints -= 15;
         _errors.Add(error);
         _reaction.SetSadReaction(InputUtils.GetInputPosition());
-
     }
 
     public void EvaluatePerformance()
     {
         float score = _totalNumPoints / _totalPossiblePoints;
+        Debug.Log(score);
         if (score >= 0.75f)
         {
             PerformanceGrade = Grade.PERFECT;
@@ -65,7 +68,8 @@ public class MinigamePerformance : MonoBehaviour
             PerformanceGrade = Grade.FAIL;
         }
 
-        _performanceReviewScreen.SetActive(true);
+        _minigamePerformanceUI.AssignResult(PerformanceGrade);
+        _minigamePerformanceUI.DisplayResult();
     }
 }
 
