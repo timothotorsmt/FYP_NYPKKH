@@ -26,6 +26,12 @@ public class BEAN : MonoBehaviour
 
     void GoToThere()
     {
+        if (selected == null)
+        {
+            MoveAway();
+            return;
+        }
+ 
         transform.position = selected.transform.position + new Vector3(1,-1,0) ;
 
         Quaternion a = Quaternion.Euler(0, 0, -13.46f);
@@ -34,6 +40,7 @@ public class BEAN : MonoBehaviour
         transform.DORotate(Rotation, 1f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo);
 
         StartCoroutine("PumpAir");
+
     }
 
     IEnumerator PumpAir()
