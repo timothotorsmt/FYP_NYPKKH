@@ -62,7 +62,7 @@ public class Bag : MonoBehaviour
             if (ownAirBagValue > 0.5)
             {
 
-                ChatGetter.Instance.StartChat("#DEFLIC");
+                ChatGetter.Instance.StartChat("#STOMAC");
                 Intereced = true;
                 bean.GetComponent<BEAN>().MoveAway();
                 DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.UNCLIP_BAG);
@@ -70,7 +70,7 @@ public class Bag : MonoBehaviour
 
             else
             {
-            ChatGetter.Instance.StartChat("#DEFLIB");
+            ChatGetter.Instance.StartChat("#STOMAB");
             Debug.Log("Whats good i'm at " + ownAirBagValue);
 
             }
@@ -78,7 +78,7 @@ public class Bag : MonoBehaviour
         else if (ownAirBagValue < 0.5)
         {
 
-            ChatGetter.Instance.StartChat("#DEFLIB");
+            ChatGetter.Instance.StartChat("#STOMAB");
             DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.DEFLATE_BAGS);
         }
     }

@@ -20,7 +20,7 @@ public class BEAN : MonoBehaviour
             selected = b[Random.Range(0, b.Length)];
 
             //set timer for it to go to the bag location
-            Invoke("GoToThere", 10);
+            Invoke("GoToThere", 3);
         }
     }
 
@@ -47,7 +47,7 @@ public class BEAN : MonoBehaviour
     IEnumerator KILL()
     {
         //set timer for it to destroy the bag and dissapperar
-        yield return new WaitForSeconds(12);
+        yield return new WaitForSeconds(5);
         selected.beGone();
         MoveAway();
 
@@ -56,7 +56,7 @@ public class BEAN : MonoBehaviour
     public void MoveAway()
     {
         // move far away and call chooes a new bag
-        transform.position = new Vector3(-10000,0,0);
+        transform.position = new Vector3(-1000, -54, 0);
         ChoosesABag();
         StopCoroutine("KILL");
     }

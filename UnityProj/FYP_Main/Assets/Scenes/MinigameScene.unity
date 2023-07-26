@@ -7579,6 +7579,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5850851525998235303, guid: 83a9971673cea2048ad8d9d182e9b658, type: 3}
+      propertyPath: _startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: '#STOMAA'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 83a9971673cea2048ad8d9d182e9b658, type: 3}

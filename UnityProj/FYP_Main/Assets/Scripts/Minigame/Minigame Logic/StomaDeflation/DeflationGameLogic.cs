@@ -86,7 +86,7 @@ public class DeflationGameLogic : BasicSlider
     private IEnumerator GameLength()
     {
         yield return new WaitForSeconds(_gameLength);
-        ChatGetter.Instance.StartChat("#CVLCAC", GameWin);
+        ChatGetter.Instance.StartChat("#STOMAD", GameWin);
     
     }
 
@@ -96,7 +96,7 @@ public class DeflationGameLogic : BasicSlider
         _lives -=1;
         if (_lives==0)
         {
-            ChatGetter.Instance.StartChat("#CVLCAC",GameLost);
+            ChatGetter.Instance.StartChat("#STOMAE", GameLost);
             _isGameRunning = false;
             StopCoroutine("GameLength");
         }
