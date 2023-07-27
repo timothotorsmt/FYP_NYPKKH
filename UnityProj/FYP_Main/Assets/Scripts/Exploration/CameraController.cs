@@ -25,17 +25,17 @@ public class CameraController : MonoBehaviour
         // TODO: make the camera fit the current room its in (for user expereince.)
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void LateUpdate()
     {
         UpdateFocusPoint();
 
-        // Lock the player in the current room's bounding box 
+        // Should not move if room sides are bound to the wall
+        if (Camera.main.transform.position.x - halfViewport <= _playerRoom._currentRoom.GetRoomMinEdge() && Camera.main.transform.position.x + halfViewport >= _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            return;
+        }
+
+        // Lock the camera in the current room's bounding box
         if (focusPoint.x - halfViewport >= _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport <= _playerRoom._currentRoom.GetRoomMaxEdge())
         {
             transform.localPosition = new Vector3(focusPoint.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
