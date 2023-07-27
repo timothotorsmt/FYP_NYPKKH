@@ -1817,8 +1817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.065094, y: 5.600197}
-  m_SizeDelta: {x: 438.2965, y: 298.258}
+  m_AnchoredPosition: {x: 2.5700073, y: 5.7699966}
+  m_SizeDelta: {x: -59.72, y: 298.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2127174670140946623
 GameObject:
@@ -1928,8 +1928,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.09, y: 5.26}
-  m_SizeDelta: {x: -136.7, y: 298.26}
+  m_AnchoredPosition: {x: 111.70999, y: -127.07001}
+  m_SizeDelta: {x: -33.24, y: 223.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2127174670497321663
 GameObject:
@@ -1965,8 +1965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.065094, y: 5.600197}
-  m_SizeDelta: {x: 438.2965, y: 298.258}
+  m_AnchoredPosition: {x: 12, y: -7}
+  m_SizeDelta: {x: -290.05, y: 298.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2127174670600422904
 GameObject:
@@ -2740,7 +2740,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -1.4845886, y: -1.1003036}
   m_SizeDelta: {x: -5.2458, y: 45.8899}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2892,7 +2892,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -14.542297, y: -6.7000046}
   m_SizeDelta: {x: -6.6781, y: 48.8017}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3121,7 +3121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 456, y: -1}
+  m_AnchoredPosition: {x: 21, y: 3}
   m_SizeDelta: {x: 345.31, y: -51.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1477575212406848469
@@ -3272,7 +3272,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -208.77997, y: 220.94}
   m_SizeDelta: {x: 331.51, y: 652.95}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5742,7 +5742,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.013}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 2.7999973, y: 3.5}
   m_SizeDelta: {x: 181.87, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6426,8 +6426,8 @@ RectTransform:
   m_Father: {fileID: 6470367936072768761}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8800,7 +8800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.41568628}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10130,8 +10130,8 @@ RectTransform:
   m_Father: {fileID: 6470367935402639420}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 615.17, y: 134.92}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19176,8 +19176,8 @@ RectTransform:
   m_Father: {fileID: 6470367935401663044}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.013}
-  m_AnchorMin: {x: 0.994, y: 0}
-  m_AnchorMax: {x: 0.994, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 2.7999973, y: 3.5}
   m_SizeDelta: {x: 181.87, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}

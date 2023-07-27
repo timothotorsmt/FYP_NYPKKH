@@ -13,6 +13,8 @@ public class PlayerManager : Singleton<PlayerManager>
     [SerializeField] private CameraController _cameraController; // Controls camera
     [SerializeField] private PlayerAnimationController _playerAnimationController; // Controls the animation
     [SerializeField] private PlayerRoomInfo _playerRoomInfo; // Contains information about the room the player currently is in
+    
+    public OverallStoryController _overallStoryController; // Contains information about the room the player currently is in
 
     public void Start()
     {

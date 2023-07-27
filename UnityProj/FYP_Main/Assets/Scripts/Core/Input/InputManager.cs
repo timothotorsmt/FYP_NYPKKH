@@ -23,6 +23,7 @@ namespace Core.Input
         // Update is called once per frame
         void Update()
         {
+
             // Check for current platform
             if (Application.isEditor)
             {

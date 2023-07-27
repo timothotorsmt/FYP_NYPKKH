@@ -1271,7 +1271,7 @@ Transform:
   - {fileID: 163470261}
   - {fileID: 963618115}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &856752598
 MonoBehaviour:
@@ -1612,7 +1612,7 @@ Transform:
   - {fileID: 830210667}
   - {fileID: 1995760363}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &925348096
 MonoBehaviour:
@@ -2128,100 +2128,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1020405765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1020405769}
-  - component: {fileID: 1020405768}
-  - component: {fileID: 1020405767}
-  - component: {fileID: 1020405766}
-  m_Layer: 0
-  m_Name: ChatSys
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1020405766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020405765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ecbc2812c98aaa47aca729fbe860a1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _panel: {fileID: 0}
-  _chatItem: {fileID: 0}
-  _chatItemNoImg: {fileID: 0}
-  _chatItemWithImg: {fileID: 0}
-  _questionItem: {fileID: 0}
-  _chatSpeaker: {fileID: 0}
-  _chatSpeakerNoImg: {fileID: 0}
-  _questionSpeaker: {fileID: 0}
-  _mainBody: {fileID: 0}
-  _mainBodyNoImg: {fileID: 0}
-  _questionMainBody: {fileID: 0}
-  _chatSprite: {fileID: 0}
-  _questionSprite: {fileID: 0}
-  _questionPrefab: {fileID: 4989359059421943573, guid: f279440066ece1648b4abc14a62941d2, type: 3}
-  _spawnArea: {fileID: 0}
-  _questionTag: []
---- !u!114 &1020405767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020405765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27dcb2ab685fc0448aca1709ade0e369, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chatDisplayUI: {fileID: 1020405766}
-  _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}
-  _speakerListContainer: {fileID: 11400000, guid: aba6a9bc114150b4090552def18bb971, type: 2}
---- !u!114 &1020405768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020405765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1738283e532214dacb263460261aa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chatFileName: ChatFiles/GameDialogue_Easy
-  _easyChatFileName: ChatFiles/GameDialogue_Easy
-  _normalChatFileName: 
-  _hardChatFileName: 
-  _chatListContainer: {fileID: 11400000, guid: 4cb7dbba2e61dd4418da8717906e5d95, type: 2}
---- !u!4 &1020405769
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020405765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28309032, y: -1.8119563, z: 0.0814527}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033963812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2210,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050632882
 GameObject:
@@ -2350,7 +2256,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1098338397
 GameObject:
@@ -2448,7 +2354,7 @@ RectTransform:
   - {fileID: 1789987249}
   - {fileID: 1369252844}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2749,7 +2655,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1604171499 stripped
 GameObject:
@@ -2798,7 +2704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1789987249 stripped
 RectTransform:
@@ -3184,7 +3090,7 @@ RectTransform:
   - {fileID: 359375545}
   - {fileID: 1842159366}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3229,7 +3135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 282503095622356197, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 282503095622356197, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: m_AnchorMax.x
