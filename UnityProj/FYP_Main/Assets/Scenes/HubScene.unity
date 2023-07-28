@@ -4430,7 +4430,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1921240921}
+      - m_Target: {fileID: 2119490023}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
         m_MethodName: ChangeRoom
         m_Mode: 1
@@ -4787,7 +4787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0f0d3c780e5cc41b3b4d9e33dbb806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _connectingDoor: {fileID: 2135322380}
+  _connectingDoor: {fileID: 2119490023}
   _room: {fileID: 1036931937}
   _spawnPoint: {fileID: 1981478124}
   _doorDirection: 0
