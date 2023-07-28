@@ -34,7 +34,7 @@ public class CheckList : MonoBehaviour
 
     public void back()
     {
-        SceneLoader.Instance.ChangeScene(SceneID.HUB);
+        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, true);
     }
 
     private void Awake()

@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -72,6 +73,15 @@ public class CameraController : MonoBehaviour
     // Should calculate height.
     public void SetToNewRoom()
     {
-        transform.localPosition = new Vector3(_playerRoom._currentRoom.gameObject.transform.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        //transform.localPosition = new Vector3(_playerRoom._currentRoom.gameObject.transform.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        transform.localPosition = new Vector3(_focus.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        if (focusPoint.x - halfViewport < _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport <= _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            transform.localPosition = new Vector3(_playerRoom._currentRoom.GetRoomMinEdge() + halfViewport, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        }
+        else if (focusPoint.x - halfViewport >= _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport > _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            transform.localPosition = new Vector3(_playerRoom._currentRoom.GetRoomMaxEdge() - halfViewport, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        }
     }
 }

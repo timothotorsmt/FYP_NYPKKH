@@ -23,6 +23,11 @@ public class OcclusionMinigameController : MonoBehaviour
         RandomiseAlarm();
     }
 
+    public OcclusionScenario GetOcclusionScenario()
+    {
+        return _occlusionScenario;
+    }
+
     private void RandomiseAlarm()
     {
         switch (_patientList.currentPatient.GetValue().patientAgeGroup)
