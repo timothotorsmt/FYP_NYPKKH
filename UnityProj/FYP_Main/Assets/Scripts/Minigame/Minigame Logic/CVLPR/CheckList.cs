@@ -78,7 +78,8 @@ public class CheckList : MonoBehaviour
 
         for (int i = 0; i < nameOfItem.Count; i++)
         {
-            text += nameOfItem[i] + $" x{amtNeededInside[i]}" + "\n";
+            text += $"\n x{amtNeededInside[i] - amtAlreadyInside[i]} { nameOfItem[i]}";
+
         }
 
 
@@ -135,16 +136,17 @@ public class CheckList : MonoBehaviour
         
         for (int i = 0; i < nameOfItem.Count; i++)
         {
+            float difference = amtNeededInside[i] - amtAlreadyInside[i];
                 
             if (amtNeededInside[i]==amtAlreadyInside[i])
             {
-                text += $"<s>{nameOfItem[i]} x{amtNeededInside[i]}</s> \n";
+                text += $"<s> \n x {difference} {nameOfItem[i]}</s>";
                 correct++;
                        
             }
             else
             {
-                text += nameOfItem[i] + $" x{amtNeededInside[i]}" + "\n";
+                text += $" \n x{difference} {nameOfItem[i]}";
             }
                 
         }
