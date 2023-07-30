@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx.Extention;
 using UniRx;
+using DG.Tweening;
 using UnityEngine.Events;
 using Core.SceneManagement;
 
@@ -53,9 +54,17 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
         ChatGetter.Instance.StartChat("#HUBINTB", _afterGossipEvent);
     }
 
+    public void CheckIfClick()
+    {
+        if (CurrentStoryBeat.GetValue() == NormalHubStoryBeats.TUTORIAL_INTERACTION)
+        {
+            MarkCurrentStoryBeatAsDone();
+        }
+    }
+
     public void EndTalkScene()
     {
-        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, true);
+        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, false);
         PlayerManager.Instance._overallStoryController.MarkCurrentStoryBeatAsDone();
     }
 }
@@ -71,6 +80,7 @@ public enum NormalHubStoryBeats
     TUTORIAL_MINIGAME_2,
     TUTORIAL_MINIGAME_3,
     GOSSIP,
+    
     // "Sleep" Sequence
     SLEEP,
 }

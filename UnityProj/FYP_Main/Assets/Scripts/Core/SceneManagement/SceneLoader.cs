@@ -15,7 +15,7 @@ namespace Core.SceneManagement
         // Loading Bar
         //[SerializeField] private Slider _loadingBar;
 
-        public void ChangeScene(SceneID newSceneID, bool loadToLoadingScreen = false)
+        public void ChangeScene(SceneID newSceneID, bool loadToLoadingScreen = true)
         {
             DOTween.KillAll();
 

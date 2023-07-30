@@ -22,7 +22,7 @@ namespace PatientManagement
         public float weight;
 
         // Decoration information
-        public Sprite bodyModel;
+        public List<PatientSprites> PatientSpriteList = new List<PatientSprites>();
 
         // Information to be written about the patient
         public List<string> KeyNotes = new List<string>();
@@ -48,5 +48,18 @@ namespace PatientManagement
         ADULT
     }
 
-    
+    [System.Serializable]
+    public class PatientSprites
+    {
+        public BodyPart patientBodyPart;
+        public Sprite patientSprite;
+    }
+
+    public enum BodyPart
+    {
+        BODY_OVERVIEW,
+        ARM,
+        STOMA,
+        ARM_PHLEBITIS,
+    }
 }

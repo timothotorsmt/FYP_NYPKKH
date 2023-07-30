@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
         UpdateFocusPoint();
 
         // Should not move if room sides are bound to the wall
-        if (Camera.main.transform.position.x - halfViewport <= _playerRoom._currentRoom.GetRoomMinEdge() && Camera.main.transform.position.x + halfViewport >= _playerRoom._currentRoom.GetRoomMaxEdge())
+        if (transform.position.x - halfViewport <= _playerRoom._currentRoom.GetRoomMinEdge() && transform.position.x + halfViewport >= _playerRoom._currentRoom.GetRoomMaxEdge())
         {
             return;
         }

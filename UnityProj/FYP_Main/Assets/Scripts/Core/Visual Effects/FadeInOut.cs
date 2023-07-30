@@ -15,6 +15,11 @@ public class FadeInOut : MonoBehaviour
         _currentPanelCanvasGroup = GetComponent<CanvasGroup>();
     }
 
+    public float GetFloatDuration()
+    {
+        return _fadeDuration;
+    }
+
     public void FadeIn()
     {
         gameObject.SetActive(true);

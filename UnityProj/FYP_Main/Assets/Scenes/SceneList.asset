@@ -27,3 +27,5 @@ MonoBehaviour:
     SceneName: LoadingScene
   - SceneAssetID: 6
     SceneName: NormalHubScene
+  - SceneAssetID: 7
+    SceneName: LineScene
