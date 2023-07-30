@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneList:
   - SceneAssetID: 1
-    SceneName: NormalHubScene
+    SceneName: HubScene
   - SceneAssetID: 2
     SceneName: MinigameScene
   - SceneAssetID: 0
