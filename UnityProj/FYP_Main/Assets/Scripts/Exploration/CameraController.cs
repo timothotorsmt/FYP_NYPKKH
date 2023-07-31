@@ -73,8 +73,16 @@ public class CameraController : MonoBehaviour
     // Should calculate height.
     public void SetToNewRoom()
     {
-        //transform.localPosition = new Vector3(_playerRoom._currentRoom.gameObject.transform.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        transform.localPosition = new Vector3(_playerRoom._currentRoom.gameObject.transform.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        if (transform.position.x - halfViewport <= _playerRoom._currentRoom.GetRoomMinEdge() && transform.position.x + halfViewport >= _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            return;
+        }
+
+        // Change to player position
         transform.localPosition = new Vector3(_focus.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+
+
         if (focusPoint.x - halfViewport < _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport <= _playerRoom._currentRoom.GetRoomMaxEdge())
         {
             transform.localPosition = new Vector3(_playerRoom._currentRoom.GetRoomMinEdge() + halfViewport, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);

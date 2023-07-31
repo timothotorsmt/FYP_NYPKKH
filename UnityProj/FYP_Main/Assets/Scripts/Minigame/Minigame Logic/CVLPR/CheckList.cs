@@ -62,7 +62,6 @@ public class CheckList : MonoBehaviour
         {
             if (a.correct == true)
             {
-                Debug.Log("asdasdasd");
                 nameOfItem.Add(a.itemname);
                 inside.Add(false);
                 amtAlreadyInside.Add(0);

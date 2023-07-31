@@ -80,6 +80,12 @@ public class ChatGetter : Singleton<ChatGetter>
             // Display the chat node text
             _speaker = GetSpeaker(_currentNodes[_currentIndex].Speaker);
             _chatDisplayUI.DisplayChatText(_currentNodes[_currentIndex], _speaker);
+
+            if (_currentIndex + 1 == _currentNodes.Count)
+            {
+                // Last chat, disable arrows 
+                _chatDisplayUI.DisableArrows();
+            }
         }
     }
 

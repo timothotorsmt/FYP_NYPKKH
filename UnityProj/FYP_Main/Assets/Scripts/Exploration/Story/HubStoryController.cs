@@ -56,7 +56,7 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
 
     public void CheckIfClick()
     {
-        if (CurrentStoryBeat.GetValue() == NormalHubStoryBeats.TUTORIAL_INTERACTION)
+        if (CurrentStoryBeat.GetValue() == NormalHubStoryBeats.DOOR_BLINK)
         {
             MarkCurrentStoryBeatAsDone();
         }

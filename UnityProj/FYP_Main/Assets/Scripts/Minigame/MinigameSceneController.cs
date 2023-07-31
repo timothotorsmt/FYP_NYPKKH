@@ -39,6 +39,6 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
     private void GoBackToLevel()
     {
         // Change scene
-        SceneLoader.Instance.ChangeScene(SceneID.PROTOTYPE);
+        SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID());
     }
 }

@@ -12,6 +12,8 @@ public class ChatUIDisplay : MonoBehaviour
     [SerializeField] private GameObject _chatItemNoImg;
     [SerializeField] private GameObject _chatItemWithImg;
     [SerializeField] private GameObject _questionItem;
+    [SerializeField] private GameObject _nextArrowNormal;
+    [SerializeField] private GameObject _nextArrowNoSpeaker;
     [SerializeField] private TextMeshProUGUI _chatSpeaker;
     [SerializeField] private TextMeshProUGUI _chatSpeakerNoImg;
     [SerializeField] private TextMeshProUGUI _questionSpeaker;
@@ -35,6 +37,9 @@ public class ChatUIDisplay : MonoBehaviour
             _chatItemNoImg.SetActive(true);
             _chatItemWithImg.SetActive(false);
 
+            // Set arrows to active
+            //_nextArrowNoSpeaker.SetActive(true);
+
             _mainBodyNoImg.text = chatNode.BodyText;
             _chatSpeakerNoImg.text = speaker.name;
         }
@@ -43,11 +48,19 @@ public class ChatUIDisplay : MonoBehaviour
             _chatItemNoImg.SetActive(false);
             _chatItemWithImg.SetActive(true);
 
+            //_nextArrowNormal.SetActive(true);
+
             _mainBody.text = chatNode.BodyText;
             // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
             _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
             _chatSpeaker.text = speaker.name;
         }
+    }
+
+    public void DisableArrows()
+    {
+        //_nextArrowNormal.SetActive(false);
+        //_nextArrowNoSpeaker.SetActive(false);
     }
 
 

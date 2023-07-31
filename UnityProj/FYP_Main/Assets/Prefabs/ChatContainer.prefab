@@ -130,6 +130,8 @@ MonoBehaviour:
   _chatItemNoImg: {fileID: 4373573735767403278}
   _chatItemWithImg: {fileID: 5034571447433425370}
   _questionItem: {fileID: 5034571448823467156}
+  _nextArrowNormal: {fileID: 2049539478450835856}
+  _nextArrowNoSpeaker: {fileID: 3184503823707762995}
   _chatSpeaker: {fileID: 5034571447195170888}
   _chatSpeakerNoImg: {fileID: 7014993396340888068}
   _questionSpeaker: {fileID: 5034571447465834954}
@@ -152,6 +154,12 @@ PrefabInstance:
     - target: {fileID: 154367516743530170, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -447.99994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506133639828174830, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_text
+      value: 'And the lord god said, "ok. noted."
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Name
@@ -249,6 +257,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7980922391074949850}
+    - target: {fileID: 3107354755659509391, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3377319043221291040, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -281,13 +293,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5941339184626644036, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8046866250110897200, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7980922391074949850}
-    - target: {fileID: 8046866250110897200, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GetNext
+    - target: {fileID: 8511114736229706926, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -303,6 +319,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2049539478450835856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8264250359494528730, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+  m_PrefabInstance: {fileID: 7980922391857684298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3184503823707762995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4823443142774238841, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+  m_PrefabInstance: {fileID: 7980922391857684298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4373573735767403278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5941339184626644036, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}

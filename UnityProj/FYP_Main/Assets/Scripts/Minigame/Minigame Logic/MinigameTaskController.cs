@@ -110,6 +110,6 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     {
         // Display the performance review screen
         _currentMinigamePerformance.EvaluatePerformance();
-        //MinigameSceneController.Instance.EndMinigame();
+        
     }
 }

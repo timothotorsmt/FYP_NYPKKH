@@ -10,10 +10,15 @@ public class MinigameManager : SingletonPersistent<MinigameManager>
     private MinigameInfo _currentMinigame;
     [SerializeField] private DifficultySettings _difficulty;
     [SerializeField] private MinigameList _minigameList;
+    private SceneID _hubSceneID;
 
     // Start the minigame
     public void StartMinigame(MinigameID minigameID, Difficulty _gameDifficulty = Difficulty.LEVEL_1) 
     {
+        if (SceneLoader.Instance.GetSceneID() != SceneID.MINIGAME)
+        {
+            _hubSceneID = SceneLoader.Instance.GetSceneID();
+        }
         _currentMinigame = getMinigameInfo(minigameID);
         // Set the difficulty of the current game
         _difficulty.GameDifficulty = _gameDifficulty;
@@ -25,6 +30,16 @@ public class MinigameManager : SingletonPersistent<MinigameManager>
     public MinigameInfo GetCurrentMinigame()
     {
         return _currentMinigame;
+    }
+
+    public DifficultySettings GetMinigameDifficulty()
+    {
+        return _difficulty;
+    }
+
+    public SceneID GetHubID()
+    {
+        return _hubSceneID;
     }
 
     public MinigameInfo getMinigameInfo(MinigameID minigameID) 
