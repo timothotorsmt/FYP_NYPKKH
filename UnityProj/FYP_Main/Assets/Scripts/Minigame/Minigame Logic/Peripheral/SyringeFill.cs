@@ -3,45 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UniRx;
 
-public class SyringeFill : SliderAction
+public class SyringeFill : BasicSlider
 {
+    [SerializeField] private TimerHold _timerHold;
     [SerializeField, Min(0)] private float _pressDuration = 3.0f;
     private float _pressTimer;
     private bool _isPress;
 
 
-    // Start is called before the first frame update
-    void Update()
+    private void Start()
     {
-        if (_isPress)
+        _timerHold.IndicatorValue.Value.Subscribe(value => {
+            _mainSlider.value = value;
+        });
+
+        _timerHold.Interactable = false;
+        PeripheralSetupTaskController.Instance.CurrentTask.Value.Subscribe(state =>
         {
-            OnPress();
-        }   
+            if (state == PeripheralSetupTasks.FLUSH_IV_PLUG_CLAVE)
+            {
+                _timerHold.Interactable = true;
+            }
+            else 
+            {
+                _timerHold.Interactable = false;
+            }
+        });
     }
 
-    public void OnPress()
+    public void CompleteTask()
     {
         if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.FLUSH_IV_PLUG_CLAVE)
         {
-            // if its moving
-            _pressTimer += Time.deltaTime;
-            _slider.value = _pressTimer / _pressDuration;
-            if (_slider.value >= _reqToPass)
-            {
-                PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-                _sliderPassEvent.Invoke();
-            }
+            // mark as done and move tf on!!
+            PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
+
+            _sliderPassEvent.Invoke();
         }
     }
-
-    public void PressDown()
-    {
-        _isPress = true;
-    }
-
-    public void PressUp()
-    {
-        _isPress = false;
-    }
+    
 }

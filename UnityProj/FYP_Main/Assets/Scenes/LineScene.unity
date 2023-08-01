@@ -3387,7 +3387,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 825193988}
-  - component: {fileID: 825193987}
   - component: {fileID: 825193989}
   m_Layer: 0
   m_Name: Exploration Pre-Requisites
@@ -3396,20 +3395,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &825193987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825193986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4067aeb5498b3745857068ad4d9a0f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _difficulty: {fileID: 11400000, guid: a97426bfe3f49c7448107c1afd8aaea0, type: 2}
-  _minigameList: {fileID: 11400000, guid: feb51bb7fd8f594488aaf1b84cb56ed6, type: 2}
 --- !u!4 &825193988
 Transform:
   m_ObjectHideFlags: 0
@@ -4882,7 +4867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idMinigame: 1
-  _difficulty: 1
+  _difficulty: 5
 --- !u!114 &1045115635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5335,6 +5320,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128311282}
   m_CullTransparentMesh: 1
+--- !u!1 &1158592651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158592653}
+  - component: {fileID: 1158592652}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1158592652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158592651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4067aeb5498b3745857068ad4d9a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficulty: {fileID: 11400000, guid: a97426bfe3f49c7448107c1afd8aaea0, type: 2}
+  _minigameList: {fileID: 11400000, guid: feb51bb7fd8f594488aaf1b84cb56ed6, type: 2}
+--- !u!4 &1158592653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158592651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.363037, y: -11.315281, z: 0.7186143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185346996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,7 +6565,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000002861023, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6545,7 +6576,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 60.34263, y: 10.8}
   m_EdgeRadius: 0
 --- !u!212 &1414572975
 SpriteRenderer:
@@ -9745,7 +9776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Occlusion - Roller clamp
+  m_text: Occlusion - Phlebitis
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff22d6d56736ad24d80b4c145d8d37b6, type: 2}
   m_sharedMaterial: {fileID: -9106350268524034758, guid: ff22d6d56736ad24d80b4c145d8d37b6, type: 2}

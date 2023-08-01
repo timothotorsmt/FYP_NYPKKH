@@ -38,7 +38,7 @@ public class DeflationGameLogic : BasicSlider
                 _numPatients = 1;
                 break;
             default:
-                _numPatients = 3;
+                _numPatients = 1;
                 break;
         }
 
@@ -46,7 +46,8 @@ public class DeflationGameLogic : BasicSlider
         for (int i = 0; i < _numPatients; i++)
         {
             StomaPatient tempPatient = new StomaPatient();
-            StartCoroutine(StomaBagBehaviour(tempPatient));
+            tempPatient.StomaBagAirValue.SetValue(1.0f);
+            //StartCoroutine(StomaBagBehaviour(tempPatient));
             _patients.Add(tempPatient);
         }
 

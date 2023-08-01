@@ -33,7 +33,7 @@ public class CheckBBraunInstructions : MonoBehaviour
     private IEnumerator GiveStandbyDialogueLine()
     {
         yield return new WaitForSeconds(0.5f);
-        ChatGetter.Instance.StartChat("#OCCLRD");
+        ChatGetter.Instance.StartChat("#OCCLPD");
         hasGivenStandbyInstructions = false;
     }
 }
