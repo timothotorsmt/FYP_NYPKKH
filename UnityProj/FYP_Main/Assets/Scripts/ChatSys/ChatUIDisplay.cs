@@ -7,24 +7,24 @@ using UnityEngine.UI;
 public class ChatUIDisplay : MonoBehaviour
 {
     #region UI element variables
-    [SerializeField] private GameObject _panel;
-    [SerializeField] private GameObject _chatItem;
-    [SerializeField] private GameObject _chatItemNoImg;
-    [SerializeField] private GameObject _chatItemWithImg;
-    [SerializeField] private GameObject _questionItem;
-    [SerializeField] private GameObject _nextArrowNormal;
-    [SerializeField] private GameObject _nextArrowNoSpeaker;
-    [SerializeField] private TextMeshProUGUI _chatSpeaker;
-    [SerializeField] private TextMeshProUGUI _chatSpeakerNoImg;
-    [SerializeField] private TextMeshProUGUI _questionSpeaker;
-    [SerializeField] private TextMeshProUGUI _mainBody;
-    [SerializeField] private TextMeshProUGUI _mainBodyNoImg;
-    [SerializeField] private TextMeshProUGUI _questionMainBody;
-    [SerializeField] private Image _chatSprite;
-    [SerializeField] private Image _questionSprite;
-    [SerializeField] private GameObject _questionPrefab;
-    [SerializeField] private GameObject _spawnArea;
-    [SerializeField] private List<GameObject> _questionTag;
+    [Tooltip("Overall panel of the chat UI")] [SerializeField] private GameObject _panel;
+    [Tooltip("Overall container for the chats")] [SerializeField] private GameObject _chatItem;
+    [Tooltip("Overall container for the chat with image")] [SerializeField] private GameObject _chatItemNoImg;
+    [Tooltip("Overall container for the chat without character images")] [SerializeField] private GameObject _chatItemWithImg;
+    [Tooltip("Overall container for the questions")] [SerializeField] private GameObject _questionItem;
+    [Tooltip("[UNUSED] the arrow that indicates that there is a next text")] [SerializeField] private GameObject _nextArrowNormal;
+    [Tooltip("[UNUSED] the arrow that indicates that there is a next text")] [SerializeField] private GameObject _nextArrowNoSpeaker;
+    [Tooltip("Speaker Name")] [SerializeField] private TextMeshProUGUI _chatSpeaker;
+    [Tooltip("Speaker Name but for no image panel")] [SerializeField] private TextMeshProUGUI _chatSpeakerNoImg;
+    [Tooltip("Speaker Name but for question panel")] [SerializeField] private TextMeshProUGUI _questionSpeaker;
+    [Tooltip("Main chat body text")] [SerializeField] private TextMeshProUGUI _mainBody;
+    [Tooltip("Main chat body text for no image")] [SerializeField] private TextMeshProUGUI _mainBodyNoImg;
+    [Tooltip("Main chat body text for questions")] [SerializeField] private TextMeshProUGUI _questionMainBody;
+    [Tooltip("Character mood sprite")] [SerializeField] private Image _chatSprite;
+    [Tooltip("Character mood sprite for questions")] [SerializeField] private Image _questionSprite;
+    [Tooltip("Question prefab to spawn")] [SerializeField] private GameObject _questionPrefab;
+    [Tooltip("Gameobject for questions to spawn under")] [SerializeField] private GameObject _spawnArea;
+    [Tooltip("Question gameobjects")] [SerializeField] private List<GameObject> _questionTag;
     #endregion
 
     // This functions displays a chat node, given a chat node and speaker

@@ -23,10 +23,6 @@ public class ChatGetter : Singleton<ChatGetter>
     // The container containing all the speakers
     [SerializeField] private SpeakerList _speakerListContainer;
     private UnityEvent _postSpeakingAction;
-    
-    public void Start()
-    {
-    }
 
     // Start the chatting system
     public void StartChat(string ID) {
