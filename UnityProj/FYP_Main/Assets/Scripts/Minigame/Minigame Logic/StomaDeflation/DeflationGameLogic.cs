@@ -86,6 +86,7 @@ public class DeflationGameLogic : BasicSlider
     private IEnumerator GameLength()
     {
         yield return new WaitForSeconds(_gameLength);
+        FinsihGameLose();
         ChatGetter.Instance.StartChat("#STOMAD", GameWin);
     
     }
@@ -102,6 +103,12 @@ public class DeflationGameLogic : BasicSlider
         }
     }
 
+    public bool getGamerunning()
+    {
+        //is it ok to put this what is this for
+        return _isGameRunning;
+    }
+    
     public void FinsihGameLose()
     {
         _lives = -1;

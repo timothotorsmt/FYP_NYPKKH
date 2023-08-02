@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using UnityEngine.Events;
-
+using UnityEngine.Animations;
 public class Bag : MonoBehaviour
 {
     [SerializeField] private DeflationGameLogic _gameLogic;
     [SerializeField] private UnityEvent _backEvent;
     [SerializeField] public UnityEvent Dead;
     private StomaPatient _currentStomaPatient;
+    public DeflationGameLogic d;
+    Animator anim;
     private float _airbagValue = 0.5f;
     private float ownAirBagValue = 0;
     private CompositeDisposable _cd;
+
+    Vector3 ogSize;
     GameObject bean;
     public bool Intereced;
     public void SetAirBagValue(float a,GameObject b)
     {
         bean = b;
         ownAirBagValue += a;
+
+        Debug.Log("pumping air");
+        GetComponent<Animator>().SetTrigger("b");
     }
     public float GetAirBagValue()
     {
@@ -62,10 +69,12 @@ public class Bag : MonoBehaviour
             if (ownAirBagValue > 0.5)
             {
 
-                ChatGetter.Instance.StartChat("#STOMAC");
+               // ChatGetter.Instance.StartChat("#STOMAC");
                 Intereced = true;
                 bean.GetComponent<BEAN>().MoveAway();
-                DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.UNCLIP_BAG);
+                transform.localScale =ogSize;
+                ownAirBagValue = 0;
+                GetComponent<Animator>().SetTrigger("deflate");
             }
 
             else
@@ -85,7 +94,16 @@ public class Bag : MonoBehaviour
 
     public void beGone()
     {
+        if(d.getGamerunning())
+        {
+            
         _gameLogic.RemoveLife();
         Destroy(gameObject);
+        }
+    }
+    private void Start()
+    {
+        ogSize = transform.localScale;
+        d = FindObjectOfType<DeflationGameLogic>();
     }
 }
