@@ -27,6 +27,17 @@ public class MinigameManager : SingletonPersistent<MinigameManager>
         SceneLoader.Instance.ChangeScene(SceneID.MINIGAME, true);
     }
 
+    // Start the minigame
+    public void StartBossMinigame(MinigameID minigameID)
+    {
+        _currentMinigame = getMinigameInfo(minigameID);
+        // Set the difficulty of the current game
+        _difficulty.GameDifficulty = Difficulty.BOSS;
+
+        // Once all info is set, change game to the minigame scene :)
+        SceneLoader.Instance.ChangeScene(SceneID.BOSS, true);
+    }
+
     public MinigameInfo GetCurrentMinigame()
     {
         return _currentMinigame;

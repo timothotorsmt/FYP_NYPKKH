@@ -25,7 +25,9 @@ MonoBehaviour:
     SceneName: PrototypeScene
   - SceneAssetID: 5
     SceneName: LoadingScene
-  - SceneAssetID: 6
-    SceneName: NormalHubScene
   - SceneAssetID: 7
+    SceneName: NormalHubScene
+  - SceneAssetID: 8
     SceneName: LineScene
+  - SceneAssetID: 6
+    SceneName: 360Scene

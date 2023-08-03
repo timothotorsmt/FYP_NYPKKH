@@ -242,7 +242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.43, y: -0.007931232}
+  m_AnchoredPosition: {x: -2.52, y: -0.007931232}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &6323859967205579334
@@ -507,7 +507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 47.006165}
+  m_AnchoredPosition: {x: 0, y: 47.006104}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8136496934800664481
@@ -1047,7 +1047,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -225258947
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 63710e2353384bf419691bce09622614, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1407,7 +1407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8793399249447653984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1425,8 +1425,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000002861, y: 192}
-  m_SizeDelta: {x: 145.32, y: 148.38}
+  m_AnchoredPosition: {x: 0, y: 175}
+  m_SizeDelta: {x: 233.36, y: 212.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &86251993914605409
 CanvasRenderer:
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e9702f41644d9304aaa95a54a37a76a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abb72461f45bad044aa43f51062350e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1482,7 +1482,7 @@ MonoBehaviour:
   _blinkIntervals: 1
   _delay: 0
   _changeColor: {r: 1, g: 1, b: 1, a: 1}
-  _originalColor: {r: 1, g: 0.23113209, b: 0.23113209, a: 1}
+  _originalColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &885670179350855121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8749166, y: 0.0026254654}
+  m_AnchoredPosition: {x: -2.5, y: 0.0026254654}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &4489198824224114470
@@ -1538,7 +1538,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -1557,7 +1557,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2385,8 +2385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.73999, y: -3.119995}
-  m_SizeDelta: {x: 465.73, y: 865.36}
+  m_AnchoredPosition: {x: 2, y: -14}
+  m_SizeDelta: {x: 869.28, y: 472.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1588826001418848610
 GameObject:
@@ -3067,9 +3067,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.45202637, y: -0.3322754}
-  m_SizeDelta: {x: 1045.3219, y: 304.8017}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.000011563301, y: -0.000000834465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3599803564809634275
 CanvasRenderer:
@@ -3316,8 +3316,8 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.6300049, y: -0.7199993}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.6298828, y: -0.7199993}
   m_SizeDelta: {x: 8.19, y: 19.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2021806402357173542
@@ -3459,7 +3459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271, y: -135}
+  m_AnchoredPosition: {x: -103, y: -135}
   m_SizeDelta: {x: -1647.92, y: -1114.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2021806402637157302
@@ -4375,7 +4375,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.34879777, y: -0.00029755646}
+  m_ConnectedAnchor: {x: 0.34879816, y: -0.0002975099}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4435,12 +4435,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -4459,15 +4459,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.96124774, y: 0.00000023563341}
+  m_ConnectedAnchor: {x: 0.96124744, y: 0.00000013548548}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!61 &7231634528017939692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4621,12 +4621,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -4645,7 +4645,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.7558645, y: 0.0006843775}
+  m_ConnectedAnchor: {x: 0.7558637, y: 0.0006845483}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4807,12 +4807,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
@@ -5142,7 +5142,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -5173,8 +5173,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -5
-    m_UpperAngle: 5
+    m_LowerAngle: -1
+    m_UpperAngle: 1
 --- !u!61 &3047824672326318425
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5313,7 +5313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.43, y: -0.007931232}
+  m_AnchoredPosition: {x: -2.4299984, y: -0.007929297}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &3317201365419161958
@@ -5352,7 +5352,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5602,12 +5602,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -5626,7 +5626,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.9612473, y: 0.0000005905843}
+  m_ConnectedAnchor: {x: 0.96124744, y: 0.00000045518607}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5819,7 +5819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 47.006165}
+  m_AnchoredPosition: {x: 0, y: 47.006104}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6268999014349433762
@@ -6305,12 +6305,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -6329,7 +6329,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.8134561, y: 0.0020527712}
+  m_ConnectedAnchor: {x: 0.813456, y: 0.0020528634}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6579,7 +6579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 214.32999, y: 0}
+  m_AnchoredPosition: {x: 214.32996, y: 0}
   m_SizeDelta: {x: -584.92, y: 39.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6001853807560663800
@@ -6647,7 +6647,7 @@ RectTransform:
   m_GameObject: {fileID: 3573755638952139161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2647017, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7765711899481874118}
@@ -6663,7 +6663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.52, y: -0.043}
+  m_AnchoredPosition: {x: 6.76, y: -0.043}
   m_SizeDelta: {x: 4.98, y: 2.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5541567922328622334
@@ -6902,7 +6902,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -225258947
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: b344756a27db8fa44b4fd5034ca28ec9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7030,7 +7030,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.010009766, y: -0.62000275}
   m_SizeDelta: {x: -6.82, y: 17.96}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7199,12 +7199,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
@@ -7230,8 +7230,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!61 &2533702278000295781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7309,7 +7309,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -7340,8 +7340,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -5
-    m_UpperAngle: 5
+    m_LowerAngle: -1
+    m_UpperAngle: 1
 --- !u!61 &4276497092633797208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7510,12 +7510,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
@@ -7534,7 +7534,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09495909, y: -0.0054299133}
+  m_ConnectedAnchor: {x: -0.0009833567, y: 0.006134915}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -7657,12 +7657,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -7681,7 +7681,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.75586414, y: -0.00022094426}
+  m_ConnectedAnchor: {x: 0.75586396, y: -0.00022077547}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -7837,8 +7837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 95.885}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 282, y: 14}
-  m_SizeDelta: {x: -2421.4307, y: -1291.8608}
+  m_AnchoredPosition: {x: 352, y: -102.16998}
+  m_SizeDelta: {x: -1793.64, y: -1178.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5571825838476246760
 MonoBehaviour:
@@ -7985,7 +7985,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -225258947
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: bf4e156c7e6ed844e9454bcd8c8bb2e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8536,8 +8536,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 31, y: 49}
+  m_SizeDelta: {x: -580.56, y: -132.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068412138798155
 CanvasRenderer:
@@ -8567,9 +8567,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08e4185a09631dc4590ce1aec83ed9ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 406e15aab2daf664faf86ce66bd972e1, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9398,7 +9398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e403159dc92c9dd49b6aa4446ad87a94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e0941dd43d7f2d4e85374b4e1d79a58, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -9490,7 +9490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -126.380005, y: 57}
+  m_AnchoredPosition: {x: -126.37988, y: 50}
   m_SizeDelta: {x: -2099.83, y: -1075.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068412225737666
@@ -10702,8 +10702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 423, y: -20}
-  m_SizeDelta: {x: 1117.33, y: 306.91}
+  m_AnchoredPosition: {x: 653, y: 14}
+  m_SizeDelta: {x: 1336.96, y: 394.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068412330177032
 CanvasRenderer:
@@ -10733,7 +10733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0641cd80a5115b64e8770d5e43c1fa64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fda4bc69f11a7ed43883ffefc194ca18, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11214,8 +11214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.6342926}
-  m_SizeDelta: {x: 0, y: -122.9868}
+  m_AnchoredPosition: {x: 0, y: -1.9400024}
+  m_SizeDelta: {x: 0, y: -152.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4922068412427334941
 GameObject:
@@ -11361,7 +11361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e62f4ffcda8602d499460e2ec4df8a78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24631a2fe7d3b0b45b07b5b6a665edf6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11744,7 +11744,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922068412500969526}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -11752,10 +11752,10 @@ RectTransform:
   - {fileID: 4922068412946160570}
   m_Father: {fileID: 4922068412802075114}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -199, y: 288}
+  m_AnchoredPosition: {x: 759, y: -36}
   m_SizeDelta: {x: 152.96997, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068412500969522
@@ -12108,8 +12108,8 @@ RectTransform:
   m_Father: {fileID: 4922068413096477655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 115.600006, y: -0.0000076293945}
   m_SizeDelta: {x: 276.77, y: -0.000015259}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12524,8 +12524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14, y: -637}
-  m_SizeDelta: {x: 651.6, y: 1526.87}
+  m_AnchoredPosition: {x: -14, y: -325.2002}
+  m_SizeDelta: {x: 651.6, y: 828.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068412592992995
 CanvasRenderer:
@@ -12555,7 +12555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 99e137d137f1b664c9409a83084dbeab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1db425189848ad46a72dc466307880e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12582,7 +12582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4922068412602466856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14293,7 +14293,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922068412802075117}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14302,11 +14302,11 @@ RectTransform:
   - {fileID: 4922068412500969527}
   m_Father: {fileID: 4922068413716154707}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53, y: 9.875488}
-  m_SizeDelta: {x: -596.4, y: -131.75098}
+  m_AnchoredPosition: {x: 0, y: -454}
+  m_SizeDelta: {x: 414.46, y: 1392.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068412802075112
 CanvasRenderer:
@@ -14336,7 +14336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e403159dc92c9dd49b6aa4446ad87a94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e0941dd43d7f2d4e85374b4e1d79a58, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -15725,7 +15725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d008228ea861f7b40bc2bcee794d2967, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1e6909d52b7c8946b06db128ad1fc53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17816,7 +17816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57, y: -273.36}
+  m_AnchoredPosition: {x: -44, y: -320}
   m_SizeDelta: {x: 356.39, y: 198.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4922068413268088873
@@ -18283,7 +18283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fdd8e76852f9668498cfc95118366a27, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46bb88549cbb67849837a71c5bb5758f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -18404,8 +18404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -103.109985, y: 0.000019073}
-  m_SizeDelta: {x: -1306.93, y: 133.5}
+  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
+  m_SizeDelta: {x: -1415.97, y: 133.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4922068413331050739
 MonoBehaviour:
@@ -18647,8 +18647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 40.2, y: -53.700012}
-  m_SizeDelta: {x: 122.05, y: 108.47998}
+  m_AnchoredPosition: {x: 28, y: -53}
+  m_SizeDelta: {x: 154.01, y: 156.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068413334232716
 CanvasRenderer:
@@ -19006,7 +19006,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922068413393947561}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19014,10 +19014,10 @@ RectTransform:
   - {fileID: 4922068413546970597}
   m_Father: {fileID: 4922068412802075114}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: 178}
+  m_AnchoredPosition: {x: 286, y: 366}
   m_SizeDelta: {x: 148.78003, y: 150}
   m_Pivot: {x: 0.5, y: 0.5000001}
 --- !u!222 &4922068413393947556
@@ -19303,7 +19303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4922068413418290120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19702,7 +19702,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 89.9834}
   m_SizeDelta: {x: 372.0417, y: 179.9666}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19734,7 +19734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e62f4ffcda8602d499460e2ec4df8a78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24631a2fe7d3b0b45b07b5b6a665edf6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -19853,10 +19853,10 @@ RectTransform:
   m_Father: {fileID: 4922068413223749689}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
-  m_SizeDelta: {x: 434.56, y: 12.93}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 329.61, y: -41.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068413445950509
 CanvasRenderer:
@@ -19886,7 +19886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 981b7914d0a6f824ab08c827c93cb9fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 620efc896d9dc5946a86c9715bffb589, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -20783,7 +20783,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -31.092499, y: 0}
   m_SizeDelta: {x: 177.815, y: 465.99}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21052,7 +21052,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922068413559299738}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7206743, w: 0.69327396}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21061,10 +21061,10 @@ RectTransform:
   - {fileID: 4922068413748252354}
   m_Father: {fileID: 4922068412208147754}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.22}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284.00003, y: -114.27553}
+  m_AnchoredPosition: {x: 297, y: -167}
   m_SizeDelta: {x: 692.9029, y: 194.7315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068413559299737
@@ -21095,7 +21095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8546293b83d2ab34ca2641b01fdc5cbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fda4bc69f11a7ed43883ffefc194ca18, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -22113,8 +22113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 103.31, y: -36}
-  m_SizeDelta: {x: 118.84, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4922068413705473992
 GameObject:
@@ -22315,8 +22315,8 @@ RectTransform:
   m_LocalScale: {x: 0.9998464, y: 0.9998464, z: 0.9998464}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4922068413226275721}
   - {fileID: 4922068412802075114}
+  - {fileID: 4922068413226275721}
   - {fileID: 4922068412586656384}
   - {fileID: 4922068413174277272}
   m_Father: {fileID: 4922068412602466856}
@@ -23571,7 +23571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e403159dc92c9dd49b6aa4446ad87a94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e0941dd43d7f2d4e85374b4e1d79a58, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -25304,7 +25304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 122.474976, y: 1.4999962}
+  m_AnchoredPosition: {x: 122.4751, y: 1.4999962}
   m_SizeDelta: {x: -579.76, y: 39.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068414054413991
@@ -25558,7 +25558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 179.381}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326, y: 527}
+  m_AnchoredPosition: {x: 354, y: 474}
   m_SizeDelta: {x: 756.3547, y: 940.1672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068414111228674
@@ -25589,7 +25589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 99e137d137f1b664c9409a83084dbeab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 606176ee556712543a85afdad3904845, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -26244,9 +26244,9 @@ RectTransform:
   m_Father: {fileID: 4922068412621462306}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -3.2300034}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1}
   m_SizeDelta: {x: 921.99, y: 6.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068414213013298
@@ -26277,7 +26277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8546293b83d2ab34ca2641b01fdc5cbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fda4bc69f11a7ed43883ffefc194ca18, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -26573,7 +26573,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922068414246073185}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0187799, w: 0.9998237}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26581,10 +26581,10 @@ RectTransform:
   - {fileID: 4922068413650733320}
   m_Father: {fileID: 4922068413559299739}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.152}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 62.110016, y: 2.3499985}
+  m_AnchoredPosition: {x: 76, y: 0}
   m_SizeDelta: {x: -484.43, y: -79.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068414246073181
@@ -27053,7 +27053,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5221715592824394176}
   m_LocalRotation: {x: -0, y: -0, z: -0.999948, w: 0.010202166}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000026966347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27062,9 +27062,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.43, y: -0.007931232}
+  m_AnchoredPosition: {x: -2.3684154, y: -0.002105}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49938688, y: 0.4999527}
 --- !u!50 &6869175343070070831
 Rigidbody2D:
   serializedVersion: 4
@@ -27304,7 +27304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 47.006165}
+  m_AnchoredPosition: {x: 0, y: 47.006104}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1725710529101927174
@@ -27479,7 +27479,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -27543,8 +27543,8 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -202.99998, y: -4}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2, y: 8}
   m_SizeDelta: {x: 179.33, y: 32.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2070616985781313782
@@ -27636,7 +27636,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -27667,8 +27667,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -5
-    m_UpperAngle: 5
+    m_LowerAngle: -1
+    m_UpperAngle: 1
 --- !u!61 &7369410443711394313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28098,7 +28098,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -28129,8 +28129,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -5
-    m_UpperAngle: 5
+    m_LowerAngle: -1
+    m_UpperAngle: 1
 --- !u!61 &2893366438302977378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28481,12 +28481,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -28505,7 +28505,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0064332, y: -0.00000006080004}
+  m_ConnectedAnchor: {x: 1.0064329, y: -0.000000082521815}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -28789,7 +28789,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -28820,8 +28820,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -5
-    m_UpperAngle: 5
+    m_LowerAngle: -1
+    m_UpperAngle: 1
 --- !u!61 &8239737483338153429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28899,12 +28899,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -28923,15 +28923,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.8134553, y: -0.00020031308}
+  m_ConnectedAnchor: {x: 0.81345546, y: -0.00020020777}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!61 &3816064887305763791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29170,12 +29170,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -29194,15 +29194,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.78077066, y: 0.0003334657}
+  m_ConnectedAnchor: {x: 0.78077084, y: 0.00033391337}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!61 &1833947442178706524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29507,7 +29507,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!233 &572860922165322578
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -29706,12 +29706,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -29730,7 +29730,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.7807704, y: -0.003422633}
+  m_ConnectedAnchor: {x: 0.7807701, y: -0.0034224554}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -29892,12 +29892,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -29916,7 +29916,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0064341, y: 0.00000076666623}
+  m_ConnectedAnchor: {x: 1.0064348, y: 0.0000007449413}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -29985,7 +29985,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 345.31, y: 1073.98}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -32416,19 +32416,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7391196966511593843}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!233 &3030188496200605128
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -32444,7 +32444,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 13.40201, y: -3.393846}
+  m_ConnectedAnchor: {x: 12.321992, y: -0.73988867}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -32504,12 +32504,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -32528,7 +32528,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.8134556, y: -0.00066426414}
+  m_ConnectedAnchor: {x: 0.8134558, y: -0.00066425634}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -33176,7 +33176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.686}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 91.08496, y: 240}
+  m_AnchoredPosition: {x: 91.08502, y: 267}
   m_SizeDelta: {x: -2421.4307, y: -1291.8608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7245414028390166377
@@ -33472,12 +33472,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -33496,15 +33496,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.75586396, y: -0.00006668759}
+  m_ConnectedAnchor: {x: 0.7558639, y: -0.00006646746}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!61 &8542880607691101936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34464,12 +34464,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -34488,15 +34488,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0064336, y: 0.00000006447429}
+  m_ConnectedAnchor: {x: 1.0064336, y: -0.00000003567408}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -10
-    m_UpperAngle: 10
+    m_LowerAngle: -5
+    m_UpperAngle: 5
 --- !u!61 &1809532416851862960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34709,7 +34709,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -34740,8 +34740,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -5
-    m_UpperAngle: 5
+    m_LowerAngle: -1
+    m_UpperAngle: 1
 --- !u!61 &8676935221046599060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34933,7 +34933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 190.91, y: -37.5}
+  m_AnchoredPosition: {x: 190.91003, y: -37.5}
   m_SizeDelta: {x: -405.46, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1464074599425808779
@@ -35084,12 +35084,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -35108,7 +35108,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.9612483, y: -0.00000016135357}
+  m_ConnectedAnchor: {x: 0.9612482, y: -0.0000003351354}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -35397,12 +35397,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -35421,7 +35421,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.7807717, y: 0.0011066771}
+  m_ConnectedAnchor: {x: 0.7807715, y: 0.0011067207}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
