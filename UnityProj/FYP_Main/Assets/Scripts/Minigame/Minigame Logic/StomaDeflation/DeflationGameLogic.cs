@@ -19,6 +19,10 @@ public class DeflationGameLogic : BasicSlider
 
     private bool _isGameRunning;
 
+    private int _lives=6;
+    public UnityEvent GameLost;
+    public UnityEvent GameWin;
+
     private static int _numPatients = 1;
     private ReactiveProp<int> _patientCounter;
 
@@ -83,7 +87,30 @@ public class DeflationGameLogic : BasicSlider
     private IEnumerator GameLength()
     {
         yield return new WaitForSeconds(_gameLength);
+        ChatGetter.Instance.StartChat("#STOMAD", GameWin);
+    
+    }
 
+
+    public void RemoveLife()
+    {
+        _lives -=1;
+        if (_lives==0)
+        {
+            ChatGetter.Instance.StartChat("#STOMAE", GameLost);
+            _isGameRunning = false;
+            StopCoroutine("GameLength");
+        }
+    }
+
+    public void FinsihGameLose()
+    {
+        _lives = -1;
+        CheckIfGameOver();
+    }
+    public void FinsihGameWin()
+    {
+        Debug.Log("asdd");
         _isGameRunning = false;
         CheckIfGameOver();
     }
@@ -92,6 +119,12 @@ public class DeflationGameLogic : BasicSlider
     {
         if (!_isGameRunning && DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
         {
+            Debug.Log("powerk");
+            DeflationTaskController.Instance.MarkCurrentTaskAsDone();
+        }
+        if(!_isGameRunning)
+        {
+            Debug.Log("asdasd");
             DeflationTaskController.Instance.MarkCurrentTaskAsDone();
         }
     }
