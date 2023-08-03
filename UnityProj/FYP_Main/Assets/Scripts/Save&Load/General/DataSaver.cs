@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System.Security.Cryptography;
 
 [System.Serializable]
 public class DataSaver : GameDataManager
 {
-    private byte[] _savedKey;
-    private FileStream _dataStream;
+    // FileStream used for reading and writing files.
+    private static FileStream dataStream;
 
     private new void Awake()
     {
@@ -17,19 +18,11 @@ public class DataSaver : GameDataManager
         {
             Directory.CreateDirectory(folderPath);
         }
-
     }
 
     public static void WriteFile(GameDataBase gameData)
     {
-        
-        if (File.Exists(gameData.FilePath))
-        {
-            string jsonData = JsonUtility.ToJson(gameData);
-            // Write JSON to file.
-            File.WriteAllText(gameData.FilePath, jsonData);
-        }
-        else
+        if (!File.Exists(gameData.FilePath))
         {
             // Create the data folder if it doesn't exist
             string folderPath = Path.Combine(Application.persistentDataPath, "Data");
@@ -37,22 +30,82 @@ public class DataSaver : GameDataManager
             {
                 Directory.CreateDirectory(folderPath);
             }
-            // Create the file
-            File.Create(gameData.FilePath);
-            string jsonData = JsonUtility.ToJson(gameData);
-            // Write JSON to file.
-            File.WriteAllText(gameData.FilePath, jsonData);
         }
+        // Create new AES instance.
+        Aes iAes = Aes.Create();
+
+        // Update the internal key.
+        byte[] _savedKey = iAes.Key;
+
+        // Convert the byte[] into a Base64 String.
+        string key = System.Convert.ToBase64String(_savedKey);
+
+        // Update the PlayerPrefs
+        PlayerPrefs.SetString("key", key);
+
+        // Create a FileStream for creating files.
+        dataStream = new FileStream(gameData.FilePath, FileMode.Create);
+
+        // Save the new generated IV.
+        byte[] inputIV = iAes.IV;
+
+        // Write the IV to the FileStream unencrypted.
+        dataStream.Write(inputIV, 0, inputIV.Length);
+
+        // Create CryptoStream, wrapping FileStream.
+        CryptoStream iStream = new CryptoStream(dataStream, iAes.CreateEncryptor(iAes.Key, iAes.IV), CryptoStreamMode.Write);
+
+        // Create StreamWriter, wrapping CryptoStream.
+        StreamWriter sWriter = new StreamWriter(iStream);
+
+        // Serialize the object into JSON and save string.
+        string jsonData = JsonUtility.ToJson(gameData);
+
+        // Write to the innermost stream (which will encrypt).
+        sWriter.Write(jsonData);
+
+        // Close StreamWriter.
+        sWriter.Close();
+
+        // Close CryptoStream.
+        iStream.Close();
+
+        // Close FileStream.
+        dataStream.Close();
     }
 
     public static type ReadFile<type>(string FilePath)
     {
         string fileContents = "";
         // Does the file exist?
-        if (File.Exists(FilePath))
+        if (File.Exists(FilePath) && PlayerPrefs.HasKey("key"))
         {
-            // Read the entire file and save its contents.
-            fileContents = File.ReadAllText(FilePath);
+            // Update key based on PlayerPrefs
+            // (Convert the String into a Base64 byte[] array.)
+            byte[] _savedKey = System.Convert.FromBase64String(PlayerPrefs.GetString("key"));
+
+            // Create FileStream for opening files.
+            dataStream = new FileStream(FilePath, FileMode.Open);
+
+            // Create new AES instance.
+            Aes oAes = Aes.Create();
+
+            // Create an array of correct size based on AES IV.
+            byte[] outputIV = new byte[oAes.IV.Length];
+
+            // Read the IV from the file.
+            dataStream.Read(outputIV, 0, outputIV.Length);
+
+            // Create CryptoStream, wrapping FileStream
+            CryptoStream oStream = new CryptoStream(dataStream, oAes.CreateDecryptor(_savedKey, outputIV), CryptoStreamMode.Read);
+
+            // Create a StreamReader, wrapping CryptoStream
+            StreamReader reader = new StreamReader(oStream);
+
+            // Read the entire file into a String value.
+            fileContents = reader.ReadToEnd();
+            // Always close a stream after usage.
+            reader.Close();
         }
         else
         {
@@ -68,6 +121,6 @@ public class DataSaver : GameDataManager
 
     //public void DeleteAllData()
     //{
-        
+
     //}
 }

@@ -13,14 +13,10 @@ public class ValueEditor : MonoBehaviour
     public TMP_Text TextComponent;
 
     // Define the Savers used
+    [SerializeField]
     private SampleDataSaver sampleDataSaver;
+    [SerializeField]
     private SampleData2Saver sampleData2Saver;
-
-    private void Awake()
-    {
-        sampleDataSaver = new SampleDataSaver();
-        sampleData2Saver = new SampleData2Saver();
-    }
 
     private void Start()
     {
