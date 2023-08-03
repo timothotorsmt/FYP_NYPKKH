@@ -31,6 +31,7 @@ namespace BBraunInfusomat
         private int _rateIndex;
         public bool _hasKeyedInRate;
         [SerializeField] private UnityEvent _onEnterCorrectParams;
+        [SerializeField] private UnityEvent _onResolveAlarm;
 
 
         #region Alarm Behavior
@@ -58,6 +59,7 @@ namespace BBraunInfusomat
                 BBraunState.SetValue(BBraunIPState.NORMAL);
 
                 _bBraunAudio.MuteAlarm();
+                _onResolveAlarm.Invoke();
             }
 
         }
@@ -89,6 +91,7 @@ namespace BBraunInfusomat
                 BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
                 
                 _bBraunAudio.MuteAlarm();
+                _onResolveAlarm.Invoke();
             }
         }
 
@@ -337,6 +340,13 @@ namespace BBraunInfusomat
 
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
 
+        }
+
+        public void SetParams(float rate, float time, float VTBI)
+        {
+            _bBraunIPUIDisplay.SetRate(rate);
+            _bBraunIPUIDisplay.SetTime(time);
+            _bBraunIPUIDisplay.SetVTBI(VTBI);
         }
 
         private void SetDigitUp()

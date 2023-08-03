@@ -12,6 +12,8 @@ namespace Audio
 
         // BBraun Audio
         BBRAUN_OPERATING_ALARM,
-        BBRAUN_PRE_ALARM
+        BBRAUN_PRE_ALARM,
+
+        BBRAUN_DOOR_CLICK,
     }
 }

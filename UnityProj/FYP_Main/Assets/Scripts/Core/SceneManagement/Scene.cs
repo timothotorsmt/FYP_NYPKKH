@@ -16,10 +16,13 @@ namespace Core.SceneManagement {
     public enum SceneID
     {
         MAIN_MENU,
-        HUB,
+        HUB_WONDERLAND,
         MINIGAME,
         SETTINGS,
         PROTOTYPE,
         LOADING,
+        HUB_NORMAL,
+        LINES,
+        STOMA
     }
 }

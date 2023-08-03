@@ -35,7 +35,6 @@ public class ClipBag : MultiSlider
             {
                 // Mark current task as done!! Move on
                 DeflationTaskController.Instance.MarkCurrentTaskAsDone();
-                DeflationTaskController.Instance.AssignCurrentTaskContinuous(DeflationTasks.DEFLATE_BAGS);
                 _sliderPassEvent.Invoke();
             }
         }

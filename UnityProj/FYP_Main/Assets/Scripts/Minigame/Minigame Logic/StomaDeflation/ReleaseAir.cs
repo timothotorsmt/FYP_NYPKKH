@@ -7,7 +7,7 @@ public class ReleaseAir : MonoBehaviour
 {
     [SerializeField] private TimerHold _timerHold;
     [SerializeField] private DeflationGameLogic _gameLogic;
-    [SerializeField] private float _rateOfAirRemoval = 1.0f;
+    [SerializeField] private float _rateOfAirRemoval = 0.25f;
     [SerializeField, Range(0, 1)] private float _minimumAirValue = 0.1f;
     private float _airbagValue = 0.5f;
     private CompositeDisposable _cd;

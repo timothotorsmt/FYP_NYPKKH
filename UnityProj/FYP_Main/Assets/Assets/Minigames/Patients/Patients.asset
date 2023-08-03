@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b946286c7d4199d4ebc0dd2f21c68b42, type: 3}
+  m_Name: Patients
+  m_EditorClassIdentifier: 
+  _patients:
+  - name: Bethany Tee Kai Wen
+    altName: Ms. Tee
+    PatientGender: 1
+    age: 21
+    patientAgeGroup: 2
+    height: 168
+    weight: 60
+    PatientSpriteList:
+    - patientBodyPart: 0
+      patientSprite: {fileID: 21300000, guid: bdb254b943aae0c44a47490d88bf73be, type: 3}
+    KeyNotes: []
+  - name: Cheryl Lim Si En
+    altName: Ms. Lim
+    PatientGender: 1
+    age: 12
+    patientAgeGroup: 1
+    height: 147
+    weight: 39
+    PatientSpriteList:
+    - patientBodyPart: 0
+      patientSprite: {fileID: 21300000, guid: ac786892cd4bb314495b9b5b75f46934, type: 3}
+    KeyNotes: []

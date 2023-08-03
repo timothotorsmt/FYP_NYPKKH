@@ -18,12 +18,12 @@ namespace Core.Input
         protected override void Awake()
         {
             base.Awake();
-            Debug.Log("I exist");
         }
 
         // Update is called once per frame
         void Update()
         {
+
             // Check for current platform
             if (Application.isEditor)
             {
@@ -91,7 +91,6 @@ namespace Core.Input
                 // There are no UI elements right now
                 return true;
             }
-
 
             if (Application.isEditor)
             {
