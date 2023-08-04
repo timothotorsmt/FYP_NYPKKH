@@ -30,8 +30,11 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
 
     public void EndMinigame()
     {
-        // Update points and whatever here ig
         // Save game here too for good measure
+        if (LinesBossLogic.Instance != null)
+        {
+            LinesBossLogic.Instance.FinishMinigame();
+        }
 
         GoBackToLevel();
     }
@@ -40,5 +43,11 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
     {
         // Change scene
         SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID());
+    }
+
+    public void GoBackToHub()
+    {
+        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND);
+
     }
 }

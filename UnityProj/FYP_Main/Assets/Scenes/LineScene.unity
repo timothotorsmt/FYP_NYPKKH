@@ -2910,7 +2910,6 @@ GameObject:
   - component: {fileID: 625260712}
   - component: {fileID: 625260711}
   - component: {fileID: 625260710}
-  - component: {fileID: 625260713}
   m_Layer: 5
   m_Name: Boss Minigame
   m_TagString: Untagged
@@ -2985,7 +2984,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 119606246}
         m_TargetAssemblyTypeName: FadeInOut, Assembly-CSharp
-        m_MethodName: FadeOut
+        m_MethodName: FadeIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3033,19 +3032,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625260708}
   m_CullTransparentMesh: 1
---- !u!114 &625260713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625260708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4200f03ebab6fe340b398046572f6263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _idMinigame: 0
 --- !u!1 &765586139
 GameObject:
   m_ObjectHideFlags: 0
@@ -7325,7 +7311,7 @@ GameObject:
   - component: {fileID: 1673487801}
   - component: {fileID: 1673487800}
   - component: {fileID: 1673487799}
-  - component: {fileID: 1673487798}
+  - component: {fileID: 1673487802}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -7354,20 +7340,6 @@ RectTransform:
   m_AnchoredPosition: {x: 384.00003, y: -155.77002}
   m_SizeDelta: {x: 444.03, y: 118.03}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1673487798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673487796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8c87c9c4fd49846a3671e5891fd2f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _idMinigame: 5
-  _difficulty: 1
 --- !u!114 &1673487799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7412,8 +7384,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1673487798}
-        m_TargetAssemblyTypeName: MinigamePopup, Assembly-CSharp
+      - m_Target: {fileID: 1673487802}
+        m_TargetAssemblyTypeName: BossPopup, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -7474,6 +7446,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673487796}
   m_CullTransparentMesh: 1
+--- !u!114 &1673487802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673487796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4200f03ebab6fe340b398046572f6263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idMinigame: 7
 --- !u!1 &1675648860
 GameObject:
   m_ObjectHideFlags: 0

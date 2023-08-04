@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Setting.unity
     guid: 7dcd136a5db2772428b0f8fa87697bc9
+  - enabled: 1
+    path: Assets/Scenes/360Scene.unity
+    guid: e8d896ca36cda9f4cb97715ef63fbb20
   m_configObjects: {}
