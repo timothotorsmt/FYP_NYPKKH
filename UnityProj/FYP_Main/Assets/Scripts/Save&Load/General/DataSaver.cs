@@ -38,10 +38,10 @@ public class DataSaver : GameDataManager
         byte[] _savedKey = iAes.Key;
 
         // Convert the byte[] into a Base64 String.
-        string key = System.Convert.ToBase64String(_savedKey);
+        gameData.SetAesKey(System.Convert.ToBase64String(_savedKey));
 
         // Update the PlayerPrefs
-        PlayerPrefs.SetString("key", key);
+        PlayerPrefs.SetString("key", gameData.GetAesKey());
 
         // Create a FileStream for creating files.
         dataStream = new FileStream(gameData.FilePath, FileMode.Create);
