@@ -511,6 +511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peripheral Setup Minigame
       objectReference: {fileID: 0}
+    - target: {fileID: 9193583280959414960, guid: 432af39274c637c4eb5e83e08f14ad3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 432af39274c637c4eb5e83e08f14ad3f, type: 3}
