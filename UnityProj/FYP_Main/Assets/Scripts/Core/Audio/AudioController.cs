@@ -8,6 +8,7 @@ using UniRx;
 
 namespace Audio
 {
+    [RequireComponent(typeof(AudioSource))]
    // The controller of the audio system 
    public class AudioController : Singleton<AudioController>
     {

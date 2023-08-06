@@ -11,16 +11,25 @@ public class CheckBBraunInstructions : MonoBehaviour
     // Not running?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? On the first time it's being called???????????? WHAT
     public void GiveBBraunInstructions()
     {
-        if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.MUTE_ALARM && !hasGivenInstructions)
+        if (MinigameManager.Instance == null)
         {
-            hasGivenInstructions = true;
-            StartCoroutine(GiveBBraunDialogueLine());
+            return;
         }
 
-        if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.PUT_PUMP_ON_STANDBY && !hasGivenStandbyInstructions)
+        // Ensure current difficulty is not these 2 because they are woah.
+        if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS && MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.LEVEL_10)
         {
-            hasGivenStandbyInstructions = true;
-            StartCoroutine(GiveStandbyDialogueLine());
+            if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.MUTE_ALARM && !hasGivenInstructions)
+            {
+                hasGivenInstructions = true;
+                StartCoroutine(GiveBBraunDialogueLine());
+            }
+
+            if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.PUT_PUMP_ON_STANDBY && !hasGivenStandbyInstructions)
+            {
+                hasGivenStandbyInstructions = true;
+                StartCoroutine(GiveStandbyDialogueLine());
+            }
         }
     }
 

@@ -6965,6 +6965,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4922068413124438716}
+        m_TargetAssemblyTypeName: PumpItems, Assembly-CSharp
+        m_MethodName: PlayMiddleClipAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onReset:
     m_PersistentCalls:
       m_Calls: []
@@ -8039,6 +8051,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4922068413124438716}
         m_TargetAssemblyTypeName: PumpItems, Assembly-CSharp
         m_MethodName: LockItemIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4922068413124438716}
+        m_TargetAssemblyTypeName: PumpItems, Assembly-CSharp
+        m_MethodName: PlayGreenClipAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16861,18 +16885,6 @@ MonoBehaviour:
   _sliderPassEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8732492283812338072}
-        m_TargetAssemblyTypeName: MinigameChatGetter, Assembly-CSharp
-        m_MethodName: DisplayChatLine
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: '#PERIIC'
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 9004207812194930941}
         m_TargetAssemblyTypeName: FadeInOut, Assembly-CSharp
         m_MethodName: FadeOut

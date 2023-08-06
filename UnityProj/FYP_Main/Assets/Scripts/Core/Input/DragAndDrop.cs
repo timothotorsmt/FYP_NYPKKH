@@ -131,6 +131,9 @@ public class DragAndDrop : MonoBehaviour, IInputActions
 
     public void OnTap()
     {   
+        // dc if its finished
+        if (_isFinished) { return; }
+
         if (_isMoving)
         {
             Vector2 mousePos = InputUtils.GetInputPosition();
@@ -141,6 +144,9 @@ public class DragAndDrop : MonoBehaviour, IInputActions
 
     public void OnEndTap()
     {
+        // dc if its finished
+        if (_isFinished) { return; }
+
         _isMoving = false;
 
         if (Vector2.Distance((Vector2)this.transform.position, (Vector2)_destination.transform.position) < 1.0f)
