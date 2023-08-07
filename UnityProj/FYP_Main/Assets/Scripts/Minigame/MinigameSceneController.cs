@@ -32,19 +32,11 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
     public void EndMinigame()
     {
         GoBackToLevel();
-    }
-
-    private void FinishMinigameAction()
-    {
-        if (LinesBossLogic.Instance != null)
-        {
-            LinesBossLogic.Instance.FinishMinigame();
-        }
+        LinesBossLogic.Instance.FinishMinigame();
     }
 
     private void GoBackToLevel()
     {
-        SceneLoader.Instance._sceneChangeAction.AddListener(FinishMinigameAction);
         // Change scene
         SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID(), true);
         
