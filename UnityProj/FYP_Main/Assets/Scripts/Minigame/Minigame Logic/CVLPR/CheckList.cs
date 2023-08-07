@@ -71,7 +71,7 @@ public class CheckList : MonoBehaviour
         }
         for (int i = 0; i < nameOfItem.Count; i++)
         {
-            Debug.Log(nameOfItem[i]);
+            //Debug.Log(nameOfItem[i]);
         }
 
 
@@ -120,7 +120,7 @@ public class CheckList : MonoBehaviour
     public void button()
     {
   
-        backButton.SetActive(list.activeSelf);
+        //backButton.SetActive(list.activeSelf);
         //to activate the checklist
         list.SetActive(!list.activeSelf);
     }

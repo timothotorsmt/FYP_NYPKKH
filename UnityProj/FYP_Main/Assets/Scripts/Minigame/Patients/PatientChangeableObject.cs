@@ -6,7 +6,7 @@ using UniRx.Extention;
 using UniRx;
 using System.Linq;
 
-public class PatientChangeableObject : MonoBehaviour
+public class AgeGroupChangeableObject : MonoBehaviour
 {
     [SerializeField] private List<changableObject<AgeGroup>> _changableObjects;
     private ReactiveProp<AgeGroup> ageGroup = new ReactiveProp<AgeGroup>();

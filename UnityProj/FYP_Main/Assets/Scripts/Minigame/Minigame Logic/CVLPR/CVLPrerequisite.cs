@@ -110,7 +110,8 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 if (Okay)
                 {
                     GameObject b = Instantiate(gameObject, transform.position, Quaternion.identity) as GameObject;
-                    b.transform.parent = transform.parent;
+                    MinigamePerformance.Instance.AddPositiveAction();
+                    b.transform.SetParent(transform.parent);
                     b.transform.position = transform.position;
                     b.transform.localScale = transform.localScale*0.7f;
                     b.GetComponent<CVLPrerequisite>().enabled = false;

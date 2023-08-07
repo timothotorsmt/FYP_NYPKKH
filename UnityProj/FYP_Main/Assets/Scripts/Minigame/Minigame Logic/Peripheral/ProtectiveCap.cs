@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
+using static UnityEditor.ShaderData;
 
 // The protective cap on the IV tubing 
-public class ProtectiveCap : TwoWaySlider
+public class ProtectiveCap : BasicSlider
 {
     [SerializeField] private GameObject _cap; // The cap object
+    private bool pass = false;
 
      private void Awake()
     {
@@ -17,19 +19,17 @@ public class ProtectiveCap : TwoWaySlider
             CheckForAsync(state);
         });
 
-        CheckForAsync(PeripheralSetupTaskController.Instance.GetCurrentTask());
-    }
+     }
 
     private void CheckForAsync(PeripheralSetupTasks state)
     {
         switch (state)
         {
             case PeripheralSetupTasks.REMOVE_PROTECTIVE_CAP:
-                if (_mainSlider.value >= _sliderPassReq)
+                if (pass)
                 {
                     // Good enough, mark as pass and move on
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-                    Debug.Log("Pass Cap");
                     ChatGetter.Instance.StartChat("#PERIIC");
                 }
                 break;
@@ -44,12 +44,16 @@ public class ProtectiveCap : TwoWaySlider
     private void OnEnable()
     {
         _mainSlider.onValueChanged.AddListener(delegate { SetSliderClose(); });
+        CheckForAsync(PeripheralSetupTaskController.Instance.GetCurrentTask());
     }
 
     private void SetSliderClose()
     {
         if (_mainSlider.value >= _sliderPassReq)
         {
+            pass = true;
+            CheckForAsync(PeripheralSetupTaskController.Instance.GetCurrentTask());
+
             PeripheralSetupTaskController.Instance.MarkCorrectTask();
             // Good enough, mark as pass and move on
             _mainSlider.interactable = false;

@@ -129,9 +129,9 @@ public class OcclusionMinigameController : MonoBehaviour
     {
         // Generate random patient age group
         int RandNum = Random.Range(0, 2);
-        if (RandNum == 1)
+        if (false)
         {
-            _patientList.GetRandomPatient(AgeGroup.CHILD);
+            //_patientList.GetRandomPatient(AgeGroup.CHILD);
         }
         else
         {

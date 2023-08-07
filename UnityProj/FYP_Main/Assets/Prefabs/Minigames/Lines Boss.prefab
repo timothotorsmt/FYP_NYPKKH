@@ -50,3 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minigameList: []
+  _bossOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _minWaitTime: 3
+  _maxWaitTime: 8

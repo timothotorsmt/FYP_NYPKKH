@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.SceneManagement;
 using Common.DesignPatterns;
+using UnityEngine.Events;
 
 public class MinigameSceneController : Singleton<MinigameSceneController>
 {
@@ -30,19 +31,23 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
 
     public void EndMinigame()
     {
-        // Save game here too for good measure
+        GoBackToLevel();
+    }
+
+    private void FinishMinigameAction()
+    {
         if (LinesBossLogic.Instance != null)
         {
             LinesBossLogic.Instance.FinishMinigame();
         }
-
-        GoBackToLevel();
     }
 
     private void GoBackToLevel()
     {
+        SceneLoader.Instance._sceneChangeAction.AddListener(FinishMinigameAction);
         // Change scene
-        SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID());
+        SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID(), true);
+        
     }
 
     public void GoBackToHub()
