@@ -29,6 +29,8 @@ public class GameDataManager : SingletonPersistent<GameDataManager>
     public static type LoadData<type>(DataID dataID)
     {
         string filePath = _fileMetaData[dataID].FilePath;
+        string aesKey = _fileMetaData[dataID].GetAesKey();
+        PlayerPrefs.SetString("key", aesKey);
         type dataObject = DataSaver.ReadFile<type>(filePath);
         return dataObject;
     }
