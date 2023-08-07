@@ -63,7 +63,7 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
         Boss360Buttons.Instance._bed3Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.PERIPHERAL_SETUP); Boss360Buttons.Instance.HideButtons(); });
 
         // Have all the minigames now, randomise them
-        //_minigameList = _minigameList.OrderBy(a => rng.Next()).ToList();
+        _minigameList = _minigameList.OrderBy(a => rng.Next()).ToList();
     }
 
     public void DisplayNextMinigame()
@@ -100,7 +100,8 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
     {
         MinigameSceneController.Instance.GoBackToHub();
         Boss360Buttons.Instance.DisableAllButtons();
-        Destroy(Boss360Buttons.Instance);
+        Boss360Buttons.Instance.gameObject.SetActive(false);
+        Destroy(Boss360Buttons.Instance.gameObject);
         Destroy(_spawnItem);
         Destroy(this);
     }
