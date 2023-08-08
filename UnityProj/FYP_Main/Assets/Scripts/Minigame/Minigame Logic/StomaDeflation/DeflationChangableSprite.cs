@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DeflationChangableSprite : MonoBehaviour
 {
     // List out all needed sprites
-    [SerializeField] private List<changableSprite<DeflationTasks>> _changedSprites;
+    [SerializeField] private List<changableSprite<DeflationProcedureTasks>> _changedSprites;
         
     // Sprite to be changed
     private Image _changableImage;
@@ -17,7 +17,7 @@ public class DeflationChangableSprite : MonoBehaviour
     public void Start() 
     {
         _changableImage = GetComponent<Image>();
-        DeflationTaskController.Instance.CurrentTask.Value.Subscribe(State => {
+        DeflationProcedureTaskController.Instance.CurrentTask.Value.Subscribe(State => {
             if (_changedSprites.Where(s => s.TaskOnChange == State).Select(s => s.SpriteToChange).Count() > 0) 
             {
                 _changableImage.sprite = _changedSprites.Where(s => s.TaskOnChange == State).Select(s => s.SpriteToChange).First();

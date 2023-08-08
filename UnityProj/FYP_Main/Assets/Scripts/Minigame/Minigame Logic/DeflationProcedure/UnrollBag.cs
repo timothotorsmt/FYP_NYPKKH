@@ -16,10 +16,10 @@ public class UnrollBag : BasicSlider
 
     private void SetSliderComplete()
     {
-        if (_mainSlider.value >= _sliderPassReq && DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.UNROLL_BAG)
+        if (_mainSlider.value >= _sliderPassReq && DeflationProcedureTaskController.Instance.GetCurrentTask() == DeflationProcedureTasks.UNROLL_BAG)
         {
             // Good enough, mark as pass and move on
-            DeflationTaskController.Instance.MarkCurrentTaskAsDone();
+            DeflationProcedureTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }

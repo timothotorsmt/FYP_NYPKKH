@@ -16,10 +16,10 @@ public class RollBag : BasicSlider
 
     private void SetSliderComplete()
     {
-        if (_mainSlider.value >= _sliderPassReq && DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.ROLL_BAG)
+        if (_mainSlider.value >= _sliderPassReq && DeflationProcedureTaskController.Instance.GetCurrentTask() == DeflationProcedureTasks.ROLL_BAG)
         {
             // Good enough, mark as pass and move on
-            DeflationTaskController.Instance.MarkCurrentTaskAsDone();
+            DeflationProcedureTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }

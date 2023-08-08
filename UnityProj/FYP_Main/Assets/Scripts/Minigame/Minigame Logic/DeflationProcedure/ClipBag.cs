@@ -6,8 +6,9 @@ using UniRx.Extention;
 using System.Linq;
 using UnityEngine.UI;
 
-public class UnclipBag : MultiSlider
+public class ClipBag : MultiSlider
 {
+
     void OnEnable()
     {
         foreach (Slider slider in _sliders)
@@ -30,10 +31,10 @@ public class UnclipBag : MultiSlider
         if (_sliders.Select(slider => slider.value).Where(x => x >= _sliderPassReq).Count() == _sliders.Count())
         {
             // yes all done!
-            if (DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.UNCLIP_BAG)
+            if (DeflationProcedureTaskController.Instance.GetCurrentTask() == DeflationProcedureTasks.CLIP_BAG)
             {
                 // Mark current task as done!! Move on
-                DeflationTaskController.Instance.MarkCurrentTaskAsDone();
+                DeflationProcedureTaskController.Instance.MarkCurrentTaskAsDone();
                 _sliderPassEvent.Invoke();
             }
         }
