@@ -7,21 +7,44 @@ public class BEAN : MonoBehaviour
 {
     // Start is called before the first frame update
     Bag selected;
+    public DeflationGameLogic d;
+    bool onStandBy=false;
     void Start()
     {
+        d = FindObjectOfType<DeflationGameLogic>();
         ChoosesABag();
     }
 
     void ChoosesABag()
     {
-        Bag[] b = FindObjectsOfType<Bag>();
-        if (b.Length > 0)
+        Debug.Log(d.getGamerunning());
+        if (d.getGamerunning())
         {
-            selected = b[Random.Range(0, b.Length)];
-
-            //set timer for it to go to the bag location
-            Invoke("GoToThere", 3);
+            Bag[] b = FindObjectsOfType<Bag>();
+            if (b.Length > 0)
+            {
+                selected = b[Random.Range(0, b.Length)];
+                
+                //set timer for it to go to the bag location
+                Invoke("GoToThere", 3);
+            }
         }
+        else
+        {
+            if (onStandBy == false)
+            {
+                Debug.Log(d.getGamerunning());
+                onStandBy = true;
+                StartCoroutine("redo");
+            }
+        }
+    }
+
+    IEnumerator redo()
+    {
+        yield return new WaitForSeconds(5);
+        ChoosesABag();
+        onStandBy = false;
     }
 
     void GoToThere()

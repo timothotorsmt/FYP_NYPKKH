@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LinesBoss
   m_EditorClassIdentifier: 
   minigameName: Lines Boss
-  minigameID: 7
+  minigameID: 8
   minigamePrefab: {fileID: 6818261720553632796, guid: 4f327f853468467478ebff4e16ebfd27, type: 3}
