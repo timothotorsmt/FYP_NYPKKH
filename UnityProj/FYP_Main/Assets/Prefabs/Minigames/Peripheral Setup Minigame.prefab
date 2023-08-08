@@ -1311,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2174051362545395774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28329,6 +28329,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 6737427584457916692}
+        m_TargetAssemblyTypeName: CheckPeriBBraunInstructions, Assembly-CSharp
+        m_MethodName: GiveBBraunInstructions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8452570830174329406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32152,6 +32164,7 @@ GameObject:
   - component: {fileID: 7092807092317213208}
   - component: {fileID: 4922068413641888440}
   - component: {fileID: 8453450223397838142}
+  - component: {fileID: 6737427584457916692}
   m_Layer: 5
   m_Name: BBraun Display
   m_TagString: Untagged
@@ -32296,6 +32309,19 @@ MonoBehaviour:
     GameObjectToChange: {fileID: 551612167867096595}
   - TaskOnChange: 14
     GameObjectToChange: {fileID: 8689450279293113869}
+--- !u!114 &6737427584457916692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092807092317213212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643a5473fef884f4c8142c52fc204719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bbraunLogic: {fileID: 7092807092317213208}
 --- !u!1 &7092807092511280561
 GameObject:
   m_ObjectHideFlags: 0

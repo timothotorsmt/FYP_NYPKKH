@@ -2391,10 +2391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acd61d0dcc54ac42bec5931aee5f696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraSensitivity: 50
-  _minClamp: -90
-  _maxClamp: 90
-  _disableYAxis: 1
+  _cameraSensitivity: 10
+  _minClamp: -30
+  _maxClamp: 30
+  _disableYAxis: 0
 --- !u!114 &1796567783
 MonoBehaviour:
   m_ObjectHideFlags: 0

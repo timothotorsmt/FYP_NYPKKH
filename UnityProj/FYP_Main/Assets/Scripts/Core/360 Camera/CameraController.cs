@@ -52,6 +52,8 @@ namespace SkyboxCamera
                 // Lineearly interpolate between these 2 quaternions
                 transform.rotation = Quaternion.Lerp(rotation, transform.rotation, 0.5f);
             }
+
+            // Add in mouse support
         }
 
         public void OnEndTap()

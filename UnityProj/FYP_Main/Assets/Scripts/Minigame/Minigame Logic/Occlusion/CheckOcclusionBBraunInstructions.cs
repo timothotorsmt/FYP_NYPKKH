@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Script to display a single instruction because its specialcase type
-public class CheckBBraunInstructions : MonoBehaviour
+public class CheckOcclusionBBraunInstructions : MonoBehaviour
 {
     private bool hasGivenInstructions = false;
     private bool hasGivenStandbyInstructions = false;
