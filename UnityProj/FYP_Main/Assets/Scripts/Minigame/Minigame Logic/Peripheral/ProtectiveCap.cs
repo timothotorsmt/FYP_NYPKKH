@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
-using static UnityEditor.ShaderData;
 
 // The protective cap on the IV tubing 
 public class ProtectiveCap : BasicSlider

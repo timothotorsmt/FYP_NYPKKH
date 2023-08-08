@@ -3968,6 +3968,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneList: {fileID: 11400000, guid: 5811a02d5191d014598a6b5d1342aa8f, type: 2}
+  _sceneChangeAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1114519874
 Transform:
   m_ObjectHideFlags: 0
@@ -5174,7 +5177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8311bafa8813c4e4c8bcbaac1a538e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneIdToGo: 7
+  _sceneIdToGo: 8
 --- !u!1 &1354291061
 GameObject:
   m_ObjectHideFlags: 0
