@@ -9,24 +9,57 @@ public class BEAN : MonoBehaviour
     Bag selected;
     public DeflationGameLogic d;
     bool onStandBy=false;
+    float timer;
     void Start()
     {
+        timer = Random.Range(3, 5);
+        StartCoroutine("ChooseBag");
+        Quaternion a = Quaternion.Euler(0, 0, -13.46f);
+
+        Vector3 Rotation = new Vector3(a.eulerAngles.x, a.eulerAngles.y, a.eulerAngles.z);
+
+        transform.DORotate(Rotation, 1f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo);
+        timer = Random.Range(2, 5);
         d = FindObjectOfType<DeflationGameLogic>();
         ChoosesABag();
     }
 
     void ChoosesABag()
     {
-        Debug.Log(d.getGamerunning());
         if (d.getGamerunning())
         {
             Bag[] b = FindObjectsOfType<Bag>();
+            float BreakOutOfLoop = 0;
             if (b.Length > 0)
             {
-                selected = b[Random.Range(0, b.Length)];
-                
+                bool ok = false;
+                while (!ok && BreakOutOfLoop <4)
+                {
+                    selected = b[Random.Range(0, b.Length)];
+
+
+                    Debug.Log(selected.idle);
+                    if (selected.idle)
+                    {
+                        if (selected.bean == null)
+                        {
+                            ok = true;
+                            selected.idle = false;
+                        }
+                    }
+
+                        BreakOutOfLoop++;
+                }
+                if(ok)
+                {
+                    Invoke("GoToThere", 3);
+                }
+                else
+                {
+                    MoveAway();
+                }
                 //set timer for it to go to the bag location
-                Invoke("GoToThere", 3);
+           
             }
         }
         else
@@ -57,10 +90,7 @@ public class BEAN : MonoBehaviour
  
         transform.position = selected.transform.position + new Vector3(1,-1,0) ;
 
-        Quaternion a = Quaternion.Euler(0, 0, -13.46f);
-
-        Vector3 Rotation = new Vector3(a.eulerAngles.x, a.eulerAngles.y, a.eulerAngles.z);
-        transform.DORotate(Rotation, 1f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo);
+  
 
         StartCoroutine("PumpAir");
 
@@ -87,8 +117,16 @@ public class BEAN : MonoBehaviour
     {
         // move far away and call chooes a new bag
         transform.position = new Vector3(-1000, -54, 0);
-        ChoosesABag();
+       // Debug.Log("move");
         StopCoroutine("KILL");
+        StartCoroutine("ChooseBag");
+    }
+    IEnumerator ChooseBag()
+    {
+        yield return new WaitForSeconds(timer);
+        timer = Random.Range(3, 5);
+        ChoosesABag();
+
     }
 
 
