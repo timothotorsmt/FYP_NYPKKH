@@ -49,13 +49,28 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
         if (show)
         {
-            // Add a positive reaction <3 
+            MarkCorrectTask();
+        }
+    }
+
+    public void MarkCorrectTask()
+    {
+        // Add a positive reaction <3 
             if (_currentMinigamePerformance == null)
             {
                 _currentMinigamePerformance = MinigamePerformance.Instance;
             }
             _currentMinigamePerformance.AddPositiveAction();
-        }
+    }
+
+    public void MarkWrongTask()
+    {
+        // Add a positive reaction <3 
+            if (_currentMinigamePerformance == null)
+            {
+                _currentMinigamePerformance = MinigamePerformance.Instance;
+            }
+            _currentMinigamePerformance.AddNegativeAction();
     }
 
     protected void SetFirstTask()

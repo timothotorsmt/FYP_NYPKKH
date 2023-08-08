@@ -21,7 +21,7 @@ public class RollerClamp : TwoWaySlider
         {
             _mainSlider.onValueChanged.AddListener(delegate { SetSliderClose(); });
         }
-        else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
+        else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP || PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.PRIME_INFUSION_TUBING)
         {
             _mainSlider.onValueChanged.AddListener(delegate { SetSliderOpen(); });
         }
@@ -35,9 +35,9 @@ public class RollerClamp : TwoWaySlider
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderOppPassEvent.Invoke();
+            PeripheralSetupTaskController.Instance.MarkCorrectTask();
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });
         }
-
     }
 
     private void SetSliderOpen()

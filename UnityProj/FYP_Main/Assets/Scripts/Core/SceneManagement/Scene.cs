@@ -21,6 +21,7 @@ namespace Core.SceneManagement {
         SETTINGS,
         PROTOTYPE,
         LOADING,
+        BOSS,
         HUB_NORMAL,
         LINES,
         STOMA

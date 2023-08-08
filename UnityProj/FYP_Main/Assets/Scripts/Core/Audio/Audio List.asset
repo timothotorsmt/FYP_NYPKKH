@@ -17,3 +17,9 @@ MonoBehaviour:
     Audio:
     - AudioID: 2
       Clip: {fileID: 8300000, guid: a7e8dc7c2f4259240b5c97b2674d34ab, type: 3}
+    - AudioID: 4
+      Clip: {fileID: 8300000, guid: 9ebe90b1f1434724aa6a48222afd0b7a, type: 3}
+    - AudioID: 5
+      Clip: {fileID: 8300000, guid: 7efcc6fae12c4be4fab0c126b4864f59, type: 3}
+    - AudioID: 6
+      Clip: {fileID: 8300000, guid: c6b2d9cb6a45f0642a77baffee64c018, type: 3}

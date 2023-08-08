@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.SceneManagement;
 using Common.DesignPatterns;
+using UnityEngine.Events;
 
 public class MinigameSceneController : Singleton<MinigameSceneController>
 {
@@ -30,15 +31,20 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
 
     public void EndMinigame()
     {
-        // Update points and whatever here ig
-        // Save game here too for good measure
-
         GoBackToLevel();
+        LinesBossLogic.Instance.FinishMinigame();
     }
 
     private void GoBackToLevel()
     {
         // Change scene
-        SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID());
+        SceneLoader.Instance.ChangeScene(MinigameManager.Instance.GetHubID(), true);
+        
+    }
+
+    public void GoBackToHub()
+    {
+        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND);
+
     }
 }

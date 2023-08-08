@@ -11,6 +11,7 @@ public class TimerHold : BasicSlider
     private bool _isBeingPressed;
 
     [SerializeField] private BoxCollider2D _indicator; // The indicator arrow
+    [SerializeField] private GameObject _pressIndicator; // The indicator arrow
     [SerializeField] private BoxCollider2D _idealZone; // The box with the ideal win zone
     [SerializeField] private float _holdDuration = 5.0f; // How long you need to hold before the thing does crazyyy
     [SerializeField] private UnityEvent _failCaseLate; // What happens if you go over
@@ -99,6 +100,7 @@ public class TimerHold : BasicSlider
         {
             // Win
             _sliderPassEvent.Invoke();
+            _pressIndicator.SetActive(false);
         }
         else if (_indicator.bounds.center.x > _idealZone.bounds.max.x && !_isReversible)
         {

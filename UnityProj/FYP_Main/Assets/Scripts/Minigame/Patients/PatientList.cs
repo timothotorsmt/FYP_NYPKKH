@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UniRx.Extention;
+using Unity.VisualScripting;
+using TMPro;
 
 namespace PatientManagement
 {
@@ -30,6 +32,29 @@ namespace PatientManagement
             {
                 currentPatient.SetValue(patientListSpecificGroup[rand.Next(patientListSpecificGroup.Count)]);
                 return currentPatient.GetValue();
+            }
+
+            return null;
+        }
+
+        public int GetPatientIndex(Patient patientQuery)
+        {
+            for (int i = 0; i < _patients.Count; i++)
+            {
+                if (_patients[i] == patientQuery)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public Patient GetPatientFromIndex(int indexQuery)
+        {
+            if (indexQuery >= 0 && indexQuery < _patients.Count)
+            {
+                currentPatient.SetValue(_patients[indexQuery]);
+                return _patients[indexQuery];
             }
 
             return null;

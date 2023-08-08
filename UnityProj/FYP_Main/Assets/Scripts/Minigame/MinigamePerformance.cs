@@ -7,8 +7,8 @@ using Common.DesignPatterns;
 
 public class MinigamePerformance : Singleton<MinigamePerformance>
 {
-    private int _totalNumPoints = 0; // The total number of points the player has at the moment 
-    private int _totalPossiblePoints = 0; // The total number of possible points that can be earned in the minigame
+    private float _totalNumPoints = 0; // The total number of points the player has at the moment 
+    private float _totalPossiblePoints = 0; // The total number of possible points that can be earned in the minigame
     private List<string> _errors;
     public Grade PerformanceGrade;
     private static int _pointsToAdd;

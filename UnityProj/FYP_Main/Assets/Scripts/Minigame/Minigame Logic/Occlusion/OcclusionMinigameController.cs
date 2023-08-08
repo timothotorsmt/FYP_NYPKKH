@@ -77,16 +77,50 @@ public class OcclusionMinigameController : MonoBehaviour
                 // Hardcode the alarm code 
                 _occlusionScenario = OcclusionScenario.PHLEBITIS;
                 _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
-                
+
                 _phlebitisController.SetPhlebitis();
                 OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
                 OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.ASSESS_SKIN);
                 break;
             case Difficulty.LEVEL_10:
+                // Basically boss but everything else
+                int RandNum = Random.Range(0, 3);
+                if (RandNum == 0)
+                {
+                    // Hardcode the alarm code 
+                    _occlusionScenario = OcclusionScenario.T_CONNECTOR;
+                    _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
+                    _tConnector.CloseTConnector();
+                    OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                    OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.UNCLAMP_T_CONNECTOR);
+                }
+                else if (RandNum == 1)
+                {
+                    // Hardcode the alarm code 
+                    _occlusionScenario = OcclusionScenario.KINKED_LINES;
+                    _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
+                    OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                    OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.UNKINK_LINE);
+                }
+                else
+                {
+                    // Hardcode the alarm code 
+                    _occlusionScenario = OcclusionScenario.CLAMPED_ROLLER_CLAMP;
+                    _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.CHECK_UPSTREAM);
+                    _rollerClamp.SetRollerClampClose();
+                    OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                    OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.OPEN_ROLLER_CLAMP);
+                }
+                break;
             case Difficulty.BOSS:
-                // Add randomisation code in here
-                // High chance of phlebitis (30%)
-                // Lower chance of everything else (70% split)
+                // Boss but only phlebitis
+                // Hardcode the alarm code 
+                _occlusionScenario = OcclusionScenario.PHLEBITIS;
+                _bBraunIPLogic.SetBBraunAlarm(BBraunIPState.PRESSURE_HIGH);
+
+                _phlebitisController.SetPhlebitis();
+                OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
+                OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.ASSESS_SKIN);
                 break;
         }
     }
@@ -95,9 +129,9 @@ public class OcclusionMinigameController : MonoBehaviour
     {
         // Generate random patient age group
         int RandNum = Random.Range(0, 2);
-        if (RandNum == 1)
+        if (false)
         {
-            _patientList.GetRandomPatient(AgeGroup.CHILD);
+            //_patientList.GetRandomPatient(AgeGroup.CHILD);
         }
         else
         {

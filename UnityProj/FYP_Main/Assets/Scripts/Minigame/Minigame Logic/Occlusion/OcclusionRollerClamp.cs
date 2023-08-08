@@ -51,7 +51,8 @@ public class OcclusionRollerClamp : TwoWaySlider
 
     private void WaitForIncorrectInput()
     {
-        // Add fail case    
+        // Add fail case 
+        OcclusionTaskController.Instance.MarkWrongTask();   
         _sliderOppPassEvent.Invoke();
     }
 
