@@ -21,7 +21,7 @@ public class BEAN : MonoBehaviour
         transform.DORotate(Rotation, 1f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo);
         timer = Random.Range(2, 5);
         d = FindObjectOfType<DeflationGameLogic>();
-        ChoosesABag();
+  
     }
 
     void ChoosesABag()
