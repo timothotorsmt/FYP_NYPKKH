@@ -24,17 +24,23 @@ public class MinigamePerformance : Singleton<MinigamePerformance>
         _minigamePerformanceUI = this.GetComponent<MinigamePerformanceUI>();
     }
 
-    public void AddPositiveAction()
+    public void AddPositiveAction(bool show = true)
     {
         _totalNumPoints += 10;
         _totalPossiblePoints += 10;
-        _reaction.SetHappyReaction(InputUtils.GetInputPosition());
+        if (show)
+        {
+            _reaction.SetHappyReaction(InputUtils.GetInputPosition());
+        }
     }
 
-    public void AddNegativeAction()
+    public void AddNegativeAction(bool show = true)
     {
         _totalNumPoints -= 15;
-        _reaction.SetSadReaction(InputUtils.GetInputPosition());
+        if (show)
+        {
+            _reaction.SetSadReaction(InputUtils.GetInputPosition());
+        }
     }
 
     public void AddNegativeAction(string error)
@@ -48,7 +54,7 @@ public class MinigamePerformance : Singleton<MinigamePerformance>
     {
         float score = _totalNumPoints / _totalPossiblePoints;
         Debug.Log(score);
-        if (score >= 0.75f)
+        if (score >= 0.9f)
         {
             PerformanceGrade = Grade.PERFECT;
         }

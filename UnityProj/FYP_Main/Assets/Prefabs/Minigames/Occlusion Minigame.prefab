@@ -17044,7 +17044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainSlider: {fileID: 6470367936381534412}
-  _sliderPassReq: 0.95
+  _sliderPassReq: 0.5
   _sliderPassEvent:
     m_PersistentCalls:
       m_Calls:

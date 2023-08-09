@@ -13,7 +13,7 @@ public class OcclusionHints : HintSystemBase
         // Whenever they change state (player knows what they are doing)
         // Reset the hint timer
         OcclusionTaskController.Instance.CurrentTask.Value.Subscribe(state => {
-            if (_isRunningHint)
+            if (_isRunningHint && !_isDisabled)
             {
                 StopCoroutine(HintCounter());
             }
@@ -22,7 +22,7 @@ public class OcclusionHints : HintSystemBase
             {
                 _button.SetActive(true);
             }
-            else
+            else if (!_isDisabled)
             {
                 StartCoroutine(HintCounter());
             }

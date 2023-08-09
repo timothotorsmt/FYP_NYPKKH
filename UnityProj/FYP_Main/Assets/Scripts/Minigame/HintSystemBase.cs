@@ -11,6 +11,7 @@ namespace MinigameBase
         [SerializeField] protected GameObject _button; // The physical hint button
         [SerializeField] protected DifficultySettings _minigameDifficulty; // The current minigame difficulty
         [SerializeField, Range(0, 120)] protected float _hintTimer = 10f; // The amount of time the player has to wait for a hint
+        protected bool _isDisabled = false;
 
         protected bool _isRunningHint; // Is currently counting for a hint 
 
@@ -22,6 +23,16 @@ namespace MinigameBase
             yield return new WaitForSeconds(_hintTimer);
             _button.SetActive(true);
             _isRunningHint = false;
+        }
+
+        protected void Awake()
+        {
+            if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty == Difficulty.BOSS || MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty == Difficulty.LEVEL_10)
+            {
+                _isDisabled = true;
+                _button.SetActive(false);
+                
+            }
         }
 
     }

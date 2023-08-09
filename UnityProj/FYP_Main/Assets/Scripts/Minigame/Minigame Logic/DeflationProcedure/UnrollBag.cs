@@ -21,6 +21,12 @@ public class UnrollBag : BasicSlider
             // Good enough, mark as pass and move on
             DeflationProcedureTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();
+
+            if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
+            {
+                ChatGetter.Instance.StartChat("#DEFLID");
+            }
+
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderComplete(); });
         }
     }

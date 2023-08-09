@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942813424}
+      - m_Target: {fileID: 475085914}
         m_TargetAssemblyTypeName: FadeInOut, Assembly-CSharp
         m_MethodName: FadeIn
         m_Mode: 1
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111985182}
+      - m_Target: {fileID: 788719475}
         m_TargetAssemblyTypeName: Door, Assembly-CSharp
         m_MethodName: ChangeRoom
         m_Mode: 1

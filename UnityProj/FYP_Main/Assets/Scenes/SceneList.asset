@@ -31,3 +31,5 @@ MonoBehaviour:
     SceneName: LineScene
   - SceneAssetID: 6
     SceneName: 360Scene
+  - SceneAssetID: 9
+    SceneName: StomaScene

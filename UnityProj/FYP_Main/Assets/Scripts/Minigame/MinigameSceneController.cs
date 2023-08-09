@@ -32,7 +32,11 @@ public class MinigameSceneController : Singleton<MinigameSceneController>
     public void EndMinigame()
     {
         GoBackToLevel();
-        LinesBossLogic.Instance.FinishMinigame();
+        if (LinesBossLogic.Instance != null)
+        {
+            // Make this a modular thing
+            LinesBossLogic.Instance.FinishMinigame();
+        }
     }
 
     private void GoBackToLevel()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Core.SceneManagement;
+using Common.DesignPatterns;
 using TMPro;
 
 public class CheckList : MonoBehaviour
@@ -34,7 +35,7 @@ public class CheckList : MonoBehaviour
 
     public void back()
     {
-        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, true);
+        //SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, true);
     }
 
     private void Awake()
@@ -149,15 +150,13 @@ public class CheckList : MonoBehaviour
             }
                 
         }
-        
-
-     
        
         if(correct==nameOfItem.Count && (CVLPRTaskController.Instance.GetCurrentTask() == CVLPRTasks.PRERQUISITES))
         {
            
             CVLPRTaskController.Instance.MarkCurrentTaskAsDone();
             Debug.Log(CVLPRTaskController.Instance.GetCurrentTask());
+            MinigamePerformance.Instance.AddPositiveAction(true);
             _FinishEvent.Invoke();
             
         }

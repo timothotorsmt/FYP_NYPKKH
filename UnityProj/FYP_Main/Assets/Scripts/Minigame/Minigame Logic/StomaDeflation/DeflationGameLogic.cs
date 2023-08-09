@@ -96,6 +96,8 @@ public class DeflationGameLogic : BasicSlider
     public void RemoveLife()
     {
         _lives -=1;
+        MinigamePerformance.Instance.AddNegativeAction();
+
         if (_lives==0)
         {
             ChatGetter.Instance.StartChat("#STOMAE", GameLost);
@@ -113,11 +115,13 @@ public class DeflationGameLogic : BasicSlider
     public void FinsihGameLose()
     {
         _lives = -1;
+        MinigamePerformance.Instance.AddPositiveAction(false);
         CheckIfGameOver();
     }
     public void FinsihGameWin()
     {
         Debug.Log("asdd");
+        MinigamePerformance.Instance.AddPositiveAction();
         _isGameRunning = false;
         CheckIfGameOver();
     }

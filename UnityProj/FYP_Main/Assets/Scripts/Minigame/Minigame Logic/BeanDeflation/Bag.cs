@@ -72,6 +72,7 @@ public class Bag : MonoBehaviour
                // ChatGetter.Instance.StartChat("#STOMAC");
                 Intereced = true;
                 bean.GetComponent<BEAN>().MoveAway();
+                MinigamePerformance.Instance.AddPositiveAction(false);
                 transform.localScale =ogSize;
                 ownAirBagValue = 0;
                 GetComponent<Animator>().SetTrigger("deflate");
