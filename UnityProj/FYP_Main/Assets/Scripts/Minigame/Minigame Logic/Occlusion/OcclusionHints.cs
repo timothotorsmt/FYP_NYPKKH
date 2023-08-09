@@ -47,6 +47,7 @@ public class OcclusionHints : HintSystemBase
             case OcclusionTasks.INFORM_STAFF_NURSE:
                 _chatGetter.DisplayChatLine("#OCCLPB");
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
+                Debug.Log("Hu");
                 break;
         }
     }

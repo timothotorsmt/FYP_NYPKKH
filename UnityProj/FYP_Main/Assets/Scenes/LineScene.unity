@@ -8596,7 +8596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4200f03ebab6fe340b398046572f6263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _idMinigame: 7
+  _idMinigame: 8
 --- !u!1 &1675648860
 GameObject:
   m_ObjectHideFlags: 0

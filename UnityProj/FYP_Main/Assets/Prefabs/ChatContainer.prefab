@@ -155,11 +155,19 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -447.99994
       objectReference: {fileID: 0}
+    - target: {fileID: 958095682674200948, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2506133639828174830, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_text
       value: 'And the lord god said, "ok. noted."
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660787679944269096, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Name
@@ -253,11 +261,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3107354755080082386, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3107354755659509390, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7980922391074949850}
     - target: {fileID: 3107354755659509391, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107354756398753042, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229609109643636185, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
@@ -302,6 +322,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7980922391074949850}
     - target: {fileID: 8511114736229706926, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036403709016702452, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
