@@ -19,6 +19,7 @@ public class MinigameManager : SingletonPersistent<MinigameManager>
         {
             _hubSceneID = SceneLoader.Instance.GetSceneID();
         }
+        
         _currentMinigame = getMinigameInfo(minigameID);
         // Set the difficulty of the current game
         _difficulty.GameDifficulty = _gameDifficulty;
