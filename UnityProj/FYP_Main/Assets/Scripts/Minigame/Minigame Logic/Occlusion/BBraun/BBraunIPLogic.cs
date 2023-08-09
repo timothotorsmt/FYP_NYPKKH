@@ -91,6 +91,34 @@ namespace BBraunInfusomat
                 _bBraunIPInput._okButton.onClick.RemoveListener(delegate { MuteAlarm(); });
                 _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { RestartPump(); });
                 BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+
+                // Give hints
+                if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.LEVEL_10 || MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
+                {
+                    if (MinigameManager.Instance.GetCurrentMinigame().minigameID == MinigameID.OCCLUSION_1)
+                    {
+                        if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.OPEN_ROLLER_CLAMP)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLRB");
+                        }
+                        else if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNKINK_LINE)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLKA");
+                        }
+                        else if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLTA");
+                        }
+                        else if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.ASSESS_SKIN)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLPE");
+                        }
+                    }
+                }
                 
                 _bBraunAudio.MuteAlarm();
                 _onResolveAlarm.Invoke();

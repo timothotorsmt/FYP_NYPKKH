@@ -40,14 +40,21 @@ public class OcclusionHints : HintSystemBase
                 _chatGetter.DisplayChatLine("#OCCLRB");
                 break;
             case OcclusionTasks.UNCLAMP_T_CONNECTOR:
+                _chatGetter.DisplayChatLine("#OCCLTA");
+                break;
             case OcclusionTasks.UNKINK_LINE:
+                _chatGetter.DisplayChatLine("#OCCLKA");
+                break;
             case OcclusionTasks.ASSESS_SKIN:
-                _chatGetter.DisplayChatLine("#OCCLGA");
+                _chatGetter.DisplayChatLine("#OCCLPE");
+                break;
+            case OcclusionTasks.START_PUMP:
+                _chatGetter.DisplayChatLine("#PERIHM");
                 break;
             case OcclusionTasks.INFORM_STAFF_NURSE:
                 _chatGetter.DisplayChatLine("#OCCLPB");
+                
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
-                Debug.Log("Hu");
                 break;
         }
     }
