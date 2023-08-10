@@ -3133,6 +3133,7 @@ GameObject:
   - component: {fileID: 4036928853604103151}
   - component: {fileID: 4036928853604103148}
   - component: {fileID: 9151406262563875007}
+  - component: {fileID: 1348419243822954576}
   m_Layer: 5
   m_Name: Logic
   m_TagString: Untagged
@@ -3260,6 +3261,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41f06fd3b63c1d4bbf03ceb1d1a5348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1348419243822954576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036928853604103147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6c6aacfbe31c4429c039300e9b4c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: {fileID: 7802139013532053823}
+  _weight: {fileID: 7256259215489538735}
+  _height: {fileID: 2886978148459579784}
+  _bsa: {fileID: 2312263081854683556}
+  _bmi: {fileID: 6637755751320265171}
 --- !u!1 &4167193487102500892
 GameObject:
   m_ObjectHideFlags: 0
@@ -23384,7 +23402,6 @@ GameObject:
   - component: {fileID: 7627464463821708396}
   - component: {fileID: 2410534675385064287}
   - component: {fileID: 4422754099173154263}
-  - component: {fileID: 2298428605866085839}
   - component: {fileID: 3756974343351315823}
   - component: {fileID: 5861098621561514339}
   m_Layer: 5
@@ -23455,23 +23472,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2298428605866085839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8776093636849034827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6c6aacfbe31c4429c039300e9b4c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: {fileID: 7802139013532053823}
-  _weight: {fileID: 7256259215489538735}
-  _height: {fileID: 2886978148459579784}
-  _bsa: {fileID: 2312263081854683556}
-  _bmi: {fileID: 6637755751320265171}
 --- !u!225 &3756974343351315823
 CanvasGroup:
   m_ObjectHideFlags: 0

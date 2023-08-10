@@ -21,8 +21,8 @@ namespace PatientManagement
             _patient = newPatient;
 
             _name.text = _patient.name;
-            _weight.text = _patient.weight.ToString();
-            _height.text = _patient.height.ToString();
+            _weight.text = _patient.weight.ToString() + " cm (xx-xxx-20xx)";
+            _height.text = _patient.height.ToString() + " kg (xx-xxx-20xx)";
             _bsa.text = _patient.BSA.ToString();
             _bmi.text = _patient.BMI.ToString();
         }
