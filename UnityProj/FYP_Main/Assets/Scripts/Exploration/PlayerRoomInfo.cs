@@ -15,6 +15,5 @@ public class PlayerRoomInfo : MonoBehaviour
     public void ChangeRoom(Room newRoom)
     {
         _currentRoom = newRoom;
-        Debug.Log(newRoom.RoomName);
     }
 }

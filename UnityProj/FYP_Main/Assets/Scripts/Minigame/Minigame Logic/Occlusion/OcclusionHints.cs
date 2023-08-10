@@ -13,7 +13,7 @@ public class OcclusionHints : HintSystemBase
         // Whenever they change state (player knows what they are doing)
         // Reset the hint timer
         OcclusionTaskController.Instance.CurrentTask.Value.Subscribe(state => {
-            if (_isRunningHint)
+            if (_isRunningHint && !_isDisabled)
             {
                 StopCoroutine(HintCounter());
             }
@@ -22,7 +22,7 @@ public class OcclusionHints : HintSystemBase
             {
                 _button.SetActive(true);
             }
-            else
+            else if (!_isDisabled)
             {
                 StartCoroutine(HintCounter());
             }
@@ -40,12 +40,20 @@ public class OcclusionHints : HintSystemBase
                 _chatGetter.DisplayChatLine("#OCCLRB");
                 break;
             case OcclusionTasks.UNCLAMP_T_CONNECTOR:
+                _chatGetter.DisplayChatLine("#OCCLTA");
+                break;
             case OcclusionTasks.UNKINK_LINE:
+                _chatGetter.DisplayChatLine("#OCCLKA");
+                break;
             case OcclusionTasks.ASSESS_SKIN:
-                _chatGetter.DisplayChatLine("#OCCLGA");
+                _chatGetter.DisplayChatLine("#OCCLPE");
+                break;
+            case OcclusionTasks.START_PUMP:
+                _chatGetter.DisplayChatLine("#PERIHM");
                 break;
             case OcclusionTasks.INFORM_STAFF_NURSE:
                 _chatGetter.DisplayChatLine("#OCCLPB");
+                
                 OcclusionTaskController.Instance.MarkCurrentTaskAsDone();
                 break;
         }

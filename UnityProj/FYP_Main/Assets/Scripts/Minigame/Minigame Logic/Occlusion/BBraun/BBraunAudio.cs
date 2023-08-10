@@ -15,6 +15,11 @@ public class BBraunAudio : MonoBehaviour
         StartCoroutine(BBraunAlarm());
     }
 
+    private void OnDisable()
+    {
+        AudioController.Instance.StopAudio(SoundUID.BBRAUN_OPERATING_ALARM);
+    }
+
     // Play BBraun Alarm
     private IEnumerator BBraunAlarm()
     {

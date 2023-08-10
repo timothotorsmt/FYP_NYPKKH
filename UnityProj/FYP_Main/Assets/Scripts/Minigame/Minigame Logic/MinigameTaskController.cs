@@ -11,7 +11,6 @@ using UniRx;
 public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController<TaskType>> where TaskType : struct, System.Enum
 {
     #region variables
-    public MinigamePerformance CurrentMinigamePerformance;
     public ReactiveProp<TaskType> CurrentTask = new ReactiveProp<TaskType>();
     // this function keeps the next task in ready for temporary / optional tasks
     protected TaskType _nextTask;
@@ -19,9 +18,16 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     [SerializeField] protected UnityEvent _startEvent;
     [SerializeField] protected UnityEvent _finishEvent;
 
+    private MinigamePerformance _currentMinigamePerformance;
+
     protected int TaskCount;
-    
+
     #endregion
+
+    private void Start()
+    {
+        _currentMinigamePerformance = MinigamePerformance.Instance;
+    }
 
     public TaskType GetCurrentTask()
     {
@@ -43,9 +49,28 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
 
         if (show)
         {
-            // Add a positive reaction <3 
-            CurrentMinigamePerformance.AddPositiveAction();
+            MarkCorrectTask();
         }
+    }
+
+    public void MarkCorrectTask()
+    {
+        // Add a positive reaction <3 
+            if (_currentMinigamePerformance == null)
+            {
+                _currentMinigamePerformance = MinigamePerformance.Instance;
+            }
+            _currentMinigamePerformance.AddPositiveAction();
+    }
+
+    public void MarkWrongTask()
+    {
+        // Add a positive reaction <3 
+            if (_currentMinigamePerformance == null)
+            {
+                _currentMinigamePerformance = MinigamePerformance.Instance;
+            }
+            _currentMinigamePerformance.AddNegativeAction();
     }
 
     protected void SetFirstTask()
@@ -99,7 +124,7 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
     public void EndGame()
     {
         // Display the performance review screen
-        //CurrentMinigamePerformance.EvaluatePerformance();
-        MinigameSceneController.Instance.EndMinigame();
+        _currentMinigamePerformance.EvaluatePerformance();
+        
     }
 }

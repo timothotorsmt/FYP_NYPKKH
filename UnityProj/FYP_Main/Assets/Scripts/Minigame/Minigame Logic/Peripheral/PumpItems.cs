@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Audio;
 using UniRx;
 using UnityEngine.Events;
 
@@ -18,10 +19,20 @@ public class PumpItems : MonoBehaviour
     public void LockItemIn()
     {
         _lockedItemCounter++;
-        if (_lockedItemCounter > _totalNumLock)
+        if (_lockedItemCounter >= _totalNumLock)
         {
             SetPumpClose();
         }
+    }
+
+    public void PlayGreenClipAudio()
+    {
+        AudioController.Instance.PlayAudio(SoundUID.BBRAUN_DOOR_CLICK_GREEN);
+    }
+
+    public void PlayMiddleClipAudio()
+    {
+        AudioController.Instance.PlayAudio(SoundUID.BBRAUN_DOOR_CLICK_MIDDLE);
     }
 
     private void SetPumpClose()

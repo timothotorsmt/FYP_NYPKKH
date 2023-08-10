@@ -3,7 +3,7 @@ This is a Repository for a collaboration project between Nanyang Polytechnic and
 <br>Done by Timothy, Rena, Daphne, and Zhi Kai (Term 1)
 
 **Respository rules to follow**
-1. **NEVER PUSH CODE TO MAIN BRANCH** (unless everyone agrees to it)
+1. **NEVER PUSH CODE TO MAIN BRANCH** (until its completely done)
 2. Only show main branch to client (exceptions r ok)
 3. Make sure all code is bug free before merging
 4. Follow naming conventions pls (see below)

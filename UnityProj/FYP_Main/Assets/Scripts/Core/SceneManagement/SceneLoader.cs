@@ -6,22 +6,32 @@ using UnityEngine.UI;
 using UnityEngine;
 using Common.DesignPatterns;
 using DG.Tweening;
+using UnityEngine.Events;
 
 namespace Core.SceneManagement
 {
     public class SceneLoader : SingletonPersistent<SceneLoader>
     {
         [SerializeField] private SceneAssetList _sceneList;
+        public UnityEvent _sceneChangeAction;
+        private SceneID _currentScene;
         // Loading Bar
-        //[SerializeField] private Slider _loadingBar;
 
-        public void ChangeScene(SceneID newSceneID, bool loadToLoadingScreen = false)
+        private void Start()
         {
-            DOTween.KillAll();
+            _currentScene = _sceneList.SceneList.Where(x => x.SceneName == SceneManager.GetActiveScene().name).Select(x => x.SceneAssetID).First();
+        }
+
+        public void ChangeScene(SceneID newSceneID, bool loadToLoadingScreen = true)
+        {
+
+            DOTween.CompleteAll();
 
             // Check for any null cases
             if (_sceneList.SceneList.Where(s => s.SceneAssetID == newSceneID).Count() > 0)
-            {                
+            {
+                
+                _currentScene = newSceneID;
                 // If you want the loading screen to show up just set the 2nd parameter to true
                 // If checked as true for loadToLoadingScreen, load the loading screen 
                 if (loadToLoadingScreen)
@@ -34,6 +44,11 @@ namespace Core.SceneManagement
                 }
 
             }
+        }
+
+        public SceneID GetSceneID()
+        {
+            return _currentScene;
         }
 
         private IEnumerator LoadSceneCoroutine(SceneID newSceneID)
@@ -49,12 +64,16 @@ namespace Core.SceneManagement
             {
                 // wait until the asynchronous loading is done
                 yield return new WaitUntil(() => asyncLoad.isDone);
+                
             }
 
             // Once complete
             // Loads the expected scene
             DOTween.KillAll();
             SceneManager.LoadScene(GetSceneName(newSceneID));
+
+            _sceneChangeAction.Invoke();
+            _sceneChangeAction.RemoveAllListeners();
         }
 
         // Returns the string name based on the given string ID

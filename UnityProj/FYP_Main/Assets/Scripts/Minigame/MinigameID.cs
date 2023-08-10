@@ -13,5 +13,6 @@ public enum MinigameID
 
     PERIPHERAL_SETUP,
     STOMA_DEFLATION,
-    STOMA_DEFLATION_2
+    STOMA_DEFLATION_2,
+    LINES_BOSS,
 }

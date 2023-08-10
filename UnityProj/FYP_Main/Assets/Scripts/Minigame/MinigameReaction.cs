@@ -1,3 +1,4 @@
+using Core.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,4 +43,13 @@ public class MinigameReaction : MonoBehaviour
         _reactionParticleSys.Play();
     }
 
+    public void EndMinigame()
+    {
+        MinigameSceneController.Instance.EndMinigame();
+    }
+
+    public void ReplayMinigame()
+    {
+        MinigameManager.Instance.StartMinigame(MinigameManager.Instance.GetCurrentMinigame().minigameID, MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty);
+    }
 }

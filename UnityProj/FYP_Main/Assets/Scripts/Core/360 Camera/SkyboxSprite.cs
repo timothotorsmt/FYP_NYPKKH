@@ -7,12 +7,13 @@ namespace SkyboxCamera
 {
     public class SkyboxSprite : MonoBehaviour, IInputActions
     {
-        public float yaw;
-        public float pitch;
 
         void OnEnable()
         {
-            InputManager.Instance.AddSubscriber(this);
+            if (InputManager.Instance != null)
+            {
+                InputManager.Instance.AddSubscriber(this);
+            }
         }
 
         void OnDisable()
@@ -32,7 +33,21 @@ namespace SkyboxCamera
         {
             // Gets camera position and transforms the object to follow the UI
             Vector3 cameraPos = Camera.main.transform.position;
-            transform.LookAt(cameraPos);
+
+            // for UI elements
+            if (this.gameObject.GetComponent<RectTransform>() != null)
+            {
+
+                // This barbie is using recttransform
+                GetComponent<RectTransform>().LookAt(cameraPos);
+                Debug.Log(GetComponent<RectTransform>().rotation);
+            }
+            else
+            {
+                transform.LookAt(cameraPos);
+
+            }
+
         }
 
         public void OnEndTap()

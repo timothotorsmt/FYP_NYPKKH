@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Core.SceneManagement;
+using Common.DesignPatterns;
 using TMPro;
 
 public class CheckList : MonoBehaviour
@@ -34,7 +35,7 @@ public class CheckList : MonoBehaviour
 
     public void back()
     {
-        SceneLoader.Instance.ChangeScene(SceneID.HUB);
+        //SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, true);
     }
 
     private void Awake()
@@ -62,7 +63,6 @@ public class CheckList : MonoBehaviour
         {
             if (a.correct == true)
             {
-                Debug.Log("asdasdasd");
                 nameOfItem.Add(a.itemname);
                 inside.Add(false);
                 amtAlreadyInside.Add(0);
@@ -72,7 +72,7 @@ public class CheckList : MonoBehaviour
         }
         for (int i = 0; i < nameOfItem.Count; i++)
         {
-            Debug.Log(nameOfItem[i]);
+            //Debug.Log(nameOfItem[i]);
         }
 
 
@@ -121,7 +121,7 @@ public class CheckList : MonoBehaviour
     public void button()
     {
   
-        backButton.SetActive(list.activeSelf);
+        //backButton.SetActive(list.activeSelf);
         //to activate the checklist
         list.SetActive(!list.activeSelf);
     }
@@ -150,15 +150,13 @@ public class CheckList : MonoBehaviour
             }
                 
         }
-        
-
-     
        
         if(correct==nameOfItem.Count && (CVLPRTaskController.Instance.GetCurrentTask() == CVLPRTasks.PRERQUISITES))
         {
            
             CVLPRTaskController.Instance.MarkCurrentTaskAsDone();
             Debug.Log(CVLPRTaskController.Instance.GetCurrentTask());
+            MinigamePerformance.Instance.AddPositiveAction(true);
             _FinishEvent.Invoke();
             
         }

@@ -51,9 +51,15 @@ public class OcclusionRollerClamp : TwoWaySlider
 
     private void WaitForIncorrectInput()
     {
-        // Should not be touching it rn
-        _mainSlider.value = 0.5f;
-        _sliderOppPassEvent.Invoke();
+        if (_mainSlider.value >= _sliderPassReq)
+        {
+            // Add fail case 
+            OcclusionTaskController.Instance.MarkWrongTask();   
+            _sliderOppPassEvent.Invoke();
+            _mainSlider.value = _sliderOppPassReq;
+            _mainSlider.onValueChanged.RemoveAllListeners();
+            _mainSlider.onValueChanged.AddListener(delegate {RollerClampOpenListener();});
+        }
     }
 
     

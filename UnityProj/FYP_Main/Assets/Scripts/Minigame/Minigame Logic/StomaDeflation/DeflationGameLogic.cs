@@ -42,7 +42,7 @@ public class DeflationGameLogic : BasicSlider
                 _numPatients = 1;
                 break;
             default:
-                _numPatients = 3;
+                _numPatients = 1;
                 break;
         }
 
@@ -50,7 +50,8 @@ public class DeflationGameLogic : BasicSlider
         for (int i = 0; i < _numPatients; i++)
         {
             StomaPatient tempPatient = new StomaPatient();
-            StartCoroutine(StomaBagBehaviour(tempPatient));
+            tempPatient.StomaBagAirValue.SetValue(1.0f);
+            //StartCoroutine(StomaBagBehaviour(tempPatient));
             _patients.Add(tempPatient);
         }
 
@@ -95,6 +96,8 @@ public class DeflationGameLogic : BasicSlider
     public void RemoveLife()
     {
         _lives -=1;
+        MinigamePerformance.Instance.AddNegativeAction();
+
         if (_lives==0)
         {
             ChatGetter.Instance.StartChat("#STOMAE", GameLost);
@@ -112,11 +115,13 @@ public class DeflationGameLogic : BasicSlider
     public void FinsihGameLose()
     {
         _lives = -1;
+        MinigamePerformance.Instance.AddPositiveAction(false);
         CheckIfGameOver();
     }
     public void FinsihGameWin()
     {
         Debug.Log("asdd");
+        MinigamePerformance.Instance.AddPositiveAction();
         _isGameRunning = false;
         CheckIfGameOver();
     }

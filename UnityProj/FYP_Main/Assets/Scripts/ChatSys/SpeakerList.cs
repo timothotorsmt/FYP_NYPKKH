@@ -23,5 +23,9 @@ public enum SpeakerId
 {
     // a unique ID for each character (for easy management)
     ALICE,
-    PETER
+    PETER,
+    NARRATOR,
+    SN1,
+    SN2,
+    LGUARD
 }

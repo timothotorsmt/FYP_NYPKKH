@@ -22,15 +22,18 @@ namespace BBraunInfusomat
         private int _VTBIIndex;
         public float _VBTIValue;
         public bool _hasKeyedInVTBI;
+        public float _idealVTBI;
         [SerializeField] private List<int> _time;
         public float _timeValue;
         private int _timeIndex;
         public bool _hasKeyedInTime;
+        public float _idealTime;
         [SerializeField] private List<int> _rate;
         public float _rateValue;
         private int _rateIndex;
         public bool _hasKeyedInRate;
         [SerializeField] private UnityEvent _onEnterCorrectParams;
+        [SerializeField] private UnityEvent _onResolveAlarm;
 
 
         #region Alarm Behavior
@@ -58,6 +61,7 @@ namespace BBraunInfusomat
                 BBraunState.SetValue(BBraunIPState.NORMAL);
 
                 _bBraunAudio.MuteAlarm();
+                _onResolveAlarm.Invoke();
             }
 
         }
@@ -87,8 +91,37 @@ namespace BBraunInfusomat
                 _bBraunIPInput._okButton.onClick.RemoveListener(delegate { MuteAlarm(); });
                 _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { RestartPump(); });
                 BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+
+                // Give hints
+                if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.LEVEL_10 || MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
+                {
+                    if (MinigameManager.Instance.GetCurrentMinigame().minigameID == MinigameID.OCCLUSION_1)
+                    {
+                        if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.OPEN_ROLLER_CLAMP)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLRB");
+                        }
+                        else if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNKINK_LINE)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLKA");
+                        }
+                        else if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.UNCLAMP_T_CONNECTOR)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLTA");
+                        }
+                        else if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.ASSESS_SKIN)
+                        {
+                            // Give hint 
+                            ChatGetter.Instance.StartChat("#OCCLPE");
+                        }
+                    }
+                }
                 
                 _bBraunAudio.MuteAlarm();
+                _onResolveAlarm.Invoke();
             }
         }
 
@@ -297,7 +330,7 @@ namespace BBraunInfusomat
             {
                 // check if rate and time are correct
                 
-                if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
+                if (_timeValue == _idealTime && _VBTIValue == _idealVTBI && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                     _onEnterCorrectParams.Invoke();
@@ -318,7 +351,7 @@ namespace BBraunInfusomat
                 }
 
                 _timeValue = (_VBTIValue / _rateValue);
-                _bBraunIPUIDisplay.SetTime(_rateValue);
+                _bBraunIPUIDisplay.SetTime(_timeValue);
             }
 
             else if (_hasKeyedInRate && _hasKeyedInTime)
@@ -332,11 +365,24 @@ namespace BBraunInfusomat
                 }
 
                 _VBTIValue = _rateValue * _timeValue;
-                _bBraunIPUIDisplay.SetVTBI(_rateValue);
+                _bBraunIPUIDisplay.SetVTBI(_VBTIValue);
             }
 
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
 
+        }
+
+        public void SetParamRequirements(float time, float VTBI)
+        {
+            _idealTime = time;
+            _idealVTBI = VTBI;
+        }
+
+        public void SetParams(float rate, float time, float VTBI)
+        {
+            _bBraunIPUIDisplay.SetRate(rate);
+            _bBraunIPUIDisplay.SetTime(time);
+            _bBraunIPUIDisplay.SetVTBI(VTBI);
         }
 
         private void SetDigitUp()
