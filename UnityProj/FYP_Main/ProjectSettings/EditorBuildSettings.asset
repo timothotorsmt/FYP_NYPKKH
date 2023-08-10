@@ -5,33 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 5ed70331eae102d4883097d8364246e5
   - enabled: 1
-    path: Assets/Scenes/MinigameScene.unity
-    guid: 2f38d6694a6267e46a2f289d2e4d2a79
+    path: Assets/Scenes/CVL Prototype.unity
+    guid: 283f6f4ebca6d1d479118f2c76bba44d
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 5ad336032f9ceb04f9c86095775d7d83
   - enabled: 1
-    path: Assets/Scenes/NormalHubScene.unity
-    guid: ab6e67fbf83322142a2b61880bfd08b1
-  - enabled: 1
-    path: Assets/Scenes/HubScene.unity
-    guid: b7a7d5c2748410b448005e50e93af2d2
-  - enabled: 1
-    path: Assets/Scenes/LineScene.unity
-    guid: 59d1a0d73832e7f41afaf35121bb3f0b
-  - enabled: 1
-    path: Assets/Scenes/Setting.unity
-    guid: 7dcd136a5db2772428b0f8fa87697bc9
-  - enabled: 1
-    path: Assets/Scenes/360Scene.unity
-    guid: e8d896ca36cda9f4cb97715ef63fbb20
-  - enabled: 1
-    path: Assets/Scenes/StomaScene.unity
-    guid: f3084b4c3e1aea44e9f7f2cf16d52c76
+    path: Assets/Scenes/MinigameScene.unity
+    guid: 2f38d6694a6267e46a2f289d2e4d2a79
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/PrototypeScene.unity
     guid: eb569213d0c075641b50767ce6a238ff
