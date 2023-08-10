@@ -52,7 +52,7 @@ public class ChatUIDisplay : MonoBehaviour
 
             _mainBody.text = chatNode.BodyText;
             // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
-            if ((int)chatNode.Mood >= speaker.moodImages.Count)
+            if ((int)chatNode.Mood <= speaker.moodImages.Count)
             {
                 _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
             }

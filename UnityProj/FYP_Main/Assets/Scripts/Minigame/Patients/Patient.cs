@@ -18,8 +18,10 @@ namespace PatientManagement
         public AgeGroup patientAgeGroup;
 
         // health related information
-        public float height;
-        public float weight;
+        public uint height;
+        public uint weight;
+        public float BSA;
+        public float BMI;
 
         // Decoration information
         public List<PatientSprites> PatientSpriteList = new List<PatientSprites>();
@@ -31,7 +33,6 @@ namespace PatientManagement
         {
             KeyNotes.Add(newNote);
         }
-
     }
 
     // The straights are winning i guess

@@ -36,6 +36,8 @@ public class OcclusionHints : HintSystemBase
         switch (OcclusionTaskController.Instance.GetCurrentTask())
         {
             case OcclusionTasks.MUTE_ALARM:
+                _chatGetter.DisplayChatLine("#OCCLHA");
+                break;
             case OcclusionTasks.OPEN_ROLLER_CLAMP:
                 _chatGetter.DisplayChatLine("#OCCLRB");
                 break;
@@ -50,6 +52,20 @@ public class OcclusionHints : HintSystemBase
                 break;
             case OcclusionTasks.START_PUMP:
                 _chatGetter.DisplayChatLine("#PERIHM");
+                break;
+            case OcclusionTasks.CLAMP_T_CONNECTOR:
+            case OcclusionTasks.PUT_PUMP_ON_STANDBY:
+                _chatGetter.DisplayChatLine("#OCCLHB");
+                break;
+            case OcclusionTasks.DISCONNECT_TUBING_FROM_PLUG:
+                _chatGetter.DisplayChatLine("#OCCLHC");
+                break;
+            case OcclusionTasks.REMOVE_TEGADERM:
+            case OcclusionTasks.PULL_OUT_PLUG:
+                _chatGetter.DisplayChatLine("#OCCLHD");
+                break;
+            case OcclusionTasks.PUT_PLASTER:
+                _chatGetter.DisplayChatLine("#OCCLHE");
                 break;
             case OcclusionTasks.INFORM_STAFF_NURSE:
                 _chatGetter.DisplayChatLine("#OCCLPB");

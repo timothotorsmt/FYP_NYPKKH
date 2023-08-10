@@ -25,6 +25,8 @@ public class PeripheralMinigameController : MonoBehaviour
 
     private void RandomisePatient()
     {
+        Patient tempPatient;
+
         // Generate random patient age group
         int RandNum = Random.Range(0, 2);
         if (false)
@@ -33,7 +35,7 @@ public class PeripheralMinigameController : MonoBehaviour
         }
         else
         {
-            _patientList.GetRandomPatient(AgeGroup.ADULT);
+            tempPatient = _patientList.GetRandomPatient(AgeGroup.ADULT);
         }
 
         switch (_patientList.currentPatient.GetValue().patientAgeGroup)
@@ -46,6 +48,11 @@ public class PeripheralMinigameController : MonoBehaviour
                 _bBraunIPLogic.SetParamRequirements(6, 500);
                 Debug.Log("6, 500");
                 break;
+        }
+
+        if (PatientInfoPanel.Instance != null)
+        {
+            PatientInfoPanel.Instance.UpdatePatientInfo(tempPatient);
         }
     }
 }
