@@ -1,3 +1,4 @@
+using PatientManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class Phlebitis : MonoBehaviour
     {
         _assessSkinButton.SetActive(true);
         _handImage.sprite = _phlebitisHand;
+        _handImage.gameObject.GetComponent<PatientSprites>().patientBodyPart = BodyPart.ARM_PHLEBITIS;
     }
 
 
