@@ -18,7 +18,7 @@ MonoBehaviour:
     PatientGender: 1
     age: 21
     patientAgeGroup: 2
-    height: 168
+    height: 149
     weight: 60
     BSA: 1.5
     BMI: 20.5
@@ -30,11 +30,11 @@ MonoBehaviour:
     - patientBodyPart: 1
       patientSprite: {fileID: 21300000, guid: 541b2e5b02a4c954ba54fb7a9dd23551, type: 3}
     KeyNotes: []
-  - name: Sofia Tan Minh Li
+  - name: Khadijah Rabia Binte Hairul Lizam
     altName: Ms. Tan
     PatientGender: 1
     age: 3
-    patientAgeGroup: 2
+    patientAgeGroup: 0
     height: 24
     weight: 14
     BSA: 0.88
@@ -46,4 +46,38 @@ MonoBehaviour:
       patientSprite: {fileID: 21300000, guid: a276516399945d5498c88b60862ac56e, type: 3}
     - patientBodyPart: 1
       patientSprite: {fileID: 21300000, guid: a53b5127922d8c54f9a82043501f4be5, type: 3}
+    KeyNotes: []
+  - name: Nandhini Suman d/o P. Nilanga
+    altName: Mrs. Kapoor
+    PatientGender: 1
+    age: 29
+    patientAgeGroup: 2
+    height: 155
+    weight: 63
+    BSA: 1.6
+    BMI: 17.9
+    PatientSpriteList:
+    - patientBodyPart: 0
+      patientSprite: {fileID: 21300000, guid: c84f24c4f4c5b514ea64a9e7116cd56d, type: 3}
+    - patientBodyPart: 3
+      patientSprite: {fileID: 21300000, guid: 3b7ee8b6842f315478da72d21725ebea, type: 3}
+    - patientBodyPart: 1
+      patientSprite: {fileID: 21300000, guid: 798fa7a8c7fb7204dabc39ace86b22fb, type: 3}
+    KeyNotes: []
+  - name: Ashween Sathasivam s/o K. Kumar
+    altName: Mr. Sathasivam
+    PatientGender: 0
+    age: 4
+    patientAgeGroup: 0
+    height: 30
+    weight: 19
+    BSA: 1.1
+    BMI: 20.7
+    PatientSpriteList:
+    - patientBodyPart: 0
+      patientSprite: {fileID: 21300000, guid: b1944d630d81c4b4c8df0efbc2a697d9, type: 3}
+    - patientBodyPart: 3
+      patientSprite: {fileID: 21300000, guid: 3b7ee8b6842f315478da72d21725ebea, type: 3}
+    - patientBodyPart: 1
+      patientSprite: {fileID: 21300000, guid: 798fa7a8c7fb7204dabc39ace86b22fb, type: 3}
     KeyNotes: []
