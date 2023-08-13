@@ -10,18 +10,23 @@ using UnityEngine.Events;
 
 namespace Core.SceneManagement
 {
+    // The class to manage and change different scenes
     public class SceneLoader : SingletonPersistent<SceneLoader>
     {
+        #region variables
+
         [SerializeField] private SceneAssetList _sceneList;
         public UnityEvent _sceneChangeAction;
         private SceneID _currentScene;
-        // Loading Bar
+
+        #endregion 
 
         private void Start()
         {
             _currentScene = _sceneList.SceneList.Where(x => x.SceneName == SceneManager.GetActiveScene().name).Select(x => x.SceneAssetID).First();
         }
 
+        
         public void ChangeScene(SceneID newSceneID, bool loadToLoadingScreen = true)
         {
 

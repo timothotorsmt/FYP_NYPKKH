@@ -156,7 +156,7 @@ public class CheckList : MonoBehaviour
            
             CVLPRTaskController.Instance.MarkCurrentTaskAsDone();
             Debug.Log(CVLPRTaskController.Instance.GetCurrentTask());
-            MinigamePerformance.Instance.AddPositiveAction(true);
+            CVLPRTaskController.Instance.MarkCorrectTask(false);
             _FinishEvent.Invoke();
             
         }

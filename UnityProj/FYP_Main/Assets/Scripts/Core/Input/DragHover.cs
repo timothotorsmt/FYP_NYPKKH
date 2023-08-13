@@ -30,7 +30,7 @@ public class DragHover : MonoBehaviour, IInputActions
 
     #endregion
 
-    public bool _disable;
+    public bool Disable;
     private bool _isMoving;
     private bool _isFinished;
 
@@ -89,13 +89,13 @@ public class DragHover : MonoBehaviour, IInputActions
         {
             _hoverSlider.gameObject.SetActive(false);
             _sliderObject.SetActive(false);
-            _disable = true;
+            Disable = true;
         }
         else 
         {
             _hoverSlider.gameObject.SetActive(true);
             _sliderObject.SetActive(true);
-            _disable = false;
+            Disable = false;
         }
     }
 
@@ -134,7 +134,7 @@ public class DragHover : MonoBehaviour, IInputActions
 
             // If the item is moving at all
             // Note: epsilon is used to represent a very small number bc floats rarely will == 0
-            if ((mousePos - _prevPosition).SqrMagnitude() > Mathf.Epsilon && !_disable)
+            if ((mousePos - _prevPosition).SqrMagnitude() > Mathf.Epsilon && !Disable)
             {
                 // Check if distance between the current object and destination is acceptable
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)_destination.transform.position) < _hoverForgivance)

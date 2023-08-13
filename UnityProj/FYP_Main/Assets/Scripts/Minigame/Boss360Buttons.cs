@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Common.DesignPatterns;
 
+// The boss 360 buttons
 public class Boss360Buttons : SingletonPersistent<Boss360Buttons>
 {
     public Button _bed1Button;

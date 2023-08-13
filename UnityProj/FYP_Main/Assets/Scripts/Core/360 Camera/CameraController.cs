@@ -7,15 +7,20 @@ namespace SkyboxCamera
 {
     public class CameraController : MonoBehaviour, IInputActions
     {
-        [SerializeField, Range(0, 50)] private float _cameraSensitivity = 50;
-        [SerializeField] private float _minClamp = -90f;
-        [SerializeField] private float _maxClamp = 90f;
-        [SerializeField] private bool _disableYAxis = false;
 
-        private float _yaw;
+    #region variable
+        [Header("Camera Settings")]
+        [Tooltip("The sensitivity of the camera")][SerializeField, Range(0, 50)] private float _cameraSensitivity = 10; 
+        [Tooltip("The lowest the camera can go")][SerializeField] private float _minClamp = -90f;    
+        [Tooltip("The highest the camera can go")][SerializeField] private float _maxClamp = 90f;     
+        [Tooltip("Disable the Y Axis?")][SerializeField] private bool _disableYAxis = false;
+
+        private float _yaw; 
         private float _pitch;
         private Vector2 _touch;
+    #endregion
 
+    #region input manager support functions
         void OnEnable()
         {
             InputManager.Instance.AddSubscriber(this);
@@ -28,7 +33,9 @@ namespace SkyboxCamera
                 InputManager.Instance.RemoveSubscriber(this);
             }
         }
+    #endregion
 
+    #region input manager
         public void OnStartTap()
         {
 
@@ -60,6 +67,6 @@ namespace SkyboxCamera
         {
 
         }
-
+    #endregion
     }
 }

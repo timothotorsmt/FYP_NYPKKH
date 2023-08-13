@@ -9,14 +9,19 @@ using UniRx;
 namespace Audio
 {
     [RequireComponent(typeof(AudioSource))]
-   // The controller of the audio system 
-   public class AudioController : Singleton<AudioController>
+    // The controller of the audio system 
+    public class AudioController : Singleton<AudioController>
     {
+
+        #region variable
+
         public bool IsDebug;
 
         [SerializeField] private AudioList _audioTracks;
         private Hashtable _audioTable; // relationship of audio audioIDs and tracks
         private Hashtable _jobTable; // relationship between audio audioIDs and jobs
+        
+        #endregion
 
         // Start is called before the first frame update
         void Start()

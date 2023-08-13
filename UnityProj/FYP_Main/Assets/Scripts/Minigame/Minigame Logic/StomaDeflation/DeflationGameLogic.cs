@@ -96,7 +96,7 @@ public class DeflationGameLogic : BasicSlider
     public void RemoveLife()
     {
         _lives -=1;
-        MinigamePerformance.Instance.AddNegativeAction();
+        DeflationTaskController.Instance.MarkWrongTask();
 
         if (_lives==0)
         {
@@ -115,13 +115,13 @@ public class DeflationGameLogic : BasicSlider
     public void FinsihGameLose()
     {
         _lives = -1;
-        MinigamePerformance.Instance.AddPositiveAction(false);
+        DeflationTaskController.Instance.MarkCorrectTask(false);
         CheckIfGameOver();
     }
     public void FinsihGameWin()
     {
         Debug.Log("asdd");
-        MinigamePerformance.Instance.AddPositiveAction();
+        DeflationTaskController.Instance.MarkCorrectTask();
         _isGameRunning = false;
         CheckIfGameOver();
     }

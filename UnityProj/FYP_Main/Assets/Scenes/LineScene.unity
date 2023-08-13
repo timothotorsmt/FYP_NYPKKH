@@ -1665,6 +1665,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185647205}
   m_CullTransparentMesh: 1
+--- !u!1 &211680343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211680345}
+  - component: {fileID: 211680344}
+  m_Layer: 0
+  m_Name: PlayerProgress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211680344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211680343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da5ab4f32f1f4b4093cf3f8f747a886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMinigameScores: []
+--- !u!4 &211680345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211680343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -58.709217, y: 1.6801051, z: 1613.0692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217926872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,6 +3558,8 @@ GameObject:
   m_Component:
   - component: {fileID: 431597722}
   - component: {fileID: 431597721}
+  - component: {fileID: 431597723}
+  - component: {fileID: 431597724}
   m_Layer: 5
   m_Name: Lines Logic
   m_TagString: Untagged
@@ -3532,6 +3579,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906d97c8fa0bad34b991e56ba297a91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _noBossEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 431597724}
+        m_TargetAssemblyTypeName: ChatPopup, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _BossEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 431597723}
+        m_TargetAssemblyTypeName: ChatActionPopup, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &431597722
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3552,6 +3629,47 @@ RectTransform:
   m_AnchoredPosition: {x: -5752, y: -63.99999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &431597723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431597720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e65a9790059e54ab59fc7779aa09fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idChat: '#LINBSU'
+  OnChatEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 119606246}
+        m_TargetAssemblyTypeName: FadeInOut, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &431597724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431597720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db796a236162d9e4eb491ae12ffe11c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idChat: '#LINBUN'
 --- !u!1 &437560123
 GameObject:
   m_ObjectHideFlags: 0
@@ -7705,9 +7823,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942313020}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: ChangeRoom
+      - m_Target: {fileID: 431597721}
+        m_TargetAssemblyTypeName: LinesLogic, Assembly-CSharp
+        m_MethodName: DisplayBossBehavior
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

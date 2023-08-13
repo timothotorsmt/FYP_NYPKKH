@@ -77,7 +77,7 @@ public class Bag : MonoBehaviour
                 Intereced = true;
                 bean.GetComponent<BEAN>().MoveAway();
                 bean = null;
-                MinigamePerformance.Instance.AddPositiveAction(false);
+                DeflationTaskController.Instance.MarkCorrectTask(false);
                 transform.localScale =ogSize;
                 ownAirBagValue = 0;
                 GetComponent<Animator>().SetTrigger("deflate");

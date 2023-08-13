@@ -5,9 +5,11 @@ using Core.Input;
 
 namespace SkyboxCamera
 {
+    // The script to change skybox 
     public class SkyboxSprite : MonoBehaviour, IInputActions
     {
 
+    #region input manager supporter functions
         void OnEnable()
         {
             if (InputManager.Instance != null)
@@ -23,7 +25,9 @@ namespace SkyboxCamera
                 InputManager.Instance.RemoveSubscriber(this);
             }
         }
+    #endregion
 
+    #region Input manager functions
         public void OnStartTap()
         {
 
@@ -40,7 +44,6 @@ namespace SkyboxCamera
 
                 // This barbie is using recttransform
                 GetComponent<RectTransform>().LookAt(cameraPos);
-                Debug.Log(GetComponent<RectTransform>().rotation);
             }
             else
             {
@@ -54,5 +57,6 @@ namespace SkyboxCamera
         {
 
         }
+    #endregion
     }
 }

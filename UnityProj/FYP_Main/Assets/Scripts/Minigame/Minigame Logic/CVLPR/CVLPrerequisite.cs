@@ -91,7 +91,7 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 if(!correct)
                 {
                     CheckList.Instance.wrong();
-                    MinigamePerformance.Instance.AddNegativeAction();
+                    CVLPRTaskController.Instance.MarkWrongTask();
                     Okay = false;
                  //   return;
                 }
@@ -102,7 +102,8 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 {
                     Okay = false;
                     CheckList.Instance.wrong2();
-                    MinigamePerformance.Instance.AddNegativeAction();
+                    CVLPRTaskController.Instance.MarkWrongTask();
+
                     CheckList.Instance.removeInside(itemname);
                   //  return;
                 }
@@ -110,7 +111,7 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 if (Okay)
                 {
                     GameObject b = Instantiate(gameObject, transform.position, Quaternion.identity) as GameObject;
-                    MinigamePerformance.Instance.AddPositiveAction(false);
+                    CVLPRTaskController.Instance.MarkCorrectTask(false);
                     b.transform.SetParent(transform.parent);
                     b.transform.position = transform.position;
                     b.transform.localScale = transform.localScale*0.7f;

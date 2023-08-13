@@ -16,7 +16,7 @@ public class MinigamePerformanceUI : MonoBehaviour
     }
 
     // Controls the UI aspect of the performance scoreboard page
-
+    [Header("UI gameobjects")]
     [SerializeField] private GameObject _performanceReviewScreen; // The main panel for the minigame result screen
     [SerializeField] private GameObject _minigameTitle;
     [SerializeField] private GameObject _scoreHeader;
