@@ -293,6 +293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneList: {fileID: 11400000, guid: 5811a02d5191d014598a6b5d1342aa8f, type: 2}
+  _sceneChangeAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &325490990
 Transform:
   m_ObjectHideFlags: 0
@@ -562,10 +565,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panel: {fileID: 946077035}
   _chatItem: {fileID: 813386970}
+  _chatItemNoImg: {fileID: 0}
+  _chatItemWithImg: {fileID: 0}
   _questionItem: {fileID: 201621040}
+  _nextArrowNormal: {fileID: 0}
+  _nextArrowNoSpeaker: {fileID: 0}
   _chatSpeaker: {fileID: 1504795145}
+  _chatSpeakerNoImg: {fileID: 0}
   _questionSpeaker: {fileID: 633548813}
   _mainBody: {fileID: 1852559078}
+  _mainBodyNoImg: {fileID: 0}
   _questionMainBody: {fileID: 1340669708}
   _chatSprite: {fileID: 1728869988}
   _questionSprite: {fileID: 1188952888}
@@ -787,6 +796,10 @@ PrefabInstance:
     - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Name
       value: DialoguePanels
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107354754405168938, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3107354754405168939, guid: 435be5a2491709e42a7dd5a3af9ad649, type: 3}
       propertyPath: m_Pivot.x
