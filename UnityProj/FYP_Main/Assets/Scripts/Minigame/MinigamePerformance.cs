@@ -35,7 +35,7 @@ public class MinigamePerformance : Singleton<MinigamePerformance>
         _totalPossiblePoints += 10;
         if (PlayParticleEffect)
         {
-            _reaction.SetHappyReaction(InputUtils.GetInputPosition());
+            _reaction.SetHappyReaction();
         }
     }
 
@@ -44,7 +44,7 @@ public class MinigamePerformance : Singleton<MinigamePerformance>
         _totalNumPoints -= 15;
         if (PlayParticleEffect)
         {
-            _reaction.SetSadReaction(InputUtils.GetInputPosition());
+            _reaction.SetSadReaction();
         }
     }
 
