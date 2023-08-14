@@ -8632,7 +8632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3288e8594a876be4bb1fef1d5e60c16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMinigamePerformance: {fileID: 4438494424299000300}
   _startEvent:
     m_PersistentCalls:
       m_Calls:
@@ -8688,11 +8687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PerformanceGrade: 0
-  _performanceReviewScreen: {fileID: 0}
-  _titleScreen: {fileID: 0}
-  _resultDisplay: {fileID: 0}
-  _levelUp: {fileID: 0}
-  _levelUpSlider: {fileID: 0}
   _reaction: {fileID: 7726112878360188058}
 --- !u!1 &3514291444598124813
 GameObject:
@@ -22260,7 +22254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f25823993964b4385fa47b6819cf13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMinigamePerformance: {fileID: 4867476114818618768}
   _startEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -22292,11 +22285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PerformanceGrade: 0
-  _performanceReviewScreen: {fileID: 0}
-  _titleScreen: {fileID: 0}
-  _resultDisplay: {fileID: 0}
-  _levelUp: {fileID: 0}
-  _levelUpSlider: {fileID: 0}
   _reaction: {fileID: 2976142319239667296}
 --- !u!1 &9102153261835421798
 GameObject:
