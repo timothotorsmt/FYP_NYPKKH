@@ -32,11 +32,16 @@ public class PlayerProgress : SingletonPersistent<PlayerProgress>
     {
         if (_playerMinigameScores.Where(x => x.MinigameID == newMinigameID).Count() > 0)
         {
+            if (_playerMinigameScores.Where(x => x.MinigameID == newMinigameID).First().MinigameGrade < newGrade)
+            {
+                newGrade = _playerMinigameScores.Where(x => x.MinigameID == newMinigameID).First().MinigameGrade;
+            }
+
            _playerMinigameScores.Remove(_playerMinigameScores.Where(x => x.MinigameID == newMinigameID).First());
         }
         
         MinigameScore newScore = new MinigameScore(newMinigameID, newGrade);
-        _playerMinigameScores.Append(newScore);
+        _playerMinigameScores.Add(newScore);
     }
 
     /// <summary>

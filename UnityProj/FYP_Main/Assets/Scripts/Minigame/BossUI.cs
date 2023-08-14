@@ -4,11 +4,16 @@ using UnityEngine;
 using Common.DesignPatterns;
 using UnityEngine.Events;
 
-public class BossUI : Singleton<BossUI>
+public class BossUI : SingletonPersistent<BossUI>
 {
+    [Header("Shift Over GameObjects")]
     [SerializeField] private GameObject _overallContainer;
     [SerializeField] private GameObject _shiftStartText;
     [SerializeField] private GameObject _shiftOverText;
+
+    [Header("Scoreboard GameObjects")]
+    [SerializeField] private GameObject _overallScoreboardContainer;
+
 
 
     public void SetStart()
@@ -27,8 +32,23 @@ public class BossUI : Singleton<BossUI>
 
     public void SetEnd()
     {
+        StartCoroutine(FadeIn());
+    }
+
+    private IEnumerator FadeIn()
+    {
+        yield return new WaitForSeconds(2.0f);
         _shiftStartText.SetActive(false);
         _shiftOverText.SetActive(true);
         _overallContainer.GetComponent<FadeInOut>().FadeIn();
+
+        yield return new WaitForSeconds(1.0f);
+        _overallScoreboardContainer.gameObject.GetComponent<FadeInOut>().FadeIn();
+    }
+
+    public void EndBossUI()
+    {
+        MinigameSceneController.Instance.GoBackToHub();
+        Destroy(this.gameObject);
     }
 }

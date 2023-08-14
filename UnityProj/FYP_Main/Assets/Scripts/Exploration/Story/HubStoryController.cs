@@ -54,14 +54,6 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
         ChatGetter.Instance.StartChat("#HUBINTB", _afterGossipEvent);
     }
 
-    public void CheckIfClick()
-    {
-        if (CurrentStoryBeat.GetValue() == NormalHubStoryBeats.DOOR_BLINK)
-        {
-            MarkCurrentStoryBeatAsDone();
-        }
-    }
-
     public void EndTalkScene()
     {
         SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, false);
@@ -76,11 +68,10 @@ public enum NormalHubStoryBeats
     INTRODUCTION_WITH_ROOM,
     TUTORIAL_MOVEMENT,
     TUTORIAL_INTERACTION,
-    DOOR_BLINK,
-    TUTORIAL_MINIGAME_1,
-    TUTORIAL_MINIGAME_2,
-    TUTORIAL_MINIGAME_3,
-    GOSSIP,
+    PETER_TALK,
+    SECTION_INTRO,
+
+    MAIN_GAME,
     
     // "Sleep" Sequence
     SLEEP,

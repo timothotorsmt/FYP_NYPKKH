@@ -28,7 +28,7 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
         RandomiseMinigames();
         _spawnItem = this.transform.parent.gameObject;
         DontDestroyOnLoad(_spawnItem);
-        //BossUI.Instance.SetStart();
+        BossUI.Instance.SetStart();
         DisplayNextMinigame();
     }
 
@@ -55,7 +55,7 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
         //Boss360Buttons.Instance._bed4Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.OCCLUSION_1, Difficulty.LEVEL_10); Boss360Buttons.Instance.HideButtons();});
 
         // Occlusion (phlebitis only)
-        _minigameList.Add(Boss360Buttons.Instance._bed2Button);
+       _minigameList.Add(Boss360Buttons.Instance._bed2Button);
         Boss360Buttons.Instance._bed2Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.OCCLUSION_1, Difficulty.BOSS); Boss360Buttons.Instance.HideButtons(); });
 
         // Peripheral only
@@ -73,7 +73,6 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
 
     public void FinishMinigame()
     {
-        Debug.Log("Hi");
         _minigameList[0].gameObject.SetActive(false);
         _minigameList.Remove(_minigameList[0]);
 
@@ -84,6 +83,7 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
         }
         else
         {
+            BossUI.Instance.SetEnd();
             BossOver();
         }
     }
@@ -98,7 +98,6 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
 
     public void BossOver()
     {
-        MinigameSceneController.Instance.GoBackToHub();
         Boss360Buttons.Instance.DisableAllButtons();
         Boss360Buttons.Instance.gameObject.SetActive(false);
         Destroy(Boss360Buttons.Instance.gameObject);
