@@ -104,7 +104,7 @@ public class Bag : MonoBehaviour
         {
 
             bean = null;
-            _gameLogic.RemoveLife();
+            //_gameLogic.RemoveLife();
             PS.Invoke();
             Destroy(gameObject);
         }
