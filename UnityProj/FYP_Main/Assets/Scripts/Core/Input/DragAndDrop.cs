@@ -7,9 +7,10 @@ using UnityEngine.Events;
 public class DragAndDrop : MonoBehaviour, IInputActions
 {
     #region Drag and Drop Variables
+
     [Tooltip("The destination of the gameobject")] [SerializeField] private GameObject _destination;
-    [Tooltip("An indicator for the dragging (if any)")] [SerializeField] private GameObject _indicator;
-    [SerializeField] private GameObject _dragSign;
+    [Tooltip("An indicator for the destination (if any)")] [SerializeField] private GameObject _indicator;
+    [Tooltip("The sign indicating draggable (if any)")] [SerializeField] private GameObject _dragSign;
     [SerializeField] private UnityEvent _onDropOnDestination;
     [SerializeField] private UnityEvent _onReset;
     [SerializeField, Range(0, 10)] private float _dragDistance = 1.0f;
@@ -20,6 +21,7 @@ public class DragAndDrop : MonoBehaviour, IInputActions
     private Vector2 _startPosition;
     private Vector2 _resetPosition;
     private RectTransform _rectTransform;
+
     #endregion
 
     // Start is called before the first frame update
@@ -164,11 +166,14 @@ public class DragAndDrop : MonoBehaviour, IInputActions
             {
                 _dragSign.SetActive(true);
             }
-            if (_indicator != null)
-            {
-                _indicator.SetActive(false);
-            }
+            
+            
 
+        }
+
+        if (_indicator != null)
+        {
+            _indicator.SetActive(false);
         }
     }
 }

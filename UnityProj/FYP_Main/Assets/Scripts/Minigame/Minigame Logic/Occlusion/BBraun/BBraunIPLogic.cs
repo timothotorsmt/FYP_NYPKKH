@@ -197,6 +197,7 @@ namespace BBraunInfusomat
         public void WaitForLineSelectionInput()
         {
             BBraunState.SetValue(BBraunIPState.LINE_SELECTION_INPUT);
+            ChatGetter.Instance.StartChat("#PERIZA");
             
             _bBraunIPInput._leftButton.onClick.AddListener(delegate { SelectedLine(); });
         }
@@ -204,6 +205,9 @@ namespace BBraunInfusomat
         private void SelectedLine()
         {
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+            ChatGetter.Instance.StartChat("#PERIII");
+
+            _hasKeyedInRate = false;
             _hasKeyedInVTBI = false;
             _hasKeyedInTime = false;
         }
@@ -332,20 +336,28 @@ namespace BBraunInfusomat
 
             if (_hasKeyedInTime && _hasKeyedInVTBI)
             {
+                _rateValue = _VBTIValue / _timeValue;
+                _bBraunIPUIDisplay.SetRate(_rateValue);
+
                 // check if rate and time are correct
                 
                 if (_timeValue == _idealTime && _VBTIValue == _idealVTBI && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                     _onEnterCorrectParams.Invoke();
+                    // Remove button access bc i cannot deal with this anymore
+                    _bBraunIPInput.RemoveAllFunctionality();
                 }
                 else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
                     ChatGetter.Instance.StartChat("#PERIFC");
+                    MinigamePerformance.Instance.AddNegativeAction();
+                    
+                    SetParams(0, 0, 0);
+                    ClearAllDigits();
                 }
 
-                _rateValue = _VBTIValue / _timeValue;
-                _bBraunIPUIDisplay.SetRate(_rateValue);
+                
             }
 
             else if (_hasKeyedInRate && _hasKeyedInVTBI)
@@ -355,6 +367,7 @@ namespace BBraunInfusomat
                 {
                     // Set as wrong :|
                     // Clear all values
+                    MinigamePerformance.Instance.AddNegativeAction();
                     ChatGetter.Instance.StartChat("#PERIFC");
                 }
 
@@ -369,6 +382,7 @@ namespace BBraunInfusomat
                 {
                     // Set as wrong :|
                     // Clear all values
+                    MinigamePerformance.Instance.AddNegativeAction();
                     ChatGetter.Instance.StartChat("#PERIFC");
                 }
 
@@ -448,7 +462,6 @@ namespace BBraunInfusomat
                 }
             }
 
-            SetToBackMainMenu();
         }
 
         private void ClearAllDigits()
