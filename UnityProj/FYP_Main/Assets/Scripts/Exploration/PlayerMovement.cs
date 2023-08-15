@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour, IInputActions
     private BoxCollider2D _boxCollider2D;
     private Rigidbody2D _rigidbody2D;
 
-    
     [SerializeField, Min(0f)] private float _playerSpeed = 1.0f;
     [SerializeField, Min(0f)] private float _playerForgivance = 0.05f;
 
@@ -30,7 +29,6 @@ public class PlayerMovement : MonoBehaviour, IInputActions
         _playerDestination = Vector3.negativeInfinity;
 
         InputManager.Instance.AddSubscriber(this);
-
     }
 
     private void FixedUpdate()
