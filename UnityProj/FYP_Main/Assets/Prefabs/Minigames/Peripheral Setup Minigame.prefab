@@ -999,6 +999,7 @@ GameObject:
   - component: {fileID: 8128117209712838523}
   - component: {fileID: 7057474982213287917}
   - component: {fileID: 4080768360528593603}
+  - component: {fileID: 6837703105349829450}
   m_Layer: 5
   m_Name: Hand (2)
   m_TagString: Untagged
@@ -1054,7 +1055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 541b2e5b02a4c954ba54fb7a9dd23551, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a53b5127922d8c54f9a82043501f4be5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1064,6 +1065,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6837703105349829450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425782212775699123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 1
 --- !u!1 &551612167867096595
 GameObject:
   m_ObjectHideFlags: 0
@@ -6509,7 +6524,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0.6300049, y: -0.7200012}
   m_SizeDelta: {x: 8.19, y: 19.99}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11071,7 +11086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdb254b943aae0c44a47490d88bf73be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f61779faea628c947aec48215173339b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -19084,8 +19099,8 @@ RectTransform:
   m_Father: {fileID: 4922068412909009358}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000030517578, y: 0.000011444092}
   m_SizeDelta: {x: 429.1358, y: 78.4315}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19600,7 +19615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -323, y: -426}
+  m_AnchoredPosition: {x: -282, y: -357}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4922068413316501179
@@ -23888,6 +23903,7 @@ GameObject:
   - component: {fileID: 4922068413735040402}
   - component: {fileID: 4922068413735040405}
   - component: {fileID: 1417613762337619260}
+  - component: {fileID: 3787649259577443560}
   m_Layer: 5
   m_Name: Patient
   m_TagString: Untagged
@@ -23975,6 +23991,20 @@ MonoBehaviour:
     GameObjectToChange: {fileID: 1269040847708840894}
   - TaskOnChange: 14
     GameObjectToChange: {fileID: 4922068413316501183}
+--- !u!114 &3787649259577443560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922068413735040407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 4
 --- !u!1 &4922068413748252357
 GameObject:
   m_ObjectHideFlags: 0
@@ -24732,6 +24762,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8732492283812338072}
+        m_TargetAssemblyTypeName: MinigameChatGetter, Assembly-CSharp
+        m_MethodName: DisplayChatLine
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '#PERIIL'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4922068413802024301
@@ -28366,7 +28408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdb254b943aae0c44a47490d88bf73be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f61779faea628c947aec48215173339b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -29733,6 +29775,7 @@ GameObject:
   - component: {fileID: 3734122887650005842}
   - component: {fileID: 691680818834260134}
   - component: {fileID: 7009045586502221034}
+  - component: {fileID: 4145994405134179130}
   m_Layer: 5
   m_Name: Bed Background
   m_TagString: Untagged
@@ -29790,7 +29833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b259f5dc0ecc69142abf4eecad0d0c22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e2a081d7696d2c4b8b97041d5fdb65d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -29800,6 +29843,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4145994405134179130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734662245775011927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 5
 --- !u!1 &5770185980057220352
 GameObject:
   m_ObjectHideFlags: 0
@@ -34610,6 +34667,7 @@ GameObject:
   - component: {fileID: 8542222311818690517}
   - component: {fileID: 2130157712975954834}
   - component: {fileID: 3391310383523094566}
+  - component: {fileID: 3435348111374581123}
   m_Layer: 5
   m_Name: Overview Panel
   m_TagString: Untagged
@@ -34670,7 +34728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db6c850e240369147810cd5a95f2afcb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9649827c61b531c438300bdfc140a5ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -34680,6 +34738,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3435348111374581123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428631466676933275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 4
 --- !u!1 &7430575179775265715
 GameObject:
   m_ObjectHideFlags: 0

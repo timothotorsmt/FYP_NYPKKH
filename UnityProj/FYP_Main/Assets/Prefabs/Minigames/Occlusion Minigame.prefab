@@ -3278,82 +3278,6 @@ MonoBehaviour:
   _height: {fileID: 2886978148459579784}
   _bsa: {fileID: 2312263081854683556}
   _bmi: {fileID: 6637755751320265171}
---- !u!1 &4167193487102500892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4636448715638564256}
-  - component: {fileID: 7284393481483624413}
-  - component: {fileID: 5983305143241021266}
-  m_Layer: 5
-  m_Name: Toddler Bed Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &4636448715638564256
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167193487102500892}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0001537, y: 1.0001537, z: 1.0001537}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6470367935666253644}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224, y: -121}
-  m_SizeDelta: {x: 1016.75, y: 1054.72}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7284393481483624413
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167193487102500892}
-  m_CullTransparentMesh: 1
---- !u!114 &5983305143241021266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167193487102500892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e2a081d7696d2c4b8b97041d5fdb65d, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4245383654167122140
 GameObject:
   m_ObjectHideFlags: 0
@@ -10069,7 +9993,6 @@ GameObject:
   - component: {fileID: 6470367935666253640}
   - component: {fileID: 6470367935666253641}
   - component: {fileID: 6470367935666253642}
-  - component: {fileID: 8558111088274169932}
   m_Layer: 5
   m_Name: HandCloseup
   m_TagString: Untagged
@@ -10090,7 +10013,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8649907046402467451}
-  - {fileID: 4636448715638564256}
   - {fileID: 106681154729243064}
   - {fileID: 6470367935592644084}
   - {fileID: 6470367935538505174}
@@ -10188,8 +10110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6412df0f4d9d78488477edfb5d50d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalHand: {fileID: 21300000, guid: 541b2e5b02a4c954ba54fb7a9dd23551, type: 3}
-  _phlebitisHand: {fileID: 21300000, guid: a459c77a93d0f794bb335cf9ec3e3aa7, type: 3}
   _handImage: {fileID: 6470367935592644085}
   _assessSkinButton: {fileID: 6470367937017818592}
 --- !u!114 &6470367935666253642
@@ -10211,19 +10131,6 @@ MonoBehaviour:
     GameObjectToChange: {fileID: 6470367935091105226}
   - TaskOnChange: 13
     GameObjectToChange: {fileID: 6470367935348914367}
---- !u!114 &8558111088274169932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6470367935666253635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76ff1517090dc1e47a3b66f4eed79a8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _changableObjects: []
 --- !u!1 &6470367935676914102
 GameObject:
   m_ObjectHideFlags: 0
@@ -17649,6 +17556,7 @@ GameObject:
   - component: {fileID: 6470367936538374279}
   - component: {fileID: 6470367936538374278}
   - component: {fileID: 5970209383341818848}
+  - component: {fileID: 5730378702064127180}
   m_Layer: 5
   m_Name: Patient
   m_TagString: Untagged
@@ -17740,6 +17648,20 @@ MonoBehaviour:
     GameObjectToChange: {fileID: 2878466101608326626}
   - TaskOnChange: 0
     GameObjectToChange: {fileID: 143205477686395765}
+--- !u!114 &5730378702064127180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470367936538374276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 4
 --- !u!1 &6470367936610789780
 GameObject:
   m_ObjectHideFlags: 0
@@ -20386,8 +20308,8 @@ RectTransform:
   m_Father: {fileID: 6470367935401663044}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.013}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.994, y: 0}
+  m_AnchorMax: {x: 0.994, y: 1}
   m_AnchoredPosition: {x: 2.7999973, y: 3.5}
   m_SizeDelta: {x: 181.87, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21220,6 +21142,7 @@ GameObject:
   - component: {fileID: 6470367937071299148}
   - component: {fileID: 6470367937071299139}
   - component: {fileID: 9113047586806134137}
+  - component: {fileID: 2405779798729749296}
   m_Layer: 5
   m_Name: OverviewPanel
   m_TagString: Untagged
@@ -21314,6 +21237,20 @@ MonoBehaviour:
     GameObjectToChange: {fileID: 6232864866193081893}
   - TaskOnChange: 6
     GameObjectToChange: {fileID: 6232864866193081893}
+--- !u!114 &2405779798729749296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470367937071299137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 4
 --- !u!1 &6470367937095231232
 GameObject:
   m_ObjectHideFlags: 0
@@ -23236,6 +23173,7 @@ GameObject:
   - component: {fileID: 106681154729243064}
   - component: {fileID: 2862181364426466030}
   - component: {fileID: 886106565740656058}
+  - component: {fileID: 2926234891727011953}
   m_Layer: 5
   m_Name: 'Adult bed '
   m_TagString: Untagged
@@ -23301,6 +23239,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2926234891727011953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167189745522648975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99673bf27d3db4c4cad4623eae4e65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patients: {fileID: 11400000, guid: de7b1d885e395424c98327f9bfaab5c4, type: 2}
+  _bodyPart: 5
 --- !u!1 &8475845475045409942
 GameObject:
   m_ObjectHideFlags: 0

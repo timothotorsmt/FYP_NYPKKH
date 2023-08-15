@@ -29,9 +29,9 @@ public class PeripheralMinigameController : MonoBehaviour
 
         // Generate random patient age group
         int RandNum = Random.Range(0, 2);
-        if (false)
+        if (RandNum == 0)
         {
-            //_patientList.GetRandomPatient(AgeGroup.CHILD);
+            tempPatient = _patientList.GetRandomPatient(AgeGroup.TODDLER);
         }
         else
         {
@@ -40,6 +40,7 @@ public class PeripheralMinigameController : MonoBehaviour
 
         switch (_patientList.currentPatient.GetValue().patientAgeGroup)
         {
+            case AgeGroup.TODDLER:
             case AgeGroup.CHILD:
                 _bBraunIPLogic.SetParamRequirements(12, 500);
                 Debug.Log("12, 500");

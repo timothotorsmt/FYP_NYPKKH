@@ -131,13 +131,14 @@ public class OcclusionMinigameController : MonoBehaviour
 
         // Generate random patient age group
         int RandNum = Random.Range(0, 2);
-        if (false)
+        if (RandNum == 0)
         {
-            //_patientList.GetRandomPatient(AgeGroup.CHILD);
+            tempPatient = _patientList.GetRandomPatient(AgeGroup.TODDLER);
+
         }
         else
         {
-            tempPatient = _patientList.GetRandomPatient(AgeGroup.ADULT);
+            tempPatient = _patientList.GetRandomPatient(AgeGroup.TODDLER);
         }
 
         if (PatientInfoPanel.Instance != null)
