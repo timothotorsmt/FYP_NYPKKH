@@ -715,9 +715,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 788719475}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: ChangeRoom
+      - m_Target: {fileID: 1402777705}
+        m_TargetAssemblyTypeName: StomaLogic, Assembly-CSharp
+        m_MethodName: GoBackToHub
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1774,7 +1774,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1815,7 +1815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524818748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -40.21, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2200,6 +2200,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &694480955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694480957}
+  - component: {fileID: 694480956}
+  m_Layer: 0
+  m_Name: Player Progress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &694480956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694480955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da5ab4f32f1f4b4093cf3f8f747a886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMinigameScores: []
+  hasDoneStory: 0
+--- !u!4 &694480957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694480955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.560013, y: -0.21221954, z: 240.40712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700929628
 GameObject:
@@ -4627,6 +4673,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397042547}
   m_CullTransparentMesh: 1
+--- !u!1 &1402777704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402777706}
+  - component: {fileID: 1402777705}
+  m_Layer: 0
+  m_Name: Stoma Area Logic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1402777705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402777704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0b03040c0a9044da054a52de483059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noBossEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _BossEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1402777706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402777704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434425743
 GameObject:
   m_ObjectHideFlags: 0
@@ -6120,11 +6216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 282503095622356197, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.02
+      value: -35.99
       objectReference: {fileID: 0}
     - target: {fileID: 282503095622356197, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.55
+      value: -2.92
       objectReference: {fileID: 0}
     - target: {fileID: 282503095622356197, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6145,7 +6241,7 @@ PrefabInstance:
     - target: {fileID: 282503095622356206, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: _currentRoom
       value: 
-      objectReference: {fileID: 902400227}
+      objectReference: {fileID: 1076812631}
     - target: {fileID: 282503096923779084, guid: 0e8a7d593c15e9d4099344cf32ddeffa, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.894
