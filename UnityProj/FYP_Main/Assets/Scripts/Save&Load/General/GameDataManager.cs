@@ -11,7 +11,9 @@ public class GameDataManager : SingletonPersistent<GameDataManager>
     private static Dictionary<DataID, GameDataBase> _fileMetaData = new Dictionary<DataID, GameDataBase>
     {
         { DataID.SAMPLE_ID, SampleDataSaver.sampleData },
-        { DataID.SAMPLE_ID2, SampleData2Saver.sampleData2 }
+        { DataID.SAMPLE_ID2, SampleData2Saver.sampleData2 },
+        { DataID.PLAYER_DATA, PlayerDataSaver.playerData },
+        { DataID.PLAYER_SCORES, PlayerScoresSaver.playerScores }
     };
 
     // Keys to the databases in the dictionary
@@ -19,6 +21,8 @@ public class GameDataManager : SingletonPersistent<GameDataManager>
     {
         SAMPLE_ID,
         SAMPLE_ID2,
+        PLAYER_DATA,
+        PLAYER_SCORES,
     }
 
     public static void SaveData(GameDataBase gameData)
@@ -29,8 +33,6 @@ public class GameDataManager : SingletonPersistent<GameDataManager>
     public static type LoadData<type>(DataID dataID)
     {
         string filePath = _fileMetaData[dataID].FilePath;
-        string aesKey = _fileMetaData[dataID].GetAesKey();
-        PlayerPrefs.SetString("key", aesKey);
         type dataObject = DataSaver.ReadFile<type>(filePath);
         return dataObject;
     }
