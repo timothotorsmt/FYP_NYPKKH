@@ -173,6 +173,7 @@ namespace BBraunInfusomat
             BBraunState.SetValue(BBraunIPState.WAITING);
 
             // Add functionality
+            _bBraunIPInput.RemoveAllFunctionality();
             _bBraunIPInput._resetValueButton.onClick.AddListener(delegate { WaitForInput(); }); 
             _bBraunIPInput._openDoorButton.onClick.AddListener(delegate { OpenDoorWaitInput(); }); 
         }

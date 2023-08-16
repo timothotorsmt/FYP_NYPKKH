@@ -28,17 +28,16 @@ public class PeripheralMinigameController : MonoBehaviour
         Patient tempPatient;
 
         // Generate random patient age group
-        int RandNum = Random.Range(0, 2);
-        if (RandNum == 0)
+        tempPatient = _patientList.GetRandomPatient();
+
+        if (tempPatient == null)
         {
-            tempPatient = _patientList.GetRandomPatient(AgeGroup.TODDLER);
-        }
-        else
-        {
-            tempPatient = _patientList.GetRandomPatient(AgeGroup.ADULT);
+            tempPatient = _patientList.GetPatientFromIndex(0);
         }
 
-        switch (_patientList.currentPatient.GetValue().patientAgeGroup)
+        Debug.Log(tempPatient.name);
+
+        switch (tempPatient.patientAgeGroup)
         {
             case AgeGroup.TODDLER:
             case AgeGroup.CHILD:

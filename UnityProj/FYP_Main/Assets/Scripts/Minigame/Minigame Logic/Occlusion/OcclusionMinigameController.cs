@@ -81,6 +81,7 @@ public class OcclusionMinigameController : MonoBehaviour
                 _phlebitisController.SetPhlebitis();
                 OcclusionTaskController.Instance.AssignCurrentTaskContinuous(OcclusionTasks.MUTE_ALARM);
                 OcclusionTaskController.Instance.AssignNextTaskContinuous(OcclusionTasks.ASSESS_SKIN);
+
                 break;
             case Difficulty.LEVEL_10:
                 // Basically boss but everything else
@@ -130,16 +131,7 @@ public class OcclusionMinigameController : MonoBehaviour
         Patient tempPatient;
 
         // Generate random patient age group
-        int RandNum = Random.Range(0, 2);
-        if (RandNum == 0)
-        {
-            tempPatient = _patientList.GetRandomPatient(AgeGroup.TODDLER);
-
-        }
-        else
-        {
-            tempPatient = _patientList.GetRandomPatient(AgeGroup.TODDLER);
-        }
+        tempPatient = _patientList.GetRandomPatient();
 
         if (PatientInfoPanel.Instance != null)
         {

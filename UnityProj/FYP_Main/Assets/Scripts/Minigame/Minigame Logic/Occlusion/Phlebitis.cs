@@ -17,7 +17,7 @@ public class Phlebitis : MonoBehaviour
     public void SetPhlebitis()
     {
         _assessSkinButton.SetActive(true);
-        _handImage.gameObject.GetComponent<PatientSprites>().patientBodyPart = BodyPart.ARM_PHLEBITIS;
+        _handImage.gameObject.GetComponent<PatientImage>()._bodyPart = BodyPart.ARM_PHLEBITIS;
     }
 
 

@@ -146,12 +146,7 @@ public class DeflationGameLogic : BasicSlider
 
         currPatient.AddStomaBagValue();
 
-        // If its past the max value, then set back d max value
-        if (currPatient.StomaBagAirValue.GetValue() > 1)
-        {
-            // Display fail case
-            Debug.Log("HI");
-        }
+        
         currPatient.StomaBagAirValue.SetValue(Mathf.Min(1, currPatient.StomaBagAirValue.GetValue()));
 
 

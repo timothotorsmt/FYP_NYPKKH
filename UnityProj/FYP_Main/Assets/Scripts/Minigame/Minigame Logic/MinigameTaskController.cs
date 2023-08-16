@@ -54,6 +54,8 @@ public class MinigameTaskController<TaskType> : Singleton<MinigameTaskController
         // increase the next task
         _nextTask = (TaskType)(object)index;
 
+        Debug.Log(CurrentTask.GetValue().ToString());
+
 
         if (PlayParticleEffect)
         {
