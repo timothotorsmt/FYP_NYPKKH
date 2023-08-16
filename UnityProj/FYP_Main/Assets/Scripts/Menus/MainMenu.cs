@@ -5,6 +5,16 @@ using Core.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject _loadGame;
+
+    private void Start()
+    {
+        if (!PlayerDataSaver.CheckIfFileExists())
+        {
+            _loadGame.SetActive(false);
+        }
+    }
+
     public void PlayNewGame()
     {
         // Change scene

@@ -50,5 +50,8 @@ public class PauseMenu : MonoBehaviour
     {
         SceneLoader.Instance.ChangeScene(SceneID.MAIN_MENU);
         PauseGame(false);
+
+        // Save the data if the scene changes to a hub
+        PlayerDataSaver.SaveCurrentData();
     }
 }

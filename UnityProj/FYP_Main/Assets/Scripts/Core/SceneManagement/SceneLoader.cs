@@ -47,14 +47,11 @@ namespace Core.SceneManagement
                 {
                     SceneManager.LoadScene(GetSceneName(newSceneID));
                 }
+
                 // Save the data if the scene changes to a hub
-                if (newSceneID == SceneID.HUB_NORMAL || 
-                    newSceneID == SceneID.HUB_WONDERLAND || 
-                    newSceneID == SceneID.LINES ||
-                    newSceneID == SceneID.STOMA)
+                if (newSceneID != SceneID.BOSS && newSceneID != SceneID.MINIGAME && newSceneID != SceneID.LOADING && newSceneID != SceneID.MAIN_MENU)
                 {
                     PlayerDataSaver.playerData.currentSceneID = newSceneID;
-                    PlayerDataSaver.SaveCurrentData();
                 }
             }
         }

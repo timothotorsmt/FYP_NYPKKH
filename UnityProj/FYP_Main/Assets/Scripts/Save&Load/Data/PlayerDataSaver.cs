@@ -15,6 +15,11 @@ public class PlayerDataSaver : MonoBehaviour
         playerData.FilePath = saveFile;
     }
 
+    public static bool CheckIfFileExists()
+    {
+        return (File.Exists(playerData.FilePath)) ;
+    }
+
     public static void SetLoadedData()
     {
         // Call the function from the GameDataManager to load data
@@ -27,6 +32,8 @@ public class PlayerDataSaver : MonoBehaviour
 
     public static void SaveCurrentData()
     {
+        Debug.Log(playerData.FilePath);
+
         // Call the function from the GameDataManager to save data
         GameDataManager.SaveData(playerData);
     }
