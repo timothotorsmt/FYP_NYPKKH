@@ -7,6 +7,6 @@ public class ApplicationManager : SingletonPersistent<ApplicationManager>
 {
     private void OnApplicationPause()
     {
-        PlayerDataSaver.SaveCurrentData();
+        //PlayerDataSaver.SaveCurrentData();
     }
 }

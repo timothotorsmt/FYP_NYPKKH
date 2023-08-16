@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
         PlayerDataSaver.SetLoadedData();
         // Set the saved scene and postion
         SceneLoader.Instance.ChangeScene(PlayerDataSaver.playerData.currentSceneID, true);
-
+        //PlayerManager.Instance.GetPlayerMovement().gameObject.transform.position = PlayerDataSaver.playerData.playerPos;
+        PlayerProgress.Instance.hasDoneStory = PlayerDataSaver.playerData.hasDoneStory;
     }
 
     public void GoToSettings()
@@ -26,3 +27,4 @@ public class MainMenu : MonoBehaviour
         SceneLoader.Instance.ChangeScene(SceneID.SETTINGS);
     }
 }
+
