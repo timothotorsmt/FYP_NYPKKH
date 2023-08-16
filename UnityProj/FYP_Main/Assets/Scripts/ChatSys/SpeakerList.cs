@@ -29,4 +29,5 @@ public enum SpeakerId
     SN2,
     LGUARD,
     SGUARD,
+    PATIENT
 }

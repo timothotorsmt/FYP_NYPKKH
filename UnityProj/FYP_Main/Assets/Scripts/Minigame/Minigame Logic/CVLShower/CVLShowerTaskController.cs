@@ -9,7 +9,10 @@ using UniRx;
 
 public class CVLShowerTaskController : MinigameTaskController<CVLShowerTasks>
 {
-
+    void Start()
+    {
+        _startEvent.Invoke();
+    }
 }
 
 // The tasks that need to be completed for this 

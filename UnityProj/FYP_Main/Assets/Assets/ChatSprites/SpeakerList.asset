@@ -41,3 +41,6 @@ MonoBehaviour:
     SpeakerId: 6
     moodImages:
     - {fileID: 21300000, guid: 48ce8864e7b99b04aa165313a7ae6289, type: 3}
+  - name: Patient
+    SpeakerId: 7
+    moodImages: []

@@ -337,13 +337,13 @@ namespace BBraunInfusomat
 
             if (_hasKeyedInTime && _hasKeyedInVTBI)
             {
-                _rateValue = _VBTIValue / _timeValue;
-                _bBraunIPUIDisplay.SetRate(_rateValue);
-
                 // check if rate and time are correct
                 
                 if (_timeValue == _idealTime && _VBTIValue == _idealVTBI && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
+                    _rateValue = _VBTIValue / _timeValue;
+                    _bBraunIPUIDisplay.SetRate(_rateValue);
+
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                     _onEnterCorrectParams.Invoke();
                     // Remove button access bc i cannot deal with this anymore
@@ -357,8 +357,6 @@ namespace BBraunInfusomat
                     SetParams(0, 0, 0);
                     ClearAllDigits();
                 }
-
-                
             }
 
             else if (_hasKeyedInRate && _hasKeyedInVTBI)
@@ -392,7 +390,6 @@ namespace BBraunInfusomat
             }
 
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
-
         }
 
         public void SetParamRequirements(float time, float VTBI)
@@ -469,15 +466,15 @@ namespace BBraunInfusomat
         {
             for (int i = 0; i < _rate.Count; i++)
             {
-                _rate[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+                _rate[i] = 0;
             }
             for (int i = 0; i < _VTBI.Count; i++)
             {
-                _VTBI[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+                _VTBI[i] = 0;
             }
             for (int i = 0; i < _time.Count; i++)
             {
-                _time[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+                _time[i] = 0;
             }
 
             _timeValue = 0;

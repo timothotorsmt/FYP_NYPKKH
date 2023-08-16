@@ -8,7 +8,7 @@ public class PlayerDataSaver : MonoBehaviour
     // Create an instance of the data
     public static PlayerData playerData = new PlayerData();
 
-    public void Start()
+    public void Awake()
     {
         // Set the file path
         string saveFile = Path.Combine(Application.persistentDataPath, "Data") + "/playerdata.json";
@@ -17,7 +17,7 @@ public class PlayerDataSaver : MonoBehaviour
 
     public static bool CheckIfFileExists()
     {
-        return (File.Exists(playerData.FilePath)) ;
+        return File.Exists(playerData.FilePath);
     }
 
     public static void SetLoadedData()

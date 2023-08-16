@@ -18,7 +18,8 @@ public class LinesLogic : MonoBehaviour
     {
         if (PlayerProgress.Instance != null)
         {
-            if (PlayerProgress.Instance.HasFinishedLines())
+            //if (PlayerProgress.Instance.HasFinishedLines())
+            if (true)
             {
                 _BossEvent.Invoke();
                 return;

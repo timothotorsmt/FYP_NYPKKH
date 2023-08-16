@@ -63,6 +63,9 @@ public class PeripheralHints : HintSystemBase
             case PeripheralSetupTasks.START_PUMP:
                 _chatGetter.DisplayChatLine("#PERIHM");
                 break;
+            case PeripheralSetupTasks.FLICK_LINE:
+                _chatGetter.DisplayChatLine("#PERIHN");
+                break;
         }
     }
 }

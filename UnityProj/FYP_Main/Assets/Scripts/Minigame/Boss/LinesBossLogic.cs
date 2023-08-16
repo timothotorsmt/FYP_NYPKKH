@@ -34,19 +34,12 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
 
     private void RandomiseMinigames()
     {
-        // CVL or showers?
-        int RandNum = Random.Range(0, 2);
-        // Temporarily remove the shower minigame (because)
-        if (false)
-        {
-           //_minigameList.Add(Boss360Buttons.Instance._bed5Button);
-           //Boss360Buttons.Instance._bed5Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.CVL_SHOWER); Boss360Buttons.Instance.HideButtons(); });
-        }
-        else
-        {
-           _minigameList.Add(Boss360Buttons.Instance._doorButton);
-           Boss360Buttons.Instance._doorButton.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.CVL_PREREQUISITE); Boss360Buttons.Instance.HideButtons();});
-        }
+        _minigameList.Add(Boss360Buttons.Instance._bed5Button);
+        Boss360Buttons.Instance._bed5Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.CVL_SHOWER); Boss360Buttons.Instance.HideButtons(); });
+    
+        _minigameList.Add(Boss360Buttons.Instance._doorButton);
+        Boss360Buttons.Instance._doorButton.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.CVL_PREREQUISITE); Boss360Buttons.Instance.HideButtons();});
+        
 
         // Occlusion (no phlebitis)
         _minigameList.Add(Boss360Buttons.Instance._bed1Button);

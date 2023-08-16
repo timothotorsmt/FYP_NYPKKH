@@ -74,7 +74,6 @@ public class MinigamePerformance : Singleton<MinigamePerformance>
 
         if (PlayerProgress.Instance != null)
         {
-            Debug.Log("Accessible");
             PlayerProgress.Instance.AddMinigameScore(MinigameManager.Instance.GetCurrentMinigame().minigameID, PerformanceGrade);
         }
 
