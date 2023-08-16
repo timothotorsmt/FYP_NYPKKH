@@ -42,6 +42,7 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
                             ChatGetter.Instance.StartChat("#HUBINTA", _afterIntroductionEvent);
                             PlayerProgress.Instance.hasDoneStory = true;
                         }
+                        PlayerDataSaver.playerData.hasDoneStory = PlayerProgress.Instance.hasDoneStory;
                     }
 
                     break;
