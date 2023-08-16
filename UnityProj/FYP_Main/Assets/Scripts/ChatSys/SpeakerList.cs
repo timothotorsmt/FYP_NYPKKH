@@ -27,5 +27,6 @@ public enum SpeakerId
     NARRATOR,
     SN1,
     SN2,
-    LGUARD
+    LGUARD,
+    SGUARD,
 }

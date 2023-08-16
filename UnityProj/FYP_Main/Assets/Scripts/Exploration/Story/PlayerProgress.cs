@@ -27,6 +27,7 @@ public class PlayerProgress : SingletonPersistent<PlayerProgress>
 
     // temporarily save the player code
     public List<MinigameScore> _playerMinigameScores = new List<MinigameScore>();
+    public bool hasDoneStory = false;
 
     public void AddMinigameScore(MinigameID newMinigameID, Grade newGrade)
     {

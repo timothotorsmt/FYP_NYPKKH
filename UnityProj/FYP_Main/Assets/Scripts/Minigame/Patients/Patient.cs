@@ -62,5 +62,7 @@ namespace PatientManagement
         ARM,
         STOMA,
         ARM_PHLEBITIS,
+        LAYOUT,
+        BED,
     }
 }

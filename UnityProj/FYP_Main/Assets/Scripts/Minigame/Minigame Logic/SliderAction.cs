@@ -8,14 +8,6 @@ using UniRx;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-// This was the crusty ass class I used before (it sucks)
-public class SliderAction : MonoBehaviour
-{
-    [SerializeField, Range(0,1)] protected float _reqToPass = 0.5f;
-    [SerializeField] protected Slider _slider;
-    [SerializeField] protected UnityEvent _sliderPassEvent;
-}
-
 // Like slider, but for multiple sliders at the same time
 public class MultiSlider : MonoBehaviour
 {
@@ -30,16 +22,6 @@ public class BasicSlider : MonoBehaviour
     [SerializeField] protected Slider _mainSlider;
     [SerializeField, Range(0, 1)] protected float _sliderPassReq;
     [SerializeField] protected UnityEvent _sliderPassEvent;
-
-    protected bool isIdealState = false;
-
-    // Don't actually know if will use LOL just try only
-    protected ReactiveProp<float> _sliderValue;
-
-    private void Awake()
-    {
-        _sliderValue = new ReactiveProp<float>();
-    }
 
     protected void DisableSlider(bool fade = false)
     {

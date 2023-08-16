@@ -14,19 +14,39 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
     [SerializeField] private UnityEvent _finishMonologueEvent;
 
     [SerializeField] private UnityEvent _afterGossipEvent;
+    [SerializeField] private UnityEvent _skipStoryEvent;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerProgress.Instance != null)
+        {
+            if (PlayerProgress.Instance.hasDoneStory)
+            {
+                CurrentStoryBeat.SetValue(NormalHubStoryBeats.MAIN_GAME);
+                _skipStoryEvent.Invoke();
+            }
+        }
+
         PlayerManager.Instance._overallStoryController.CurrentStoryBeat.Value.Subscribe(state => {
             switch (state)
             {
                 case OverallStoryBeats.INTRODUCTION:
-                    // Start off with the introductory dialogue
-                    // idk why this is needed
-                    MarkCurrentStoryBeatAsDone();
-                    ChatGetter.Instance.StartChat("#HUBINTA", _afterIntroductionEvent);
+                    if (PlayerProgress.Instance != null)
+                    {
+                        if (!PlayerProgress.Instance.hasDoneStory)
+                        {
+                            // Start off with the introductory dialogue
+                            // idk why this is needed
+                            MarkCurrentStoryBeatAsDone();
+                            ChatGetter.Instance.StartChat("#HUBINTA", _afterIntroductionEvent);
+                            PlayerProgress.Instance.hasDoneStory = true;
+                        }
+                        PlayerDataSaver.playerData.hasDoneStory = PlayerProgress.Instance.hasDoneStory;
+                    }
+
                     break;
+
             }
         });
     }
@@ -45,8 +65,9 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
 
     public void IntroFinish()
     {
-        MarkCurrentStoryBeatAsDone();
         PlayerManager.Instance._overallStoryController.MarkCurrentStoryBeatAsDone();
+        Debug.Log(PlayerManager.Instance._overallStoryController.CurrentStoryBeat.GetValue().ToString());
+        MarkCurrentStoryBeatAsDone();
     }
 
     public void ListenToGossip()
@@ -56,7 +77,6 @@ public class HubStoryController : StoryManager<NormalHubStoryBeats>
 
     public void EndTalkScene()
     {
-        SceneLoader.Instance.ChangeScene(SceneID.HUB_WONDERLAND, false);
         PlayerManager.Instance._overallStoryController.MarkCurrentStoryBeatAsDone();
     }
 }
@@ -65,11 +85,9 @@ public enum NormalHubStoryBeats
 {
     INTRODUCTION,
     INTRODUCTION_WITH_ALICE,
-    INTRODUCTION_WITH_ROOM,
     TUTORIAL_MOVEMENT,
     TUTORIAL_INTERACTION,
     PETER_TALK,
-    SECTION_INTRO,
 
     MAIN_GAME,
     

@@ -29,6 +29,10 @@ MonoBehaviour:
       patientSprite: {fileID: 21300000, guid: a459c77a93d0f794bb335cf9ec3e3aa7, type: 3}
     - patientBodyPart: 1
       patientSprite: {fileID: 21300000, guid: 541b2e5b02a4c954ba54fb7a9dd23551, type: 3}
+    - patientBodyPart: 4
+      patientSprite: {fileID: 21300000, guid: db6c850e240369147810cd5a95f2afcb, type: 3}
+    - patientBodyPart: 5
+      patientSprite: {fileID: 21300000, guid: b259f5dc0ecc69142abf4eecad0d0c22, type: 3}
     KeyNotes: []
   - name: Khadijah Rabia Binte Hairul Lizam
     altName: Ms. Tan
@@ -46,6 +50,10 @@ MonoBehaviour:
       patientSprite: {fileID: 21300000, guid: a276516399945d5498c88b60862ac56e, type: 3}
     - patientBodyPart: 1
       patientSprite: {fileID: 21300000, guid: a53b5127922d8c54f9a82043501f4be5, type: 3}
+    - patientBodyPart: 4
+      patientSprite: {fileID: 21300000, guid: 9649827c61b531c438300bdfc140a5ae, type: 3}
+    - patientBodyPart: 5
+      patientSprite: {fileID: 21300000, guid: 2e2a081d7696d2c4b8b97041d5fdb65d, type: 3}
     KeyNotes: []
   - name: Nandhini Suman d/o P. Nilanga
     altName: Mrs. Kapoor
@@ -63,6 +71,10 @@ MonoBehaviour:
       patientSprite: {fileID: 21300000, guid: 3b7ee8b6842f315478da72d21725ebea, type: 3}
     - patientBodyPart: 1
       patientSprite: {fileID: 21300000, guid: 798fa7a8c7fb7204dabc39ace86b22fb, type: 3}
+    - patientBodyPart: 4
+      patientSprite: {fileID: 21300000, guid: db6c850e240369147810cd5a95f2afcb, type: 3}
+    - patientBodyPart: 5
+      patientSprite: {fileID: 21300000, guid: b259f5dc0ecc69142abf4eecad0d0c22, type: 3}
     KeyNotes: []
   - name: Ashween Sathasivam s/o K. Kumar
     altName: Mr. Sathasivam
@@ -80,4 +92,8 @@ MonoBehaviour:
       patientSprite: {fileID: 21300000, guid: 3b7ee8b6842f315478da72d21725ebea, type: 3}
     - patientBodyPart: 1
       patientSprite: {fileID: 21300000, guid: 798fa7a8c7fb7204dabc39ace86b22fb, type: 3}
+    - patientBodyPart: 4
+      patientSprite: {fileID: 21300000, guid: 9649827c61b531c438300bdfc140a5ae, type: 3}
+    - patientBodyPart: 5
+      patientSprite: {fileID: 21300000, guid: 2e2a081d7696d2c4b8b97041d5fdb65d, type: 3}
     KeyNotes: []

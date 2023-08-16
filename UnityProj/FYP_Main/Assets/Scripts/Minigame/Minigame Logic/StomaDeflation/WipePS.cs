@@ -82,7 +82,6 @@ public class WipePS : MonoBehaviour, IInputActions
 
         Vector2 mousePos = InputUtils.GetInputPosition();
         oldPos = mousePos;
-        Debug.Log("asdasdasdasdsdasdsd");
         //if (Vector2.Distance((Vector2)this.transform.position, mousePos) < 1.0f)
         //{
         //    _startPosition = ((Vector2)this.transform.position - mousePos);

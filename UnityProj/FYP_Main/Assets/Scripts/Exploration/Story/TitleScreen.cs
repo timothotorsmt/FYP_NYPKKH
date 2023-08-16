@@ -36,6 +36,7 @@ public class TitleScreen : MonoBehaviour
         yield return _sequence.WaitForCompletion();
         yield return new WaitForSeconds(3.0f); // Temporary.
 
+        _afterDisplayEvent.Invoke();
         _fade.FadeOut();
     }
 }

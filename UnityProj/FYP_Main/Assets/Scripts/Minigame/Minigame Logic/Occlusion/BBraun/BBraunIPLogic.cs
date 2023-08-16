@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx.Extention;
 using System;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 namespace BBraunInfusomat
 {
@@ -196,6 +197,7 @@ namespace BBraunInfusomat
         public void WaitForLineSelectionInput()
         {
             BBraunState.SetValue(BBraunIPState.LINE_SELECTION_INPUT);
+            ChatGetter.Instance.StartChat("#PERIZA");
             
             _bBraunIPInput._leftButton.onClick.AddListener(delegate { SelectedLine(); });
         }
@@ -203,6 +205,9 @@ namespace BBraunInfusomat
         private void SelectedLine()
         {
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
+            ChatGetter.Instance.StartChat("#PERIII");
+
+            _hasKeyedInRate = false;
             _hasKeyedInVTBI = false;
             _hasKeyedInTime = false;
         }
@@ -245,7 +250,10 @@ namespace BBraunInfusomat
             _bBraunIPInput._upButton.onClick.AddListener(delegate { SetDigitUp(); });
             _bBraunIPInput._downButton.onClick.AddListener(delegate { SetDigitDown(); });
             _bBraunIPInput._okButton.onClick.AddListener(delegate { SetToBackMainMenu(); });
+            _bBraunIPInput._resetValueButton.onClick.AddListener(delegate { ClearDigits(); });
         }
+
+        
 
         private void SetParamDown()
         {
@@ -328,44 +336,58 @@ namespace BBraunInfusomat
 
             if (_hasKeyedInTime && _hasKeyedInVTBI)
             {
+                _rateValue = _VBTIValue / _timeValue;
+                _bBraunIPUIDisplay.SetRate(_rateValue);
+
                 // check if rate and time are correct
                 
                 if (_timeValue == _idealTime && _VBTIValue == _idealVTBI && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                     _onEnterCorrectParams.Invoke();
+                    // Remove button access bc i cannot deal with this anymore
+                    _bBraunIPInput.RemoveAllFunctionality();
+                }
+                else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
+                {
+                    ChatGetter.Instance.StartChat("#PERIFC");
+                    MinigamePerformance.Instance.AddNegativeAction();
+                    
+                    SetParams(0, 0, 0);
+                    ClearAllDigits();
                 }
 
-                _rateValue = _VBTIValue / _timeValue;
-                _bBraunIPUIDisplay.SetRate(_rateValue);
+                
             }
 
             else if (_hasKeyedInRate && _hasKeyedInVTBI)
             {
-                // check if rate and time are correct
 
-                if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
+                if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
-                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-                    _onEnterCorrectParams.Invoke();
+                    // Set as wrong :|
+                    // Clear all values
+                    MinigamePerformance.Instance.AddNegativeAction();
+                    ChatGetter.Instance.StartChat("#PERIFC");
                 }
 
-                _timeValue = (_VBTIValue / _rateValue);
-                _bBraunIPUIDisplay.SetTime(_timeValue);
+                SetParams(0, 0, 0);
+                ClearAllDigits();
             }
 
             else if (_hasKeyedInRate && _hasKeyedInTime)
             {
-                // check if rate and time are correct
 
-                if (true && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
+                if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
-                    PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
-                    _onEnterCorrectParams.Invoke();
+                    // Set as wrong :|
+                    // Clear all values
+                    MinigamePerformance.Instance.AddNegativeAction();
+                    ChatGetter.Instance.StartChat("#PERIFC");
                 }
 
-                _VBTIValue = _rateValue * _timeValue;
-                _bBraunIPUIDisplay.SetVTBI(_VBTIValue);
+                SetParams(0, 0, 0);
+                ClearAllDigits();
             }
 
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
@@ -414,6 +436,59 @@ namespace BBraunInfusomat
                 }
                 _time[_timeIndex] = _bBraunIPUIDisplay.SetNewDigit(_timeIndex, currentNumber);
             }
+        }
+
+        private void ClearDigits()
+        {
+            if (BBraunState.GetValue() == BBraunIPState.RATE_KEY_IN)
+            {
+                for (int i = 0; i < _rate.Count; i++)
+                {
+                    _rate[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+                }
+            }
+            else if (BBraunState.GetValue() == BBraunIPState.VBTI_KEY_IN)
+            {
+                for (int i = 0; i < _VTBI.Count; i++)
+                {
+                    _VTBI[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+                }
+            }
+            else if (BBraunState.GetValue() == BBraunIPState.TIME_KEY_IN)
+            {
+                for (int i = 0; i < _time.Count; i++)
+                {
+                    _time[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+                }
+            }
+
+        }
+
+        private void ClearAllDigits()
+        {
+            for (int i = 0; i < _rate.Count; i++)
+            {
+                _rate[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+            }
+            for (int i = 0; i < _VTBI.Count; i++)
+            {
+                _VTBI[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+            }
+            for (int i = 0; i < _time.Count; i++)
+            {
+                _time[i] = _bBraunIPUIDisplay.SetNewDigit(i, 0);
+            }
+
+            _timeValue = 0;
+            _rateValue = 0;
+            _VBTIValue = 0;
+
+            _bBraunIPUIDisplay.ClearAllDigits();
+
+            _hasKeyedInRate = false;
+            _hasKeyedInVTBI = false;
+            _hasKeyedInTime = false;
+
         }
 
         private void SetDigitDown()
