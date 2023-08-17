@@ -7,6 +7,7 @@ public class CheckOcclusionBBraunInstructions : MonoBehaviour
 {
     private bool hasGivenInstructions = false;
     private bool hasGivenStandbyInstructions = false;
+    private bool hasGivenStartInstructions = false;
 
     // Not running?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????? On the first time it's being called???????????? WHAT
     public void GiveBBraunInstructions()
@@ -30,6 +31,12 @@ public class CheckOcclusionBBraunInstructions : MonoBehaviour
                 hasGivenStandbyInstructions = true;
                 StartCoroutine(GiveStandbyDialogueLine());
             }
+
+            if (OcclusionTaskController.Instance.GetCurrentTask() == OcclusionTasks.START_PUMP && !hasGivenStartInstructions)
+            {
+                hasGivenStartInstructions = true;
+                StartCoroutine(GiveStartDialogueLine());
+            }
         }
     }
 
@@ -44,6 +51,13 @@ public class CheckOcclusionBBraunInstructions : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         ChatGetter.Instance.StartChat("#OCCLPD");
+        hasGivenStandbyInstructions = false;
+    }
+
+    private IEnumerator GiveStartDialogueLine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ChatGetter.Instance.StartChat("#PERIBC");
         hasGivenStandbyInstructions = false;
     }
 }
