@@ -89,9 +89,9 @@ MonoBehaviour:
     - patientBodyPart: 0
       patientSprite: {fileID: 21300000, guid: b1944d630d81c4b4c8df0efbc2a697d9, type: 3}
     - patientBodyPart: 3
-      patientSprite: {fileID: 21300000, guid: 3b7ee8b6842f315478da72d21725ebea, type: 3}
+      patientSprite: {fileID: 21300000, guid: c568641b240c17145aea3ea5f27a716a, type: 3}
     - patientBodyPart: 1
-      patientSprite: {fileID: 21300000, guid: 798fa7a8c7fb7204dabc39ace86b22fb, type: 3}
+      patientSprite: {fileID: 21300000, guid: 53172676d452dfc44837e647beb220f8, type: 3}
     - patientBodyPart: 4
       patientSprite: {fileID: 21300000, guid: 9649827c61b531c438300bdfc140a5ae, type: 3}
     - patientBodyPart: 5

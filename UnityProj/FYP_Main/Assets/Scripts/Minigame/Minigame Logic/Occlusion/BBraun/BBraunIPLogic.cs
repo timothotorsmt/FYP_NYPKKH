@@ -94,7 +94,7 @@ namespace BBraunInfusomat
                 BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
 
                 // Give hints
-                if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.LEVEL_10 || MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
+                if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.LEVEL_10 && MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
                 {
                     if (MinigameManager.Instance.GetCurrentMinigame().minigameID == MinigameID.OCCLUSION_1)
                     {
@@ -198,7 +198,10 @@ namespace BBraunInfusomat
         public void WaitForLineSelectionInput()
         {
             BBraunState.SetValue(BBraunIPState.LINE_SELECTION_INPUT);
-            ChatGetter.Instance.StartChat("#PERIZA");
+            if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
+            {
+                ChatGetter.Instance.StartChat("#PERIZA");
+            }
             
             _bBraunIPInput._leftButton.onClick.AddListener(delegate { SelectedLine(); });
         }
@@ -206,7 +209,10 @@ namespace BBraunInfusomat
         private void SelectedLine()
         {
             BBraunState.SetValue(BBraunIPState.PARAM_MAIN_MENU);
-            ChatGetter.Instance.StartChat("#PERIII");
+            if (MinigameManager.Instance.GetMinigameDifficulty().GameDifficulty != Difficulty.BOSS)
+            {
+                ChatGetter.Instance.StartChat("#PERIII");
+            }
 
             _hasKeyedInRate = false;
             _hasKeyedInVTBI = false;
@@ -344,10 +350,10 @@ namespace BBraunInfusomat
                     _rateValue = _VBTIValue / _timeValue;
                     _bBraunIPUIDisplay.SetRate(_rateValue);
 
+                    _bBraunIPInput.RemoveAllFunctionality();
                     PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
                     _onEnterCorrectParams.Invoke();
                     // Remove button access bc i cannot deal with this anymore
-                    _bBraunIPInput.RemoveAllFunctionality();
                 }
                 else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.SET_PUMP_PARAMETER)
                 {
@@ -596,6 +602,7 @@ namespace BBraunInfusomat
 
         public void StartPumpControl()
         {
+            _bBraunIPInput.RemoveAllFunctionality();
             _bBraunIPInput._startStopInfusionButton.onClick.AddListener(delegate { StartPumpBehaviour(); });
         }
 

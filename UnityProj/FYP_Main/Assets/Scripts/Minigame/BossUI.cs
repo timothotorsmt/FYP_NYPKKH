@@ -43,7 +43,7 @@ public class BossUI : SingletonPersistent<BossUI>
         _overallContainer.GetComponent<FadeInOut>().FadeIn();
 
         yield return new WaitForSeconds(1.0f);
-        _overallScoreboardContainer.gameObject.GetComponent<FadeInOut>().FadeIn();
+        EndBossUI();
     }
 
     public void EndBossUI()

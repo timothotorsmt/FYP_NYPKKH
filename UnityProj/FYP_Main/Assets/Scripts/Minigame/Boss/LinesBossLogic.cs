@@ -33,7 +33,12 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
     }
 
     private void RandomiseMinigames()
+    
     {
+        // Occlusion (phlebitis only)
+       _minigameList.Add(Boss360Buttons.Instance._bed2Button);
+        Boss360Buttons.Instance._bed2Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.OCCLUSION_1, Difficulty.BOSS); Boss360Buttons.Instance.HideButtons(); });
+
         _minigameList.Add(Boss360Buttons.Instance._bed5Button);
         Boss360Buttons.Instance._bed5Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.CVL_SHOWER); Boss360Buttons.Instance.HideButtons(); });
     
@@ -47,9 +52,6 @@ public class LinesBossLogic : Singleton<LinesBossLogic>
         //_minigameList.Add(Boss360Buttons.Instance._bed4Button);
         //Boss360Buttons.Instance._bed4Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.OCCLUSION_1, Difficulty.LEVEL_10); Boss360Buttons.Instance.HideButtons();});
 
-        // Occlusion (phlebitis only)
-       _minigameList.Add(Boss360Buttons.Instance._bed2Button);
-        Boss360Buttons.Instance._bed2Button.onClick.AddListener(() => { MinigameManager.Instance.StartMinigame(MinigameID.OCCLUSION_1, Difficulty.BOSS); Boss360Buttons.Instance.HideButtons(); });
 
         // Peripheral only
         _minigameList.Add(Boss360Buttons.Instance._bed3Button);
