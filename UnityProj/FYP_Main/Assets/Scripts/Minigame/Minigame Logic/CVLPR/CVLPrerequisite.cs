@@ -82,7 +82,7 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
             _isMoving = false;
             // Debug.Log(gameObject.name);
 
-            if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 5.0f)
+            if (Vector2.Distance((Vector2)this.transform.position, (Vector2)Destination.transform.position) < 1.0f)
             {
                 this.transform.position = new Vector3(Destination.transform.position.x, Destination.transform.position.y, Destination.transform.position.z);
                // Destination.SetActive(false);
@@ -91,6 +91,7 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 if(!correct)
                 {
                     CheckList.Instance.wrong();
+                    CVLPRTaskController.Instance.MarkWrongTask();
                     Okay = false;
                  //   return;
                 }
@@ -101,14 +102,17 @@ public class CVLPrerequisite : MonoBehaviour, IInputActions
                 {
                     Okay = false;
                     CheckList.Instance.wrong2();
+                    CVLPRTaskController.Instance.MarkWrongTask();
+
                     CheckList.Instance.removeInside(itemname);
                   //  return;
                 }
 
-                if(Okay)
+                if (Okay)
                 {
                     GameObject b = Instantiate(gameObject, transform.position, Quaternion.identity) as GameObject;
-                    b.transform.parent = transform.parent;
+                    CVLPRTaskController.Instance.MarkCorrectTask(false);
+                    b.transform.SetParent(transform.parent);
                     b.transform.position = transform.position;
                     b.transform.localScale = transform.localScale*0.7f;
                     b.GetComponent<CVLPrerequisite>().enabled = false;

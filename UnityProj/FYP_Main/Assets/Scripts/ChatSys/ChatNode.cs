@@ -14,7 +14,7 @@ public class ChatNode
     public string BodyText;
 
     // Current mood of the chat
-    public uint Mood;
+    public int Mood;
 
     // Current Speaker of the statement
     public string Speaker;

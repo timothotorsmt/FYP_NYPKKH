@@ -3,49 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Core.Input;
+using Common.DesignPatterns;
 
-public class MinigamePerformance : MonoBehaviour
+public class MinigamePerformance : Singleton<MinigamePerformance>
 {
-    private int _totalNumPoints = 0; // The total number of points the player has at the moment 
-    private int _totalPossiblePoints = 0; // The total number of possible points that can be earned in the minigame
-    private List<string> _errors;
-    public Grade PerformanceGrade;
-    private int _pointsToAdd;
-    private int _pointsToNextRank;
+    #region variables
 
-    // UI variables
-    [SerializeField] private GameObject _performanceReviewScreen;
-    [SerializeField] private GameObject _titleScreen;
-    [SerializeField] private Image _resultDisplay;
-    [SerializeField] private GameObject _levelUp;
-    [SerializeField] private Slider _levelUpSlider;
+    private float _totalNumPoints = 0; // The total number of points the player has at the moment 
+    private float _totalPossiblePoints = 0; // The total number of possible points that can be earned in the minigame
+    public Grade PerformanceGrade;
+
+    // For the ranking thing the nurses want
+    // TODO: next group pls add the ranking thing :||||||
+    private static int _pointsToAdd;
+    private int _pointsToNextRank;
+    
     [SerializeField] private MinigameReaction _reaction;
+    private MinigamePerformanceUI _minigamePerformanceUI;   
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _errors = new List<string>();
+        _minigamePerformanceUI = this.GetComponent<MinigamePerformanceUI>();
     }
 
-    public void AddPositiveAction()
+    public void AddPositiveAction(bool PlayParticleEffect = true)
     {
         _totalNumPoints += 10;
         _totalPossiblePoints += 10;
-        _reaction.SetHappyReaction(InputUtils.GetInputPosition());
+        if (PlayParticleEffect)
+        {
+            _reaction.SetHappyReaction();
+        }
     }
 
-    public void AddNegativeAction(string error)
+    public void AddNegativeAction(bool PlayParticleEffect = true)
     {
         _totalNumPoints -= 15;
-        _errors.Add(error);
-        _reaction.SetSadReaction(InputUtils.GetInputPosition());
-
+        if (PlayParticleEffect)
+        {
+            _reaction.SetSadReaction();
+        }
     }
 
     public void EvaluatePerformance()
     {
         float score = _totalNumPoints / _totalPossiblePoints;
-        if (score >= 0.75f)
+        Debug.Log(score);
+        if (score >= 0.9f)
         {
             PerformanceGrade = Grade.PERFECT;
         }
@@ -65,7 +72,13 @@ public class MinigamePerformance : MonoBehaviour
             PerformanceGrade = Grade.FAIL;
         }
 
-        _performanceReviewScreen.SetActive(true);
+        if (PlayerProgress.Instance != null)
+        {
+            PlayerProgress.Instance.AddMinigameScore(MinigameManager.Instance.GetCurrentMinigame().minigameID, PerformanceGrade);
+        }
+
+        _minigamePerformanceUI.AssignResult(PerformanceGrade);
+        _minigamePerformanceUI.DisplayResult();
     }
 }
 

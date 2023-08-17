@@ -150,6 +150,8 @@ GameObject:
   m_Component:
   - component: {fileID: 169490209558881203}
   - component: {fileID: 169490209558881201}
+  - component: {fileID: 6746377806717123616}
+  - component: {fileID: 7220059809639769063}
   m_Layer: 5
   m_Name: TimerHold
   m_TagString: Untagged
@@ -195,8 +197,19 @@ MonoBehaviour:
   _sliderPassReq: 0.95
   _sliderPassEvent:
     m_PersistentCalls:
-      m_Calls: []
-  _isForward: 1
+      m_Calls:
+      - m_Target: {fileID: 7220059809639769063}
+        m_TargetAssemblyTypeName: FadeInOut, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _indicator: {fileID: 169490209287286048}
   _idealZone: {fileID: 169490210967491693}
   _holdDuration: 3
@@ -207,6 +220,37 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isReversible: 0
+  OnAcceptableRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLateRange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!225 &6746377806717123616
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169490209558881204}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7220059809639769063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169490209558881204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fe095df91ec324294179ab54421e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 1
 --- !u!1 &169490209611502820
 GameObject:
   m_ObjectHideFlags: 0

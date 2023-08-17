@@ -68,6 +68,11 @@ namespace ChatSys
                             temp_chatNode.ID = dataValues[1];
                         }
                     }
+                    else
+                    {
+                        // invalid ID, therefore there is no chat here return 
+                        return;
+                    }
 
                     if (dataValues[2] != null) {
                         // Get order
@@ -81,7 +86,7 @@ namespace ChatSys
 
                     if (dataValues[4] != null) {
                         // Get sprite mood
-                        temp_chatNode.Mood = (uint.Parse(dataValues[4]));
+                        temp_chatNode.Mood = (int.Parse(dataValues[4]));
                     }
 
                     if (dataValues[5] != null) {

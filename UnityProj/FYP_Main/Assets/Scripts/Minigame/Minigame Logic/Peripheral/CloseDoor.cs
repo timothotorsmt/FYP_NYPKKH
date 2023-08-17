@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Audio;
 
 public class CloseDoor : BasicSlider
 {
@@ -19,6 +20,7 @@ public class CloseDoor : BasicSlider
     {
         if (_mainSlider.value >= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.CLOSE_DOOR)
         {
+            AudioController.Instance.PlayAudio(SoundUID.BBRAUN_DOOR_CLOSE);
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderPassEvent.Invoke();

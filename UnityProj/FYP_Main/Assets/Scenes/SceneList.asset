@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneList:
   - SceneAssetID: 1
-    SceneName: SampleScene
+    SceneName: HubScene
   - SceneAssetID: 2
     SceneName: MinigameScene
   - SceneAssetID: 0
@@ -25,3 +25,11 @@ MonoBehaviour:
     SceneName: PrototypeScene
   - SceneAssetID: 5
     SceneName: LoadingScene
+  - SceneAssetID: 7
+    SceneName: NormalHubScene
+  - SceneAssetID: 8
+    SceneName: LineScene
+  - SceneAssetID: 6
+    SceneName: 360Scene
+  - SceneAssetID: 9
+    SceneName: StomaScene

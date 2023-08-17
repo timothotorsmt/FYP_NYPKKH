@@ -16,6 +16,7 @@ public class StomaPatientInteraction : MonoBehaviour
     {
         _gameLogic.GetCurrentPatient().StomaBagAirValue.Value.Subscribe(val =>
         {
+      
             _airbagValue = val;
         }).AddTo(_cd);
     }

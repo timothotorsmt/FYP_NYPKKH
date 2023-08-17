@@ -7,16 +7,19 @@ public class PeripheralHints : HintSystemBase
 {
     void Start()
     {
-        // used as kinda of an event system
-        // Whenever they change state (player knows what they are doing)
-        // Reset the hint timer
-        PeripheralSetupTaskController.Instance.CurrentTask.Value.Subscribe(_ => {
-            if (_isRunningHint)
-            {
-                StopCoroutine(HintCounter());
-            }
-            StartCoroutine(HintCounter());
-        });
+        if (!_isDisabled)
+        {
+            // used as kinda of an event system
+            // Whenever they change state (player knows what they are doing)
+            // Reset the hint timer
+            PeripheralSetupTaskController.Instance.CurrentTask.Value.Subscribe(_ => {
+                if (_isRunningHint)
+                {
+                    StopCoroutine(HintCounter());
+                }
+                StartCoroutine(HintCounter());
+            });
+        }
     }
 
     public void GetHint()
@@ -59,6 +62,9 @@ public class PeripheralHints : HintSystemBase
                 break;
             case PeripheralSetupTasks.START_PUMP:
                 _chatGetter.DisplayChatLine("#PERIHM");
+                break;
+            case PeripheralSetupTasks.FLICK_LINE:
+                _chatGetter.DisplayChatLine("#PERIHN");
                 break;
         }
     }

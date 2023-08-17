@@ -7,27 +7,67 @@ using UnityEngine.UI;
 public class ChatUIDisplay : MonoBehaviour
 {
     #region UI element variables
-    [SerializeField] private GameObject _panel;
-    [SerializeField] private GameObject _chatItem;
-    [SerializeField] private GameObject _questionItem;
-    [SerializeField] private TextMeshProUGUI _chatSpeaker;
-    [SerializeField] private TextMeshProUGUI _questionSpeaker;
-    [SerializeField] private TextMeshProUGUI _mainBody;
-    [SerializeField] private TextMeshProUGUI _questionMainBody;
-    [SerializeField] private Image _chatSprite;
-    [SerializeField] private Image _questionSprite;
-    [SerializeField] private GameObject _questionPrefab;
-    [SerializeField] private GameObject _spawnArea;
-    [SerializeField] private List<GameObject> _questionTag;
+    [Tooltip("Overall panel of the chat UI")] [SerializeField] private GameObject _panel;
+    [Tooltip("Overall container for the chats")] [SerializeField] private GameObject _chatItem;
+    [Tooltip("Overall container for the chat with image")] [SerializeField] private GameObject _chatItemNoImg;
+    [Tooltip("Overall container for the chat without character images")] [SerializeField] private GameObject _chatItemWithImg;
+    [Tooltip("Overall container for the questions")] [SerializeField] private GameObject _questionItem;
+    [Tooltip("[UNUSED] the arrow that indicates that there is a next text")] [SerializeField] private GameObject _nextArrowNormal;
+    [Tooltip("[UNUSED] the arrow that indicates that there is a next text")] [SerializeField] private GameObject _nextArrowNoSpeaker;
+    [Tooltip("Speaker Name")] [SerializeField] private TextMeshProUGUI _chatSpeaker;
+    [Tooltip("Speaker Name but for no image panel")] [SerializeField] private TextMeshProUGUI _chatSpeakerNoImg;
+    [Tooltip("Speaker Name but for question panel")] [SerializeField] private TextMeshProUGUI _questionSpeaker;
+    [Tooltip("Main chat body text")] [SerializeField] private TextMeshProUGUI _mainBody;
+    [Tooltip("Main chat body text for no image")] [SerializeField] private TextMeshProUGUI _mainBodyNoImg;
+    [Tooltip("Main chat body text for questions")] [SerializeField] private TextMeshProUGUI _questionMainBody;
+    [Tooltip("Character mood sprite")] [SerializeField] private Image _chatSprite;
+    [Tooltip("Character mood sprite for questions")] [SerializeField] private Image _questionSprite;
+    [Tooltip("Question prefab to spawn")] [SerializeField] private GameObject _questionPrefab;
+    [Tooltip("Gameobject for questions to spawn under")] [SerializeField] private GameObject _spawnArea;
+    [Tooltip("Question gameobjects")] [SerializeField] private List<GameObject> _questionTag;
     #endregion
 
     // This functions displays a chat node, given a chat node and speaker
     public void DisplayChatText(ChatNode chatNode, Speaker speaker) {
-        _mainBody.text = chatNode.BodyText;
-        
-        // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
-        _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
-        _chatSpeaker.text = speaker.name;
+
+        if (chatNode.Mood == -1)
+        {
+            // Set some gameobjects true and false
+            // Fuck this project
+            _chatItemNoImg.SetActive(true);
+            _chatItemWithImg.SetActive(false);
+
+            // Set arrows to active
+            //_nextArrowNoSpeaker.SetActive(true);
+
+            _mainBodyNoImg.text = chatNode.BodyText;
+            _chatSpeakerNoImg.text = speaker.name;
+        }
+        else
+        {
+            _chatItemNoImg.SetActive(false);
+            _chatItemWithImg.SetActive(true);
+
+            //_nextArrowNormal.SetActive(true);
+
+            _mainBody.text = chatNode.BodyText;
+            // retrieve the mood sprite from the speaker class based on the mood indicated in the CSV file
+            if ((int)chatNode.Mood <= speaker.moodImages.Count)
+            {
+                _chatSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
+            }
+            else 
+            {
+              _chatSprite.sprite = speaker.moodImages[0];  
+            }
+            _chatSpeaker.text = speaker.name;
+        }
+    }
+
+    public void DisableArrows()
+    {
+        //_nextArrowNormal.SetActive(false);
+        //_nextArrowNoSpeaker.SetActive(false);
     }
 
 
@@ -64,7 +104,16 @@ public class ChatUIDisplay : MonoBehaviour
 
         // Display the question (same as a chat node)
         _questionSpeaker.text = speaker.name;    
-        _questionSprite.sprite = speaker.moodImages[(int)chatNode.Mood];
+        if (chatNode.Mood != -1) 
+        {
+            _questionSprite.gameObject.SetActive(true);
+            _questionSprite.sprite = speaker.moodImages[chatNode.Mood];
+        }
+        else
+        {
+            _questionSprite.gameObject.SetActive(false);
+        }
+
         _questionMainBody.text = chatNode.BodyText; 
 
         // Show all the possible answers

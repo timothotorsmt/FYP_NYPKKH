@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// This class 
+// This class is for the questions 
 public class QuestionTag : MonoBehaviour
 {
     // The physical text box to be edited
@@ -11,6 +11,7 @@ public class QuestionTag : MonoBehaviour
     private string _id;
     private string _text;
 
+    // Click on it
     public void Activate() {
         ChatGetter.Instance.StartChat(_id);
     }

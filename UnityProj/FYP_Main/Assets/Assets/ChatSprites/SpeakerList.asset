@@ -22,3 +22,25 @@ MonoBehaviour:
     moodImages:
     - {fileID: 21300000, guid: 822fa8be663a2c645b553080985afbf5, type: 3}
     - {fileID: 21300000, guid: 3cfe35f63e584654480abf8c9914e4ab, type: 3}
+  - name: Senior Nurse 1
+    SpeakerId: 3
+    moodImages: []
+  - name: Narrator
+    SpeakerId: 2
+    moodImages:
+    - {fileID: 21300000, guid: 822fa8be663a2c645b553080985afbf5, type: 3}
+    - {fileID: 21300000, guid: 3cfe35f63e584654480abf8c9914e4ab, type: 3}
+  - name: Senior Nurse 2
+    SpeakerId: 4
+    moodImages: []
+  - name: Guard Dog
+    SpeakerId: 5
+    moodImages:
+    - {fileID: 21300000, guid: 48ce8864e7b99b04aa165313a7ae6289, type: 3}
+  - name: Guard Dog
+    SpeakerId: 6
+    moodImages:
+    - {fileID: 21300000, guid: 48ce8864e7b99b04aa165313a7ae6289, type: 3}
+  - name: Patient
+    SpeakerId: 7
+    moodImages: []

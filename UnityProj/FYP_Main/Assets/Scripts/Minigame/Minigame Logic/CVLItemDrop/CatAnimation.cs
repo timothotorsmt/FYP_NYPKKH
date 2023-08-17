@@ -13,13 +13,16 @@ public class CatAnimation : MonoBehaviour
 {
     float y = 5;
     Tween t;
-    public GameObject a;
-    [SerializeField] private UnityEvent _BadAlert, _TooMuch, _GoodAlert;
+    public GameObject _bringover;
+    GameObject pawPos;
+    public List<GameObject> tilt = new List<GameObject>();
+    [SerializeField] private UnityEvent _startevent, _BadAlert, _TooMuch, _GoodAlert;
     bool done = false;
     // Start is called before the first frame update
     void Start()
     {
         Invoke("Catappear", Random.Range(3,8));
+        pawPos = transform.GetChild(0).gameObject;
        //CatPaw();
     }
 
@@ -51,6 +54,26 @@ public class CatAnimation : MonoBehaviour
         transform.DORotate(Rotation, 2f, RotateMode.Fast).SetLoops(-1, LoopType.Yoyo);
 
         Invoke("CatPaw",duration);
+        _startevent.Invoke();
+        InvokeRepeating("CatTouch", 1, 1);
+    }
+
+    public void CatTouch()
+    {
+        Debug.Log("aaa");
+        for (int i = 0; i < tilt.Count; i++)
+        {
+            if(tilt[i]!=null)
+            {
+                if(Vector2.Distance(pawPos.transform.position, tilt[i].transform.position)<2)
+                {
+                    Debug.Log("dddd");
+                    tilt[i].transform.Rotate(new Vector3(0,0,-25));
+                    tilt[i] = null;
+
+                }
+            }
+        }
     }
 
     public void BackAway()
@@ -100,7 +123,7 @@ public class CatAnimation : MonoBehaviour
 
     public void ChangeScene()
     {
-        a.SetActive(true);
+        _bringover.SetActive(true);
         gameObject.SetActive(false);
     }
 }

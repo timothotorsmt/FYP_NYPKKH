@@ -1,3 +1,4 @@
+using PatientManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,6 @@ using UnityEngine.UI;
 
 public class Phlebitis : MonoBehaviour
 {
-    [SerializeField] private Sprite _normalHand;
-    [SerializeField] private Sprite _phlebitisHand;
     [SerializeField] private Image _handImage;
     [SerializeField] private GameObject _assessSkinButton;
 
@@ -18,7 +17,7 @@ public class Phlebitis : MonoBehaviour
     public void SetPhlebitis()
     {
         _assessSkinButton.SetActive(true);
-        _handImage.sprite = _phlebitisHand;
+        _handImage.gameObject.GetComponent<PatientImage>()._bodyPart = BodyPart.ARM_PHLEBITIS;
     }
 
 

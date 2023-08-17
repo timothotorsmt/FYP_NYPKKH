@@ -19,6 +19,10 @@ public class DeflationGameLogic : BasicSlider
 
     private bool _isGameRunning;
 
+    private int _lives=6;
+    public UnityEvent GameLost;
+    public UnityEvent GameWin;
+
     private static int _numPatients = 1;
     private ReactiveProp<int> _patientCounter;
 
@@ -38,7 +42,7 @@ public class DeflationGameLogic : BasicSlider
                 _numPatients = 1;
                 break;
             default:
-                _numPatients = 3;
+                _numPatients = 1;
                 break;
         }
 
@@ -46,7 +50,8 @@ public class DeflationGameLogic : BasicSlider
         for (int i = 0; i < _numPatients; i++)
         {
             StomaPatient tempPatient = new StomaPatient();
-            StartCoroutine(StomaBagBehaviour(tempPatient));
+            tempPatient.StomaBagAirValue.SetValue(1.0f);
+            //StartCoroutine(StomaBagBehaviour(tempPatient));
             _patients.Add(tempPatient);
         }
 
@@ -82,7 +87,41 @@ public class DeflationGameLogic : BasicSlider
     private IEnumerator GameLength()
     {
         yield return new WaitForSeconds(_gameLength);
+        FinsihGameLose();
+        ChatGetter.Instance.StartChat("#STOMAD", GameWin);
+    
+    }
 
+
+    public void RemoveLife()
+    {
+        _lives -=1;
+        DeflationTaskController.Instance.MarkWrongTask();
+
+        if (_lives==0)
+        {
+            ChatGetter.Instance.StartChat("#STOMAE", GameLost);
+            _isGameRunning = false;
+            StopCoroutine("GameLength");
+        }
+    }
+
+    public bool getGamerunning()
+    {
+        //is it ok to put this what is this for
+        return _isGameRunning;
+    }
+    
+    public void FinsihGameLose()
+    {
+        _lives = -1;
+        DeflationTaskController.Instance.MarkCorrectTask(false);
+        CheckIfGameOver();
+    }
+    public void FinsihGameWin()
+    {
+        Debug.Log("asdd");
+        DeflationTaskController.Instance.MarkCorrectTask();
         _isGameRunning = false;
         CheckIfGameOver();
     }
@@ -91,6 +130,12 @@ public class DeflationGameLogic : BasicSlider
     {
         if (!_isGameRunning && DeflationTaskController.Instance.GetCurrentTask() == DeflationTasks.DEFLATE_BAGS)
         {
+            Debug.Log("powerk");
+            DeflationTaskController.Instance.MarkCurrentTaskAsDone();
+        }
+        if(!_isGameRunning)
+        {
+            Debug.Log("asdasd");
             DeflationTaskController.Instance.MarkCurrentTaskAsDone();
         }
     }
@@ -101,12 +146,7 @@ public class DeflationGameLogic : BasicSlider
 
         currPatient.AddStomaBagValue();
 
-        // If its past the max value, then set back d max value
-        if (currPatient.StomaBagAirValue.GetValue() > 1)
-        {
-            // Display fail case
-            Debug.Log("HI");
-        }
+        
         currPatient.StomaBagAirValue.SetValue(Mathf.Min(1, currPatient.StomaBagAirValue.GetValue()));
 
 

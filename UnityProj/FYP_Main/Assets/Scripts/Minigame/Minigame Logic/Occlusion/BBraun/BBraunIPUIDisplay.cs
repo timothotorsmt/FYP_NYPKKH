@@ -10,6 +10,7 @@ using UnityEngine.UI;
 using Unity.Collections.LowLevel.Unsafe;
 using System;
 using System.Reflection;
+using Unity.VisualScripting;
 
 namespace BBraunInfusomat
 {
@@ -129,6 +130,18 @@ namespace BBraunInfusomat
 
         #endregion
 
+        private void OnEnable()
+        {
+            Debug.Log(_displayState.GetValue());
+
+            switch (_displayState.GetValue())
+            {
+                case BBraunDisplayState.SELF_TEST:
+                    StartCoroutine(SelfTest());
+                    break;
+            }
+        }
+
         void Start()
         {
             // Subscribe to the reactive property
@@ -216,7 +229,11 @@ namespace BBraunInfusomat
 
             _displayState.SetValue(BBraunDisplayState.SELF_TEST);
 
+            StartCoroutine(SelfTest());
+        }
 
+        private IEnumerator SelfTest()
+        {
             yield return new WaitForSeconds(3);
 
             _displayState.SetValue(BBraunDisplayState.START_UP_WAIT_INPUT);
@@ -287,6 +304,29 @@ namespace BBraunInfusomat
             return returnInt;
         }
 
+        public void ClearAllDigits()
+        {
+            foreach (ParamDigitContainer rate in _rateDigits)
+            {
+                rate.SetDigit(0);
+            }
+
+            foreach (ParamDigitContainer VTBI in _VTBIDigits)
+            {
+                VTBI.SetDigit(0);
+            }
+
+            foreach (ParamDigitContainer time in _timeDigits)
+            {
+                time.SetDigit(0);
+            }
+
+            _paramMenuList[0]._info.text = "---" + " ml/h";
+            _paramMenuList[1]._info.text = "---" + " ml";
+            _paramMenuList[2]._info.text = "---" + " h:min";
+
+        }
+
         public void SetDigit(int index)
         {
             switch (_bBraunIPLogic.BBraunState.GetValue())
@@ -355,7 +395,6 @@ namespace BBraunInfusomat
 
         public void SetTime(float time)
         {
-            // TODO figure out why this isnt working
             int x = (int)(Mathf.Floor(time));
             string hour = (x).ToString();
             string mins = ((int)(time - x) * 60).ToString();

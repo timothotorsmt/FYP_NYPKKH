@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702d32400e47e664d8d56142bdc72718, type: 3}
+  m_Name: StomaDeflation2
+  m_EditorClassIdentifier: 
+  minigameName: 'Stoma Deflate 2 '
+  minigameID: 7
+  minigamePrefab: {fileID: 3271319559400994678, guid: f603145579d5a9e42977b52a8c8bbdff, type: 3}

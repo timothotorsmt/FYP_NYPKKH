@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UniRx.Extention;
 
 public class TimerHold : BasicSlider
 {
@@ -10,6 +11,7 @@ public class TimerHold : BasicSlider
     private bool _isBeingPressed;
 
     [SerializeField] private BoxCollider2D _indicator; // The indicator arrow
+    [SerializeField] private GameObject _pressIndicator; // The indicator arrow
     [SerializeField] private BoxCollider2D _idealZone; // The box with the ideal win zone
     [SerializeField] private float _holdDuration = 5.0f; // How long you need to hold before the thing does crazyyy
     [SerializeField] private UnityEvent _failCaseLate; // What happens if you go over
@@ -18,6 +20,8 @@ public class TimerHold : BasicSlider
 
     public UnityEvent OnAcceptableRange;
     public UnityEvent OnLateRange;
+    public bool Interactable = true;
+    public ReactiveProp<float> IndicatorValue = new ReactiveProp<float>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,7 @@ public class TimerHold : BasicSlider
         _indicator.size = new Vector2(_indicator.gameObject.GetComponent<RectTransform>().rect.width, _indicator.gameObject.GetComponent<RectTransform>().rect.height);
         _idealZone.size = new Vector2(_idealZone.gameObject.GetComponent<RectTransform>().rect.width, _idealZone.gameObject.GetComponent<RectTransform>().rect.height);
         _idealZone.offset = Vector2.zero;
+
     }
 
     private void OnEnable()
@@ -38,8 +43,11 @@ public class TimerHold : BasicSlider
     // Update is called once per frame
     void Update()
     {
-        if (_isBeingPressed) { AddTimerValue(); }
-        else if (_isReversible) { Reduce(); }
+        if (Interactable) 
+        {
+            if (_isBeingPressed) { AddTimerValue(); }
+            else if (_isReversible) { Reduce(); }
+        }
     }
 
     private void AddTimerValue()
@@ -64,17 +72,25 @@ public class TimerHold : BasicSlider
             _failCaseLate.Invoke();
             _mainSlider.value = 0;
         }
+
+        IndicatorValue.SetValue(_mainSlider.value);
     }
 
     private void Reduce()
     {
         if (_mainSlider.value > 0)
         {
-            _mainSlider.value -= (Time.deltaTime / _holdDuration);
+            _mainSlider.value -= (Time.deltaTime / (_holdDuration * 2));
         }
+
+        IndicatorValue.SetValue(_mainSlider.value);
     }
 
-    public void StartPress() { _isBeingPressed = true; }
+    public void StartPress() 
+    { 
+        _isBeingPressed = true; 
+    }
+
     public void EndPress() 
     { 
         _isBeingPressed = false;
@@ -84,6 +100,7 @@ public class TimerHold : BasicSlider
         {
             // Win
             _sliderPassEvent.Invoke();
+            _pressIndicator.SetActive(false);
         }
         else if (_indicator.bounds.center.x > _idealZone.bounds.max.x && !_isReversible)
         {

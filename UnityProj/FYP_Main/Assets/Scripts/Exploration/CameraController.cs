@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,17 +26,17 @@ public class CameraController : MonoBehaviour
         // TODO: make the camera fit the current room its in (for user expereince.)
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void LateUpdate()
     {
         UpdateFocusPoint();
 
-        // Lock the player in the current room's bounding box 
+        // Should not move if room sides are bound to the wall
+        if (transform.position.x - halfViewport <= _playerRoom._currentRoom.GetRoomMinEdge() && transform.position.x + halfViewport >= _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            return;
+        }
+
+        // Lock the camera in the current room's bounding box
         if (focusPoint.x - halfViewport >= _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport <= _playerRoom._currentRoom.GetRoomMaxEdge())
         {
             transform.localPosition = new Vector3(focusPoint.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
@@ -73,5 +74,22 @@ public class CameraController : MonoBehaviour
     public void SetToNewRoom()
     {
         transform.localPosition = new Vector3(_playerRoom._currentRoom.gameObject.transform.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        if (transform.position.x - halfViewport <= _playerRoom._currentRoom.GetRoomMinEdge() && transform.position.x + halfViewport >= _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            return;
+        }
+
+        // Change to player position
+        transform.localPosition = new Vector3(_focus.position.x, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+
+
+        if (focusPoint.x - halfViewport < _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport <= _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            transform.localPosition = new Vector3(_playerRoom._currentRoom.GetRoomMinEdge() + halfViewport, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        }
+        else if (focusPoint.x - halfViewport >= _playerRoom._currentRoom.GetRoomMinEdge() && focusPoint.x + halfViewport > _playerRoom._currentRoom.GetRoomMaxEdge())
+        {
+            transform.localPosition = new Vector3(_playerRoom._currentRoom.GetRoomMaxEdge() - halfViewport, _playerRoom._currentRoom.gameObject.transform.position.y, transform.localPosition.z);
+        }
     }
 }

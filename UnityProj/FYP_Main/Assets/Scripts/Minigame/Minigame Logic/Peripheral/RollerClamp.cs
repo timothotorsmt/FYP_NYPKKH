@@ -21,9 +21,17 @@ public class RollerClamp : TwoWaySlider
         {
             _mainSlider.onValueChanged.AddListener(delegate { SetSliderClose(); });
         }
+        else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.REMOVE_PROTECTIVE_CAP)
+        {
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderCloseWrong(); });
+        }
         else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
         {
             _mainSlider.onValueChanged.AddListener(delegate { SetSliderOpen(); });
+        }
+        else if (PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.PRIME_INFUSION_TUBING)
+        {
+
         }
         _mainSlider.value = _rollerClampValue;
     }
@@ -35,14 +43,28 @@ public class RollerClamp : TwoWaySlider
             // Good enough, mark as pass and move on
             PeripheralSetupTaskController.Instance.MarkCurrentTaskAsDone();
             _sliderOppPassEvent.Invoke();
+            PeripheralSetupTaskController.Instance.MarkCorrectTask();
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderCloseWrong(); });
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderClose(); });
         }
+    }
 
+    private void SetSliderCloseWrong()
+    {
+        if (_mainSlider.value < _sliderOppPassReq)
+        {
+            // Good enough, mark as pass and move on
+            PeripheralSetupTaskController.Instance.MarkWrongTask();
+            PeripheralSetupTaskController.Instance.AssignTasks(PeripheralSetupTasks.CLAMP_ROLLER_CLAMP);
+            ChatGetter.Instance.StartChat("#PERIFA");
+            Debug.Log("???");
+            _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderCloseWrong(); });
+            _mainSlider.onValueChanged.AddListener(delegate { SetSliderClose(); });
+        }
     }
 
     private void SetSliderOpen()
     {
-        
         // Good enough, mark as pass and move on
         if (_mainSlider.value <= _sliderPassReq && PeripheralSetupTaskController.Instance.GetCurrentTask() == PeripheralSetupTasks.OPEN_ROLLER_CLAMP)
         {
@@ -50,6 +72,5 @@ public class RollerClamp : TwoWaySlider
             _sliderPassEvent.Invoke();
             _mainSlider.onValueChanged.RemoveListener(delegate { SetSliderOpen(); });
         }
-
     }
 }

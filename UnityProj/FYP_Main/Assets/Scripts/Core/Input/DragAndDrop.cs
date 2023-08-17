@@ -6,10 +6,14 @@ using UnityEngine.Events;
 
 public class DragAndDrop : MonoBehaviour, IInputActions
 {
-    [SerializeField] private GameObject _destination;
-    [SerializeField] private GameObject _dragSign;
+    #region Drag and Drop Variables
+
+    [Tooltip("The destination of the gameobject")] [SerializeField] private GameObject _destination;
+    [Tooltip("An indicator for the destination (if any)")] [SerializeField] private GameObject _indicator;
+    [Tooltip("The sign indicating draggable (if any)")] [SerializeField] private GameObject _dragSign;
     [SerializeField] private UnityEvent _onDropOnDestination;
     [SerializeField] private UnityEvent _onReset;
+    [SerializeField, Range(0, 10)] private float _dragDistance = 1.0f;
     public bool _disable;
     private bool _isMoving;
     private bool _isFinished;
@@ -17,6 +21,8 @@ public class DragAndDrop : MonoBehaviour, IInputActions
     private Vector2 _startPosition;
     private Vector2 _resetPosition;
     private RectTransform _rectTransform;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +36,7 @@ public class DragAndDrop : MonoBehaviour, IInputActions
     {
         // Make sure all the shadows r active
         _isFinished = false;
+        // Mainly is for UI elements, so i use this class
         UIInputManager.Instance.AddSubscriber(this);
         _rectTransform.anchoredPosition = _resetPosition;
 
@@ -37,19 +44,20 @@ public class DragAndDrop : MonoBehaviour, IInputActions
         {
             _dragSign.SetActive(true);
         }
+        if (_indicator != null)
+        {
+            _indicator.SetActive(false);
+        }
+
         _onReset.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     void OnEnable()
     {
         if (UIInputManager.Instance != null)
         {
+            // Add to UI input manager
             UIInputManager.Instance.AddSubscriber(this);
         }
     }
@@ -58,20 +66,44 @@ public class DragAndDrop : MonoBehaviour, IInputActions
     {
         if (UIInputManager.Instance != null)
         {
+            // Remove UI input manager
             UIInputManager.Instance.RemoveSubscriber(this);
         }
     }
 
-    public void SetDisable(bool newState)
+    public void SetDisable(bool newState, bool affectGameObject = true)
     {
         if (newState)
         {
-            this.gameObject.SetActive(false);
+            if (affectGameObject)
+            {
+                this.gameObject.SetActive(false);
+            }
+
+            // Disable the drag sign and the indicator
+            if (_dragSign != null)
+            {
+                _dragSign.SetActive(false);
+            }
+            if (_indicator != null)
+            {
+                _indicator.SetActive(false);
+            }
+
             _disable = true;
         }
         else 
         {
-            this.gameObject.SetActive(true);
+            if (affectGameObject)
+            {
+                this.gameObject.SetActive(true);
+            }
+
+            // Return the drag sign back because !! 
+            if (_dragSign != null)
+            {
+                _dragSign.SetActive(true);
+            }
             _disable = false;
         }
     }
@@ -83,7 +115,7 @@ public class DragAndDrop : MonoBehaviour, IInputActions
 
         Vector2 mousePos = InputUtils.GetInputPosition();
 
-        if (Vector2.Distance((Vector2)this.transform.position, mousePos) < 1.0f)
+        if (Vector2.Distance((Vector2)this.transform.position, mousePos) < _dragDistance)
         {
             _startPosition = ((Vector2)this.transform.position - mousePos);
             _isMoving = true;
@@ -92,11 +124,18 @@ public class DragAndDrop : MonoBehaviour, IInputActions
             {
                 _dragSign.SetActive(false);
             }
+            if (_indicator != null)
+            {
+                _indicator.SetActive(true);
+            }
         }
     }
 
     public void OnTap()
     {   
+        // dc if its finished
+        if (_isFinished) { return; }
+
         if (_isMoving)
         {
             Vector2 mousePos = InputUtils.GetInputPosition();
@@ -107,6 +146,9 @@ public class DragAndDrop : MonoBehaviour, IInputActions
 
     public void OnEndTap()
     {
+        // dc if its finished
+        if (_isFinished) { return; }
+
         _isMoving = false;
 
         if (Vector2.Distance((Vector2)this.transform.position, (Vector2)_destination.transform.position) < 1.0f)
@@ -124,6 +166,14 @@ public class DragAndDrop : MonoBehaviour, IInputActions
             {
                 _dragSign.SetActive(true);
             }
+            
+            
+
+        }
+
+        if (_indicator != null)
+        {
+            _indicator.SetActive(false);
         }
     }
 }

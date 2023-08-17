@@ -9,9 +9,11 @@ using UniRx;
 
 public class DeflationTaskController : MinigameTaskController<DeflationTasks>
 {
+    public UnityEvent _startGame;
     void Start()
     {
-        _startEvent.Invoke();
+        // _startEvent.Invoke();
+        ChatGetter.Instance.StartChat("#STOMAA", _startGame);
     }
 
     private void Update()
