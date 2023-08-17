@@ -32,7 +32,7 @@ public class OcclusionMinigameController : MonoBehaviour
     {
         switch (_patientList.currentPatient.GetValue().patientAgeGroup)
         {
-            case AgeGroup.CHILD:
+            case AgeGroup.TODDLER:
                 _bBraunIPLogic.SetParams(41.7f, 12, 500);
                 break;
             case AgeGroup.ADULT:

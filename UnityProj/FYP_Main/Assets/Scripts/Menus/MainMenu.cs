@@ -13,6 +13,11 @@ public class MainMenu : MonoBehaviour
         {
             _loadGame.SetActive(false);
         }
+
+        if (LinesBossLogic.Instance != null)
+        {
+            LinesBossLogic.Instance.BossOver();
+        }
     }
 
     public void PlayNewGame()
